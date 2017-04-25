@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		821B65B51EAFEAD60078333B /* facebook_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 821B65B41EAFEAD60078333B /* facebook_login.png */; };
+		821B65B71EAFEADB0078333B /* twitter_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 821B65B61EAFEADB0078333B /* twitter_login.png */; };
+		821B65BC1EAFEF7B0078333B /* Theme.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 821B65BB1EAFEF7B0078333B /* Theme.jpg */; };
+		821B65BE1EAFF1C60078333B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65BD1EAFF1C60078333B /* HomeViewController.swift */; };
+		821B65C01EAFF1D60078333B /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65BF1EAFF1D60078333B /* TasksViewController.swift */; };
+		821B65C21EAFF1E90078333B /* MaterialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65C11EAFF1E90078333B /* MaterialViewController.swift */; };
 		A1470F371EAF20C600DE373A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F361EAF20C600DE373A /* AppDelegate.swift */; };
-		A1470F391EAF20C600DE373A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F381EAF20C600DE373A /* ViewController.swift */; };
+		A1470F391EAF20C600DE373A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F381EAF20C600DE373A /* LoginViewController.swift */; };
 		A1470F3C1EAF20C600DE373A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1470F3A1EAF20C600DE373A /* Main.storyboard */; };
 		A1470F3E1EAF20C600DE373A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1470F3D1EAF20C600DE373A /* Assets.xcassets */; };
 		A1470F411EAF20C600DE373A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1470F3F1EAF20C600DE373A /* LaunchScreen.storyboard */; };
@@ -21,9 +27,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		821B65B41EAFEAD60078333B /* facebook_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_login.png; sourceTree = "<group>"; };
+		821B65B61EAFEADB0078333B /* twitter_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_login.png; sourceTree = "<group>"; };
+		821B65BB1EAFEF7B0078333B /* Theme.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Theme.jpg; sourceTree = "<group>"; };
+		821B65BD1EAFF1C60078333B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		821B65BF1EAFF1D60078333B /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		821B65C11EAFF1E90078333B /* MaterialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialViewController.swift; sourceTree = "<group>"; };
 		A1470F331EAF20C600DE373A /* iOS-PartyPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-PartyPlanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1470F361EAF20C600DE373A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A1470F381EAF20C600DE373A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A1470F381EAF20C600DE373A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A1470F3B1EAF20C600DE373A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1470F3D1EAF20C600DE373A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1470F401EAF20C600DE373A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +59,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		821B65B21EAFEAB70078333B /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				821B65B81EAFEE240078333B /* Background */,
+				821B65B31EAFEAC70078333B /* Login */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		821B65B31EAFEAC70078333B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				821B65B41EAFEAD60078333B /* facebook_login.png */,
+				821B65B61EAFEADB0078333B /* twitter_login.png */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		821B65B81EAFEE240078333B /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				821B65BB1EAFEF7B0078333B /* Theme.jpg */,
+			);
+			name = Background;
+			sourceTree = "<group>";
+		};
 		A1470F2A1EAF20C600DE373A = {
 			isa = PBXGroup;
 			children = (
@@ -66,12 +104,12 @@
 		A1470F351EAF20C600DE373A /* iOS-PartyPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				821B65B21EAFEAB70078333B /* Icons */,
 				A1470F4D1EAF244000DE373A /* ViewControllers */,
 				A1470F4C1EAF243B00DE373A /* Views */,
 				A1470F4B1EAF243200DE373A /* APIs */,
 				A1470F481EAF241B00DE373A /* Models */,
 				A1470F361EAF20C600DE373A /* AppDelegate.swift */,
-				A1470F381EAF20C600DE373A /* ViewController.swift */,
 				A1470F3A1EAF20C600DE373A /* Main.storyboard */,
 				A1470F3D1EAF20C600DE373A /* Assets.xcassets */,
 				A1470F3F1EAF20C600DE373A /* LaunchScreen.storyboard */,
@@ -110,6 +148,10 @@
 		A1470F4D1EAF244000DE373A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A1470F381EAF20C600DE373A /* LoginViewController.swift */,
+				821B65BD1EAFF1C60078333B /* HomeViewController.swift */,
+				821B65BF1EAFF1D60078333B /* TasksViewController.swift */,
+				821B65C11EAFF1E90078333B /* MaterialViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -183,7 +225,10 @@
 			files = (
 				A1470F411EAF20C600DE373A /* LaunchScreen.storyboard in Resources */,
 				A1470F3E1EAF20C600DE373A /* Assets.xcassets in Resources */,
+				821B65B71EAFEADB0078333B /* twitter_login.png in Resources */,
+				821B65BC1EAFEF7B0078333B /* Theme.jpg in Resources */,
 				A1470F3C1EAF20C600DE373A /* Main.storyboard in Resources */,
+				821B65B51EAFEAD60078333B /* facebook_login.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +244,10 @@
 				A1470F5F1EAF310F00DE373A /* userAuth.enum.swift in Sources */,
 				A1470F531EAF2E9E00DE373A /* event.model.swift in Sources */,
 				A1470F5B1EAF2EF000DE373A /* task.model.swift in Sources */,
-				A1470F391EAF20C600DE373A /* ViewController.swift in Sources */,
+				821B65C21EAFF1E90078333B /* MaterialViewController.swift in Sources */,
+				821B65BE1EAFF1C60078333B /* HomeViewController.swift in Sources */,
+				A1470F391EAF20C600DE373A /* LoginViewController.swift in Sources */,
+				821B65C01EAFF1D60078333B /* TasksViewController.swift in Sources */,
 				A1470F551EAF2EB200DE373A /* rsvp.model.swift in Sources */,
 				A1470F371EAF20C600DE373A /* AppDelegate.swift in Sources */,
 			);
