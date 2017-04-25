@@ -1,6 +1,6 @@
 # Group Project - *Party Planner*
 
-**Party Planner ** is a social platform to organize parties (Weeding, Birthday, Baby Shower, Any Party)
+**Party Planner ** is a social platform to organize parties (Wedding, Birthday, Baby Shower, Any Party)
 PS: Name will be changed.
 
 ## User Stories
