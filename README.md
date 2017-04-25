@@ -1,6 +1,7 @@
 # Group Project - *Party Planner*
 
 **Party Planner ** is a social platform to organize parties (Wedding, Birthday, Baby Shower, Any Party)
+
 PS: Name will be changed.
 
 ## User Stories
@@ -28,7 +29,7 @@ The following **optional** user stories:
 - [ ] Users can share a document containing list of supplies/tasks from the party which can be shared.
 
 ## Wireframes 
-
+[Link](https://github.com/IOSPartyPlanner/PartyPlanner/tree/master/wireframes)
 
 ## MileStone 1
 
