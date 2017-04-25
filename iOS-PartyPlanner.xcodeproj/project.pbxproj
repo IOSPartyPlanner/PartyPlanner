@@ -54,6 +54,10 @@
 		A1470F351EAF20C600DE373A /* iOS-PartyPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				A1470F4D1EAF244000DE373A /* ViewControllers */,
+				A1470F4C1EAF243B00DE373A /* Views */,
+				A1470F4B1EAF243200DE373A /* APIs */,
+				A1470F481EAF241B00DE373A /* Models */,
 				A1470F361EAF20C600DE373A /* AppDelegate.swift */,
 				A1470F381EAF20C600DE373A /* ViewController.swift */,
 				A1470F3A1EAF20C600DE373A /* Main.storyboard */,
@@ -62,6 +66,34 @@
 				A1470F421EAF20C600DE373A /* Info.plist */,
 			);
 			path = "iOS-PartyPlanner";
+			sourceTree = "<group>";
+		};
+		A1470F481EAF241B00DE373A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A1470F4B1EAF243200DE373A /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = APIs;
+			sourceTree = "<group>";
+		};
+		A1470F4C1EAF243B00DE373A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A1470F4D1EAF244000DE373A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +333,7 @@
 				A1470F471EAF20C600DE373A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
