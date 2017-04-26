@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YFQ-VQ-hit">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -85,7 +85,7 @@
                                 <color key="backgroundColor" red="0.85882352941176465" green="0.19607843137254902" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                 <color key="tintColor" red="0.28312139060000002" green="0.1025937846" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Google Login">
+                                <state key="normal" title="Facebook Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -148,24 +148,6 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="tco-kr-zcS">
-            <objects>
-                <viewController id="GcU-Qq-YaR" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="BOh-px-ibO"/>
-                        <viewControllerLayoutGuide type="bottom" id="llQ-UA-X2W"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NpD-Lw-KmI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k5S-Yq-wG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="890" y="133"/>
-        </scene>
         <!--Event View Controller-->
         <scene sceneID="Lg0-db-PbI">
             <objects>
@@ -178,47 +160,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="329" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k8L-6v-Mab">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="375" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CcY-UH-L2e">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="329" id="vRV-2s-Pte">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="329"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventSummaryTableViewCell" rowHeight="375" id="9U1-67-dZ5" customClass="EventSummaryTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="375"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vRV-2s-Pte" id="RYv-Kh-IDm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="329"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9U1-67-dZ5" id="svQ-KP-lkz">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUq-A0-bY1">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBL-Ad-fwx">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="HUq-A0-bY1" secondAttribute="height" multiplier="16:9" id="PIP-J8-lvL"/>
+                                                        <constraint firstAttribute="width" secondItem="VBL-Ad-fwx" secondAttribute="height" multiplier="16:9" id="RAK-Xo-dpr"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="HUq-A0-bY1" firstAttribute="top" secondItem="RYv-Kh-IDm" secondAttribute="top" id="2Zj-Jj-vBo"/>
-                                                <constraint firstAttribute="trailing" secondItem="HUq-A0-bY1" secondAttribute="trailing" id="L6v-Ba-r6W"/>
-                                                <constraint firstItem="HUq-A0-bY1" firstAttribute="leading" secondItem="RYv-Kh-IDm" secondAttribute="leading" id="NzR-8a-w7v"/>
+                                                <constraint firstAttribute="trailing" secondItem="VBL-Ad-fwx" secondAttribute="trailing" id="0wp-w6-elI"/>
+                                                <constraint firstItem="VBL-Ad-fwx" firstAttribute="leading" secondItem="svQ-KP-lkz" secondAttribute="leading" id="lG8-ni-Jlk"/>
+                                                <constraint firstItem="VBL-Ad-fwx" firstAttribute="top" secondItem="svQ-KP-lkz" secondAttribute="top" id="z5y-S9-abj"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="videoView" destination="VBL-Ad-fwx" id="0mH-Ft-Gbf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="k8L-6v-Mab" secondAttribute="trailing" id="29g-lW-EEr"/>
-                            <constraint firstItem="k8L-6v-Mab" firstAttribute="top" secondItem="lvR-sG-KrC" secondAttribute="top" id="9OJ-BL-lVd"/>
-                            <constraint firstItem="k8L-6v-Mab" firstAttribute="leading" secondItem="lvR-sG-KrC" secondAttribute="leading" id="nuC-FN-vh3"/>
-                            <constraint firstItem="9PJ-rD-DBe" firstAttribute="top" secondItem="k8L-6v-Mab" secondAttribute="bottom" id="zDZ-ls-hWW"/>
+                            <constraint firstAttribute="trailing" secondItem="CcY-UH-L2e" secondAttribute="trailing" id="CEz-Jl-Kaw"/>
+                            <constraint firstItem="9PJ-rD-DBe" firstAttribute="top" secondItem="CcY-UH-L2e" secondAttribute="bottom" id="eek-bx-YOu"/>
+                            <constraint firstItem="CcY-UH-L2e" firstAttribute="top" secondItem="lvR-sG-KrC" secondAttribute="top" id="jx7-d8-huJ"/>
+                            <constraint firstItem="CcY-UH-L2e" firstAttribute="leading" secondItem="lvR-sG-KrC" secondAttribute="leading" id="sxp-P3-W00"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="eventTableView" destination="CcY-UH-L2e" id="byi-LC-4TF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="av6-Ky-zzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1577" y="132"/>
+            <point key="canvasLocation" x="914.39999999999998" y="137.18140929535232"/>
         </scene>
     </scenes>
     <resources>
