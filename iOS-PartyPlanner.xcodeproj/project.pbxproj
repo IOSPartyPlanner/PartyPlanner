@@ -7,32 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		821B65B51EAFEAD60078333B /* facebook_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 821B65B41EAFEAD60078333B /* facebook_login.png */; };
-		821B65B71EAFEADB0078333B /* twitter_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 821B65B61EAFEADB0078333B /* twitter_login.png */; };
-		821B65BC1EAFEF7B0078333B /* Theme.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 821B65BB1EAFEF7B0078333B /* Theme.jpg */; };
 		821B65BE1EAFF1C60078333B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65BD1EAFF1C60078333B /* HomeViewController.swift */; };
 		821B65C01EAFF1D60078333B /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65BF1EAFF1D60078333B /* TasksViewController.swift */; };
 		821B65C21EAFF1E90078333B /* MaterialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65C11EAFF1E90078333B /* MaterialViewController.swift */; };
+		821B65C51EB007230078333B /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65C41EB007230078333B /* VideoView.swift */; };
+		821B65C71EB00F010078333B /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65C61EB00F010078333B /* EventViewController.swift */; };
+		821B65CA1EB00FE20078333B /* EventSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65C91EB00FE20078333B /* EventSummaryTableViewCell.swift */; };
+		821B65CC1EB011070078333B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65CB1EB011070078333B /* User.swift */; };
+		821B65CE1EB011160078333B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65CD1EB011160078333B /* Event.swift */; };
+		821B65D01EB011290078333B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65CF1EB011290078333B /* Task.swift */; };
+		821B65D21EB011410078333B /* RSVP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65D11EB011410078333B /* RSVP.swift */; };
+		821B65D41EB0115C0078333B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65D31EB0115C0078333B /* Item.swift */; };
 		A1470F371EAF20C600DE373A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F361EAF20C600DE373A /* AppDelegate.swift */; };
 		A1470F391EAF20C600DE373A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F381EAF20C600DE373A /* LoginViewController.swift */; };
 		A1470F3C1EAF20C600DE373A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1470F3A1EAF20C600DE373A /* Main.storyboard */; };
 		A1470F3E1EAF20C600DE373A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1470F3D1EAF20C600DE373A /* Assets.xcassets */; };
 		A1470F411EAF20C600DE373A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1470F3F1EAF20C600DE373A /* LaunchScreen.storyboard */; };
-		A1470F511EAF2E8700DE373A /* user.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F501EAF2E8700DE373A /* user.model.swift */; };
-		A1470F531EAF2E9E00DE373A /* event.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F521EAF2E9E00DE373A /* event.model.swift */; };
-		A1470F551EAF2EB200DE373A /* rsvp.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F541EAF2EB200DE373A /* rsvp.model.swift */; };
-		A1470F571EAF2ED300DE373A /* partyItem.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F561EAF2ED300DE373A /* partyItem.model.swift */; };
-		A1470F5B1EAF2EF000DE373A /* task.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F5A1EAF2EF000DE373A /* task.model.swift */; };
 		A1470F5F1EAF310F00DE373A /* userAuth.enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F5E1EAF310F00DE373A /* userAuth.enum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		821B65B41EAFEAD60078333B /* facebook_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_login.png; sourceTree = "<group>"; };
-		821B65B61EAFEADB0078333B /* twitter_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_login.png; sourceTree = "<group>"; };
-		821B65BB1EAFEF7B0078333B /* Theme.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Theme.jpg; sourceTree = "<group>"; };
 		821B65BD1EAFF1C60078333B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		821B65BF1EAFF1D60078333B /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		821B65C11EAFF1E90078333B /* MaterialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialViewController.swift; sourceTree = "<group>"; };
+		821B65C41EB007230078333B /* VideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		821B65C61EB00F010078333B /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		821B65C91EB00FE20078333B /* EventSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSummaryTableViewCell.swift; sourceTree = "<group>"; };
+		821B65CB1EB011070078333B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		821B65CD1EB011160078333B /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		821B65CF1EB011290078333B /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		821B65D11EB011410078333B /* RSVP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSVP.swift; sourceTree = "<group>"; };
+		821B65D31EB0115C0078333B /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A1470F331EAF20C600DE373A /* iOS-PartyPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-PartyPlanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1470F361EAF20C600DE373A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1470F381EAF20C600DE373A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -40,11 +45,6 @@
 		A1470F3D1EAF20C600DE373A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1470F401EAF20C600DE373A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1470F421EAF20C600DE373A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1470F501EAF2E8700DE373A /* user.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.model.swift; sourceTree = "<group>"; };
-		A1470F521EAF2E9E00DE373A /* event.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = event.model.swift; sourceTree = "<group>"; };
-		A1470F541EAF2EB200DE373A /* rsvp.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rsvp.model.swift; sourceTree = "<group>"; };
-		A1470F561EAF2ED300DE373A /* partyItem.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = partyItem.model.swift; sourceTree = "<group>"; };
-		A1470F5A1EAF2EF000DE373A /* task.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = task.model.swift; sourceTree = "<group>"; };
 		A1470F5E1EAF310F00DE373A /* userAuth.enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userAuth.enum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,30 +59,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		821B65B21EAFEAB70078333B /* Icons */ = {
+		821B65C31EB006FF0078333B /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				821B65B81EAFEE240078333B /* Background */,
-				821B65B31EAFEAC70078333B /* Login */,
+				821B65C81EB00FAC0078333B /* TableViewCell */,
+				821B65C41EB007230078333B /* VideoView.swift */,
 			);
-			name = Icons;
+			name = UIComponents;
 			sourceTree = "<group>";
 		};
-		821B65B31EAFEAC70078333B /* Login */ = {
+		821B65C81EB00FAC0078333B /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				821B65B41EAFEAD60078333B /* facebook_login.png */,
-				821B65B61EAFEADB0078333B /* twitter_login.png */,
+				821B65C91EB00FE20078333B /* EventSummaryTableViewCell.swift */,
 			);
-			name = Login;
-			sourceTree = "<group>";
-		};
-		821B65B81EAFEE240078333B /* Background */ = {
-			isa = PBXGroup;
-			children = (
-				821B65BB1EAFEF7B0078333B /* Theme.jpg */,
-			);
-			name = Background;
+			name = TableViewCell;
 			sourceTree = "<group>";
 		};
 		A1470F2A1EAF20C600DE373A = {
@@ -104,7 +95,7 @@
 		A1470F351EAF20C600DE373A /* iOS-PartyPlanner */ = {
 			isa = PBXGroup;
 			children = (
-				821B65B21EAFEAB70078333B /* Icons */,
+				821B65C31EB006FF0078333B /* UIComponents */,
 				A1470F4D1EAF244000DE373A /* ViewControllers */,
 				A1470F4C1EAF243B00DE373A /* Views */,
 				A1470F4B1EAF243200DE373A /* APIs */,
@@ -122,11 +113,11 @@
 			isa = PBXGroup;
 			children = (
 				A1470F5C1EAF30D400DE373A /* Enums */,
-				A1470F501EAF2E8700DE373A /* user.model.swift */,
-				A1470F521EAF2E9E00DE373A /* event.model.swift */,
-				A1470F541EAF2EB200DE373A /* rsvp.model.swift */,
-				A1470F561EAF2ED300DE373A /* partyItem.model.swift */,
-				A1470F5A1EAF2EF000DE373A /* task.model.swift */,
+				821B65CB1EB011070078333B /* User.swift */,
+				821B65CD1EB011160078333B /* Event.swift */,
+				821B65CF1EB011290078333B /* Task.swift */,
+				821B65D11EB011410078333B /* RSVP.swift */,
+				821B65D31EB0115C0078333B /* Item.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -152,6 +143,7 @@
 				821B65BD1EAFF1C60078333B /* HomeViewController.swift */,
 				821B65BF1EAFF1D60078333B /* TasksViewController.swift */,
 				821B65C11EAFF1E90078333B /* MaterialViewController.swift */,
+				821B65C61EB00F010078333B /* EventViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -225,10 +217,7 @@
 			files = (
 				A1470F411EAF20C600DE373A /* LaunchScreen.storyboard in Resources */,
 				A1470F3E1EAF20C600DE373A /* Assets.xcassets in Resources */,
-				821B65B71EAFEADB0078333B /* twitter_login.png in Resources */,
-				821B65BC1EAFEF7B0078333B /* Theme.jpg in Resources */,
 				A1470F3C1EAF20C600DE373A /* Main.storyboard in Resources */,
-				821B65B51EAFEAD60078333B /* facebook_login.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,16 +228,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1470F571EAF2ED300DE373A /* partyItem.model.swift in Sources */,
-				A1470F511EAF2E8700DE373A /* user.model.swift in Sources */,
+				821B65C71EB00F010078333B /* EventViewController.swift in Sources */,
+				821B65CA1EB00FE20078333B /* EventSummaryTableViewCell.swift in Sources */,
 				A1470F5F1EAF310F00DE373A /* userAuth.enum.swift in Sources */,
-				A1470F531EAF2E9E00DE373A /* event.model.swift in Sources */,
-				A1470F5B1EAF2EF000DE373A /* task.model.swift in Sources */,
+				821B65C51EB007230078333B /* VideoView.swift in Sources */,
+				821B65CE1EB011160078333B /* Event.swift in Sources */,
+				821B65CC1EB011070078333B /* User.swift in Sources */,
 				821B65C21EAFF1E90078333B /* MaterialViewController.swift in Sources */,
 				821B65BE1EAFF1C60078333B /* HomeViewController.swift in Sources */,
+				821B65D21EB011410078333B /* RSVP.swift in Sources */,
 				A1470F391EAF20C600DE373A /* LoginViewController.swift in Sources */,
+				821B65D41EB0115C0078333B /* Item.swift in Sources */,
 				821B65C01EAFF1D60078333B /* TasksViewController.swift in Sources */,
-				A1470F551EAF2EB200DE373A /* rsvp.model.swift in Sources */,
+				821B65D01EB011290078333B /* Task.swift in Sources */,
 				A1470F371EAF20C600DE373A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
