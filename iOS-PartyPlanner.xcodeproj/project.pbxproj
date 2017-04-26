@@ -258,16 +258,13 @@
 				A1470F531EAF2E9E00DE373A /* event.model.swift in Sources */,
 				A1470F691EB0038900DE373A /* userAuthentication.model.swift in Sources */,
 				A1470F5B1EAF2EF000DE373A /* task.model.swift in Sources */,
-<<<<<<< Updated upstream
 				821B65C21EAFF1E90078333B /* MaterialViewController.swift in Sources */,
 				821B65BE1EAFF1C60078333B /* HomeViewController.swift in Sources */,
 				A1470F391EAF20C600DE373A /* LoginViewController.swift in Sources */,
 				821B65C01EAFF1D60078333B /* TasksViewController.swift in Sources */,
-=======
 				A1470F671EB0032600DE373A /* video.model.swift in Sources */,
 				A1470F6B1EB0074900DE373A /* gift.model.swift in Sources */,
 				A1470F391EAF20C600DE373A /* ViewController.swift in Sources */,
->>>>>>> Stashed changes
 				A1470F551EAF2EB200DE373A /* rsvp.model.swift in Sources */,
 				A1470F371EAF20C600DE373A /* AppDelegate.swift in Sources */,
 			);
