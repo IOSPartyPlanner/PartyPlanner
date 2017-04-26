@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class Task: NSObject {
+  
+  var name: String?
+  
+  var taskDescription: String?
+  
+  var numberOfPeople: String?
+  
+  var dueDate: Date?
+}

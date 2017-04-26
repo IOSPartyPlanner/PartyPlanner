@@ -1,5 +1,5 @@
 //
-//  partyItem.model.swift
+//  image.model.swift
 //  iOS-PartyPlanner
 //
 //  Created by Bharath D N on 4/25/17.
@@ -8,12 +8,5 @@
 
 import Foundation
 
-class Item: NSObject {
-
-  var name: String?
-  
-  var quantity: Int?
-  
-  var dueDate: Date?
-  
+class Image: NSObject {
 }

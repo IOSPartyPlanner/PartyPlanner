@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class Rsvp :NSObject {
+  
+  var event: [Event]?
+  
+  var guest: User?
+  
+  // the number of persons coming with the guest
+  var guestPlusX: Int?
+  
+  var response: rsvpResponse? = .notResponded
+}

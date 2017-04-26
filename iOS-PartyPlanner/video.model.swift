@@ -1,5 +1,5 @@
 //
-//  userAuth.enum.swift
+//  video.model.swift
 //  iOS-PartyPlanner
 //
 //  Created by Bharath D N on 4/25/17.
@@ -8,8 +8,5 @@
 
 import Foundation
 
-enum userAuthEnum {
-  case app
-  case google
-  case facebook
+class Video: NSObject {
 }
