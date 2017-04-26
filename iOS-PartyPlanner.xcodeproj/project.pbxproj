@@ -23,7 +23,6 @@
 		A1470F551EAF2EB200DE373A /* rsvp.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F541EAF2EB200DE373A /* rsvp.model.swift */; };
 		A1470F571EAF2ED300DE373A /* partyItem.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F561EAF2ED300DE373A /* partyItem.model.swift */; };
 		A1470F5B1EAF2EF000DE373A /* task.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F5A1EAF2EF000DE373A /* task.model.swift */; };
-		A1470F5F1EAF310F00DE373A /* userAuth.enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F5E1EAF310F00DE373A /* userAuth.enum.swift */; };
 		A1470F5F1EAF310F00DE373A /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F5E1EAF310F00DE373A /* enums.swift */; };
 		A1470F651EB0031A00DE373A /* image.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F641EB0031A00DE373A /* image.model.swift */; };
 		A1470F671EB0032600DE373A /* video.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F661EB0032600DE373A /* video.model.swift */; };
@@ -50,7 +49,6 @@
 		A1470F541EAF2EB200DE373A /* rsvp.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rsvp.model.swift; sourceTree = "<group>"; };
 		A1470F561EAF2ED300DE373A /* partyItem.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = partyItem.model.swift; sourceTree = "<group>"; };
 		A1470F5A1EAF2EF000DE373A /* task.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = task.model.swift; sourceTree = "<group>"; };
-		A1470F5E1EAF310F00DE373A /* userAuth.enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userAuth.enum.swift; sourceTree = "<group>"; };
 		A1470F5E1EAF310F00DE373A /* enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = enums.swift; sourceTree = "<group>"; };
 		A1470F641EB0031A00DE373A /* image.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = image.model.swift; sourceTree = "<group>"; };
 		A1470F661EB0032600DE373A /* video.model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = video.model.swift; sourceTree = "<group>"; };
