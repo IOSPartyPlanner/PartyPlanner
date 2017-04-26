@@ -11,7 +11,7 @@ class Event: NSObject {
   
   var host: User?
   
-  var location: String?
+  var location: String? = "2535 Garcia Ave, Mountain View, CA"
   
   var rsvpList: [RSVP]?
   
