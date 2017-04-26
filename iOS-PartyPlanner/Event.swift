@@ -1,7 +1,7 @@
 import UIKit 
 
 class Event: NSObject {
-  var invitationURL:URL = URL(string: "https://www.youtube.com/embed/tsCn7PI8Jro")!
+  var invitationVideoURL:URL = URL(string: "https://www.youtube.com/embed/tsCn7PI8Jro")!
     
   var name: String = "Party planner on-line celebration"
   
@@ -13,21 +13,19 @@ class Event: NSObject {
   
   var location: String?
   
-  var rsvpList: [Rsvp]?
+  var rsvpList: [RSVP]?
   
   var taskList: [Task]?
   
   var itemList: [Item]?
   
-  var inviteImage: Image?
+  var inviteImage: URL?
   
-  var inviteVideo: Video?
+  var giftList: [Item]?
   
-  var giftList: [Gift]?
+  var postEventImages: [URL]?
   
-  var postEventImages: [Image]?
-  
-  var postEventVideos: [Video]?
+  var postEventVideos: [URL]?
   
   var likesCount: String?
   
