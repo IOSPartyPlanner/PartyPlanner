@@ -13,3 +13,10 @@ enum userAuthEnum {
   case google
   case facebook
 }
+
+enum rsvpResponse {
+  case yes
+  case maybe
+  case no
+  case notResponded
+}

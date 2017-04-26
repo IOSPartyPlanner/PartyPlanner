@@ -6,7 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXBuildFile section */
 		821B65BE1EAFF1C60078333B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65BD1EAFF1C60078333B /* HomeViewController.swift */; };
 		821B65C01EAFF1D60078333B /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65BF1EAFF1D60078333B /* TasksViewController.swift */; };
 		821B65C21EAFF1E90078333B /* MaterialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65C11EAFF1E90078333B /* MaterialViewController.swift */; };
@@ -151,7 +150,7 @@
 		A1470F5C1EAF30D400DE373A /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				A1470F5E1EAF310F00DE373A /* userAuth.enum.swift */,
+				A1470F5E1EAF310F00DE373A /* enums.swift */,
 			);
 			name = Enums;
 			sourceTree = "<group>";
@@ -188,6 +187,7 @@
 				TargetAttributes = {
 					A1470F321EAF20C600DE373A = {
 						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 5NFEH37HHC;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -366,6 +366,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5NFEH37HHC;
 				INFOPLIST_FILE = "iOS-PartyPlanner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.partydevs.iOS-PartyPlanner";
@@ -378,6 +379,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5NFEH37HHC;
 				INFOPLIST_FILE = "iOS-PartyPlanner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.partydevs.iOS-PartyPlanner";
