@@ -6,14 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iOS_PartyPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="iOS_PartyPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -93,7 +94,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Theme.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1va-WU-Sda">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Theme" translatesAutoresizingMaskIntoConstraints="NO" id="1va-WU-Sda">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="ruj-X7-EU5"/>
@@ -148,9 +149,27 @@
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="tco-kr-zcS">
+            <objects>
+                <viewController id="GcU-Qq-YaR" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BOh-px-ibO"/>
+                        <viewControllerLayoutGuide type="bottom" id="llQ-UA-X2W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NpD-Lw-KmI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k5S-Yq-wG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="890" y="133"/>
+        </scene>
+        <!--Event View Controller-->
         <scene sceneID="Lg0-db-PbI">
             <objects>
-                <viewController id="YFQ-VQ-hit" sceneMemberID="viewController">
+                <viewController id="YFQ-VQ-hit" customClass="EventViewController" customModule="iOS_PartyPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eKK-yc-mD7"/>
                         <viewControllerLayoutGuide type="bottom" id="9PJ-rD-DBe"/>
@@ -158,15 +177,51 @@
                     <view key="view" contentMode="scaleToFill" id="lvR-sG-KrC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="329" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k8L-6v-Mab">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="329" id="vRV-2s-Pte">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="329"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vRV-2s-Pte" id="RYv-Kh-IDm">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="329"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUq-A0-bY1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="HUq-A0-bY1" secondAttribute="height" multiplier="16:9" id="PIP-J8-lvL"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HUq-A0-bY1" firstAttribute="top" secondItem="RYv-Kh-IDm" secondAttribute="top" id="2Zj-Jj-vBo"/>
+                                                <constraint firstAttribute="trailing" secondItem="HUq-A0-bY1" secondAttribute="trailing" id="L6v-Ba-r6W"/>
+                                                <constraint firstItem="HUq-A0-bY1" firstAttribute="leading" secondItem="RYv-Kh-IDm" secondAttribute="leading" id="NzR-8a-w7v"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="k8L-6v-Mab" secondAttribute="trailing" id="29g-lW-EEr"/>
+                            <constraint firstItem="k8L-6v-Mab" firstAttribute="top" secondItem="lvR-sG-KrC" secondAttribute="top" id="9OJ-BL-lVd"/>
+                            <constraint firstItem="k8L-6v-Mab" firstAttribute="leading" secondItem="lvR-sG-KrC" secondAttribute="leading" id="nuC-FN-vh3"/>
+                            <constraint firstItem="9PJ-rD-DBe" firstAttribute="top" secondItem="k8L-6v-Mab" secondAttribute="bottom" id="zDZ-ls-hWW"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="av6-Ky-zzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="915" y="138"/>
+            <point key="canvasLocation" x="1577" y="132"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Theme.jpg" width="1920" height="1200"/>
+        <image name="Theme" width="1920" height="1200"/>
     </resources>
 </document>
