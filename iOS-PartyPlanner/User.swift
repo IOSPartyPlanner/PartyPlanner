@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum AuthenticationType {
+    case PartyPlanner
+    case Google
+    case Facebook
+    case Twitter
+}
+
 class User: NSObject {
 
 }
