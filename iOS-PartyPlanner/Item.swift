@@ -10,6 +10,8 @@ import UIKit
 
 class Item: NSObject {
 
+  var id: String?
+  
   var name: String?
   
   var quantity: Int?

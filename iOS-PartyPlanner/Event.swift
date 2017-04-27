@@ -7,6 +7,8 @@ class Event: NSObject {
   
   var id: String?
   
+  var dateTime: Date?
+  
   var tagline: String?
   
   var host: User?

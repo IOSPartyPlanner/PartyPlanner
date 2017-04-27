@@ -16,6 +16,8 @@ enum RsvpResponse {
 import UIKit
 
 class RSVP: NSObject {
+  
+  var id: String?
 
   var event: [Event]?
   
