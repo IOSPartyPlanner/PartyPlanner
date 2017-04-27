@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YFQ-VQ-hit">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -80,20 +80,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdO-r8-evv">
-                                <rect key="frame" x="36" y="586" width="303" height="34"/>
-                                <color key="backgroundColor" red="0.85882352941176465" green="0.19607843137254902" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
-                                <color key="tintColor" red="0.28312139060000002" green="0.1025937846" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Facebook Login">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Theme" translatesAutoresizingMaskIntoConstraints="NO" id="1va-WU-Sda">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                                 <constraints>
@@ -114,11 +100,21 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmH-LW-Q5y" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="36" y="528" width="303" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATJ-dg-RyA" customClass="GIDSignInButton">
+                                <rect key="frame" x="36" y="586" width="303" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ATJ-dg-RyA" firstAttribute="leading" secondItem="hmH-LW-Q5y" secondAttribute="leading" id="094-X5-NWD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ATJ-dg-RyA" secondAttribute="bottom" constant="47" id="0Qw-mT-uXm"/>
                             <constraint firstItem="CPM-t8-I5x" firstAttribute="leading" secondItem="mNE-o3-IcE" secondAttribute="leading" id="31I-Fe-u8A"/>
-                            <constraint firstItem="vdO-r8-evv" firstAttribute="width" secondItem="mNE-o3-IcE" secondAttribute="width" id="48r-xH-lew"/>
+                            <constraint firstItem="hmH-LW-Q5y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4I1-QR-YOX"/>
                             <constraint firstItem="mNE-o3-IcE" firstAttribute="top" secondItem="1va-WU-Sda" secondAttribute="bottom" constant="60" id="4fa-BD-PlB"/>
                             <constraint firstItem="lp1-CA-3t4" firstAttribute="width" secondItem="mNE-o3-IcE" secondAttribute="width" id="6LG-vq-fqE"/>
                             <constraint firstItem="1va-WU-Sda" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="77p-fX-nSQ"/>
@@ -129,13 +125,16 @@
                             <constraint firstItem="lp1-CA-3t4" firstAttribute="top" secondItem="mNE-o3-IcE" secondAttribute="bottom" constant="24" id="Kzx-9i-6us"/>
                             <constraint firstItem="lp1-CA-3t4" firstAttribute="leading" secondItem="mNE-o3-IcE" secondAttribute="leading" id="Qqa-mF-7Z7"/>
                             <constraint firstItem="d7e-9z-68m" firstAttribute="top" secondItem="zy3-n2-fgE" secondAttribute="bottom" constant="24" id="QyN-la-Jgd"/>
+                            <constraint firstItem="ATJ-dg-RyA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ruw-ZG-F5D"/>
                             <constraint firstItem="nZX-G2-qE4" firstAttribute="leading" secondItem="mNE-o3-IcE" secondAttribute="leading" id="Skb-RE-g2o"/>
-                            <constraint firstItem="vdO-r8-evv" firstAttribute="leading" secondItem="mNE-o3-IcE" secondAttribute="leading" id="VTR-6M-iKO"/>
+                            <constraint firstItem="hmH-LW-Q5y" firstAttribute="bottom" secondItem="nZX-G2-qE4" secondAttribute="bottom" id="Vp0-Xg-WQU"/>
+                            <constraint firstItem="hmH-LW-Q5y" firstAttribute="top" secondItem="nZX-G2-qE4" secondAttribute="top" id="Vsj-Xu-0av"/>
                             <constraint firstItem="zy3-n2-fgE" firstAttribute="width" secondItem="mNE-o3-IcE" secondAttribute="width" id="Vwi-zM-2ir"/>
                             <constraint firstItem="d7e-9z-68m" firstAttribute="width" secondItem="mNE-o3-IcE" secondAttribute="width" id="ZEU-EQ-sM7"/>
                             <constraint firstItem="d7e-9z-68m" firstAttribute="leading" secondItem="mNE-o3-IcE" secondAttribute="leading" id="ZhO-xR-gj0"/>
                             <constraint firstItem="CPM-t8-I5x" firstAttribute="width" secondItem="mNE-o3-IcE" secondAttribute="width" id="aBg-kt-qda"/>
-                            <constraint firstItem="vdO-r8-evv" firstAttribute="top" secondItem="nZX-G2-qE4" secondAttribute="bottom" constant="24" id="exS-By-qqO"/>
+                            <constraint firstItem="ATJ-dg-RyA" firstAttribute="top" secondItem="hmH-LW-Q5y" secondAttribute="bottom" constant="24" id="dOQ-PP-vLI"/>
+                            <constraint firstItem="hmH-LW-Q5y" firstAttribute="leading" secondItem="nZX-G2-qE4" secondAttribute="leading" id="fcy-6v-atq"/>
                             <constraint firstItem="mNE-o3-IcE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="qLE-aI-Vkp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mNE-o3-IcE" secondAttribute="trailing" constant="20" id="qUB-j3-cXm"/>
                             <constraint firstItem="zy3-n2-fgE" firstAttribute="top" secondItem="lp1-CA-3t4" secondAttribute="bottom" constant="30" id="vby-Xp-0eq"/>
@@ -143,6 +142,10 @@
                             <constraint firstAttribute="trailing" secondItem="1va-WU-Sda" secondAttribute="trailing" id="wHz-8p-cPT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fbLoginButton" destination="hmH-LW-Q5y" id="3H3-Vr-gjX"/>
+                        <outlet property="gLoginButton" destination="ATJ-dg-RyA" id="Y59-iT-Iez"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,7 +171,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="375"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9U1-67-dZ5" id="svQ-KP-lkz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBL-Ad-fwx">
