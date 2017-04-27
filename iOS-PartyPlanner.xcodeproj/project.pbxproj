@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2044D7611EB14F26002AB803 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2044D7601EB14F26002AB803 /* GoogleService-Info.plist */; };
+		23BA99FF7269C05C70C2274A /* Pods_iOS_PartyPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8DCCBDCBEA68C30D6893BC /* Pods_iOS_PartyPlanner.framework */; };
 		821B65BE1EAFF1C60078333B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65BD1EAFF1C60078333B /* HomeViewController.swift */; };
 		821B65C01EAFF1D60078333B /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65BF1EAFF1D60078333B /* TasksViewController.swift */; };
 		821B65C21EAFF1E90078333B /* MaterialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65C11EAFF1E90078333B /* MaterialViewController.swift */; };
@@ -34,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2044D75C1EB13E7C002AB803 /* iOS-PartyPlanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOS-PartyPlanner-Bridging-Header.h"; sourceTree = "<group>"; };
+		2044D75F1EB145FC002AB803 /* iOS-PartyPlanner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS-PartyPlanner.entitlements"; sourceTree = "<group>"; };
+		2044D7601EB14F26002AB803 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		821B65BD1EAFF1C60078333B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		821B65BF1EAFF1D60078333B /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		821B65C11EAFF1E90078333B /* MaterialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialViewController.swift; sourceTree = "<group>"; };
@@ -54,12 +59,15 @@
 		821B65E51EB04C7E0078333B /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		821B65E81EB053B30078333B /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		821B65EA1EB053BB0078333B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		90C13D833579335699BC48A0 /* Pods-iOS-PartyPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PartyPlanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner.release.xcconfig"; sourceTree = "<group>"; };
+		96B49B93AA647D8D6A2EED1E /* Pods-iOS-PartyPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PartyPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 		A1470F331EAF20C600DE373A /* iOS-PartyPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-PartyPlanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1470F361EAF20C600DE373A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1470F3B1EAF20C600DE373A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1470F3D1EAF20C600DE373A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1470F401EAF20C600DE373A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1470F421EAF20C600DE373A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA8DCCBDCBEA68C30D6893BC /* Pods_iOS_PartyPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_PartyPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +77,7 @@
 			files = (
 				821B65EB1EB053BB0078333B /* AVFoundation.framework in Frameworks */,
 				821B65E91EB053B30078333B /* AVKit.framework in Frameworks */,
+				23BA99FF7269C05C70C2274A /* Pods_iOS_PartyPlanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +109,18 @@
 			children = (
 				821B65EA1EB053BB0078333B /* AVFoundation.framework */,
 				821B65E81EB053B30078333B /* AVKit.framework */,
+				BA8DCCBDCBEA68C30D6893BC /* Pods_iOS_PartyPlanner.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84E3C8EBDAFBEAD0E29C4BE4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				96B49B93AA647D8D6A2EED1E /* Pods-iOS-PartyPlanner.debug.xcconfig */,
+				90C13D833579335699BC48A0 /* Pods-iOS-PartyPlanner.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		A1470F2A1EAF20C600DE373A = {
@@ -110,6 +129,8 @@
 				A1470F351EAF20C600DE373A /* iOS-PartyPlanner */,
 				A1470F341EAF20C600DE373A /* Products */,
 				821B65E71EB053B30078333B /* Frameworks */,
+				84E3C8EBDAFBEAD0E29C4BE4 /* Pods */,
+				2044D75C1EB13E7C002AB803 /* iOS-PartyPlanner-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +145,7 @@
 		A1470F351EAF20C600DE373A /* iOS-PartyPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				2044D75F1EB145FC002AB803 /* iOS-PartyPlanner.entitlements */,
 				821B65C31EB006FF0078333B /* UIComponents */,
 				A1470F4D1EAF244000DE373A /* ViewControllers */,
 				A1470F4C1EAF243B00DE373A /* Views */,
@@ -134,6 +156,7 @@
 				A1470F3D1EAF20C600DE373A /* Assets.xcassets */,
 				A1470F3F1EAF20C600DE373A /* LaunchScreen.storyboard */,
 				A1470F421EAF20C600DE373A /* Info.plist */,
+				2044D7601EB14F26002AB803 /* GoogleService-Info.plist */,
 			);
 			path = "iOS-PartyPlanner";
 			sourceTree = "<group>";
@@ -186,9 +209,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1470F451EAF20C600DE373A /* Build configuration list for PBXNativeTarget "iOS-PartyPlanner" */;
 			buildPhases = (
+				58EB7BC6B2D91DF6663392E0 /* [CP] Check Pods Manifest.lock */,
 				A1470F2F1EAF20C600DE373A /* Sources */,
 				A1470F301EAF20C600DE373A /* Frameworks */,
 				A1470F311EAF20C600DE373A /* Resources */,
+				6E784677F281C773C25D3B6D /* [CP] Embed Pods Frameworks */,
+				EEE73D99978E25283AF0B3DB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -212,7 +238,13 @@
 					A1470F321EAF20C600DE373A = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 5NFEH37HHC;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -240,12 +272,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1470F411EAF20C600DE373A /* LaunchScreen.storyboard in Resources */,
+				2044D7611EB14F26002AB803 /* GoogleService-Info.plist in Resources */,
 				A1470F3E1EAF20C600DE373A /* Assets.xcassets in Resources */,
 				A1470F3C1EAF20C600DE373A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		58EB7BC6B2D91DF6663392E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6E784677F281C773C25D3B6D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EEE73D99978E25283AF0B3DB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A1470F2F1EAF20C600DE373A /* Sources */ = {
@@ -393,26 +474,35 @@
 		};
 		A1470F461EAF20C600DE373A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96B49B93AA647D8D6A2EED1E /* Pods-iOS-PartyPlanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "iOS-PartyPlanner/iOS-PartyPlanner.entitlements";
 				DEVELOPMENT_TEAM = 5NFEH37HHC;
 				INFOPLIST_FILE = "iOS-PartyPlanner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.partydevs.iOS-PartyPlanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS-PartyPlanner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		A1470F471EAF20C600DE373A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90C13D833579335699BC48A0 /* Pods-iOS-PartyPlanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "iOS-PartyPlanner/iOS-PartyPlanner.entitlements";
 				DEVELOPMENT_TEAM = 5NFEH37HHC;
 				INFOPLIST_FILE = "iOS-PartyPlanner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.partydevs.iOS-PartyPlanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS-PartyPlanner-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
