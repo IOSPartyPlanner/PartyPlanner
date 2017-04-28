@@ -37,7 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2044D75C1EB13E7C002AB803 /* iOS-PartyPlanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOS-PartyPlanner-Bridging-Header.h"; sourceTree = "<group>"; };
 		2044D75F1EB145FC002AB803 /* iOS-PartyPlanner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS-PartyPlanner.entitlements"; sourceTree = "<group>"; };
 		2044D7601EB14F26002AB803 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		821B65BD1EAFF1C60078333B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +131,6 @@
 				A1470F341EAF20C600DE373A /* Products */,
 				821B65E71EB053B30078333B /* Frameworks */,
 				84E3C8EBDAFBEAD0E29C4BE4 /* Pods */,
-				2044D75C1EB13E7C002AB803 /* iOS-PartyPlanner-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
