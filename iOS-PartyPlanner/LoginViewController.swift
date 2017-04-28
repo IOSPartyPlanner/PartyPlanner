@@ -10,50 +10,83 @@ import UIKit
 import FBSDKLoginKit
 import Firebase
 import GoogleSignIn
+import TwitterKit
 
-class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
 
-    @IBOutlet weak var fbLoginButton: FBSDKLoginButton!
-    @IBOutlet weak var gLoginButton: GIDSignInButton!
-    
+class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate{
+
+
+    @IBOutlet weak var fbLoginButton: UIButton!
+    @IBOutlet weak var gLoginButton: UIButton!
+    @IBOutlet weak var tLoginButton: UIButton!
     
   override func viewDidLoad() {
     super.viewDidLoad()
     
     view.addSubview(fbLoginButton)
-    fbLoginButton.delegate = self
+    fbLoginButton.addTarget(self, action: #selector(handleFbLogin), for: .touchUpInside)
     
     view.addSubview(gLoginButton)
+    gLoginButton.addTarget(self, action: #selector(handleGLogin), for: .touchUpInside)
     GIDSignIn.sharedInstance().uiDelegate = self
-    GIDSignIn.sharedInstance().signIn()
     
+    
+    view.addSubview(tLoginButton)
+    tLoginButton.addTarget(self, action: #selector(handleTLogin), for: .touchUpInside)
+    
+    GIDSignIn.sharedInstance().delegate = self
+   
   }
-
-  func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("fb logout")
+    
+    func handleTLogin() {
+        
+        Twitter.sharedInstance().logIn { (session, error) in
+            if error != nil {
+                print("Twitter login failed", error ?? "")
+                return
+            }
+            
+            guard let token = session?.authToken else {return}
+            guard let secret = session?.authTokenSecret else { return }
+            
+            let credentials = FIRTwitterAuthProvider.credential(withToken: token, secret: secret)
+            
+            FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
+                if error != nil {
+                    print("Failed to login to firebase with twitter", error ?? "")
+                    return
+                }
+                print("Successful login to firebase with twitter", user ?? "")
+                
+            })
+            self.performSegue(withIdentifier: "EventViewSegue", sender: self)
+        }
     }
     
-  func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if error != nil {
-            print(error)
-        }
-        else {
-            print("fb logged in")
-        }
-    
-        showAccount()
+    func handleGLogin(){
+        GIDSignIn.sharedInstance().signIn()
     }
     
-    func showAccount(){
+    func handleFbLogin(){
+        FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self) { (result, error) in
+            if error != nil {
+                print("FB login failed", error ?? "")
+                return
+            }
+            self.showEmail()
+            self.performSegue(withIdentifier: "EventViewSegue", sender: self)
+        }
+    }
 
+    func showEmail(){
         
         let accessToken = FBSDKAccessToken.current()
         guard let accessTokenString = accessToken?.tokenString else {
             return
         }
-        
+    
         let credentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
-        
+    
         FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
             if error != nil {
                 print("FIREBase fb addition error", error ?? "")
@@ -61,20 +94,44 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
             }
             print("Successful logged into firebase", user ?? "")
         })
-            
+    
+        
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, error) in
             if error != nil {
-                print("error in fetching  graph",error as Any)
+                print("FBSDKGraphRequest failed", error ?? "")
                 return
             }
             print(result ?? "")
         }
     }
+
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if error != nil {
+            print(error)
+            return
+        }
+        
+        print("Signed in for GUser", user.profile.email)
+        
+        
+        guard let authentication = user.authentication else { return }
+        let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        
+        FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
+            if error != nil {
+                print("Adding gUser to firebase failed", error!)
+            }
+            else{
+                print("Adding gUser to firebase Successful", user?.uid ?? "")
+            }
+        })
+     
+        performSegue(withIdentifier: "EventViewSegue", sender: self)
+    }
     
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-  }
-
-
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
 }
 

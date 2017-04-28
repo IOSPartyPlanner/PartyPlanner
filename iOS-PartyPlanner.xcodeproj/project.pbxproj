@@ -68,8 +68,8 @@
 		A1470F3D1EAF20C600DE373A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1470F401EAF20C600DE373A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1470F421EAF20C600DE373A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA8DCCBDCBEA68C30D6893BC /* Pods_iOS_PartyPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_PartyPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1470F6C1EB17AA600DE373A /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		BA8DCCBDCBEA68C30D6893BC /* Pods_iOS_PartyPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_PartyPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +218,7 @@
 				A1470F311EAF20C600DE373A /* Resources */,
 				6E784677F281C773C25D3B6D /* [CP] Embed Pods Frameworks */,
 				EEE73D99978E25283AF0B3DB /* [CP] Copy Pods Resources */,
+				20D9642B1EB2AB6900AF75D0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -240,7 +241,7 @@
 				TargetAttributes = {
 					A1470F321EAF20C600DE373A = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 5NFEH37HHC;
+						DevelopmentTeam = N4K56QKDWM;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -284,6 +285,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		20D9642B1EB2AB6900AF75D0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 60435a67414f14ed43a413382b4ec2409caa5406 a5acb084877a5e2f40be96bae48f9fd9e57c77acb65f66166bf23314822e3e4e ";
+		};
 		58EB7BC6B2D91DF6663392E0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -483,7 +497,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "iOS-PartyPlanner/iOS-PartyPlanner.entitlements";
-				DEVELOPMENT_TEAM = 5NFEH37HHC;
+				DEVELOPMENT_TEAM = N4K56QKDWM;
 				INFOPLIST_FILE = "iOS-PartyPlanner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.partydevs.iOS-PartyPlanner";
@@ -501,7 +515,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "iOS-PartyPlanner/iOS-PartyPlanner.entitlements";
-				DEVELOPMENT_TEAM = 5NFEH37HHC;
+				DEVELOPMENT_TEAM = N4K56QKDWM;
 				INFOPLIST_FILE = "iOS-PartyPlanner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.partydevs.iOS-PartyPlanner";

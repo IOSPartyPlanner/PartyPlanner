@@ -9,29 +9,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iOS-PartyPlanner/AppDelegate.swift"
-            timestampString = "514940582.354326"
+            filePath = "iOS-PartyPlanner/LoginViewController.swift"
+            timestampString = "515030089.762735"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "application(_:open:options:)"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "showEmail()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOS-PartyPlanner/LoginViewController.swift"
-            timestampString = "514939620.231253"
+            timestampString = "515030089.762735"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "showAccount()"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "handleTLogin()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
