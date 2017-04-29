@@ -72,4 +72,8 @@ class User: NSObject {
     ]
   }
   
+  static let testUser = User(id: "123", userName: "abc", passwordHash: "123456", name: "user1", email: "user1@gmail.com", phone: "1234567890", address: "2750, Coast Ave", imageUrl: URL(string: "http://imgur.com/gallery/2TBP4")!, authType: .PartyPlanner, uid: "12", ref: nil)
+
+  
+  
 }
