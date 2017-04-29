@@ -3,6 +3,8 @@ import Firebase
 
 class Event: NSObject {
   
+  let fireBaseRef = FIRDatabase.database().reference(withPath: "event")
+  
   var invitationVideoURL: URL?
   var name: String?
   var id: String
@@ -10,24 +12,27 @@ class Event: NSObject {
   var tagline: String
   var host: User
   var location: String
-  var rsvpList: [RSVP]
-  var taskList: [Task]
-  var itemList: [Item]
+  var rsvpIdList: [String]
+  var taskIdList: [String]
+  var itemIdList: [String]
   var inviteImageUrl: URL
-  var giftList: [Item]
+  var giftIdList: [String]
   var postEventImages: [URL]
   var postEventVideos: [URL]
   var likesCount: Int
-  var postEventComments: [Comment]
+  var postEventCommentIdList: [String]
   var ref: FIRDatabaseReference?
   var key: String?
   
   init(invitationVideoURL:URL?, name: String?, id: String,
        dateTime: Date, tagline: String, host: User,
-       location: String, rsvpList: [RSVP], taskList: [Task],
-       itemList: [Item], inviteImageUrl: URL, giftList: [Item],
+       location: String,
+       rsvpIdList: [String], taskIdList: [String],
+       itemIdList: [String],
+       inviteImageUrl: URL,
+       giftIdList: [String],
        postEventImages: [URL], postEventVideos: [URL],
-       likesCount: String, postEventComments: [String]) {
+       likesCount: String, postEventCommentIdList: [String]) {
     
     self.invitationVideoURL = invitationVideoURL ?? URL(string: "http://devstreaming.apple.com/videos/wwdc/2016/204t23fvanrkj7a1oj7/204/hls_vod_mvp.m3u8")
     self.name = name ?? "Party planner on-line celebration"
@@ -36,15 +41,15 @@ class Event: NSObject {
     self.tagline = tagline
     self.host = host
     self.location = location
-    self.rsvpList = rsvpList
-    self.taskList = taskList
-    self.itemList = itemList
+    self.rsvpIdList = rsvpIdList
+    self.taskIdList = taskIdList
+    self.itemIdList = itemIdList
     self.inviteImageUrl = inviteImageUrl
-    self.giftList = giftList
+    self.giftIdList = giftIdList
     self.postEventImages = []
     self.postEventVideos = []
     self.likesCount = 0
-    self.postEventComments = []
+    self.postEventCommentIdList = []
     self.ref = ref ?? nil
   }
   
@@ -57,44 +62,47 @@ class Event: NSObject {
     invitationVideoURL = snapshotValue["invitationVideoURL"] as? URL
     name = snapshotValue["name"] as? String
     id = snapshotValue["id"] as! String
-    dateTime = snapshotValue["dateTime"] as! Date
+    dateTime = Utils.getTimeStampFromString(timeStampString: snapshotValue["dateTime"] as! String)
     tagline = snapshotValue["tagline"] as! String
     host = snapshotValue["host"] as! User
     location = snapshotValue["location"] as! String
-    rsvpList = snapshotValue["rsvpList"] as! [RSVP]
-    taskList = snapshotValue["taskList"] as! [Task]
-    itemList = snapshotValue["itemList"] as! [Item]
+    rsvpIdList = snapshotValue["rsvpIdList"] as! [String]
+    taskIdList = snapshotValue["taskIdList"] as! [String]
+    itemIdList = snapshotValue["itemIdList"] as! [String]
     inviteImageUrl = snapshotValue["inviteImage"] as! URL
-    giftList = snapshotValue["giftList"] as! [Item]
+    giftIdList = snapshotValue["giftIdList"] as! [String]
     postEventImages = snapshotValue["postEventImages"] as! [URL]
     postEventVideos = snapshotValue["postEventVideos"] as! [URL]
     likesCount = snapshotValue["likesCount"] as! Int
-    postEventComments = snapshotValue["postEventComments"] as! [Comment]
+    postEventCommentIdList = snapshotValue["postEventCommentIdList"] as! [String]
   }
   
   func toAnyObject() -> Any {
     return [
       
       "id": id,
-      "invitationVideoURL": invitationVideoURL!,
+      "invitationVideoURL": invitationVideoURL!.path,
       "name": name!,
       "id": id,
-      "dateTime": dateTime,
+      "dateTime": Utils.getTimeStampStringFromDate(date: dateTime),
       "tagline": tagline,
       "host": host,
       "location": location,
-      "rsvpList": rsvpList,
-      "taskList": taskList,
-      "itemList": itemList,
-      "inviteImage": inviteImageUrl,
-      "giftList": giftList,
+      "rsvpIdList": rsvpIdList,
+      "taskIdList": taskIdList,
+      "itemIdList": itemIdList,
+      "inviteImageUrl": inviteImageUrl.path,
+      "giftIdList": giftIdList,
       "postEventImages": postEventImages,
       "postEventVideos": postEventVideos,
       "likesCount": likesCount,
-      "postEventComments": postEventComments
+      "postEventCommentIdList": postEventCommentIdList
     ]
   }
-
+  
+  //  func getTestEvent() -> Event {
+  //    let testEvent = Event(invitationVideoURL: "https://abc.com", name: "test Event", id: "123", dateTime: Date.init(), tagline: "Yeahhh lets party", host: "the great!", location: "cyali", inviteImageUrl: "goole.com", postEventImages: <#T##[URL]#>, postEventVideos: <#T##[URL]#>, likesCount: <#T##String#>, postEventCommentIdList: <#T##[String]#>)
+  //  }
   
   
 }

@@ -1,15 +1,9 @@
-//
-//  Comment.swift
-//  iOS-PartyPlanner
-//
-//  Created by Bharath D N on 4/26/17.
-//  Copyright © 2017 PartyDevs. All rights reserved.
-//
-
 import UIKit
 import Firebase
 
 class Comment: NSObject {
+
+  let fireBaseRef = FIRDatabase.database().reference(withPath: "comment")
  
   var id: String
   var user: User
@@ -35,7 +29,7 @@ class Comment: NSObject {
     id = snapshotValue["id"] as! String
     user = snapshotValue["user"] as! User
     event = snapshotValue["event"] as! Event
-    date = snapshotValue["date"] as! Date
+    date = Utils.getTimeStampFromString(timeStampString: snapshotValue["date"] as! String)
     text = snapshotValue["text"] as! String
   }
   
@@ -44,7 +38,7 @@ class Comment: NSObject {
       "id": id,
       "user": user,
       "event": date,
-      "date": date,
+      "date": Utils.getTimeStampStringFromDate(date: date),
       "text": text
     ]
   }

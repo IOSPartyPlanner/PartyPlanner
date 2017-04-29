@@ -1,47 +1,52 @@
-//
-//  Item.swift
-//  iOS-PartyPlanner
-//
-//  Created by Yan, Tristan on 4/25/17.
-//  Copyright © 2017 PartyDevs. All rights reserved.
-//
-
 import UIKit
 import Firebase
 
 class Item: NSObject {
 
+  let fireBaseRef = FIRDatabase.database().reference(withPath: "item")
+  
   var id: String
   var name: String
-  var quantity: Int
+  var itemDescription: String
+  var quantityRequired: Int
+  var volunteerIds: [String]
   var dueDate: Date
   var ref: FIRDatabaseReference?
   var key: String?
   
-  init(id: String, name: String, quantity: Int, dueDate: Date) {
+  init(id: String, name: String, itemDescription: String, volunteerIds: [String],
+       quantityRequired: Int, dueDate: Date) {
     self.id = id
     self.name = name
-    self.quantity = quantity
+    self.itemDescription = itemDescription
+    self.quantityRequired = quantityRequired
+    self.volunteerIds = volunteerIds
     self.dueDate = dueDate
+    self.ref = ref ?? nil
   }
   
   init(snapshot: FIRDataSnapshot) {
     key = snapshot.key
-    ref = snapshot.ref
     let snapshotValue = snapshot.value as! [String: AnyObject]
     
     id = snapshotValue["id"] as! String
     name = snapshotValue["name"] as! String
-    quantity = snapshotValue["quantity"] as! Int
-    dueDate = snapshotValue["dueDate"] as! Date
+    itemDescription = snapshotValue["itemDescription"] as! String
+    quantityRequired = snapshotValue["quantityRequired"] as! Int
+    volunteerIds = snapshotValue["volunteerIds"] as! [String]
+    dueDate = Utils.getTimeStampFromString(timeStampString: snapshotValue["dueDate"] as! String)
+    ref = snapshot.ref
   }
+  
   
   func toAnyObject() -> Any {
     return [
       "id": id,
       "name": name,
-      "quantity": quantity,
-      "dueDate": dueDate
+      "itemDescription": itemDescription,
+      "quantityRequired": quantityRequired,
+      "volunteerIds": volunteerIds,
+      "dueDate": Utils.getTimeStampStringFromDate(date: dueDate)
     ]
   }
   

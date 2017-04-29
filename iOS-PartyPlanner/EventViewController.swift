@@ -46,7 +46,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = eventTableView.dequeueReusableCell(withIdentifier: "EventSummaryTableViewCell", for: indexPath) as? EventSummaryTableViewCell
-        cell?.event = APIClient.sharedInstance.fecthEvent(byId: "")
+//        cell?.event = APIClient.sharedInstance.fecthEvent(byId: "")
         return cell!
     }
 }

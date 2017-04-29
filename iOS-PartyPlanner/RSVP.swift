@@ -1,7 +1,7 @@
 import UIKit
 import Firebase
 
-enum RsvpResponse {
+enum RsvpResponse: String {
   case yes
   case maybe
   case no
@@ -12,21 +12,23 @@ import UIKit
 
 class RSVP: NSObject {
   
+  let fireBaseRef = FIRDatabase.database().reference(withPath: "rsvp")
+  
   var id: String
-  var event: Event
-  var guest: User
+  var eventId: String
+  var guestId: String
   // the number of persons coming with the guest
-  var guestPlusX: Int = 0
+  var guestIdPlusX: Int = 0
   var response: RsvpResponse? = .notResponded
   var ref: FIRDatabaseReference?
   var key: String?
   
-  init(id: String, event: Event, guest: User,
-       guestPlusX: Int, response: RsvpResponse) {
+  init(id: String, eventId: String, guestId: String,
+       guestIdPlusX: Int, response: RsvpResponse) {
     self.id = id
-    self.event = event
-    self.guest = guest
-    self.guestPlusX = guestPlusX
+    self.eventId = eventId
+    self.guestId = guestId
+    self.guestIdPlusX = guestIdPlusX
     self.response = response
   }
   
@@ -36,20 +38,20 @@ class RSVP: NSObject {
     let snapshotValue = snapshot.value as! [String: AnyObject]
     
     id = snapshotValue["id"] as! String
-    event = snapshotValue["event"] as! Event
-    guest = snapshotValue["guest"] as! User
-    guestPlusX = snapshotValue["guestPlusX"] as! Int
-    response = snapshotValue["response"] as? RsvpResponse
+    eventId = snapshotValue["eventId"] as! String
+    guestId = snapshotValue["guestId"] as! String
+    guestIdPlusX = snapshotValue["guestIdPlusX"] as! Int
+    response = RsvpResponse(rawValue: (snapshotValue["response"] as? String)!)
   }
   
   
   func toAnyObject() -> Any {
     return [
       "id": id,
-      "event": event,
-      "guest": guest,
-      "guestPlusX": guestPlusX,
-      "response": response!
+      "eventId": eventId,
+      "guestId": guestId,
+      "guestIdPlusX": guestIdPlusX,
+      "response": response!.rawValue
     ]
   }
 }

@@ -1,14 +1,18 @@
 import UIKit
 import Firebase
 
-enum AuthenticationType {
+// Mark:- Enum
+enum AuthenticationType: String {
   case PartyPlanner
   case Google
   case Facebook
   case Twitter
 }
 
+// Mark:- User Class
 class User: NSObject {
+  let fireBaseRef = FIRDatabase.database().reference(withPath: "user")
+
   
   var id: String
   var userName: String
@@ -54,7 +58,8 @@ class User: NSObject {
     email = snapshotValue["email"] as! String
     phone = snapshotValue["phone"] as! String
     address = snapshotValue["address"] as! String
-    imageUrl = snapshotValue["imageUrl"] as! URL
+    imageUrl = URL(string: snapshotValue["imageUrl"] as! String)!
+    authType = AuthenticationType(rawValue: snapshotValue["authType"] as! String)!
     uid = snapshotValue["uid"] as! String
   }
   
@@ -67,13 +72,23 @@ class User: NSObject {
       "email": email,
       "phone": phone,
       "address": address,
-      "imageUrl": imageUrl,
+      "imageUrl": imageUrl.path,
       "uid": uid,
+      "authType": authType.rawValue
     ]
   }
   
-  static let testUser = User(id: "123", userName: "abc", passwordHash: "123456", name: "user1", email: "user1@gmail.com", phone: "1234567890", address: "2750, Coast Ave", imageUrl: URL(string: "http://imgur.com/gallery/2TBP4")!, authType: .PartyPlanner, uid: "12", ref: nil)
-
+  func getTestUser() -> User {
+    let testUser = User(id: "123", userName: "abc", passwordHash: "123456", name: "user1", email: "user1@gmail.com", phone: "1234567890", address: "2750, Coast Ave", imageUrl: URL(string: "http://imgur.com/gallery/2TBP4")!, authType: .PartyPlanner, uid: "12", ref: nil)
+    return testUser
+  }
+  
+  
+  //Mark:- API
+  func storeUser() {
+    let userRef = fireBaseRef.child(id)
+    userRef.setValue(self.toAnyObject())
+  }
   
   
 }
