@@ -9,7 +9,10 @@ target 'iOS-PartyPlanner' do
   pod 'FBSDKLoginKit'
   pod ‘Firebase/Auth’
   pod 'GoogleSignIn'
-  
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+
+
 # Pods for iOS-PartyPlanner
 
 end

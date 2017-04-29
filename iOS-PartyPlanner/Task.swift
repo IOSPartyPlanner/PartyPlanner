@@ -1,22 +1,47 @@
-//
-//  Task.swift
-//  iOS-PartyPlanner
-//
-//  Created by Yan, Tristan on 4/25/17.
-//  Copyright © 2017 PartyDevs. All rights reserved.
-//
 import UIKit
+import Firebase
 
 class Task: NSObject {
   
-  var id: String?
+  var id: String
+  var name: String
+  var taskDescription: String
+  var numberOfPeople: Int
+  var dueDate: Date
+  var ref: FIRDatabaseReference?
+  var key: String?
   
-  var name: String?
+  init(id: String, name: String, taskDescription: String,
+       numberOfPeople: Int, dueDate: Date) {
+    self.id = id
+    self.name = name
+    self.taskDescription = taskDescription
+    self.numberOfPeople = numberOfPeople
+    self.dueDate = dueDate
+    self.ref = ref ?? nil
+  }
   
-  var taskDescription: String?
+  init(snapshot: FIRDataSnapshot) {
+    key = snapshot.key
+    let snapshotValue = snapshot.value as! [String: AnyObject]
+    
+    id = snapshotValue["id"] as! String
+    name = snapshotValue["name"] as! String
+    taskDescription = snapshotValue["taskDescription"] as! String
+    numberOfPeople = snapshotValue["numberOfPeople"] as! Int
+    dueDate = snapshotValue["dueDate"] as! Date
+    ref = snapshot.ref
+  }
   
-  var numberOfPeople: String?
   
-  var dueDate: Date?
-  
+  func toAnyObject() -> Any {
+    return [
+      "id": id,
+      "name": name,
+      "taskDescription": taskDescription,
+      "numberOfPeople": numberOfPeople,
+      "dueDate": dueDate
+    ]
+  }
+
 }
