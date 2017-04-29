@@ -7,15 +7,42 @@
 //
 
 import UIKit
+import Firebase
 
 class Item: NSObject {
 
-  var id: String?
+  var id: String
+  var name: String
+  var quantity: Int
+  var dueDate: Date
+  var ref: FIRDatabaseReference?
+  var key: String?
   
-  var name: String?
+  init(id: String, name: String, quantity: Int, dueDate: Date) {
+    self.id = id
+    self.name = name
+    self.quantity = quantity
+    self.dueDate = dueDate
+  }
   
-  var quantity: Int?
+  init(snapshot: FIRDataSnapshot) {
+    key = snapshot.key
+    ref = snapshot.ref
+    let snapshotValue = snapshot.value as! [String: AnyObject]
+    
+    id = snapshotValue["id"] as! String
+    name = snapshotValue["name"] as! String
+    quantity = snapshotValue["quantity"] as! Int
+    dueDate = snapshotValue["dueDate"] as! Date
+  }
   
-  var dueDate: Date?
+  func toAnyObject() -> Any {
+    return [
+      "id": id,
+      "name": name,
+      "quantity": quantity,
+      "dueDate": dueDate
+    ]
+  }
   
 }

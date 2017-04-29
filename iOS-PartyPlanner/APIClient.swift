@@ -9,13 +9,15 @@
 import UIKit
 
 class APIClient: NSObject {
-    static let sharedInstance = APIClient()
-
-    private override init() {
-    }
+  static let sharedInstance = APIClient()
+  
+  private override init() {
+  }
+  
+  
+  
+  func testFirebase() {
     
-    func fecthEvent(byId id: String) -> Event {
-        return Event()
-    }
-
+  }
+  
 }
