@@ -80,7 +80,6 @@
 		A190B1701EB66D7F006328AF /* RsvpApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RsvpApi.swift; sourceTree = "<group>"; };
 		A190B1711EB66D7F006328AF /* TaskApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskApi.swift; sourceTree = "<group>"; };
 		A190B1761EB67D2B006328AF /* UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
-		A190B1781EB688A6006328AF /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		A190B1791EB68B0D006328AF /* CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
 		BA8DCCBDCBEA68C30D6893BC /* Pods_iOS_PartyPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_PartyPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -197,7 +196,6 @@
 				A190B1711EB66D7F006328AF /* TaskApi.swift */,
 				821B65E51EB04C7E0078333B /* APIClient.swift */,
 				A190B1761EB67D2B006328AF /* UserApi.swift */,
-				A190B1781EB688A6006328AF /* MyPlayground.playground */,
 				A190B1791EB68B0D006328AF /* CommentApi.swift */,
 			);
 			name = APIs;
