@@ -1,23 +1,47 @@
-//
-//  Comment.swift
-//  iOS-PartyPlanner
-//
-//  Created by Bharath D N on 4/26/17.
-//  Copyright © 2017 PartyDevs. All rights reserved.
-//
-
-import Foundation
+import UIKit
+import Firebase
 
 class Comment: NSObject {
+
+  let fireBaseRef = FIRDatabase.database().reference(withPath: "comment")
  
-  var id: String?
+  var id: String
+  var userEmail: String
+  var eventId: String
+  var date: Date
+  var text: String
+  var ref: FIRDatabaseReference?
+  var key: String?
   
-  var user: User?
+  init(id: String, userEmail: String, eventId: String, date: Date, text: String) {
+    self.id = id
+    self.userEmail = userEmail
+    self.eventId = eventId
+    self.date = date
+    self.text = text
+  }
   
-  var event: Event?
+  init(snapshot: FIRDataSnapshot) {
+    key = snapshot.key
+    ref = snapshot.ref
+    
+    let snapshotValue = snapshot.value as! [String: AnyObject]
+    id = snapshotValue["id"] as! String
+    userEmail = snapshotValue["userEmail"] as! String
+    eventId = snapshotValue["eventId"] as! String
+    date = Utils.getTimeStampFromString(timeStampString: snapshotValue["date"] as! String)
+    text = snapshotValue["text"] as! String
+  }
   
-  var date: Date?
+  func toAnyObject() -> Any {
+    return [
+      "id": id,
+      "userEmail": userEmail,
+      "eventId": eventId,
+      "date": Utils.getTimeStampStringFromDate(date: date),
+      "text": text
+    ]
+  }
   
-  var text: String?
   
 }
