@@ -100,9 +100,4 @@ class Event: NSObject {
     ]
   }
   
-  //  func getTestEvent() -> Event {
-  //    let testEvent = Event(invitationVideoURL: "https://abc.com", name: "test Event", id: "123", dateTime: Date.init(), tagline: "Yeahhh lets party", host: "the great!", location: "cyali", inviteImageUrl: "goole.com", postEventImages: <#T##[URL]#>, postEventVideos: <#T##[URL]#>, likesCount: <#T##String#>, postEventCommentIdList: <#T##[String]#>)
-  //  }
-  
-  
 }

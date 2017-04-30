@@ -7,6 +7,7 @@ class Task: NSObject {
   
   var id: String
   var name: String
+  var eventId: String
   var taskDescription: String
   var numberOfPeopleRequired: Int
   var volunteerIds: [String]
@@ -14,10 +15,13 @@ class Task: NSObject {
   var ref: FIRDatabaseReference?
   var key: String?
   
-  init(id: String, name: String, taskDescription: String, volunteerIds: [String],
+  init(id: String, name: String,
+       eventId: String,taskDescription: String,
+       volunteerIds: [String],
        numberOfPeopleRequired: Int, dueDate: Date) {
     self.id = id
     self.name = name
+    self.eventId = eventId
     self.taskDescription = taskDescription
     self.numberOfPeopleRequired = numberOfPeopleRequired
     self.volunteerIds = volunteerIds
@@ -31,6 +35,7 @@ class Task: NSObject {
     
     id = snapshotValue["id"] as! String
     name = snapshotValue["name"] as! String
+    eventId = snapshotValue["eventId"] as! String
     taskDescription = snapshotValue["taskDescription"] as! String
     numberOfPeopleRequired = snapshotValue["numberOfPeopleRequired"] as! Int
     volunteerIds = snapshotValue["volunteerIds"] as! [String]
@@ -43,6 +48,7 @@ class Task: NSObject {
     return [
       "id": id,
       "name": name,
+      "eventId": eventId,
       "taskDescription": taskDescription,
       "numberOfPeopleRequired": numberOfPeopleRequired,
       "volunteerIds": volunteerIds,
@@ -51,7 +57,7 @@ class Task: NSObject {
   }
   
   func getTestTask() -> Task {
-    return Task(id: "1", name: "Task1", taskDescription: "Help with cooking", volunteerIds: ["1","2"], numberOfPeopleRequired: 2, dueDate: Date.init())
+    return Task(id: "1", name: "Task1", eventId: "123",taskDescription: "Help with cooking", volunteerIds: ["1","2"], numberOfPeopleRequired: 2, dueDate: Date.init())
   }
   
   
