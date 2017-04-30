@@ -6,17 +6,17 @@ class Comment: NSObject {
   let fireBaseRef = FIRDatabase.database().reference(withPath: "comment")
  
   var id: String
-  var user: User
-  var event: Event
+  var userEmail: String
+  var eventId: String
   var date: Date
   var text: String
   var ref: FIRDatabaseReference?
   var key: String?
   
-  init(id: String, user: User, event: Event, date: Date, text: String) {
+  init(id: String, userEmail: String, eventId: String, date: Date, text: String) {
     self.id = id
-    self.user = user
-    self.event = event
+    self.userEmail = userEmail
+    self.eventId = eventId
     self.date = date
     self.text = text
   }
@@ -27,8 +27,8 @@ class Comment: NSObject {
     
     let snapshotValue = snapshot.value as! [String: AnyObject]
     id = snapshotValue["id"] as! String
-    user = snapshotValue["user"] as! User
-    event = snapshotValue["event"] as! Event
+    userEmail = snapshotValue["userEmail"] as! String
+    eventId = snapshotValue["eventId"] as! String
     date = Utils.getTimeStampFromString(timeStampString: snapshotValue["date"] as! String)
     text = snapshotValue["text"] as! String
   }
@@ -36,8 +36,8 @@ class Comment: NSObject {
   func toAnyObject() -> Any {
     return [
       "id": id,
-      "user": user,
-      "event": date,
+      "userEmail": userEmail,
+      "eventId": eventId,
       "date": Utils.getTimeStampStringFromDate(date: date),
       "text": text
     ]

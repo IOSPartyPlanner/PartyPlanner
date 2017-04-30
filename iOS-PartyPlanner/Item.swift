@@ -9,18 +9,18 @@ class Item: NSObject {
   var name: String
   var itemDescription: String
   var quantityRequired: Int
-  var volunteerIds: [String]
+  var volunteerEmails: [String]
   var dueDate: Date
   var ref: FIRDatabaseReference?
   var key: String?
   
-  init(id: String, name: String, itemDescription: String, volunteerIds: [String],
+  init(id: String, name: String, itemDescription: String, volunteerEmails: [String],
        quantityRequired: Int, dueDate: Date) {
     self.id = id
     self.name = name
     self.itemDescription = itemDescription
     self.quantityRequired = quantityRequired
-    self.volunteerIds = volunteerIds
+    self.volunteerEmails = volunteerEmails
     self.dueDate = dueDate
     self.ref = ref ?? nil
   }
@@ -33,7 +33,7 @@ class Item: NSObject {
     name = snapshotValue["name"] as! String
     itemDescription = snapshotValue["itemDescription"] as! String
     quantityRequired = snapshotValue["quantityRequired"] as! Int
-    volunteerIds = snapshotValue["volunteerIds"] as! [String]
+    volunteerEmails = snapshotValue["volunteerEmails"] as! [String]
     dueDate = Utils.getTimeStampFromString(timeStampString: snapshotValue["dueDate"] as! String)
     ref = snapshot.ref
   }
@@ -45,7 +45,7 @@ class Item: NSObject {
       "name": name,
       "itemDescription": itemDescription,
       "quantityRequired": quantityRequired,
-      "volunteerIds": volunteerIds,
+      "volunteerEmails": volunteerEmails,
       "dueDate": Utils.getTimeStampStringFromDate(date: dueDate)
     ]
   }

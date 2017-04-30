@@ -35,6 +35,10 @@
 		A1470F411EAF20C600DE373A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1470F3F1EAF20C600DE373A /* LaunchScreen.storyboard */; };
 		A1470F6D1EB17AA600DE373A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F6C1EB17AA600DE373A /* Comment.swift */; };
 		A14EE5F41EB51BAD006889D1 /* Uitls.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14EE5F31EB51BAD006889D1 /* Uitls.swift */; };
+		A190B1721EB66D7F006328AF /* EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B16E1EB66D7F006328AF /* EventApi.swift */; };
+		A190B1731EB66D7F006328AF /* ItemApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B16F1EB66D7F006328AF /* ItemApi.swift */; };
+		A190B1741EB66D7F006328AF /* RsvpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1701EB66D7F006328AF /* RsvpApi.swift */; };
+		A190B1751EB66D7F006328AF /* TaskApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1711EB66D7F006328AF /* TaskApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +73,10 @@
 		A1470F421EAF20C600DE373A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1470F6C1EB17AA600DE373A /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		A14EE5F31EB51BAD006889D1 /* Uitls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Uitls.swift; sourceTree = "<group>"; };
+		A190B16E1EB66D7F006328AF /* EventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventApi.swift; sourceTree = "<group>"; };
+		A190B16F1EB66D7F006328AF /* ItemApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemApi.swift; sourceTree = "<group>"; };
+		A190B1701EB66D7F006328AF /* RsvpApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RsvpApi.swift; sourceTree = "<group>"; };
+		A190B1711EB66D7F006328AF /* TaskApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskApi.swift; sourceTree = "<group>"; };
 		BA8DCCBDCBEA68C30D6893BC /* Pods_iOS_PartyPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_PartyPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -178,6 +186,10 @@
 		A1470F4B1EAF243200DE373A /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				A190B16E1EB66D7F006328AF /* EventApi.swift */,
+				A190B16F1EB66D7F006328AF /* ItemApi.swift */,
+				A190B1701EB66D7F006328AF /* RsvpApi.swift */,
+				A190B1711EB66D7F006328AF /* TaskApi.swift */,
 				821B65E51EB04C7E0078333B /* APIClient.swift */,
 			);
 			name = APIs;
@@ -362,6 +374,8 @@
 				821B65C51EB007230078333B /* VideoView.swift in Sources */,
 				821B65DA1EB0403A0078333B /* EventMediaCollectionTableViewCell.swift in Sources */,
 				A14EE5F41EB51BAD006889D1 /* Uitls.swift in Sources */,
+				A190B1741EB66D7F006328AF /* RsvpApi.swift in Sources */,
+				A190B1721EB66D7F006328AF /* EventApi.swift in Sources */,
 				821B65D81EB0400C0078333B /* EventTableViewCell.swift in Sources */,
 				821B65CE1EB011160078333B /* Event.swift in Sources */,
 				821B65E61EB04C7E0078333B /* APIClient.swift in Sources */,
@@ -373,8 +387,10 @@
 				821B65DC1EB040500078333B /* EventGuestsTableViewCell.swift in Sources */,
 				821B65DE1EB040B30078333B /* RSVPViewController.swift in Sources */,
 				821B65D41EB0115C0078333B /* Item.swift in Sources */,
+				A190B1751EB66D7F006328AF /* TaskApi.swift in Sources */,
 				A1470F6D1EB17AA600DE373A /* Comment.swift in Sources */,
 				821B65C01EAFF1D60078333B /* TasksViewController.swift in Sources */,
+				A190B1731EB66D7F006328AF /* ItemApi.swift in Sources */,
 				821B65D01EB011290078333B /* Task.swift in Sources */,
 				A1470F371EAF20C600DE373A /* AppDelegate.swift in Sources */,
 				821B65D61EB03FCB0078333B /* GuestPickupView.swift in Sources */,

@@ -16,19 +16,19 @@ class RSVP: NSObject {
   
   var id: String
   var eventId: String
-  var guestId: String
+  var guestEmail: String
   // the number of persons coming with the guest
-  var guestIdPlusX: Int = 0
+  var guestPlusX: Int = 0
   var response: RsvpResponse? = .notResponded
   var ref: FIRDatabaseReference?
   var key: String?
   
-  init(id: String, eventId: String, guestId: String,
-       guestIdPlusX: Int, response: RsvpResponse) {
+  init(id: String, eventId: String, guestEmail: String,
+       guestPlusX: Int, response: RsvpResponse) {
     self.id = id
     self.eventId = eventId
-    self.guestId = guestId
-    self.guestIdPlusX = guestIdPlusX
+    self.guestEmail = guestEmail
+    self.guestPlusX = guestPlusX
     self.response = response
   }
   
@@ -39,8 +39,8 @@ class RSVP: NSObject {
     
     id = snapshotValue["id"] as! String
     eventId = snapshotValue["eventId"] as! String
-    guestId = snapshotValue["guestId"] as! String
-    guestIdPlusX = snapshotValue["guestIdPlusX"] as! Int
+    guestEmail = snapshotValue["guestEmail"] as! String
+    guestPlusX = snapshotValue["guestPlusX"] as! Int
     response = RsvpResponse(rawValue: (snapshotValue["response"] as? String)!)
   }
   
@@ -49,8 +49,8 @@ class RSVP: NSObject {
     return [
       "id": id,
       "eventId": eventId,
-      "guestId": guestId,
-      "guestIdPlusX": guestIdPlusX,
+      "guestEmail": guestEmail,
+      "guestPlusX": guestPlusX,
       "response": response!.rawValue
     ]
   }

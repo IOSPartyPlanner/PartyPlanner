@@ -64,11 +64,11 @@ class RsvpApi:  NSObject {
       })
   }
   
-  func getRsvpForUserAndEvent(eventId: String, userId: String, success: @escaping (RSVP) -> (), failure: @escaping () -> ()) {
-    print("RsvpAPI : searching RSVPs by eventId:: \(eventId) and userId:: \(userId)")
+  func getRsvpForUserAndEvent(eventId: String, userEmail: String, success: @escaping (RSVP) -> (), failure: @escaping () -> ()) {
+    print("RsvpAPI : searching RSVPs by eventId:: \(eventId) and userId:: \(userEmail)")
     var rsvp: RSVP?
-    fireBaseRsvpRef.queryOrdered(byChild: "guestId")
-      .queryEqual(toValue: userId)
+    fireBaseRsvpRef.queryOrdered(byChild: "guestEmail")
+      .queryEqual(toValue: userEmail)
       .observe(.value, with: { snapshot in
         for guestRsvpChild in snapshot.children {
           let guestRsvp = RSVP(snapshot: guestRsvpChild as! FIRDataSnapshot)

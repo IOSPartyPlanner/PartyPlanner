@@ -46,11 +46,11 @@ class EventApi: NSObject {
       })
   }
   
-  func getEventsHostedByUserId(userId: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
-    print("EventApi : searching for events hosted by userId: \(userId)")
+  func getEventsHostedByUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
+    print("EventApi : searching for events hosted by userId: \(userEmail)")
     var events: [Event]?
-    fireBaseEventRef.queryOrdered(byChild: "userId")
-      .queryEqual(toValue: userId)
+    fireBaseEventRef.queryOrdered(byChild: "userEmail")
+      .queryEqual(toValue: userEmail)
       .observe(.value, with: { (snapshot) in
         for userEvent in snapshot.children {
           let event = Event(snapshot: userEvent as! FIRDataSnapshot)
@@ -65,10 +65,10 @@ class EventApi: NSObject {
       })
   }
   
-  func getUpcomingEventsHostedByUserId(userId: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
-    print("EventApi : searching for upcoming events hosted by userId: \(userId)")
-    getEventsHostedByUserId(
-      userId: userId,
+  func getUpcomingEventsHostedByUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
+    print("EventApi : searching for upcoming events hosted by userId: \(userEmail)")
+    getEventsHostedByUserEmail(
+      userEmail: userEmail,
       success: { (events) in
         var upcomingEvents: [Event] = []
         for event in events {
@@ -82,10 +82,10 @@ class EventApi: NSObject {
     })
   }
   
-  func getPastEventsHostedByUserId(userId: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
-    print("EventApi : searching for past events hosted by userId: \(userId)")
-    getEventsHostedByUserId(
-      userId: userId,
+  func getPastEventsHostedByUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
+    print("EventApi : searching for past events hosted by userId: \(userEmail)")
+    getEventsHostedByUserEmail(
+      userEmail: userEmail,
       success: { (events) in
         var pastEvents: [Event] = []
         for event in events {

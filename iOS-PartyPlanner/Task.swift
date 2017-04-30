@@ -10,21 +10,20 @@ class Task: NSObject {
   var eventId: String
   var taskDescription: String
   var numberOfPeopleRequired: Int
-  var volunteerIds: [String]
+  var volunteerEmails: [String]
   var dueDate: Date
   var ref: FIRDatabaseReference?
   var key: String?
   
   init(id: String, name: String,
        eventId: String,taskDescription: String,
-       volunteerIds: [String],
-       numberOfPeopleRequired: Int, dueDate: Date) {
+       volunteerEmails: [String], numberOfPeopleRequired: Int, dueDate: Date) {
     self.id = id
     self.name = name
     self.eventId = eventId
     self.taskDescription = taskDescription
     self.numberOfPeopleRequired = numberOfPeopleRequired
-    self.volunteerIds = volunteerIds
+    self.volunteerEmails = volunteerEmails
     self.dueDate = dueDate
     self.ref = ref ?? nil
   }
@@ -38,7 +37,7 @@ class Task: NSObject {
     eventId = snapshotValue["eventId"] as! String
     taskDescription = snapshotValue["taskDescription"] as! String
     numberOfPeopleRequired = snapshotValue["numberOfPeopleRequired"] as! Int
-    volunteerIds = snapshotValue["volunteerIds"] as! [String]
+    volunteerEmails = snapshotValue["volunteerEmails"] as! [String]
     dueDate = Utils.getTimeStampFromString(timeStampString: snapshotValue["dueDate"] as! String)
     ref = snapshot.ref
   }
@@ -51,20 +50,9 @@ class Task: NSObject {
       "eventId": eventId,
       "taskDescription": taskDescription,
       "numberOfPeopleRequired": numberOfPeopleRequired,
-      "volunteerIds": volunteerIds,
+      "volunteerEmails": volunteerEmails,
       "dueDate": Utils.getTimeStampStringFromDate(date: dueDate)
     ]
   }
   
-  func getTestTask() -> Task {
-    return Task(id: "1", name: "Task1", eventId: "123",taskDescription: "Help with cooking", volunteerIds: ["1","2"], numberOfPeopleRequired: 2, dueDate: Date.init())
-  }
-  
-  
-  //Mark:- API
-  func storeTask() {
-    let taskRef = fireBaseRef.child(id)
-    taskRef.setValue(self.toAnyObject())
-  }
-
 }
