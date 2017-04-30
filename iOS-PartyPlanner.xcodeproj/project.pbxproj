@@ -39,6 +39,8 @@
 		A190B1731EB66D7F006328AF /* ItemApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B16F1EB66D7F006328AF /* ItemApi.swift */; };
 		A190B1741EB66D7F006328AF /* RsvpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1701EB66D7F006328AF /* RsvpApi.swift */; };
 		A190B1751EB66D7F006328AF /* TaskApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1711EB66D7F006328AF /* TaskApi.swift */; };
+		A190B1771EB67D2B006328AF /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1761EB67D2B006328AF /* UserApi.swift */; };
+		A190B17A1EB68B0D006328AF /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1791EB68B0D006328AF /* CommentApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,9 @@
 		A190B16F1EB66D7F006328AF /* ItemApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemApi.swift; sourceTree = "<group>"; };
 		A190B1701EB66D7F006328AF /* RsvpApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RsvpApi.swift; sourceTree = "<group>"; };
 		A190B1711EB66D7F006328AF /* TaskApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskApi.swift; sourceTree = "<group>"; };
+		A190B1761EB67D2B006328AF /* UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		A190B1781EB688A6006328AF /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		A190B1791EB68B0D006328AF /* CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
 		BA8DCCBDCBEA68C30D6893BC /* Pods_iOS_PartyPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_PartyPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -191,6 +196,9 @@
 				A190B1701EB66D7F006328AF /* RsvpApi.swift */,
 				A190B1711EB66D7F006328AF /* TaskApi.swift */,
 				821B65E51EB04C7E0078333B /* APIClient.swift */,
+				A190B1761EB67D2B006328AF /* UserApi.swift */,
+				A190B1781EB688A6006328AF /* MyPlayground.playground */,
+				A190B1791EB68B0D006328AF /* CommentApi.swift */,
 			);
 			name = APIs;
 			sourceTree = "<group>";
@@ -380,6 +388,7 @@
 				821B65CE1EB011160078333B /* Event.swift in Sources */,
 				821B65E61EB04C7E0078333B /* APIClient.swift in Sources */,
 				821B65E21EB04ABD0078333B /* EventViewController.swift in Sources */,
+				A190B1771EB67D2B006328AF /* UserApi.swift in Sources */,
 				821B65CC1EB011070078333B /* User.swift in Sources */,
 				821B65C21EAFF1E90078333B /* MaterialViewController.swift in Sources */,
 				821B65BE1EAFF1C60078333B /* HomeViewController.swift in Sources */,
@@ -392,6 +401,7 @@
 				821B65C01EAFF1D60078333B /* TasksViewController.swift in Sources */,
 				A190B1731EB66D7F006328AF /* ItemApi.swift in Sources */,
 				821B65D01EB011290078333B /* Task.swift in Sources */,
+				A190B17A1EB68B0D006328AF /* CommentApi.swift in Sources */,
 				A1470F371EAF20C600DE373A /* AppDelegate.swift in Sources */,
 				821B65D61EB03FCB0078333B /* GuestPickupView.swift in Sources */,
 			);
