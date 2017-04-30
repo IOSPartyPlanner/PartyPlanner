@@ -30,7 +30,8 @@ class EventApi: NSObject {
   func getEventById(eventId: String, success: @escaping (Event?) ->(), failure: @escaping () -> ()) {
     print("EventApi : searching for event by Id: \(eventId)")
     var event: Event?
-    fireBaseEventRef.queryEqual(toValue: eventId, childKey: "eventId")
+    fireBaseEventRef.queryOrdered(byChild: "eventId")
+      .queryEqual(toValue: eventId)
       .observe(.value, with: { (snapshot) in
         for taskEvent in snapshot.children {
           event = Event(snapshot: taskEvent as! FIRDataSnapshot)
@@ -48,7 +49,8 @@ class EventApi: NSObject {
   func getEventsHostedByUserId(userId: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
     print("EventApi : searching for events hosted by userId: \(userId)")
     var events: [Event]?
-    fireBaseEventRef.queryEqual(toValue: userId, childKey: "userId")
+    fireBaseEventRef.queryOrdered(byChild: "userId")
+      .queryEqual(toValue: userId)
       .observe(.value, with: { (snapshot) in
         for userEvent in snapshot.children {
           let event = Event(snapshot: userEvent as! FIRDataSnapshot)
@@ -96,5 +98,5 @@ class EventApi: NSObject {
       failure: {
     })
   }
-
+  
 }

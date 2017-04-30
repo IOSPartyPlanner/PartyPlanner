@@ -72,7 +72,7 @@ class User: NSObject {
       "email": email,
       "phone": phone,
       "address": address,
-      "imageUrl": imageUrl.path,
+      "imageUrl": imageUrl.absoluteString,
       "uid": uid,
       "authType": authType.rawValue
     ]

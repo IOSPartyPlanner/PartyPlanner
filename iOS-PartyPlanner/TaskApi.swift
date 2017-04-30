@@ -39,7 +39,8 @@ class TaskApi: NSObject {
   func getTasksByEventId(eventId: String, success: @escaping ([Task]) -> (), failure: @escaping () -> ()) {
     print("TaskAPI : searching tasks by eventId:: \(eventId)")
     var tasks: [Task]?
-    fireBaseTaskRef.queryEqual(toValue: eventId, childKey: "eventId")
+    fireBaseTaskRef.queryOrdered(byChild: "eventId")
+      .queryEqual(toValue: eventId)
       .observe(.value, with: { snapshot in
         for taskChild in snapshot.children {
           let task = Task(snapshot: taskChild as! FIRDataSnapshot)
