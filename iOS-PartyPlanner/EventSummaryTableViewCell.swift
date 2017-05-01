@@ -69,11 +69,13 @@ class VideoView: UIView {
         playerController.showsPlaybackControls = false
         
         playerController.view.frame = frame
-        print(playerController.view.frame)
         addSubview(playerController.view)
+        playerController.view.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        playerController.view.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
 
         playerController.player!.play()
         playerController.player!.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil)
+        print(playerController.view.frame)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -93,11 +95,36 @@ class EventSummaryTableViewCell: UITableViewCell {
     
     var event: Event? {
         didSet {
+            partyNameLabel.text = event?.name
+            locationLabel.text = event?.location
+            
             videoPlayView?.setVideoURL((event?.invitationVideoURL)!)
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .short
+            dateFormatter.timeStyle = .none
+            partyDateLabel.text = dateFormatter.string(from: (event?.date!)!)
+            
+            let timeFormatter = DateFormatter()
+            timeFormatter.dateStyle = .none
+            timeFormatter.timeStyle = .short
+            partyTimeLabel.text = timeFormatter.string(from: (event?.date!)!)
+            
+            taglineLabel.text = event?.tagline
         }
     }
+    
+    @IBOutlet weak var partyNameLabel: UILabel!
+    
+    @IBOutlet weak var locationLabel: UILabel!
+    
+    @IBOutlet weak var partyDateLabel: UILabel!
+    
+    @IBOutlet weak var partyTimeLabel: UILabel!
 
     @IBOutlet weak var videoView: UIView!
+    
+    @IBOutlet weak var taglineLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
