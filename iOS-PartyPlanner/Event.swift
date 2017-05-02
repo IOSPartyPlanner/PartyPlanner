@@ -29,11 +29,15 @@ class Event: NSObject {
     
     var postEventImages: [URL]? = [URL(string: "https://pbs.twimg.com/profile_images/492764609711853568/tE8mncDj_normal.jpeg")!,
         URL(string: "https://pbs.twimg.com/profile_images/3733911236/2020e4bb6c39a3848d5a030f20d367ba_normal.jpeg")!,
-        URL(string: "https://pbs.twimg.com/profile_images/492764609711853568/tE8mncDj_normal.jpeg")!]
+        URL(string: "https://pbs.twimg.com/profile_images/791041568006348801/_4Bbilhv_normal.jpg")!,
+        URL(string: "https://pbs.twimg.com/profile_images/823984252035309568/pPt7JWhh_normal.jpg")!,
+        URL(string: "https://pbs.twimg.com/profile_images/766994233257369600/jMZAoFbs_normal.jpg")!]
     
     var postEventVideos: [URL]?
     
     var likesCount: String?
     
-    var postEventComments: [UserComments]?
+    var postEventComments: [UserComments]? = [
+        UserComments("Tristan Yan", URL(string: "https://pbs.twimg.com/profile_images/492764609711853568/tE8mncDj_normal.jpeg")!, "Nice party")
+    ]
 }

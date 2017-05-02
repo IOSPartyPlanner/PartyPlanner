@@ -14,4 +14,10 @@ class UserComments: NSObject {
     var userImageURL: URL?
     
     var comment: String?
+    
+    init(_ user: String, _ url: URL, _ userComment: String) {
+        username = user
+        userImageURL = url
+        comment = userComment
+    }
 }

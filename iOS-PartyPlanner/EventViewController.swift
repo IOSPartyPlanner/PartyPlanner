@@ -70,7 +70,9 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             return cell1!
         default:
             let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestCommentTableViewCell", for: indexPath) as? EventGuestCommentTableViewCell
-            cell2?.comments = event?.postEventComments[indexPath.row]
+            if let userComment = event?.postEventComments?[indexPath.row] {
+                cell2?.comments = userComment
+            }
             return cell2!
         }
 

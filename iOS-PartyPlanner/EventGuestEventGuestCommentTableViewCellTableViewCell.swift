@@ -9,7 +9,13 @@
 import UIKit
 
 class EventGuestCommentTableViewCell: UITableViewCell {
-    var comments: UserComments?
+    var comments: UserComments? {
+        didSet {
+            guestImageView.setImageWith((comments?.userImageURL)!)
+            guestName.text = comments?.username
+            guestComment.text = comments?.comment!
+        }
+    }
 
     @IBOutlet weak var guestImageView: UIImageView!
     
@@ -23,10 +29,6 @@ class EventGuestCommentTableViewCell: UITableViewCell {
         
         guestImageView.layer.cornerRadius = guestImageView.frame.size.width / 2;
         guestImageView.clipsToBounds = true
-        
-        guestImageView.setImageWith((comments?.userImageURL)!)
-        guestName.text = comments?.username
-        guestComment.text = comments?.comment!
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
