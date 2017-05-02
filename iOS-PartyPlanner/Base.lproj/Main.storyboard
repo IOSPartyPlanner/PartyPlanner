@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -99,72 +98,55 @@
                     <connections>
                         <outlet property="fbLoginButton" destination="lgh-dD-FW3" id="T5g-fE-gBB"/>
                         <outlet property="gLoginButton" destination="4R5-63-ozv" id="teX-O9-Ysr"/>
-                        <segue destination="YFQ-VQ-hit" kind="show" identifier="EventViewSegue" id="YTt-dj-Wc3"/>
+                        <segue destination="VOF-yO-m27" kind="show" identifier="EventViewSegue" id="gL2-Aa-NB4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
-        <!--Event View Controller-->
-        <scene sceneID="Lg0-db-PbI">
+        <!--Events-->
+        <scene sceneID="DK1-5g-iBM">
             <objects>
-                <viewController storyboardIdentifier="EventViewController" id="YFQ-VQ-hit" customClass="EventViewController" customModule="iOS_PartyPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventViewController" id="c1S-qw-u1Y" customClass="EventViewController" customModule="iOS_PartyPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eKK-yc-mD7"/>
-                        <viewControllerLayoutGuide type="bottom" id="9PJ-rD-DBe"/>
+                        <viewControllerLayoutGuide type="top" id="tKO-zb-AiX"/>
+                        <viewControllerLayoutGuide type="bottom" id="0fh-3R-tRB"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="lvR-sG-KrC">
+                    <view key="view" contentMode="scaleAspectFit" id="6no-Ib-huW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="375" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CcY-UH-L2e">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventSummaryTableViewCell" rowHeight="375" id="9U1-67-dZ5" customClass="EventSummaryTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="375"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9U1-67-dZ5" id="svQ-KP-lkz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBL-Ad-fwx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="VBL-Ad-fwx" secondAttribute="height" multiplier="16:9" id="RAK-Xo-dpr"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="VBL-Ad-fwx" secondAttribute="trailing" id="0wp-w6-elI"/>
-                                                <constraint firstItem="VBL-Ad-fwx" firstAttribute="leading" secondItem="svQ-KP-lkz" secondAttribute="leading" id="lG8-ni-Jlk"/>
-                                                <constraint firstItem="VBL-Ad-fwx" firstAttribute="top" secondItem="svQ-KP-lkz" secondAttribute="top" id="z5y-S9-abj"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="videoView" destination="VBL-Ad-fwx" id="0mH-Ft-Gbf"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="CcY-UH-L2e" secondAttribute="trailing" id="CEz-Jl-Kaw"/>
-                            <constraint firstItem="9PJ-rD-DBe" firstAttribute="top" secondItem="CcY-UH-L2e" secondAttribute="bottom" id="eek-bx-YOu"/>
-                            <constraint firstItem="CcY-UH-L2e" firstAttribute="top" secondItem="lvR-sG-KrC" secondAttribute="top" id="jx7-d8-huJ"/>
-                            <constraint firstItem="CcY-UH-L2e" firstAttribute="leading" secondItem="lvR-sG-KrC" secondAttribute="leading" id="sxp-P3-W00"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="eventTableView" destination="CcY-UH-L2e" id="byi-LC-4TF"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Events" id="tuy-n1-Yt6">
+                        <barButtonItem key="leftBarButtonItem" title="Signout" id="zp6-Re-AUf">
+                            <connections>
+                                <action selector="onSignout:" destination="c1S-qw-u1Y" id="bcb-SA-5Mh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="av6-Ky-zzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MwX-3E-Bd0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="914.39999999999998" y="137.18140929535232"/>
+            <point key="canvasLocation" x="1839.2" y="138.98050974512745"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="o6r-RN-ypf">
+            <objects>
+                <navigationController storyboardIdentifier="EventViewNC" automaticallyAdjustsScrollViewInsets="NO" id="VOF-yO-m27" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5iL-Dk-x6m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="c1S-qw-u1Y" kind="relationship" relationship="rootViewController" id="68K-2f-2pe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dPY-Qi-Mgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="138.98050974512745"/>
         </scene>
     </scenes>
     <resources>

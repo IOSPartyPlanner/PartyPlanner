@@ -23,6 +23,9 @@ class User: NSObject {
   var ref: FIRDatabaseReference?
   var key: String?
   
+  static var logout: Notification = Notification(name: Notification.Name(rawValue: "UserLogOut"))
+
+  
   init(name: String,
        email: String?, phone: String? = nil,
        imageUrl: URL?, authType: String? = AuthenticationType.PartyPlanner.rawValue,
@@ -83,11 +86,12 @@ class User: NSObject {
     
     
     set(user) {
-      let userDictionary: [String:String] = ["name": (user?.name)!, "email": (user?.email)!, "imageUrl": (user?.imageUrl?.absoluteString)!, "uid": (user?.uid)!, "authType": (user?.authType!)!]
-
+      
       let defaults = UserDefaults.standard
       
       if user != nil {
+        let userDictionary: [String:String] = ["name": (user?.name)!, "email": (user?.email)!, "imageUrl": (user?.imageUrl?.absoluteString)!, "uid": (user?.uid)!, "authType": (user?.authType!)!]
+
         let data = try! JSONSerialization.data(withJSONObject: userDictionary as Any, options: [])
         defaults.set(data, forKey: "currentUserData")
       }
@@ -99,6 +103,11 @@ class User: NSObject {
       
       print("Setting currentuser")
     }
+  }
+  
+  func signout(){
+    User.currentUser = nil
+    NotificationCenter.default.post(User.logout)
   }
 
 }
