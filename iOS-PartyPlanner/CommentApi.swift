@@ -26,7 +26,7 @@ class CommentApi: NSObject {
     delegate?.commentApi!(userApi: self, commentUpdated: comment)
   }
   
-  func getCommentById(commentId: String, success: @escaping (Comment?) ->(), failure: @escaping () -> ()) {
+ func getCommentById(commentId: String, success: @escaping (Comment?) ->(), failure: @escaping () -> ()) {
     print("CommentApi : searching for Comment by id \(commentId)")
     var comment: Comment?
     fireBaseCommentRef.queryOrdered(byChild: "id")
