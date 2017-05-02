@@ -7,18 +7,24 @@
 //
 
 import UIKit
+import Firebase
+
 
 class EventViewController: UIViewController {
 
-    @IBOutlet weak var eventTableView: UITableView!
-    
+  @IBAction func onSignout(_ sender: UIBarButtonItem) {
+    User.currentUser?.signout()
+//    FIRAuth.auth()?.signOut()
+  }
+//    @IBOutlet weak var eventTableView: UITableView!
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        eventTableView.delegate = self
-        eventTableView.dataSource = self
+//        eventTableView.delegate = self
+//        eventTableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,14 +45,14 @@ class EventViewController: UIViewController {
 
 }
 
-extension EventViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = eventTableView.dequeueReusableCell(withIdentifier: "EventSummaryTableViewCell", for: indexPath) as? EventSummaryTableViewCell
-//        cell?.event = APIClient.sharedInstance.fecthEvent(byId: "")
-        return cell!
-    }
-}
+//extension EventViewController: UITableViewDelegate, UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 1
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = eventTableView.dequeueReusableCell(withIdentifier: "EventSummaryTableViewCell", for: indexPath) as? EventSummaryTableViewCell
+////        cell?.event = APIClient.sharedInstance.fecthEvent(byId: "")
+//        return cell!
+//    }
+//}

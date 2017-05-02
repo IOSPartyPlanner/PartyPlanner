@@ -27,8 +27,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate{ //, GIDSignInDelegate{
     
     FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     
-    Fabric.with([Twitter.self])
+//    Fabric.with([Twitter.self])
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    if User.currentUser != nil {
+      let vc = storyboard.instantiateViewController(withIdentifier: "EventViewNC") //as! EventViewController
+      
+      window?.rootViewController = vc
+    }
     
+    NotificationCenter.default.addObserver(forName: User.logout.name, object: nil, queue: OperationQueue.main) { (Notification) in
+      let vc = storyboard.instantiateInitialViewController()
+      self.window?.rootViewController = vc
+    }
+
+
     return true
   }
     
