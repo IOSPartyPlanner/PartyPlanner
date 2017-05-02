@@ -41,6 +41,9 @@
 		A190B1751EB66D7F006328AF /* TaskApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1711EB66D7F006328AF /* TaskApi.swift */; };
 		A190B1771EB67D2B006328AF /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1761EB67D2B006328AF /* UserApi.swift */; };
 		A190B17A1EB68B0D006328AF /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1791EB68B0D006328AF /* CommentApi.swift */; };
+		F7B01E901EB7EC190023852A /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E8F1EB7EC190023852A /* EventDetailViewController.swift */; };
+		F7B01E921EB7F4C70023852A /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E911EB7F4C70023852A /* MediaCollectionViewCell.swift */; };
+		F7B01E941EB7F4E30023852A /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E931EB7F4E30023852A /* CommentsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +85,9 @@
 		A190B1761EB67D2B006328AF /* UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		A190B1791EB68B0D006328AF /* CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
 		BA8DCCBDCBEA68C30D6893BC /* Pods_iOS_PartyPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_PartyPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7B01E8F1EB7EC190023852A /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		F7B01E911EB7F4C70023852A /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
+		F7B01E931EB7F4E30023852A /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,8 @@
 				821B65D71EB0400C0078333B /* EventTableViewCell.swift */,
 				821B65D91EB0403A0078333B /* EventMediaCollectionTableViewCell.swift */,
 				821B65DB1EB040500078333B /* EventGuestsTableViewCell.swift */,
+				F7B01E911EB7F4C70023852A /* MediaCollectionViewCell.swift */,
+				F7B01E931EB7F4E30023852A /* CommentsTableViewCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -159,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				A14EE5F21EB51B98006889D1 /* Utils */,
-				821B65C31EB006FF0078333B /* UIComponents */,
 				A1470F4D1EAF244000DE373A /* ViewControllers */,
 				A1470F4C1EAF243B00DE373A /* Views */,
 				A1470F4B1EAF243200DE373A /* APIs */,
@@ -218,6 +225,7 @@
 				821B65DD1EB040B30078333B /* RSVPViewController.swift */,
 				821B65E11EB04ABD0078333B /* EventViewController.swift */,
 				821B65E31EB04B1C0078333B /* LoginViewController.swift */,
+				F7B01E8F1EB7EC190023852A /* EventDetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -226,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				A14EE5F31EB51BAD006889D1 /* Uitls.swift */,
+				821B65C31EB006FF0078333B /* UIComponents */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -335,7 +344,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6E784677F281C773C25D3B6D /* [CP] Embed Pods Frameworks */ = {
@@ -382,6 +391,7 @@
 				A14EE5F41EB51BAD006889D1 /* Uitls.swift in Sources */,
 				A190B1741EB66D7F006328AF /* RsvpApi.swift in Sources */,
 				A190B1721EB66D7F006328AF /* EventApi.swift in Sources */,
+				F7B01E941EB7F4E30023852A /* CommentsTableViewCell.swift in Sources */,
 				821B65D81EB0400C0078333B /* EventTableViewCell.swift in Sources */,
 				821B65CE1EB011160078333B /* Event.swift in Sources */,
 				821B65E61EB04C7E0078333B /* APIClient.swift in Sources */,
@@ -395,12 +405,14 @@
 				821B65DE1EB040B30078333B /* RSVPViewController.swift in Sources */,
 				821B65D41EB0115C0078333B /* Item.swift in Sources */,
 				A190B1751EB66D7F006328AF /* TaskApi.swift in Sources */,
+				F7B01E921EB7F4C70023852A /* MediaCollectionViewCell.swift in Sources */,
 				A1470F6D1EB17AA600DE373A /* Comment.swift in Sources */,
 				821B65C01EAFF1D60078333B /* TasksViewController.swift in Sources */,
 				A190B1731EB66D7F006328AF /* ItemApi.swift in Sources */,
 				821B65D01EB011290078333B /* Task.swift in Sources */,
 				A190B17A1EB68B0D006328AF /* CommentApi.swift in Sources */,
 				A1470F371EAF20C600DE373A /* AppDelegate.swift in Sources */,
+				F7B01E901EB7EC190023852A /* EventDetailViewController.swift in Sources */,
 				821B65D61EB03FCB0078333B /* GuestPickupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,6 +543,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS-PartyPlanner/iOS-PartyPlanner.entitlements";
 				DEVELOPMENT_TEAM = N4K56QKDWM;
 				INFOPLIST_FILE = "iOS-PartyPlanner/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.partydevs.iOS-PartyPlanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -548,6 +561,7 @@
 				CODE_SIGN_ENTITLEMENTS = "iOS-PartyPlanner/iOS-PartyPlanner.entitlements";
 				DEVELOPMENT_TEAM = N4K56QKDWM;
 				INFOPLIST_FILE = "iOS-PartyPlanner/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.partydevs.iOS-PartyPlanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";

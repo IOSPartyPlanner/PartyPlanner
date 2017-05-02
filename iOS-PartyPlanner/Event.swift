@@ -14,6 +14,7 @@ public class Event: NSObject {
   var invitationVideoURL: URL?
   var id: String
   var name: String?
+  var detail: String?
   var dateTime: Date
   var tagline: String
   var hostEmail: String
@@ -27,6 +28,7 @@ public class Event: NSObject {
   var ref: FIRDatabaseReference?
   var key: String?
   
+    //TODO: Need to add detail field to event table in Friebase
   init(id: String, invitationVideoURL:URL?, name: String?,
        dateTime: Date, tagline: String, hostEmail: String,
        location: String, inviteMediaUrl: URL,
