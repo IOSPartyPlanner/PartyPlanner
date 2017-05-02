@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -65,15 +65,8 @@
                                 </constraints>
                                 <state key="normal" image="fbLogin"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mu-6Y-8Aw">
-                                <rect key="frame" x="40" y="451" width="295" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="5y7-Ot-10B"/>
-                                </constraints>
-                                <state key="normal" image="tLogin"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4R5-63-ozv">
-                                <rect key="frame" x="40" y="521" width="295" height="50"/>
+                                <rect key="frame" x="40" y="471" width="295" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="o2j-BN-IV5"/>
                                 </constraints>
@@ -83,17 +76,14 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4R5-63-ozv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0EH-DQ-Kq4"/>
-                            <constraint firstItem="2mu-6Y-8Aw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="40" id="2El-en-dfs"/>
                             <constraint firstAttribute="trailing" secondItem="4R5-63-ozv" secondAttribute="trailing" constant="40" id="6rd-YG-0M0"/>
-                            <constraint firstItem="4R5-63-ozv" firstAttribute="top" secondItem="2mu-6Y-8Aw" secondAttribute="bottom" constant="20" id="AAU-dy-Lro"/>
                             <constraint firstItem="4R5-63-ozv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="40" id="HAD-Ja-Ueb"/>
                             <constraint firstItem="Q2m-CC-Wfa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="I1f-fN-oC4"/>
                             <constraint firstItem="Q2m-CC-Wfa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="179" id="Ibf-3W-aze"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JdS-CM-geH" secondAttribute="bottom" id="JUe-0K-Uyi"/>
-                            <constraint firstItem="2mu-6Y-8Aw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NrR-J8-R6X"/>
                             <constraint firstItem="Q2m-CC-Wfa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pxf-fa-XXX"/>
+                            <constraint firstItem="4R5-63-ozv" firstAttribute="top" secondItem="lgh-dD-FW3" secondAttribute="bottom" constant="40" id="U2s-ZL-zzu"/>
                             <constraint firstItem="JdS-CM-geH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vcm-9p-V9J"/>
-                            <constraint firstItem="2mu-6Y-8Aw" firstAttribute="top" secondItem="lgh-dD-FW3" secondAttribute="bottom" constant="20" id="WWc-q7-6CP"/>
                             <constraint firstAttribute="trailing" secondItem="lgh-dD-FW3" secondAttribute="trailing" constant="40" id="aH1-Wr-BnS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Q2m-CC-Wfa" secondAttribute="trailing" constant="20" id="c02-b2-Z7r"/>
                             <constraint firstItem="r2y-QW-3oV" firstAttribute="top" secondItem="Q2m-CC-Wfa" secondAttribute="bottom" constant="2" id="fPk-2t-Gii"/>
@@ -104,13 +94,11 @@
                             <constraint firstItem="r2y-QW-3oV" firstAttribute="trailing" secondItem="Q2m-CC-Wfa" secondAttribute="trailing" id="nbG-oP-i1R"/>
                             <constraint firstItem="r2y-QW-3oV" firstAttribute="leading" secondItem="Q2m-CC-Wfa" secondAttribute="leading" id="oAt-Zf-vj0"/>
                             <constraint firstAttribute="trailing" secondItem="JdS-CM-geH" secondAttribute="trailing" id="oqy-8f-weV"/>
-                            <constraint firstAttribute="trailing" secondItem="2mu-6Y-8Aw" secondAttribute="trailing" constant="40" id="peg-eJ-he8"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="fbLoginButton" destination="lgh-dD-FW3" id="T5g-fE-gBB"/>
                         <outlet property="gLoginButton" destination="4R5-63-ozv" id="teX-O9-Ysr"/>
-                        <outlet property="tLoginButton" destination="2mu-6Y-8Aw" id="zDU-d3-1jl"/>
                         <segue destination="YFQ-VQ-hit" kind="show" identifier="EventViewSegue" id="YTt-dj-Wc3"/>
                     </connections>
                 </viewController>
@@ -121,7 +109,7 @@
         <!--Event View Controller-->
         <scene sceneID="Lg0-db-PbI">
             <objects>
-                <viewController id="YFQ-VQ-hit" customClass="EventViewController" customModule="iOS_PartyPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventViewController" id="YFQ-VQ-hit" customClass="EventViewController" customModule="iOS_PartyPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eKK-yc-mD7"/>
                         <viewControllerLayoutGuide type="bottom" id="9PJ-rD-DBe"/>
@@ -183,6 +171,5 @@
         <image name="fbLogin" width="376" height="60"/>
         <image name="gLogin" width="373" height="60"/>
         <image name="loginPage" width="1920" height="1200"/>
-        <image name="tLogin" width="366" height="62"/>
     </resources>
 </document>
