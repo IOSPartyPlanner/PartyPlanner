@@ -27,8 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate{ //, GIDSignInDelegate{
     
     FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     
-    Fabric.with([Twitter.self])
+//    Fabric.with([Twitter.self])
     
+    if User.currentUser != nil {
+      let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+      
+      window?.rootViewController = vc
+    }
+
     return true
   }
     
