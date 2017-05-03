@@ -26,6 +26,13 @@ class User: NSObject {
   static var logout: Notification = Notification(name: Notification.Name(rawValue: "UserLogOut"))
 
   
+  override init(){
+    //"Populate the user properties later"
+    name = ""
+    uid = ""
+  }
+  
+  
   init(name: String,
        email: String?, phone: String? = nil,
        imageUrl: URL?, authType: String? = AuthenticationType.PartyPlanner.rawValue,
@@ -56,6 +63,7 @@ class User: NSObject {
     return [
       "name": name,
       "email": email,
+      "phone": phone,
       "imageUrl": imageUrl!.absoluteString,
       "uid": uid,
       "authType": authType
@@ -69,15 +77,31 @@ class User: NSObject {
         let defaults = UserDefaults.standard
         let userData = defaults.object(forKey: "currentUserData") as? Data
         if userData != nil {
-          let dictionary = try!
-            JSONSerialization.jsonObject(with: userData!, options: []) as! NSDictionary
+          let dictionary: [String:String] = try!
+            JSONSerialization.jsonObject(with: userData!, options: []) as! [String : String]
           
           print(dictionary)
-          _currentUser = User(name: dictionary["name"] as! String, email: dictionary["email"] as? String, imageUrl: URL(string: dictionary["imageUrl"] as! String), authType: dictionary["authType"] as? String, uid: dictionary["uid"] as! String)
-          //User(name: dictionary["name"] as! String, email: dictionary["email"] as? String, imageUrl: URL(url: dictionary["imageUrl"]) as? URL, uid: dictionary["uid"] as! String)
-//              print("Getting currentuser", _currentUser?.name)
-          print(dictionary["name"] as! String, " ", dictionary["email"] as! String)
-
+          _currentUser = User()
+          for (key,value) in dictionary{
+            switch key {
+            case "name":
+              _currentUser?.name = value
+            case "email":
+              _currentUser?.email = value
+            case "imageUrl":
+              _currentUser?.imageUrl = URL(string: value)
+            case "uid":
+              _currentUser?.uid = value
+            case "authType":
+              _currentUser?.authType = value
+            case "phone":
+              _currentUser?.phone = value
+            case "ref":
+              _currentUser?.ref = (value as? FIRDatabaseReference)
+            default:
+              _currentUser?.key = value
+            }
+          }
         }
       }
       
@@ -90,8 +114,21 @@ class User: NSObject {
       let defaults = UserDefaults.standard
       
       if user != nil {
-        let userDictionary: [String:String] = ["name": (user?.name)!, "email": (user?.email)!, "imageUrl": (user?.imageUrl?.absoluteString)!, "uid": (user?.uid)!, "authType": (user?.authType!)!]
+        var userDictionary: [String:String] = ["name": (user?.name)!, "email": (user?.email)!, "uid": (user?.uid)!, "authType": (user?.authType!)!]
 
+        if user?.imageUrl != nil {
+          userDictionary["imageUrl"] = user?.imageUrl?.absoluteString
+        }
+        if user?.phone != nil {
+          userDictionary["phone"] = user?.phone
+        }
+        if user?.ref != nil {
+          userDictionary["ref"] = String(describing: (user?.ref)!)
+        }
+        if user?.key != nil {
+          userDictionary["key"] = user?.key
+        }
+        
         let data = try! JSONSerialization.data(withJSONObject: userDictionary as Any, options: [])
         defaults.set(data, forKey: "currentUserData")
       }
@@ -100,14 +137,26 @@ class User: NSObject {
         
       }
       defaults.synchronize()
-      
-      print("Setting currentuser")
     }
   }
   
   func signout(){
+    do {
+     let user = FIRAuth.auth()?.currentUser
+      
+      user?.delete { error in
+        if error != nil {
+//          print("Error while deleting a user", error?.localizedDescription as Any)
+        } else {
+//          print(user as Any, " : has been deleted")
+        }
+      }
+      try FIRAuth.auth()?.signOut()
+    } catch let signoutEror as NSError {
+      print("Error in signout the user: ", signoutEror)
+      return
+    }
     User.currentUser = nil
     NotificationCenter.default.post(User.logout)
   }
-
 }

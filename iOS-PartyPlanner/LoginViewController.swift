@@ -15,16 +15,6 @@ import TwitterKit
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate{
 
-    @IBAction func onSignout(_ sender: Any) {
-        print("Signout")
-        let firebaseAuth = FIRAuth.auth()
-        do {
-            try firebaseAuth?.signOut()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-    }
-
     @IBOutlet weak var fbLoginButton: UIButton!
     @IBOutlet weak var gLoginButton: UIButton!
 //    @IBOutlet weak var tLoginButton: UIButton!
@@ -61,7 +51,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
 //                print("Twitter login failed", error ?? "")
 //                return
 //            }
-////            session.useremail
 //            guard let token = session?.authToken else {return}
 //            guard let secret = session?.authTokenSecret else { return }
 //            let credentials = FIRTwitterAuthProvider.credential(withToken: token, secret: secret)
@@ -81,7 +70,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
 //            print(response)
 //        }
 //        
-////        print(request)
 //    }
     
 
@@ -100,17 +88,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
             self.performSegue(withIdentifier: "EventViewSegue", sender: self)
             self.showEmail()
             
-        }
-    }
-
-    func showEmail(){
-        
-        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, error) in
-            if error != nil {
-                print("FBSDKGraphRequest failed", error ?? "")
-                return
-            }
-            print(result ?? "")
         }
     }
 
@@ -134,7 +111,19 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         signIntoFirebase(credentials: credential, .Google)
         performSegue(withIdentifier: "EventViewSegue", sender: self)
     }
+  
+  func showEmail(){
     
+    FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, error) in
+      if error != nil {
+        print("FBSDKGraphRequest failed", error ?? "")
+        return
+      }
+      print(result ?? "")
+    }
+  }
+
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -145,13 +134,15 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
                 print("Failed to login to firebase", error ?? "")
                 return
             }
-            print("Successful login to firebase", user ?? "")
-            
-            let uuid = UUID().uuidString
           
+          print("Successful login to firebase", user ?? "")
+            
+          var uuid:String = (user?.email?.replacingOccurrences(of: ".", with: ""))!
+          uuid = uuid.replacingOccurrences(of: "@", with: "")
+          uuid = uuid + authType.rawValue
+          print(uuid)
           User.currentUser = User(name: (user?.displayName)!, email: user?.email, imageUrl: user?.photoURL, authType: authType.rawValue, uid: uuid)
         })
-
     }
 }
 
