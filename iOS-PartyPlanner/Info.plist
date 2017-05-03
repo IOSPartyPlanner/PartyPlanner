@@ -2,25 +2,31 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Fabric</key>
-    <dict>
-        <key>APIKey</key>
-        <string>60435a67414f14ed43a413382b4ec2409caa5406</string>
-        <key>Kits</key>
-        <array>
-            <dict>
-                <key>KitInfo</key>
-                <dict>
-                    <key>consumerKey</key>
-                    <string>jruz2HGuxjCyVND8pANzJyb0f</string>
-                    <key>consumerSecret</key>
-                    <string>pfThcd4Pv8wxZWhuM8ACHQaKcGj6yistdEOAecRPX67Oj2yvT0</string>
-                </dict>
-                <key>KitName</key>
-                <string>Twitter</string>
-            </dict>
-        </array>
-    </dict>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>PP wants to access you Microphone</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>PP wants acess to your Photos</string>
+	<key>NSCameraUsageDescription</key>
+	<string>PP wants acess to camera</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>60435a67414f14ed43a413382b4ec2409caa5406</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>consumerKey</key>
+					<string>u2pdpnTSWAyunvauLHDZ6hNmF</string>
+					<key>consumerSecret</key>
+					<string>FdJF5KNfVzkyxs7ztCqTtGQrmrSVgRmiUxv5sW8h0HFJGFXuTy</string>
+				</dict>
+				<key>KitName</key>
+				<string>Twitter</string>
+			</dict>
+		</array>
+	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -58,25 +64,6 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>Fabric</key>
-	<dict>
-		<key>APIKey</key>
-		<string>60435a67414f14ed43a413382b4ec2409caa5406</string>
-		<key>Kits</key>
-		<array>
-			<dict>
-				<key>KitInfo</key>
-				<dict>
-					<key>consumerKey</key>
-					<string>u2pdpnTSWAyunvauLHDZ6hNmF</string>
-					<key>consumerSecret</key>
-					<string>FdJF5KNfVzkyxs7ztCqTtGQrmrSVgRmiUxv5sW8h0HFJGFXuTy</string>
-				</dict>
-				<key>KitName</key>
-				<string>Twitter</string>
-			</dict>
-		</array>
-	</dict>
 	<key>FacebookAppID</key>
 	<string>656208881246578</string>
 	<key>FacebookDisplayName</key>
