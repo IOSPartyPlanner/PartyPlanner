@@ -24,7 +24,7 @@ class UserApi: NSObject {
   
   func storeUser(user: User) {
     print("UserAPI : Storing/updating user")
-    let userRef = fireBaseTaskRef.child(user.email!)
+    let userRef = fireBaseTaskRef.child(user.uid)
     userRef.setValue(user.toAnyObject())
     delegate?.userApi!(userApi: self, userUpdated: user)
   }

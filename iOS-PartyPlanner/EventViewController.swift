@@ -14,7 +14,6 @@ class EventViewController: UIViewController {
 
   @IBAction func onSignout(_ sender: UIBarButtonItem) {
     User.currentUser?.signout()
-//    FIRAuth.auth()?.signOut()
   }
 //    @IBOutlet weak var eventTableView: UITableView!
   

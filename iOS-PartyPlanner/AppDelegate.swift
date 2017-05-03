@@ -31,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{ //, GIDSignInDelegate{
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     if User.currentUser != nil {
       let vc = storyboard.instantiateViewController(withIdentifier: "EventViewNC") //as! EventViewController
-      
       window?.rootViewController = vc
     }
     
@@ -39,8 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{ //, GIDSignInDelegate{
       let vc = storyboard.instantiateInitialViewController()
       self.window?.rootViewController = vc
     }
-
-
     return true
   }
     
