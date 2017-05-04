@@ -14,6 +14,7 @@ target 'iOS-PartyPlanner' do
   pod 'TwitterCore'  
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 
 # Pods for iOS-PartyPlanner
 

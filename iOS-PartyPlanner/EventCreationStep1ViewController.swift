@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 import AVKit
+import Firebase
+
 
 class EventCreationStep1ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
@@ -17,6 +19,8 @@ class EventCreationStep1ViewController: UIViewController, UIImagePickerControlle
   @IBOutlet weak var mediaDisplayView: UIImageView!
   
   var videoUrl: URL?
+  var image: NSData?
+  var video: NSData?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,17 +41,28 @@ class EventCreationStep1ViewController: UIViewController, UIImagePickerControlle
   @IBAction func onAddImageButton(_ sender: Any) {
     let picker = UIImagePickerController()
     picker.delegate = self
+    picker.allowsEditing = true
     picker.sourceType = .photoLibrary
     picker.mediaTypes = ["public.image", "public.movie"]
     
-    present(picker, animated: true) { }
+    self.present(picker, animated: true,completion: nil)
   }
   
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-    print(info["UIImagePickerControllerMediaType"] as! String)
-    if info["UIImagePickerControllerMediaType"] as! String == "public.image" {
+    
+    if info[UIImagePickerControllerMediaType] as! String == "public.image" {
       
       mediaDisplayView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+      image = UIImageJPEGRepresentation(mediaDisplayView.image!, 0.5) as! NSData
+//      image = UIImagePNGRepresentation() as! NSData //, 0.8)! as NSData
+      
+      uploadImageToFireBase(success: {
+        print("Image Uploaded2")
+        self.mediaDisplayView.contentMode = .scaleAspectFit
+        self.dismiss(animated: true) {}
+      }, failure: {
+        print("Error Uploading Image!")
+      })
       
     } else if info["UIImagePickerControllerMediaType"] as! String == "public.movie" {
       
@@ -57,8 +72,7 @@ class EventCreationStep1ViewController: UIViewController, UIImagePickerControlle
       
     }
     
-    mediaDisplayView.contentMode = .scaleAspectFit
-    dismiss(animated: true) {}
+    
   }
   
   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -80,6 +94,41 @@ class EventCreationStep1ViewController: UIViewController, UIImagePickerControlle
       }
     }
   }
+  
+  func uploadImageToFireBase(success: @escaping () -> (), failure: @escaping () -> ())
+  {
+    let storageRef = FIRStorage.storage().reference()
+    let filePath = "EventMedia/event001/eventImage1.jpg"
+    let mediaStorageRef = storageRef.child("media")
+    
+    let metadata = FIRStorageMetadata()
+    metadata.contentType = "image/jpg"
+    
+    let imageRef = mediaStorageRef.child(filePath)
+    
+    FIRAuth.auth()?.createUser(withEmail: "u3@gmail.com", password: "qwerty", completion: {
+      (user: FIRUser?, error: Error?) in
+      if error != nil {
+        print("UNable to login")
+      } else {
+        print("successful login")
+        _ = imageRef.put(self.image! as Data, metadata: metadata, completion: { (metadataRes, error) in
+          
+          if error != nil {
+            print("Error Uploading Image!:: \(error?.localizedDescription ?? "oops error")")
+            return
+          } else {
+            print("Image Uploaded!")
+            print(metadataRes)
+            let downloadURL = metadata.downloadURL
+            print(downloadURL)
+            success()
+          }
+        })
+      }
+    })
+  }
+  
   
   func previewImageFromVideo(_ url:URL) -> UIImage? {
     let asset = AVAsset(url:url)
