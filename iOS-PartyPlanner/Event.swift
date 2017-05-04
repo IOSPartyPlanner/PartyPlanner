@@ -12,7 +12,7 @@ public class Event: NSObject {
   let fireBaseRef = FIRDatabase.database().reference(withPath: "event")
   
   var invitationVideoURL: URL?
-  var id: String
+  var id: String // Event ID
   var name: String?
   var detail: String?
   var dateTime: Date

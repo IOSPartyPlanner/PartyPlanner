@@ -5,6 +5,7 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - DLRadioButton (1.4.9)
   - Fabric (1.6.11)
   - FBSDKCoreKit (4.22.0):
     - Bolts (~> 1.7)
@@ -63,6 +64,7 @@ PODS:
     - TwitterCore (>= 2.8)
 
 DEPENDENCIES:
+  - DLRadioButton (~> 1.4)
   - Fabric
   - FBSDKCoreKit
   - FBSDKLoginKit
@@ -76,6 +78,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  DLRadioButton: 7bb8a6e3768b572469ace553391ab4d2af6f9c19
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   FBSDKCoreKit: c693bad19feb225469eeff14452ba364522ee48b
   FBSDKLoginKit: 1fa529fc622d7b32ebeaffbecd377180833c6d30
@@ -93,6 +96,6 @@ SPEC CHECKSUMS:
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
   TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
 
-PODFILE CHECKSUM: 69df9eab5c36ac57b68c9fb7580f4173cb78c60e
+PODFILE CHECKSUM: eeab72a169c0f61e5d3ce036bbb37ba26d87b100
 
 COCOAPODS: 1.2.1

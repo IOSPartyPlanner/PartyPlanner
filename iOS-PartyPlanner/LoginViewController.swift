@@ -13,7 +13,7 @@ import GoogleSignIn
 import TwitterKit
 
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate{
+class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate, UserApiDelegate{
 
     @IBOutlet weak var fbLoginButton: UIButton!
     @IBOutlet weak var gLoginButton: UIButton!
@@ -85,7 +85,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
             let credentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
 
             self.signIntoFirebase(credentials: credentials, .Facebook)
-            self.performSegue(withIdentifier: "EventViewSegue", sender: self)
+//            self.performSegue(withIdentifier: "EventViewSegue", sender: self)
             self.showEmail()
             
         }
@@ -109,7 +109,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
         
         signIntoFirebase(credentials: credential, .Google)
-        performSegue(withIdentifier: "EventViewSegue", sender: self)
+//        performSegue(withIdentifier: "EventViewSegue", sender: self)
     }
   
   func showEmail(){
@@ -139,9 +139,17 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
             
           var uuid:String = (user?.email?.replacingOccurrences(of: ".", with: ""))!
           uuid = uuid.replacingOccurrences(of: "@", with: "")
-          uuid = uuid + authType.rawValue
+
           print(uuid)
           User.currentUser = User(name: (user?.displayName)!, email: user?.email, imageUrl: user?.photoURL, authType: authType.rawValue, uid: uuid)
+          UserApi.sharedInstance.storeUser(user: User.currentUser!)
+          if RSVP.currentInstance == nil {
+            self.performSegue(withIdentifier: "EventViewSegue", sender: self)
+          }
+          else {
+            self.performSegue(withIdentifier: "RSVPSegue", sender: self)
+          }
+          
         })
     }
 }

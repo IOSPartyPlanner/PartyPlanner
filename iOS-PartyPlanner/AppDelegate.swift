@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{ //, GIDSignInDelegate{
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+    print("didFinishLaunchingWithOptions")
     FIRApp.configure()
 
     GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
@@ -38,19 +39,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate{ //, GIDSignInDelegate{
       let vc = storyboard.instantiateInitialViewController()
       self.window?.rootViewController = vc
     }
+    RSVP.currentInstance = nil
     return true
   }
     
    
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        
+      
+      print("UIApplicationOpenURLOptionsKey")
         FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         
         GIDSignIn.sharedInstance().handle(url, sourceApplication:
             options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-        
-        return true
+      
+      if (url.absoluteString.hasPrefix("rsvp")){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if User.currentUser != nil {
+          let vc = storyboard.instantiateViewController(withIdentifier: "RSVP") //as! EventViewController
+          window?.rootViewController = vc
+        }
+        else {
+          let vc = storyboard.instantiateInitialViewController()
+          self.window?.rootViewController = vc
+        }
+       RSVP.currentInstance = RSVP()
+       RSVP.currentInstance?.handleRsvpUrl(url)
+      }
+
+      return true
     }
     
   func applicationWillResignActive(_ application: UIApplication) {

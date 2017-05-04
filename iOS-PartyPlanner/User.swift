@@ -156,6 +156,7 @@ class User: NSObject {
       print("Error in signout the user: ", signoutEror)
       return
     }
+    UserApi.sharedInstance.removeUser(user: User.currentUser!)
     User.currentUser = nil
     NotificationCenter.default.post(User.logout)
   }

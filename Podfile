@@ -14,7 +14,7 @@ target 'iOS-PartyPlanner' do
   pod 'TwitterCore'  
   pod 'Firebase/Core'
   pod 'Firebase/Database'
-
+  pod 'DLRadioButton', '~> 1.4'
 # Pods for iOS-PartyPlanner
 
 end
