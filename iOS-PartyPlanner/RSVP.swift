@@ -16,7 +16,7 @@ class RSVP: NSObject {
 
   let fireBaseRef = FIRDatabase.database().reference(withPath: "rsvp")
   
-  var id: String
+  var id: String // eventID + guestUID 
   var eventId: String
   var guestEmail: String
   // the number of persons coming with the guest

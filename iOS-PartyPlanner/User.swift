@@ -19,7 +19,7 @@ class User: NSObject {
   var phone: String?
   var imageUrl: URL?
   var authType:String?
-  var uid: String
+  var uid: String  // email id without any special characters. For "user.1@user.com" uid = "user1usercom
   var ref: FIRDatabaseReference?
   var key: String?
   
