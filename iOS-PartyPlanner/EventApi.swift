@@ -110,21 +110,36 @@ class EventApi: NSObject {
         var eventIds : [String] = []
         // get list of eventIds the user is invited to
         for rsvp in rsvps {
-        	eventIds.append(rsvp.eventId)
+          eventIds.append(rsvp.eventId)
         }
         
         var events : [Event] = []
+        
+        let group = DispatchGroup()
+        let syncQueue = DispatchQueue(label: "com.domain.app.sections")
+        
         for eventId in eventIds {
+          group.enter()
           self.getEventById(eventId: eventId,
-                       success: { (event) in
-                        events.append(event!)
+                            success: { (event) in
+                              syncQueue.async {
+                                events.append(event!)
+                                group.leave()
+                              }
+                              
           },
-                       failure: {
-                        print("Error fetching events")
+                            
+                            failure: {
+                              print("Error fetching events")
           })
         }
-        success(events)
-    }) { 
+        
+        group.notify(queue: .main) {
+          success(events)
+        }
+        
+    })
+    {
       print("Error fetching RSVPS for user")
       failure()
     }
