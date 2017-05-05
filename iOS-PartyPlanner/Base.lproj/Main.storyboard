@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YFQ-VQ-hit">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fJw-ag-9nE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -405,10 +405,10 @@
             </objects>
             <point key="canvasLocation" x="1853.5999999999999" y="137.18140929535232"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="TEt-Q0-Xbw">
             <objects>
-                <viewController id="aB6-Du-m3F" sceneMemberID="viewController">
+                <viewController id="aB6-Du-m3F" customClass="HomeViewController" customModule="iOS_PartyPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wbf-J5-poz"/>
                         <viewControllerLayoutGuide type="bottom" id="mlS-FB-oy8"/>
@@ -463,10 +463,41 @@
                             <constraint firstItem="dQ7-RC-njc" firstAttribute="leading" secondItem="Jwr-5d-hsL" secondAttribute="leading" id="uvH-8M-du2"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="eventsTasksTableView" destination="dQ7-RC-njc" id="TIa-kQ-Wpm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDq-df-mEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2680.8000000000002" y="143.47826086956522"/>
+        </scene>
+        <!--Cal View Controller-->
+        <scene sceneID="YY0-j8-X0W">
+            <objects>
+                <viewController id="fJw-ag-9nE" customClass="CalViewController" customModule="iOS_PartyPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y6a-eM-h6s"/>
+                        <viewControllerLayoutGuide type="bottom" id="G2h-rV-EGM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2eZ-CN-eDR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqc-PC-17z">
+                                <rect key="frame" x="144" y="259" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="createEvent:" destination="fJw-ag-9nE" eventType="touchUpInside" id="WBT-pu-nHF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K0E-cw-l8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3364" y="157"/>
         </scene>
     </scenes>
     <resources>

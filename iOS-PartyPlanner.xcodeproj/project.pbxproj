@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		52C0AA7EC45E7B8440B6BF1B /* Pods_iOS_PartyPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EBBF46E02386A7137CFD03 /* Pods_iOS_PartyPlanner.framework */; };
+		8209022A1EBABFA5009C7C6D /* CalendarAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820902291EBABFA5009C7C6D /* CalendarAPI.swift */; };
+		8209022C1EBAC8C2009C7C6D /* CalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8209022B1EBAC8C2009C7C6D /* CalViewController.swift */; };
 		821B65BE1EAFF1C60078333B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65BD1EAFF1C60078333B /* HomeViewController.swift */; };
 		821B65C01EAFF1D60078333B /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65BF1EAFF1D60078333B /* TasksViewController.swift */; };
 		821B65C21EAFF1E90078333B /* MaterialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65C11EAFF1E90078333B /* MaterialViewController.swift */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		61B03BE56FFB211323485B06 /* Pods-iOS-PartyPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PartyPlanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner.release.xcconfig"; sourceTree = "<group>"; };
+		820902291EBABFA5009C7C6D /* CalendarAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarAPI.swift; sourceTree = "<group>"; };
+		8209022B1EBAC8C2009C7C6D /* CalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalViewController.swift; sourceTree = "<group>"; };
 		821B65BD1EAFF1C60078333B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		821B65BF1EAFF1D60078333B /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		821B65C11EAFF1E90078333B /* MaterialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +97,14 @@
 				61B03BE56FFB211323485B06 /* Pods-iOS-PartyPlanner.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		820902281EBABF77009C7C6D /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				820902291EBABFA5009C7C6D /* CalendarAPI.swift */,
+			);
+			name = Calendar;
 			sourceTree = "<group>";
 		};
 		821B65C31EB006FF0078333B /* UIComponents */ = {
@@ -156,6 +168,7 @@
 		A1470F351EAF20C600DE373A /* iOS-PartyPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				820902281EBABF77009C7C6D /* Calendar */,
 				821B65C31EB006FF0078333B /* UIComponents */,
 				A1470F4D1EAF244000DE373A /* ViewControllers */,
 				A1470F4C1EAF243B00DE373A /* Views */,
@@ -208,6 +221,7 @@
 				821B65DD1EB040B30078333B /* RSVPViewController.swift */,
 				821B65E11EB04ABD0078333B /* EventViewController.swift */,
 				821B65E31EB04B1C0078333B /* LoginViewController.swift */,
+				8209022B1EBAC8C2009C7C6D /* CalViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -337,6 +351,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				821B65E41EB04B1C0078333B /* LoginViewController.swift in Sources */,
+				8209022C1EBAC8C2009C7C6D /* CalViewController.swift in Sources */,
+				8209022A1EBABFA5009C7C6D /* CalendarAPI.swift in Sources */,
 				821B65CA1EB00FE20078333B /* EventSummaryTableViewCell.swift in Sources */,
 				821B65C51EB007230078333B /* VideoView.swift in Sources */,
 				821B65DA1EB0403A0078333B /* EventMediaCollectionTableViewCell.swift in Sources */,

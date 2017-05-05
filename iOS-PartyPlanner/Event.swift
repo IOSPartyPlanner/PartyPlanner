@@ -11,6 +11,8 @@ class Event: NSObject {
     
     var date: Date? = Date()
     
+    var peroid: TimeInterval?
+    
     var host: User?
     
     var location: String? = "2535 Garcia Ave, Mountain View, CA"
