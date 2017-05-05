@@ -103,12 +103,12 @@ class EventSummaryTableViewCell: UITableViewCell {
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .short
             dateFormatter.timeStyle = .none
-            partyDateLabel.text = dateFormatter.string(from: (event?.date!)!)
+            partyDateLabel.text = dateFormatter.string(from: (event?.dateTime)!)
             
             let timeFormatter = DateFormatter()
             timeFormatter.dateStyle = .none
             timeFormatter.timeStyle = .short
-            partyTimeLabel.text = timeFormatter.string(from: (event?.date!)!)
+            partyTimeLabel.text = timeFormatter.string(from: (event?.dateTime)!)
             
             taglineLabel.text = event?.tagline
         }

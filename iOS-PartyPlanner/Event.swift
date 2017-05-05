@@ -16,6 +16,7 @@ public class Event: NSObject {
   var name: String?
   var detail: String?
   var dateTime: Date
+  var peroid: TimeInterval?
   var tagline: String
   var hostEmail: String
   var guestEmailList: [String]

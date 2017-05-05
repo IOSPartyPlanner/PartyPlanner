@@ -24,7 +24,7 @@ class CalendarAPI: NSObject {
         
         calEvent.calendar = calendar
         let tomorrowOneHour = Calendar.current.date(byAdding: .hour, value: 25, to: Date())
-        calEvent.startDate = (event?.date)!
+        calEvent.startDate = (event?.dateTime)!
         calEvent.endDate = calEvent.startDate.addingTimeInterval((event?.peroid)!)
         try! eventStore.save(calEvent, span: EKSpan.thisEvent, commit: true)
     }
