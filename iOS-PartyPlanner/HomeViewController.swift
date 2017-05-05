@@ -8,43 +8,143 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var eventsTasksTableView: UITableView!
+class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
+
+    
+    @IBOutlet var homeSegmentedControl: UISegmentedControl!
+    @IBOutlet var homeTableView: UITableView!
+    var pastEventList = [Event]()
+    var upcomingEventList = [Event]()
+    var taskList = [Task]()
+    var sectionEvents = ["Upcoming", "Past"]
+    var sectionTasks = ["House Warming Party", "House Warming Party"] //[String]() //TODO:
+    var sign = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        fetchEvents()
+        
     }
+    
+    
+    @IBAction func indexChanged(_ sender: Any) {
+        switch homeSegmentedControl.selectedSegmentIndex
+        {
+        case 0:
+            sign = 0
+            homeTableView.rowHeight = 250
+            self.homeTableView.reloadData()
+        case 1:
+            sign = 1
+             homeTableView.rowHeight = 50
+            self.homeTableView.reloadData()
+        default:
+            break
+        }
+    }
+    
+    
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if sign == 0 {
+           return self.sectionEvents [section]
+        }
+        else{
+            return self.sectionTasks [section]
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if sign == 0 {
+            return self.sectionEvents.count
+        }
+        else{
+            return self.sectionTasks.count
+        }
+    }
+    
 
+ 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if sign == 0 {
+            if section == 0 {
+                return upcomingEventList.count
+            }
+            else {
+                return pastEventList.count
+            }
+        }
+    
+        //TODO:Will change
+        else{
+            if section == 0{
+                return 3
+            }
+            else {
+                return 2
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      
+        
+        if sign == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeEventTableViewCell") as! HomeEventTableViewCell
+            let currSection = sectionEvents[indexPath.section]
+            switch currSection {
+                
+            case "Upcoming" :
+                cell.event = upcomingEventList[indexPath.item]
+                break;
+                
+            case "Past":
+                cell.event = pastEventList[indexPath.item]
+                break;
+            
+            default:
+                break;
+            }
+            return cell
+        
+        }
+        else{
+           let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTaskTableViewCell") as! HomeTaskTableViewCell
+            
+        return cell
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func fetchEvents(){
+        //TODO:Needed to fix API function
+        EventApi.sharedInstance.getPastEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
+            self.pastEventList = events
+            self.homeTableView.reloadData()
+            /*for i in 0...self.pastEventList.count{
+                UserApi.sharedInstance.getUserByEmail(userEmail: self.pastEventList[i].hostEmail, success: {(user: User) in
+                 self.pastEventList[i].hostProfileImage = user.imageUrl}
+                    , failure: {})
+            }*/
+            
+        }, failure: {} )
+        
+        EventApi.sharedInstance.getUpcomingEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
+            self.upcomingEventList = events
+            self.homeTableView.reloadData()
+            
+        }, failure: {} )
     }
-    */
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = eventsTasksTableView.dequeueReusableCell(withIdentifier: "", for: indexPath) as? UITableViewCell
-        return cell!
+    func fetchTasks(){
+        //TODO: Needed API function
     }
 
 }

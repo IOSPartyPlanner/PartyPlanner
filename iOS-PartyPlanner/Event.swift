@@ -17,14 +17,15 @@ public class Event: NSObject {
   var detail: String?
   var dateTime: Date
   var peroid: TimeInterval?
-  var tagline: String
+  var tagline: String?
   var hostEmail: String
-  var guestEmailList: [String]
+  var hostProfileImage : String?
+  var guestEmailList: [String]?
   var location: String
-  var inviteMediaUrl: String
-  var inviteMediaType: MediaType
-  var postEventImages: [String]
-  var postEventVideos: [String]
+  var inviteMediaUrl: String?
+  var inviteMediaType: MediaType?
+  var postEventImages: [String]?
+  var postEventVideos: [String]?
   var likesCount: Int
   var postEventCommentIdList: [String]
   var ref: FIRDatabaseReference?
@@ -63,16 +64,16 @@ public class Event: NSObject {
     invitationVideoURL = snapshotValue["invitationVideoURL"] as? String
     name = snapshotValue["name"] as? String
     dateTime = Utils.getTimeStampFromString(timeStampString: snapshotValue["dateTime"] as! String)
-    tagline = snapshotValue["tagline"] as! String
+    tagline = snapshotValue["tagline"] as? String
     hostEmail = snapshotValue["hostEmail"] as! String
-    guestEmailList = snapshotValue["guestEmailList"] as! [String]
+    guestEmailList = snapshotValue["guestEmailList"] as? [String] ?? [""]
     location = snapshotValue["location"] as! String
-    inviteMediaUrl = snapshotValue["inviteMediaUrl"] as! String
+    inviteMediaUrl = snapshotValue["inviteMediaUrl"] as? String
     inviteMediaType = MediaType(rawValue: snapshotValue["inviteMediaType"] as! String)!
-    postEventImages = snapshotValue["postEventImages"] as! [String]
-    postEventVideos = snapshotValue["postEventVideos"] as! [String]
-    likesCount = snapshotValue["likesCount"] as! Int
-    postEventCommentIdList = snapshotValue["postEventCommentIdList"] as! [String]
+    postEventImages = snapshotValue["postEventImages"] as? [String] ?? [""]
+    postEventVideos = snapshotValue["postEventVideos"] as? [String] ?? [""]
+    likesCount = snapshotValue["likesCount"] as? Int ?? 0
+    postEventCommentIdList = snapshotValue["postEventCommentIdList"] as? [String] ?? [""]
   }
   
   func toAnyObject() -> Any {
@@ -86,7 +87,7 @@ public class Event: NSObject {
       "guestEmailList": guestEmailList,
       "location": location,
       "inviteImageUrl": inviteMediaUrl,
-      "inviteMediaType" : inviteMediaType.rawValue,
+      "inviteMediaType" : inviteMediaType!.rawValue,
       "postEventImages": postEventImages,
       "postEventVideos": postEventVideos,
       "likesCount": likesCount,

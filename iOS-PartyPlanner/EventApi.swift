@@ -48,19 +48,20 @@ class EventApi: NSObject {
   
   func getEventsHostedByUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
     print("EventApi : searching for events hosted by userId: \(userEmail)")
-    var events: [Event]?
-    fireBaseEventRef.queryOrdered(byChild: "userEmail")
+    var events = [Event]()
+    fireBaseEventRef.queryOrdered(byChild: "hostEmail")
       .queryEqual(toValue: userEmail)
       .observe(.value, with: { (snapshot) in
         for userEvent in snapshot.children {
           let event = Event(snapshot: userEvent as! FIRDataSnapshot)
-          events?.append(event)
+          events.append(event)
         }
         
         if events == nil {
-          failure()
+            print(userEmail)
+            failure()
         } else {
-          success(events!)
+          success(events)
         }
       })
   }

@@ -29,8 +29,8 @@ class EventDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     @IBOutlet var newCommentTextField: UITextField!
     @IBOutlet var sendCommentButton: UIButton!
     
-    var postEventImages: [URL] = []
-    var postEventVideos: [URL] = []
+    var postEventImages: [String] = []
+    var postEventVideos: [String] = []
     var commentList : [Comment] = []
   
     var  event: Event?{

@@ -98,7 +98,7 @@ class EventSummaryTableViewCell: UITableViewCell {
             partyNameLabel.text = event?.name
             locationLabel.text = event?.location
             
-            videoPlayView?.setVideoURL((event?.invitationVideoURL)!)
+            videoPlayView?.setVideoURL((NSURL(string: event!.invitationVideoURL!) as! URL))
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .short

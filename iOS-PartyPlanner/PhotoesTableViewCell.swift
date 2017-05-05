@@ -13,7 +13,7 @@ class PhotoesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
 
     @IBOutlet weak var photoesCollectionView: UICollectionView!
     
-    var photoes: [URL]?
+    var photoes: [String]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,7 +40,7 @@ class PhotoesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
         let cell = photoesCollectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as? PhotoCollectionViewCell
         
         if let photo = photoes?[indexPath.row] {
-            cell?.photoImageView.setImageWith(photo)
+            cell?.photoImageView.setImageWith(NSURL(string:photo)! as URL)
         }
         return cell!
     }

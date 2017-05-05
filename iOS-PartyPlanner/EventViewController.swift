@@ -26,7 +26,8 @@ class EventViewController: UIViewController {
         
         eventTableView.rowHeight = UITableViewAutomaticDimension
         eventTableView.estimatedRowHeight = 120
-        event = APIClient.sharedInstance.fecthEvent(byId: "")
+        //TODO: There is no fetchEvent in the APIClient
+        //event = APIClient.sharedInstance.fecthEvent(byId: "")
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,7 +58,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
         case 0,1:
             return 1
         default:
-            return event?.postEventComments?.count ?? 0
+            return event?.postEventCommentIdList.count ?? 0
         }
     }
     
@@ -72,11 +73,13 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             cell1?.photoes = event?.postEventImages
             return cell1!
         default:
-            let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestCommentTableViewCell", for: indexPath) as? EventGuestCommentTableViewCell
+            //TODO: Need to declare EventGuestCommentTableViewCell ?
+            /*let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestCommentTableViewCell", for: indexPath) as? EventGuestCommentTableViewCell
             if let userComment = event?.postEventComments?[indexPath.row] {
                 cell2?.comments = userComment
-            }
-            return cell2!
+            }*/
+            let cell2 = UITableViewCell()
+            return cell2
         }
 
     }

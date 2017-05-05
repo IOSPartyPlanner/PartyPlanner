@@ -141,7 +141,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
           uuid = uuid.replacingOccurrences(of: "@", with: "")
           uuid = uuid + authType.rawValue
           print(uuid)
-          User.currentUser = User(name: (user?.displayName)!, email: user?.email, imageUrl: user?.photoURL, authType: authType.rawValue, uid: uuid)
+          User.currentUser = User(name: (user?.displayName)!, email: user?.email, imageUrl: user?.photoURL as? String, authType: authType.rawValue, uid: uuid)
         })
     }
 }
