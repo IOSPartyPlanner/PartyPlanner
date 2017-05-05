@@ -99,23 +99,71 @@ class EventApi: NSObject {
     })
   }
   
-  func getEventsAttendedByUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
-    print("EventApi : searching for events hosted by userId: \(userEmail)")
-    var events: [Event]?
-    fireBaseEventRef.queryOrdered(byChild: "userEmail")
-      .queryEqual(toValue: userEmail)
-      .observe(.value, with: { (snapshot) in
-        for userEvent in snapshot.children {
-          let event = Event(snapshot: userEvent as! FIRDataSnapshot)
-          events?.append(event)
+  // return an array of events that this user is invited to
+  func getEventsForUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
+    print("EventApi : searching for events userId: \(userEmail) is invited to")
+    
+    RsvpApi.sharedInstance.getRsvpsForUserEmail(
+      userEmail: userEmail,
+      success: { (rsvps) in
+        var eventIds : [String] = []
+        // get list of eventIds the user is invited to
+        for rsvp in rsvps {
+        	eventIds.append(rsvp.eventId)
         }
         
-        if events == nil {
-          failure()
-        } else {
-          success(events!)
+        var events : [Event] = []
+        for eventId in eventIds {
+          self.getEventById(eventId: eventId,
+                       success: { (event) in
+                        events.append(event!)
+          },
+                       failure: {
+                        print("Error fetching events")
+          })
         }
-      })
+        success(events)
+    }) { 
+      print("Error fetching RSVPS for user")
+      failure()
+    }
+  }
+  
+  // return an array of upcoming events that this user is invited to
+  func getUpcomingEventsForUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
+    print("EventApi : searching for upcoming events userId: \(userEmail) is invited to\n")
+    getEventsForUserEmail(
+      userEmail: userEmail,
+      success: { (events) in
+        var upcomingEvents: [Event] = []
+        for event in events {
+          if event.dateTime.timeIntervalSinceNow > 0 {
+            upcomingEvents.append(event)
+          }
+        }
+        success(upcomingEvents)
+    },
+      failure: {
+    })
+  }
+  
+  
+  // return an array of upcoming events that this user is invited to
+  func getPastEventsForUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
+    print("EventApi : searching for past events userId: \(userEmail) is invited to\n")
+    getEventsForUserEmail(
+      userEmail: userEmail,
+      success: { (events) in
+        var pastEvents: [Event] = []
+        for event in events {
+          if event.dateTime.timeIntervalSinceNow < 0 {
+            pastEvents.append(event)
+          }
+        }
+        success(pastEvents)
+    },
+      failure: {
+    })
   }
   
   
