@@ -58,7 +58,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
         case 0,1:
             return 1
         default:
-            return event?.postEventCommentIdList.count ?? 0
+            return event?.postEventCommentIdList!.count ?? 0
         }
     }
     

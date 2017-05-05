@@ -128,16 +128,18 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     func fetchEvents(){
         //TODO:Needed to fix API function
+    
         EventApi.sharedInstance.getPastEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
             self.pastEventList = events
             self.homeTableView.reloadData()
-            /*for i in 0...self.pastEventList.count{
-                UserApi.sharedInstance.getUserByEmail(userEmail: self.pastEventList[i].hostEmail, success: {(user: User) in
-                 self.pastEventList[i].hostProfileImage = user.imageUrl}
-                    , failure: {})
-            }*/
-            
         }, failure: {} )
+        
+        /*for i in 0...self.pastEventList.count{
+         UserApi.sharedInstance.getUserByEmail(userEmail: self.pastEventList[i].hostEmail, success: {(user: User) in
+         self.pastEventList[i].hostProfileImage = user.imageUrl}
+         , failure: {})
+         }*/
+        
         
         EventApi.sharedInstance.getUpcomingEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
             self.upcomingEventList = events
@@ -148,6 +150,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     func fetchTasks(){
         //TODO: Needed API function
+      
     }
 
 }

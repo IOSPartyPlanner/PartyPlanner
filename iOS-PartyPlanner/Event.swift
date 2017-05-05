@@ -26,8 +26,8 @@ public class Event: NSObject {
   var inviteMediaType: MediaType?
   var postEventImages: [String]?
   var postEventVideos: [String]?
-  var likesCount: Int
-  var postEventCommentIdList: [String]
+  var likesCount: Int?
+  var postEventCommentIdList: [String]?
   var ref: FIRDatabaseReference?
   var key: String?
   
