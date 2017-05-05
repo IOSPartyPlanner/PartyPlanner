@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-
 
 class EventViewController: UIViewController {
 
@@ -17,13 +15,18 @@ class EventViewController: UIViewController {
   }
 //    @IBOutlet weak var eventTableView: UITableView!
   
+    var event: Event?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        eventTableView.delegate = self
-//        eventTableView.dataSource = self
+        eventTableView.delegate = self
+        eventTableView.dataSource = self
+        
+        eventTableView.rowHeight = UITableViewAutomaticDimension
+        eventTableView.estimatedRowHeight = 120
+        event = APIClient.sharedInstance.fecthEvent(byId: "")
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,14 +47,37 @@ class EventViewController: UIViewController {
 
 }
 
-//extension EventViewController: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 1
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = eventTableView.dequeueReusableCell(withIdentifier: "EventSummaryTableViewCell", for: indexPath) as? EventSummaryTableViewCell
-////        cell?.event = APIClient.sharedInstance.fecthEvent(byId: "")
-//        return cell!
-//    }
-//}
+extension EventViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0,1:
+            return 1
+        default:
+            return event?.postEventComments?.count ?? 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            let cell0 = eventTableView.dequeueReusableCell(withIdentifier: "EventSummaryTableViewCell", for: indexPath) as? EventSummaryTableViewCell
+            cell0?.event = event
+            return cell0!
+        case 1:
+            let cell1 = eventTableView.dequeueReusableCell(withIdentifier: "PhotoesTableViewCell", for: indexPath) as? PhotoesTableViewCell
+            cell1?.photoes = event?.postEventImages
+            return cell1!
+        default:
+            let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestCommentTableViewCell", for: indexPath) as? EventGuestCommentTableViewCell
+            if let userComment = event?.postEventComments?[indexPath.row] {
+                cell2?.comments = userComment
+            }
+            return cell2!
+        }
+
+    }
+}

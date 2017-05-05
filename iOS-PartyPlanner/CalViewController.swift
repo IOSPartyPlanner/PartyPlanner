@@ -1,17 +1,15 @@
 //
-//  HomeViewController.swift
+//  CalViewController.swift
 //  iOS-PartyPlanner
 //
-//  Created by Yan, Tristan on 4/25/17.
+//  Created by Yan, Tristan on 5/3/17.
 //  Copyright © 2017 PartyDevs. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CalViewController: UIViewController {
 
-    @IBOutlet weak var eventsTasksTableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +21,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func createEvent(_ sender: Any) {
+        let api = CalendarAPI()
+        api.createPartyEvent(event: nil)
+    }
 
     /*
     // MARK: - Navigation
@@ -33,18 +35,5 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Pass the selected object to the new view controller.
     }
     */
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = eventsTasksTableView.dequeueReusableCell(withIdentifier: "", for: indexPath) as? UITableViewCell
-        return cell!
-    }
 
 }

@@ -21,6 +21,8 @@
             </dict>
         </array>
     </dict>
+    	<key>NSCalendarsUsageDescription</key>
+	<string>Create event for party</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

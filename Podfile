@@ -4,6 +4,7 @@
 target 'iOS-PartyPlanner' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
+
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
@@ -14,6 +15,7 @@ target 'iOS-PartyPlanner' do
   pod 'TwitterCore'  
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'AFNetworking', '~> 2.5'
 
 # Pods for iOS-PartyPlanner
 
