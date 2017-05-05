@@ -39,8 +39,10 @@ class EventApi: NSObject {
         }
         
         if event == nil {
+          print("Event getEventById", event?.id as Any)
           failure()
         } else {
+          print("Event getEventById error")
           success(event)
         }
       })

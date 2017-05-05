@@ -30,13 +30,16 @@ class RSVPViewController: UIViewController{
    var key: String?
 
    */
+  
+  
+  
   @IBAction func sendRSVP(_ sender: Any) {
     RSVP.currentInstance?.guestEmail = (User.currentUser?.email)!
     RSVP.currentInstance?.guestPlusX = guestCount
     RSVP.currentInstance?.response = rsvpResponse
     RSVP.currentInstance?.id = (RSVP.currentInstance?.eventId)! + (User.currentUser?.uid)!
     RsvpApi.sharedInstance.storeRsvp(rsvp: RSVP.currentInstance!)
-    dismiss(animated: true, completion: nil)
+    performSegue(withIdentifier: "RSVPToHomeSegue", sender: self)
   }
   
   @IBAction func onGuestCounter(_ sender: UISegmentedControl) {
@@ -61,7 +64,8 @@ class RSVPViewController: UIViewController{
 
   }
   
-  var guestCount:Int = 0
+    var guestCount:Int = 0
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -76,7 +80,6 @@ class RSVPViewController: UIViewController{
       
       guestCounter.isHidden = true
       countLabel.isHidden = true
-      
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,7 +106,6 @@ class RSVPViewController: UIViewController{
       }
     }
   }
-
     /*
     // MARK: - Navigation
 

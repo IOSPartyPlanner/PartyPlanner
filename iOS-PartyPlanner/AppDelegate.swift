@@ -54,22 +54,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate{ //, GIDSignInDelegate{
             options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
       
       if (url.absoluteString.hasPrefix("rsvp")){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if User.currentUser != nil {
-          let vc = storyboard.instantiateViewController(withIdentifier: "RSVP") //as! EventViewController
-          window?.rootViewController = vc
-        }
-        else {
-          let vc = storyboard.instantiateInitialViewController()
-          self.window?.rootViewController = vc
-        }
-       RSVP.currentInstance = RSVP()
-       RSVP.currentInstance?.handleRsvpUrl(url)
+        RSVP.currentInstance = RSVP()
+        RSVP.currentInstance?.handleRsvpUrl(url, completion: { (bool: Bool) in
+          if bool == true {
+              let storyboard = UIStoryboard(name: "Main", bundle: nil)
+              if User.currentUser != nil {
+                let vc = storyboard.instantiateViewController(withIdentifier: "RSVP") //as! EventViewController
+                self.window?.rootViewController = vc
+              }
+              else {
+                let vc = storyboard.instantiateInitialViewController()
+                self.window?.rootViewController = vc
+              }
+            }
+          else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if User.currentUser != nil {
+              let vc = storyboard.instantiateViewController(withIdentifier: "EventViewNC") //as! EventViewController
+              self.window?.rootViewController = vc
+            }
+          }
+        })
+//        RSVP.currentInstance?.handleRsvpUrl(url, success: <#T##() -> ()#>, failure: <#T##() -> ()#>)
+        
+//        if eventPresent == true{
+//          let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//          if User.currentUser != nil {
+//            let vc = storyboard.instantiateViewController(withIdentifier: "RSVP") //as! EventViewController
+//            window?.rootViewController = vc
+//          }
+//          else {
+//            let vc = storyboard.instantiateInitialViewController()
+//            self.window?.rootViewController = vc
+//          }
+//       }
+        
+        
       }
 
       return true
     }
-    
+  
   func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

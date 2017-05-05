@@ -67,16 +67,24 @@ class RSVP: NSObject {
     ]
   }
   
-  func handleRsvpUrl(_ url: URL){
+  func handleRsvpUrl(_ url: URL, completion:@escaping (Bool)->()) {
     let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
     
     if let queryItems = components?.queryItems {
       for item in queryItems{
-        print(item.name)
-        print(item.value)
         if item.name == "eventId" {
-          RSVP.currentInstance?.eventId = item.value!
-          print("RSVPing to event", item.value!)
+//          RSVP.currentInstance?.eventId = (item.value)!
+          EventApi.sharedInstance.getEventById(eventId: item.value!, success: { (event: Event?) in
+            print("EventApi.sharedInstance.getEventById", (event?.id)!)
+            RSVP.currentInstance?.eventId = (event?.id)! //item.value!
+            completion(true)
+          }, failure: {
+            RSVP.currentInstance?.eventId = ""
+            print("Event id is wrong")
+            completion(false)
+//            return false
+          })
+//          print("RSVPing to event", item.value!)
         }
       }
     }
