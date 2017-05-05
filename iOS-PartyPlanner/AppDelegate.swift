@@ -55,43 +55,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate{ //, GIDSignInDelegate{
       
       if (url.absoluteString.hasPrefix("rsvp")){
         RSVP.currentInstance = RSVP()
-        RSVP.currentInstance?.handleRsvpUrl(url, completion: { (bool: Bool) in
-          if bool == true {
-              let storyboard = UIStoryboard(name: "Main", bundle: nil)
-              if User.currentUser != nil {
-                let vc = storyboard.instantiateViewController(withIdentifier: "RSVP") //as! EventViewController
-                self.window?.rootViewController = vc
-              }
-              else {
-                let vc = storyboard.instantiateInitialViewController()
-                self.window?.rootViewController = vc
-              }
-            }
-          else {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if User.currentUser != nil {
-              let vc = storyboard.instantiateViewController(withIdentifier: "EventViewNC") //as! EventViewController
-              self.window?.rootViewController = vc
-            }
+        RSVP.currentInstance?.handleRsvpUrl(url)
+        
+          let storyboard = UIStoryboard(name: "Main", bundle: nil)
+          if User.currentUser != nil {
+            let vc = storyboard.instantiateViewController(withIdentifier: "RSVP") //as! EventViewController
+            window?.rootViewController = vc
           }
-        })
-//        RSVP.currentInstance?.handleRsvpUrl(url, success: <#T##() -> ()#>, failure: <#T##() -> ()#>)
-        
-//        if eventPresent == true{
-//          let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//          if User.currentUser != nil {
-//            let vc = storyboard.instantiateViewController(withIdentifier: "RSVP") //as! EventViewController
-//            window?.rootViewController = vc
-//          }
-//          else {
-//            let vc = storyboard.instantiateInitialViewController()
-//            self.window?.rootViewController = vc
-//          }
-//       }
-        
-        
+          else {
+            let vc = storyboard.instantiateInitialViewController()
+            self.window?.rootViewController = vc
+          }
       }
-
       return true
     }
   

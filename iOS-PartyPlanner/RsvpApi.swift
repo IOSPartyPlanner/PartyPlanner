@@ -21,9 +21,6 @@ class RsvpApi:  NSObject {
   weak var delegate: RsvpApiDelegate?
   
   func storeRsvp(rsvp: RSVP) {
-//    if rsvp.eventId == "" {
-//      return
-//    }
     let rsvpRef = fireBaseRsvpRef.child(rsvp.id)
     rsvpRef.setValue(rsvp.toAnyObject())
     let refPath = "rsvp/" + (RSVP.currentInstance?.id)!
