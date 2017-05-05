@@ -6,6 +6,7 @@
 //  Copyright © 2017 PartyDevs. All rights reserved.
 //
 
+// Mark:- Enum
 import Foundation
 import Firebase
 
@@ -14,21 +15,24 @@ class MediaApi: NSObject {
   static let sharedInstance = MediaApi()
   private let mediaStorageRef = FIRStorage.storage().reference().child("media")
   
-  func uploadVideoToFireBase(mediaUrl: URL, success: @escaping () -> (), failure: @escaping () -> ())
+  func uploadVideoToFireBase(mediaUrl: URL, type: MediaType, success: @escaping () -> (), failure: @escaping () -> ())
   {
+    var filePath: String!
+    if type == .image {
+      filePath = "EventMedia/event001/image1.jpg"
+    } else if type == .video {
+      filePath = "EventMedia/event001/eventvideo1.mov"
+    }
     
-    let filePath = "EventMedia/event001/eventvideo1.mov"
-    let metadata = FIRStorageMetadata()
-    //    metadata.contentType = "image/jpg"
+    let mediaRef = mediaStorageRef.child(filePath)
     
-    let videoRef = mediaStorageRef.child(filePath)
     FIRAuth.auth()?.signIn(withEmail: "u3@gmail.com", password: "qwerty", completion: {
       (user: FIRUser?, error: Error?) in
       if error != nil {
         print("UNable to login")
       } else {
         print("successful login")
-        _ = videoRef.putFile(self.videoUrl!,
+        _ = mediaRef.putFile(mediaUrl,
                              metadata: nil,
                              completion: { (metadata, error) in
                               if error != nil {

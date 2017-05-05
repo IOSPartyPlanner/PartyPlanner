@@ -69,7 +69,11 @@ class EventCreationStep1ViewController: UIViewController, UIImagePickerControlle
       videoUrl = info[UIImagePickerControllerMediaURL] as? URL
       print(videoUrl ?? "URL could not be fetched")
       mediaDisplayView.image = previewImageFromVideo(videoUrl!)!
-      uploadVideoToFireBase(success: {
+      
+      MediaApi.sharedInstance.uploadVideoToFireBase(
+        mediaUrl: videoUrl!,
+        type: .video,
+        success: {
         print("Video Uploaded2")
         self.dismiss(animated: true) {}
       }, failure: {
@@ -169,6 +173,10 @@ class EventCreationStep1ViewController: UIViewController, UIImagePickerControlle
     })
   }
   
+  
+  @IBAction func onTestPastEvent(_ sender: Any) {
+    
+  }
   
   func previewImageFromVideo(_ url:URL) -> UIImage? {
     let asset = AVAsset(url:url)
