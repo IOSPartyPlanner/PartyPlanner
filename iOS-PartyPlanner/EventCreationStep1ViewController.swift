@@ -20,7 +20,7 @@ class EventCreationStep1ViewController: UIViewController, UIImagePickerControlle
   
   var videoUrl: URL?
   var image: NSData?
-  var video: NSData?
+  var video: URL?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -66,10 +66,15 @@ class EventCreationStep1ViewController: UIViewController, UIImagePickerControlle
       
     } else if info["UIImagePickerControllerMediaType"] as! String == "public.movie" {
       
-      videoUrl = info["UIImagePickerControllerReferenceURL"] as? URL
+      videoUrl = info[UIImagePickerControllerMediaURL] as? URL
       print(videoUrl ?? "URL could not be fetched")
       mediaDisplayView.image = previewImageFromVideo(videoUrl!)!
-      
+      uploadVideoToFireBase(success: {
+        print("Video Uploaded2")
+        self.dismiss(animated: true) {}
+      }, failure: {
+        print("Error Uploading Image!")
+      })
     }
     
     
@@ -95,6 +100,41 @@ class EventCreationStep1ViewController: UIViewController, UIImagePickerControlle
     }
   }
   
+  func uploadVideoToFireBase(success: @escaping () -> (), failure: @escaping () -> ())
+  {
+    let storageRef = FIRStorage.storage().reference()
+    let filePath = "EventMedia/event001/eventvideo1.mov"
+    let mediaStorageRef = storageRef.child("media")
+    
+    let metadata = FIRStorageMetadata()
+//    metadata.contentType = "image/jpg"
+    
+    let videoRef = mediaStorageRef.child(filePath)
+    
+    FIRAuth.auth()?.signIn(withEmail: "u3@gmail.com", password: "qwerty", completion: {
+      (user: FIRUser?, error: Error?) in
+      if error != nil {
+        print("UNable to login")
+      } else {
+        print("successful login")
+        _ = videoRef.putFile(self.videoUrl!,
+                             metadata: nil,
+                             completion: { (metadata, error) in
+          if error != nil {
+            print("Error Uploading Video!:: \(error?.localizedDescription ?? "oops error")")
+            return
+          } else {
+            print("Video Uploaded!")
+            print(metadata)
+            let downloadURL = metadata?.downloadURL
+            print(downloadURL)
+            success()
+          }
+        })
+      }
+    })
+  }
+  
   func uploadImageToFireBase(success: @escaping () -> (), failure: @escaping () -> ())
   {
     let storageRef = FIRStorage.storage().reference()
@@ -106,7 +146,7 @@ class EventCreationStep1ViewController: UIViewController, UIImagePickerControlle
     
     let imageRef = mediaStorageRef.child(filePath)
     
-    FIRAuth.auth()?.createUser(withEmail: "u3@gmail.com", password: "qwerty", completion: {
+    FIRAuth.auth()?.signIn(withEmail: "u3@gmail.com", password: "qwerty", completion: {
       (user: FIRUser?, error: Error?) in
       if error != nil {
         print("UNable to login")
