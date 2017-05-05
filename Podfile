@@ -15,11 +15,7 @@ target 'iOS-PartyPlanner' do
   pod 'TwitterCore'  
   pod 'Firebase/Core'
   pod 'Firebase/Database'
-<<<<<<< HEAD
   pod 'AFNetworking', '~> 2.5'
-=======
-  pod 'AFNetworking'
->>>>>>> Initial commit for the home screen
 
 # Pods for iOS-PartyPlanner
 
