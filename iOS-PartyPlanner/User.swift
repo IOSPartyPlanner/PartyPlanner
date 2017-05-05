@@ -17,8 +17,8 @@ class User: NSObject {
   var name: String
   var email: String?
   var phone: String?
-  var imageUrl: URL?
-  var authType:String?
+  var imageUrl: String?
+  var authType: String?
   var uid: String
   var ref: FIRDatabaseReference?
   var key: String?
@@ -35,7 +35,7 @@ class User: NSObject {
   
   init(name: String,
        email: String?, phone: String? = nil,
-       imageUrl: URL?, authType: String? = AuthenticationType.PartyPlanner.rawValue,
+       imageUrl: String?, authType: String? = AuthenticationType.PartyPlanner.rawValue,
        uid: String, ref: FIRDatabaseReference? = nil) {
     self.name = name
     self.email = email
@@ -54,7 +54,7 @@ class User: NSObject {
     name = snapshotValue["name"] as! String
     email = snapshotValue["email"] as? String
     phone = snapshotValue["phone"] as? String
-    imageUrl = URL(string: snapshotValue["imageUrl"] as! String)!
+    imageUrl = snapshotValue["imageUrl"] as! String
     authType = snapshotValue["authType"] as? String
     uid = snapshotValue["uid"] as! String
   }
@@ -64,7 +64,7 @@ class User: NSObject {
       "name": name,
       "email": email,
       "phone": phone,
-      "imageUrl": imageUrl!.absoluteString,
+      "imageUrl": imageUrl,
       "uid": uid,
       "authType": authType
     ]
@@ -89,7 +89,7 @@ class User: NSObject {
             case "email":
               _currentUser?.email = value
             case "imageUrl":
-              _currentUser?.imageUrl = URL(string: value)
+              _currentUser?.imageUrl = value
             case "uid":
               _currentUser?.uid = value
             case "authType":
@@ -117,7 +117,7 @@ class User: NSObject {
         var userDictionary: [String:String] = ["name": (user?.name)!, "email": (user?.email)!, "uid": (user?.uid)!, "authType": (user?.authType!)!]
 
         if user?.imageUrl != nil {
-          userDictionary["imageUrl"] = user?.imageUrl?.absoluteString
+          userDictionary["imageUrl"] = user?.imageUrl
         }
         if user?.phone != nil {
           userDictionary["phone"] = user?.phone

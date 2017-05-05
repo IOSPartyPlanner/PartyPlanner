@@ -64,25 +64,36 @@ class RsvpApi:  NSObject {
       })
   }
   
-  func getRsvpForUserAndEvent(eventId: String, userEmail: String, success: @escaping (RSVP) -> (), failure: @escaping () -> ()) {
-    print("RsvpAPI : searching RSVPs by eventId:: \(eventId) and userId:: \(userEmail)")
-    var rsvp: RSVP?
+  func getRsvpsForUserEmail(userEmail: String, success: @escaping ([RSVP]) -> (), failure: @escaping () -> ()) {
+    print("RsvpAPI : searching RSVPs by userEmail:: \(userEmail)")
+    var rsvps: [RSVP] = []
     fireBaseRsvpRef.queryOrdered(byChild: "guestEmail")
       .queryEqual(toValue: userEmail)
       .observe(.value, with: { snapshot in
         for guestRsvpChild in snapshot.children {
-          let guestRsvp = RSVP(snapshot: guestRsvpChild as! FIRDataSnapshot)
-          if guestRsvp.eventId == eventId {
-            rsvp = guestRsvp
-            break
-          }
+          let rsvp = RSVP(snapshot: guestRsvpChild as! FIRDataSnapshot)
+          rsvps.append(rsvp)
         }
-        
-        if rsvp == nil {
-          failure()
-        } else {
-          success(rsvp!)
-        }
+        success(rsvps)
       })
   }
+  
+  func getRsvpForUserAndEvent(eventId: String, userEmail: String, success: @escaping (RSVP) -> (), failure: @escaping () -> ()) {
+    print("RsvpAPI : searching RSVPs by eventId:: \(eventId) and userId:: \(userEmail)")
+    
+    getRsvpsForUserEmail(
+      userEmail: userEmail,
+      success: {
+        (rsvps) in
+        for rsvp in rsvps {
+          if rsvp.eventId == eventId {
+            success(rsvp)
+            break;
+          }
+        }
+    }) {
+      print("Error fetching rsvp")
+    }
+  }
+  
 }

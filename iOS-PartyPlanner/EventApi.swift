@@ -99,4 +99,25 @@ class EventApi: NSObject {
     })
   }
   
+  func getEventsAttendedByUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
+    print("EventApi : searching for events hosted by userId: \(userEmail)")
+    var events: [Event]?
+    fireBaseEventRef.queryOrdered(byChild: "userEmail")
+      .queryEqual(toValue: userEmail)
+      .observe(.value, with: { (snapshot) in
+        for userEvent in snapshot.children {
+          let event = Event(snapshot: userEvent as! FIRDataSnapshot)
+          events?.append(event)
+        }
+        
+        if events == nil {
+          failure()
+        } else {
+          success(events!)
+        }
+      })
+  }
+  
+  
+  
 }

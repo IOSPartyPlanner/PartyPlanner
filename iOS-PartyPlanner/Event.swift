@@ -11,36 +11,38 @@ public class Event: NSObject {
   
   let fireBaseRef = FIRDatabase.database().reference(withPath: "event")
   
-  var invitationVideoURL: URL?
+  var invitationVideoURL: String?
   var id: String
   var name: String?
   var detail: String?
   var dateTime: Date
   var tagline: String
   var hostEmail: String
+  var guestEmailList: [String]
   var location: String
-  var inviteMediaUrl: URL
+  var inviteMediaUrl: String
   var inviteMediaType: MediaType
-  var postEventImages: [URL]
-  var postEventVideos: [URL]
+  var postEventImages: [String]
+  var postEventVideos: [String]
   var likesCount: Int
   var postEventCommentIdList: [String]
   var ref: FIRDatabaseReference?
   var key: String?
   
     //TODO: Need to add detail field to event table in Friebase
-  init(id: String, invitationVideoURL:URL?, name: String?,
-       dateTime: Date, tagline: String, hostEmail: String,
-       location: String, inviteMediaUrl: URL,
-       inviteMediaType: MediaType, postEventImages: [URL], postEventVideos: [URL],
+  init(id: String, invitationVideoURL:String?, name: String?,
+       dateTime: Date, tagline: String, hostEmail: String, guestEmailList: [String],
+       location: String, inviteMediaUrl: String,
+       inviteMediaType: MediaType, postEventImages: [String], postEventVideos: [String],
        likesCount: Int, postEventCommentIdList: [String]) {
     
     self.id = id
-    self.invitationVideoURL = invitationVideoURL ?? URL(string: "http://devstreaming.apple.com/videos/wwdc/2016/204t23fvanrkj7a1oj7/204/hls_vod_mvp.m3u8")
+    self.invitationVideoURL = "http://devstreaming.apple.com/videos/wwdc/2016/204t23fvanrkj7a1oj7/204/hls_vod_mvp.m3u8"
     self.name = name ?? "Party planner on-line celebration"
     self.dateTime = dateTime
     self.tagline = tagline
     self.hostEmail = hostEmail
+    self.guestEmailList = guestEmailList
     self.location = location
     self.inviteMediaUrl = inviteMediaUrl
     self.inviteMediaType = inviteMediaType
@@ -57,16 +59,17 @@ public class Event: NSObject {
     let snapshotValue = snapshot.value as! [String: AnyObject]
     
     id = snapshotValue["id"] as! String
-    invitationVideoURL = snapshotValue["invitationVideoURL"] as? URL
+    invitationVideoURL = snapshotValue["invitationVideoURL"] as? String
     name = snapshotValue["name"] as? String
     dateTime = Utils.getTimeStampFromString(timeStampString: snapshotValue["dateTime"] as! String)
     tagline = snapshotValue["tagline"] as! String
     hostEmail = snapshotValue["hostEmail"] as! String
+    guestEmailList = snapshotValue["guestEmailList"] as! [String]
     location = snapshotValue["location"] as! String
-    inviteMediaUrl = snapshotValue["inviteMediaUrl"] as! URL
+    inviteMediaUrl = snapshotValue["inviteMediaUrl"] as! String
     inviteMediaType = MediaType(rawValue: snapshotValue["inviteMediaType"] as! String)!
-    postEventImages = snapshotValue["postEventImages"] as! [URL]
-    postEventVideos = snapshotValue["postEventVideos"] as! [URL]
+    postEventImages = snapshotValue["postEventImages"] as! [String]
+    postEventVideos = snapshotValue["postEventVideos"] as! [String]
     likesCount = snapshotValue["likesCount"] as! Int
     postEventCommentIdList = snapshotValue["postEventCommentIdList"] as! [String]
   }
@@ -74,13 +77,14 @@ public class Event: NSObject {
   func toAnyObject() -> Any {
     return [
       "id": id,
-      "invitationVideoURL": invitationVideoURL!.absoluteString,
+      "invitationVideoURL": invitationVideoURL!,
       "name": name!,
       "dateTime": Utils.getTimeStampStringFromDate(date: dateTime),
       "tagline": tagline,
       "hostEmail": hostEmail,
+      "guestEmailList": guestEmailList,
       "location": location,
-      "inviteImageUrl": inviteMediaUrl.absoluteString,
+      "inviteImageUrl": inviteMediaUrl,
       "inviteMediaType" : inviteMediaType.rawValue,
       "postEventImages": postEventImages,
       "postEventVideos": postEventVideos,

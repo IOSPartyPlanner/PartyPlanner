@@ -2,21 +2,20 @@ import UIKit
 import Firebase
 
 class Comment: NSObject {
-
+  
   let fireBaseRef = FIRDatabase.database().reference(withPath: "comment")
- 
+  
   var id: String
   var userName: String?
   var userEmail: String
-  var imageUrl: URL?
   var eventId: String
   var date: Date
   var text: String
   var ref: FIRDatabaseReference?
   var key: String?
-
   
-    init(id: String,userEmail: String, eventId: String, date: Date, text: String) {
+  
+  init(id: String,userEmail: String, eventId: String, date: Date, text: String) {
     self.id = id
     self.userEmail = userEmail
     self.eventId = eventId
@@ -24,7 +23,7 @@ class Comment: NSObject {
     self.text = text
   }
   
-   
+  
   init(snapshot: FIRDataSnapshot) {
     key = snapshot.key
     ref = snapshot.ref
@@ -36,8 +35,8 @@ class Comment: NSObject {
     date = Utils.getTimeStampFromString(timeStampString: snapshotValue["date"] as! String)
     text = snapshotValue["text"] as! String
   }
-    
-
+  
+  
   func toAnyObject() -> Any {
     return [
       "id": id,
