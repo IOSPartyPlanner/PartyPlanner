@@ -25,8 +25,23 @@ class UserApi: NSObject {
   func storeUser(user: User) {
     print("UserAPI : Storing/updating user")
     let userRef = fireBaseTaskRef.child(user.uid)
+    //Adding the ref and key to the stored user.
+    let refPath = "user/"+user.uid
+    user.ref = FIRDatabase.database().reference(withPath: refPath)
+    user.key = user.ref?.key
+    
     userRef.setValue(user.toAnyObject())
     delegate?.userApi!(userApi: self, userUpdated: user)
+  }
+  
+  func removeUser(user: User){
+    if user.ref == nil {
+      let refPath = "user/"+user.uid
+      user.ref = FIRDatabase.database().reference(withPath: refPath)
+      user.key = user.ref?.key
+    }
+    user.ref?.removeValue()
+    
   }
   
   func getUserByEmail(userEmail: String, success: @escaping (User?) ->(), failure: @escaping () -> ()) {

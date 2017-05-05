@@ -19,7 +19,7 @@ class User: NSObject {
   var phone: String?
   var imageUrl: String?
   var authType: String?
-  var uid: String
+  var uid: String  // email id without any special characters. For "user.1@user.com" uid = "user1usercom
   var ref: FIRDatabaseReference?
   var key: String?
   
@@ -156,6 +156,7 @@ class User: NSObject {
       print("Error in signout the user: ", signoutEror)
       return
     }
+    UserApi.sharedInstance.removeUser(user: User.currentUser!)
     User.currentUser = nil
     NotificationCenter.default.post(User.logout)
   }

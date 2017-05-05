@@ -23,6 +23,10 @@ class RsvpApi:  NSObject {
   func storeRsvp(rsvp: RSVP) {
     let rsvpRef = fireBaseRsvpRef.child(rsvp.id)
     rsvpRef.setValue(rsvp.toAnyObject())
+    let refPath = "rsvp/" + (RSVP.currentInstance?.id)!
+    rsvp.ref =  FIRDatabase.database().reference(withPath: refPath)
+    rsvp.key = rsvp.ref?.key
+    
     delegate?.rsvpApi!(rsvpApi: self, taskUpdated: rsvp)
   }
   

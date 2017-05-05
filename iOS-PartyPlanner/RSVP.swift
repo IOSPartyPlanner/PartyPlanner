@@ -12,9 +12,11 @@ import UIKit
 
 class RSVP: NSObject {
   
+  static var currentInstance: RSVP? // = RSVP()
+
   let fireBaseRef = FIRDatabase.database().reference(withPath: "rsvp")
   
-  var id: String
+  var id: String // eventID + guestUID 
   var eventId: String
   var guestEmail: String
   // the number of persons coming with the guest
@@ -23,14 +25,24 @@ class RSVP: NSObject {
   var ref: FIRDatabaseReference?
   var key: String?
   
+  
+  
+  override init() {
+    eventId = ""
+    guestEmail = ""
+    id = ""
+  }
+  
+  
   init(id: String, eventId: String, guestEmail: String,
        guestPlusX: Int, response: RsvpResponse) {
-    self.id = id
+    self.id = id // RSVP ID
     self.eventId = eventId
     self.guestEmail = guestEmail
     self.guestPlusX = guestPlusX
     self.response = response
   }
+  
   
   init(snapshot: FIRDataSnapshot) {
     key = snapshot.key
@@ -54,4 +66,18 @@ class RSVP: NSObject {
       "response": response!.rawValue
     ]
   }
+  
+  func handleRsvpUrl(_ url: URL){
+    let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+    
+    if let queryItems = components?.queryItems {
+      for item in queryItems{
+        if item.name == "eventId" {
+          RSVP.currentInstance?.eventId = (item.value)!
+        }
+      }
+    }
+  }
+  
+  
 }

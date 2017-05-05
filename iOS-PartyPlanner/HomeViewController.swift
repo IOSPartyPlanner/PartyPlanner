@@ -11,6 +11,9 @@ import UIKit
 
 class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
 
+  @IBAction func onSignout(_ sender: Any) {
+    User.currentUser?.signout()
+  }
     
     @IBOutlet var homeSegmentedControl: UISegmentedControl!
     @IBOutlet var homeTableView: UITableView!
