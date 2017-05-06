@@ -144,7 +144,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                     self.pastEventList.append(events[i])
                 }
             }
-        }, failure: {} )
+        }, failure: nil )
         
         //TODO: Need to get host profile
         EventApi.sharedInstance.getPastEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
@@ -154,7 +154,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 }
             }
             self.homeTableView.reloadData()
-        }, failure: {} )
+        }, failure: nil )
        
         
         /*-----Get upcoming events ----*/
@@ -166,7 +166,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                     self.upcomingEventList.append(events[i])
                 }
             }
-        }, failure: {} )
+        }, failure: nil )
         
         //TODO: Need to get host profile
         EventApi.sharedInstance.getUpcomingEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
@@ -178,7 +178,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             self.homeTableView.reloadData()
             self.fetchTasks()
             
-        }, failure: {} )
+        }, failure: nil )
         
    
     }
