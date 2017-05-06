@@ -117,78 +117,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wh7-iF-3Ad">
-                                <rect key="frame" x="16" y="449" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.46226671006944442" green="0.28726424553534768" blue="0.67647085712999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wh7-iF-3Ad">
+                                <rect key="frame" x="16" y="378" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="er2-5E-Yga">
-                                <rect key="frame" x="16" y="499" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.46226671006944442" green="0.28726424553534768" blue="0.67647085712999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="er2-5E-Yga">
+                                <rect key="frame" x="16" y="416" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jbw-oG-QyA">
-                                <rect key="frame" x="16" y="547" width="343" height="100"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.46226671006944442" green="0.28726424553534768" blue="0.67647085712999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <datePicker clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jbw-oG-QyA">
+                                <rect key="frame" x="16" y="454" width="343" height="100"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="cD9-5g-sFP"/>
+                                </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="515481986.40022498">
                                     <!--2017-05-03 05:26:26 +0000-->
                                 </date>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgp-La-P9u">
-                                <rect key="frame" x="16" y="300" width="160" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="0.25476241438356162" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="Add Camera-96">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgp-La-P9u">
+                                <rect key="frame" x="16" y="320" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="LiB-ka-Acr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <state key="normal" title="Add Event Media" image="Add Camera-96">
+                                    <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onCameraButton:" destination="Kwi-l4-Vsy" eventType="touchUpInside" id="mb6-ve-spg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpl-Vv-FR8">
-                                <rect key="frame" x="199" y="299" width="160" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="0.25476241440000003" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="Add Image-96">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onAddImageButton:" destination="Kwi-l4-Vsy" eventType="touchUpInside" id="xgA-Jd-kB0"/>
-                                </connections>
-                            </button>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hzw-SP-4hg">
-                                <rect key="frame" x="16" y="72" width="343" height="219"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Theme" translatesAutoresizingMaskIntoConstraints="NO" id="hzw-SP-4hg">
+                                <rect key="frame" x="16" y="72" width="343" height="240"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="a3g-0T-6ky"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="HPj-0I-XjE" appends="YES" id="ogP-qY-1So"/>
                                 </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qr1-RC-Tx5">
-                                <rect key="frame" x="16" y="388" width="343" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.86585265398025513" green="0.87614613771438599" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="23"/>
-                                <state key="normal" title="Upload To FireBase">
-                                    <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="hzw-SP-4hg" firstAttribute="top" secondItem="7Xt-O6-bKC" secondAttribute="bottom" constant="8" id="4m4-X5-TkG"/>
+                            <constraint firstItem="Wh7-iF-3Ad" firstAttribute="leading" secondItem="O6F-ln-oEB" secondAttribute="leading" constant="16" id="FQK-rJ-cep"/>
+                            <constraint firstAttribute="trailing" secondItem="Wh7-iF-3Ad" secondAttribute="trailing" constant="16" id="Ie7-dS-Yvr"/>
+                            <constraint firstItem="hzw-SP-4hg" firstAttribute="leading" secondItem="O6F-ln-oEB" secondAttribute="leading" constant="16" id="KoC-tO-jik"/>
+                            <constraint firstItem="jbw-oG-QyA" firstAttribute="top" secondItem="er2-5E-Yga" secondAttribute="bottom" constant="8" id="XqW-bZ-agG"/>
+                            <constraint firstItem="vgp-La-P9u" firstAttribute="leading" secondItem="O6F-ln-oEB" secondAttribute="leading" constant="16" id="YXx-9x-KFb"/>
+                            <constraint firstAttribute="trailing" secondItem="hzw-SP-4hg" secondAttribute="trailing" constant="16" id="aa5-yC-fWh"/>
+                            <constraint firstItem="er2-5E-Yga" firstAttribute="top" secondItem="Wh7-iF-3Ad" secondAttribute="bottom" constant="8" id="erT-Il-Whv"/>
+                            <constraint firstAttribute="trailing" secondItem="jbw-oG-QyA" secondAttribute="trailing" constant="16" id="fxx-EN-SIk"/>
+                            <constraint firstItem="jbw-oG-QyA" firstAttribute="leading" secondItem="O6F-ln-oEB" secondAttribute="leading" constant="16" id="ive-q9-8ct"/>
+                            <constraint firstItem="Wh7-iF-3Ad" firstAttribute="top" secondItem="vgp-La-P9u" secondAttribute="bottom" constant="8" id="kIN-fX-tbl"/>
+                            <constraint firstItem="vgp-La-P9u" firstAttribute="top" secondItem="hzw-SP-4hg" secondAttribute="bottom" constant="8" id="lgj-Q1-0Jb"/>
+                            <constraint firstAttribute="trailing" secondItem="vgp-La-P9u" secondAttribute="trailing" constant="16" id="mUT-eW-zgf"/>
+                            <constraint firstAttribute="trailing" secondItem="er2-5E-Yga" secondAttribute="trailing" constant="16" id="s7o-0q-MeK"/>
+                            <constraint firstItem="er2-5E-Yga" firstAttribute="leading" secondItem="O6F-ln-oEB" secondAttribute="leading" constant="16" id="wuo-ry-f5w"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="x5Q-2K-Xru"/>
                     <connections>
-                        <outlet property="addImageButton" destination="Zpl-Vv-FR8" id="1N4-gw-afu"/>
                         <outlet property="cameraButton" destination="vgp-La-P9u" id="jQ9-Px-hbh"/>
+                        <outlet property="eventNameTextField" destination="Wh7-iF-3Ad" id="WGA-XC-zRJ"/>
+                        <outlet property="locationTextField" destination="er2-5E-Yga" id="fRK-d5-K1k"/>
                         <outlet property="mediaDisplayView" destination="hzw-SP-4hg" id="aFh-BH-QxI"/>
                     </connections>
                 </viewController>
@@ -265,7 +272,7 @@
     </scenes>
     <resources>
         <image name="Add Camera-96" width="48" height="48"/>
-        <image name="Add Image-96" width="48" height="48"/>
+        <image name="Theme" width="1920" height="1200"/>
         <image name="fbLogin" width="376" height="60"/>
         <image name="gLogin" width="373" height="60"/>
         <image name="loginPage" width="1920" height="1200"/>

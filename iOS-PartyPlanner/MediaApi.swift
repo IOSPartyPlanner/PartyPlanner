@@ -15,39 +15,36 @@ class MediaApi: NSObject {
   static let sharedInstance = MediaApi()
   private let mediaStorageRef = FIRStorage.storage().reference().child("media")
   
-  func uploadVideoToFireBase(mediaUrl: URL, type: MediaType, success: @escaping () -> (), failure: @escaping () -> ())
+  // Uploads the media to FireBase and returns the media URL
+  func uploadMediaToFireBase(mediaUrl: URL, type: MediaType, filepath: String,
+                             success: @escaping (String) -> (), failure: @escaping () -> ())
   {
-    var filePath: String!
-    if type == .image {
-      filePath = "EventMedia/event001/image1.jpg"
-    } else if type == .video {
-      filePath = "EventMedia/event001/eventvideo1.mov"
-    }
+    let mediaRef = mediaStorageRef.child(filepath)
     
-    let mediaRef = mediaStorageRef.child(filePath)
-    
+    // TODO: remove user signin before uploading!!! very important
     FIRAuth.auth()?.signIn(withEmail: "u3@gmail.com", password: "qwerty", completion: {
       (user: FIRUser?, error: Error?) in
       if error != nil {
         print("UNable to login")
       } else {
         print("successful login")
-        _ = mediaRef.putFile(mediaUrl,
-                             metadata: nil,
-                             completion: { (metadata, error) in
-                              if error != nil {
-                                print("Error Uploading Video!:: \(error?.localizedDescription ?? "oops error")")
-                                return
-                              } else {
-                                print("Video Uploaded!")
-                                print(metadata)
-                                let downloadURL = metadata?.downloadURL
-                                print(downloadURL)
-                                success()
-                              }
+        _ = mediaRef.putFile(
+          mediaUrl,
+          metadata: nil,
+          completion: { (metadata, error) in
+            if error != nil {
+              print("Error Uploading Video!:: \(error?.localizedDescription ?? "oops error")")
+              return
+            } else {
+              print("\nMediaApi:: Media Uploaded! successfully\n")
+              let mediaDownloadurl = metadata!.downloadURL()!
+              success(mediaDownloadurl.absoluteString)
+            }
         })
       }
     })
   }
+  
+  
 }
 
