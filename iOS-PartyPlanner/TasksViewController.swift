@@ -20,7 +20,7 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
     @IBOutlet var requiredPeopleCountTextField: UITextField!
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var addButton: UIButton!
-    
+    @IBOutlet var blurView: UIVisualEffectView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,7 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
         // Do any additional setup after loading the view.
         fetchTasks()
         addTaskView.isHidden = true
+        blurView.isHidden = true
         
     }
     
@@ -94,11 +95,12 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
     
     @IBAction func itemBarOnClickAdd(_ sender: Any) {
         addTaskView.isHidden = false
+        blurView.isHidden = false
     }
     
     @IBAction func onClickCancel(_ sender: Any) {
-       
         addTaskView.isHidden = true
+        blurView.isHidden = true
     }
     
     @IBAction func onClickAdd(_ sender: Any) {
@@ -109,6 +111,7 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
 
         self.tasksTableView.reloadData()
         addTaskView.isHidden = true
+        blurView.isHidden = true
     }
     
     
