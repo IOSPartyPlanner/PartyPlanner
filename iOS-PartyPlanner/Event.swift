@@ -30,6 +30,7 @@ public class Event: NSObject {
   var postEventCommentIdList: [String]?
   var ref: FIRDatabaseReference?
   var key: String?
+  var response : String?
   
     //TODO: Need to add detail field to event table in Friebase
   init(id: String, invitationVideoURL:String?, name: String?,
@@ -68,7 +69,7 @@ public class Event: NSObject {
     hostEmail = snapshotValue["hostEmail"] as! String
     guestEmailList = snapshotValue["guestEmailList"] as? [String] ?? [""]
     location = snapshotValue["location"] as! String
-    inviteMediaUrl = snapshotValue["inviteMediaUrl"] as? String
+    inviteMediaUrl = snapshotValue["inviteImageUrl"] as? String
     inviteMediaType = MediaType(rawValue: snapshotValue["inviteMediaType"] as! String)!
     postEventImages = snapshotValue["postEventImages"] as? [String] ?? [""]
     postEventVideos = snapshotValue["postEventVideos"] as? [String] ?? [""]

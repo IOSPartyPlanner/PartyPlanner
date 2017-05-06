@@ -127,22 +127,47 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     
     func fetchEvents(){
-        //TODO:Needed to fix API function
-    
+        
+        /*-----Get past events ----*/
+
         EventApi.sharedInstance.getPastEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
-            self.pastEventList = events
-            self.homeTableView.reloadData()
+            if events.count > 0 {
+                for i in 0...events.count-1{
+                    events[i].hostProfileImage = User.currentUser?.imageUrl
+                    self.pastEventList.append(events[i])
+                }
+            }
         }, failure: {} )
         
-        /*for i in 0...self.pastEventList.count{
-         UserApi.sharedInstance.getUserByEmail(userEmail: self.pastEventList[i].hostEmail, success: {(user: User) in
-         self.pastEventList[i].hostProfileImage = user.imageUrl}
-         , failure: {})
-         }*/
+        //TODO: Need to get host profile
+        EventApi.sharedInstance.getPastEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
+            if events.count > 0 {
+                for i in 0...events.count-1{
+                    self.pastEventList.append(events[i])
+                }
+            }
+            self.homeTableView.reloadData()
+        }, failure: {} )
+       
         
+        /*-----Get upcoming events ----*/
         
         EventApi.sharedInstance.getUpcomingEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
-            self.upcomingEventList = events
+            if events.count > 0 {
+                for i in 0...events.count-1{
+                    events[i].hostProfileImage = User.currentUser?.imageUrl
+                    self.upcomingEventList.append(events[i])
+                }
+            }
+        }, failure: {} )
+        
+        //TODO: Need to get host profile
+        EventApi.sharedInstance.getUpcomingEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
+            if events.count > 0 {
+                for i in 0...events.count-1{
+                    self.upcomingEventList.append(events[i])
+                }
+            }
             self.homeTableView.reloadData()
             
         }, failure: {} )

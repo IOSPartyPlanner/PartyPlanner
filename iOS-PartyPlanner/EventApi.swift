@@ -108,10 +108,10 @@ class EventApi: NSObject {
     RsvpApi.sharedInstance.getRsvpsForUserEmail(
       userEmail: userEmail,
       success: { (rsvps) in
-        var eventIds : [String] = []
+        var eventRsvps : [RSVP] = []
         // get list of eventIds the user is invited to
         for rsvp in rsvps {
-          eventIds.append(rsvp.eventId)
+          eventRsvps.append(rsvp)
         }
         
         var events : [Event] = []
@@ -119,11 +119,12 @@ class EventApi: NSObject {
         let group = DispatchGroup()
         let syncQueue = DispatchQueue(label: "com.domain.app.sections")
         
-        for eventId in eventIds {
+        for eventRsvp in  eventRsvps {
           group.enter()
-          self.getEventById(eventId: eventId,
+          self.getEventById(eventId:eventRsvp.eventId ,
                             success: { (event) in
                               syncQueue.async {
+                                event?.response = eventRsvp.response.map { $0.rawValue }
                                 events.append(event!)
                                 group.leave()
                               }

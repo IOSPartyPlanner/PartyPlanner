@@ -17,7 +17,7 @@ class HomeEventTableViewCell: UITableViewCell {
     @IBOutlet var eventNameLabel: UILabel!
     @IBOutlet var eventTimeLabel: UILabel!
     @IBOutlet var eventLocationLabel: UILabel!
-    
+    @IBOutlet var rsvpButton: UIButton!
     
     var event: Event? {
         didSet {
@@ -39,6 +39,10 @@ class HomeEventTableViewCell: UITableViewCell {
             
             if let time = event?.dateTime{
                 eventTimeLabel.text = Utils.getTimeStampStringFromDate(date: time)
+            }
+            
+            if let rsvpStatus = event?.response {
+                rsvpButton.setTitle(rsvpStatus, for: .normal)
             }
         }
     }
