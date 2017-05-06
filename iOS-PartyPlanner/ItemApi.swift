@@ -25,40 +25,32 @@ class ItemApi: NSObject {
     delegate?.itemApi!(itemApi: self, taskUpdated: item)
   }
   
-  func getItemById(itemId: String, success: @escaping (Item?) ->(), failure: @escaping () -> ()) {
+  func getItemById(itemId: String, success: @escaping (Item?) ->(), failure: ((APIFetchError) -> ())?)  {
     print("TaskAPI : searching item by ID \(itemId)")
-    var item: Item?
-    fireBaseItemRef.queryOrdered(byChild: "id")
-      .queryEqual(toValue: itemId)
+    fireBaseItemRef.queryOrdered(byChild: "id").queryEqual(toValue: itemId)
       .observe(.value, with: { snapshot in
-        for itemChild in snapshot.children {
-          item = Item(snapshot: itemChild as! FIRDataSnapshot)
-          break
-        }
-        
-        if item == nil {
-          failure()
+        if let firstChild = snapshot.children.nextObject() {
+            let item = Item(snapshot: firstChild as! FIRDataSnapshot)
+            success(item)
         } else {
-          success(item)
+            if let failure = failure {
+                failure(.NoItemFoundError)
+            }
         }
       })
   }
   
-  func getItemsByEventId(eventId: String, success: @escaping ([Item]) -> (), failure: @escaping () -> ()) {
+  func getItemsByEventId(eventId: String, success: @escaping ([Item]) -> (), failure: ((APIFetchError) -> ())?) {
     print("TaskAPI : searching Items by eventId:: \(eventId)")
-    var items: [Item]?
-    fireBaseItemRef.queryOrdered(byChild: "eventId")
-      .queryEqual(toValue: eventId)
+    fireBaseItemRef.queryOrdered(byChild: "eventId").queryEqual(toValue: eventId)
       .observe(.value, with: { snapshot in
-        for itemChild in snapshot.children {
-          let item = Item(snapshot: itemChild as! FIRDataSnapshot)
-          items?.append(item)
-        }
-        
-        if items == nil {
-          failure()
+        if snapshot.childrenCount > 0 {
+            let items = snapshot.children.map{  return Item(snapshot: $0 as! FIRDataSnapshot) }
+            success(items)
         } else {
-          success(items!)
+            if let failure = failure {
+                failure(.NoItemFoundError)
+            }
         }
       })
   }

@@ -8,6 +8,12 @@
 
 import UIKit
 
+
+
+enum APIFetchError: Error {
+    case NoItemFoundError
+}
+
 class APIClient: NSObject {
   static let sharedInstance = APIClient()
   

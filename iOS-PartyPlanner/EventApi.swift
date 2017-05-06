@@ -13,11 +13,13 @@ import Firebase
   @objc optional func eventApi(eventApi: EventApi, eventUpdated event: Event)
 }
 
+
 class EventApi: NSObject {
   
   static let sharedInstance = EventApi()
   
   private let fireBaseEventRef = FIRDatabase.database().reference(withPath: "event")
+    
   weak var delegate: EventApiDelegate?
   
   func storeEvent(event: Event) {
@@ -27,7 +29,7 @@ class EventApi: NSObject {
   }
   
   
-  func getEventById(eventId: String, success: @escaping (Event?) ->(), failure: @escaping () -> ()) {
+  func getEventById(eventId: String, success: @escaping (Event?) ->(), failure: ((APIFetchError) -> ())?) {
     print("EventApi : searching for event by Id: \(eventId)")
     var event: Event?
 
@@ -40,70 +42,57 @@ class EventApi: NSObject {
         }
         
         if event == nil {
-          failure()
+          failure?(.NoItemFoundError)
         } else {
           success(event)
         }
       })
   }
+    
+    func getEventsHostedByUserEmailWithPredicate(userEmail: String, predicate: ((Event) -> Bool)?, success: @escaping ([Event]) -> (), failure: ((APIFetchError) -> ())?) {
+        print("EventApi : searching for events hosted by userId: \(userEmail)")
+        fireBaseEventRef.queryOrdered(byChild: "hostEmail")
+            .queryEqual(toValue: userEmail)
+            .observe(.value, with: { (snapshot) in
+                
+                var events = snapshot.children.map({ return Event(snapshot: $0 as! FIRDataSnapshot)})
+                
+                if let predicate = predicate {
+                    events = events.filter{ return predicate($0) }
+                }
+                
+                if events.count == 0 {
+                    failure?(.NoItemFoundError)
+                } else {
+                    success(events)
+                }
+            })
+    }
   
-  func getEventsHostedByUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
+  func getEventsHostedByUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: ((APIFetchError) -> ())?) {
     print("EventApi : searching for events hosted by userId: \(userEmail)")
-    var events = [Event]()
-    fireBaseEventRef.queryOrdered(byChild: "hostEmail")
-      .queryEqual(toValue: userEmail)
-      .observe(.value, with: { (snapshot) in
-        for userEvent in snapshot.children {
-          let event = Event(snapshot: userEvent as! FIRDataSnapshot)
-          events.append(event)
-        }
-        
-        if events == nil {
-            print(userEmail)
-            failure()
-        } else {
-          success(events)
-        }
-      })
+    getEventsHostedByUserEmailWithPredicate(userEmail: userEmail, predicate: nil, success: success, failure: failure)
   }
   
-  func getUpcomingEventsHostedByUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
+  func getUpcomingEventsHostedByUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: ((APIFetchError) -> ())?) {
     print("EventApi : searching for upcoming events hosted by userId: \(userEmail)")
-    getEventsHostedByUserEmail(
-      userEmail: userEmail,
-      success: { (events) in
-        var upcomingEvents: [Event] = []
-        for event in events {
-          if event.dateTime.timeIntervalSinceNow > 0 {
-            upcomingEvents.append(event)
-          }
-        }
-        success(upcomingEvents)
-    },
-      failure: {
-    })
+    getEventsHostedByUserEmailWithPredicate(userEmail: userEmail, predicate: { return $0.dateTime.timeIntervalSinceNow > 0 }, success: success, failure: failure)
   }
   
-  func getPastEventsHostedByUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
+  func getPastEventsHostedByUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: ((APIFetchError) -> ())?) {
     print("EventApi : searching for past events hosted by userId: \(userEmail)")
-    getEventsHostedByUserEmail(
-      userEmail: userEmail,
-      success: { (events) in
-        var pastEvents: [Event] = []
-        for event in events {
-          if event.dateTime.timeIntervalSinceNow < 0 {
-            pastEvents.append(event)
-          }
-        }
-        success(pastEvents)
-    },
-      failure: {
-    })
+    getEventsHostedByUserEmailWithPredicate(userEmail: userEmail, predicate: { return $0.dateTime.timeIntervalSinceNow <= 0 }, success: success, failure: failure)
   }
   
   // return an array of events that this user is invited to
   func getEventsForUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: @escaping () -> ()) {
     print("EventApi : searching for events userId: \(userEmail) is invited to")
+    
+//    RsvpApi.sharedInstance.getRsvpsForUserEmail(userEmail: userEmail, success: { rsvps in
+//        
+//    }, failure: {
+//        
+//    })
     
     RsvpApi.sharedInstance.getRsvpsForUserEmail(
       userEmail: userEmail,
