@@ -21,6 +21,9 @@ class HomeEventTableViewCell: UITableViewCell {
     
     var event: Event? {
         didSet {
+            
+            profileImageView = Utils.doCircleImage(image: profileImageView)
+            
             if let profileImageURL = event?.hostProfileImage{
                 profileImageView.setImageWith(NSURL(string:profileImageURL)! as URL)
             }
