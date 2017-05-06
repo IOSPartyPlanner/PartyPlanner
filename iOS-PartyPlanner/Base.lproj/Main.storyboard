@@ -525,6 +525,7 @@
                     <connections>
                         <outlet property="homeSegmentedControl" destination="AWf-tH-Uti" id="k10-IF-QNs"/>
                         <outlet property="homeTableView" destination="g2d-Gw-SSy" id="i8S-5O-RNb"/>
+                        <segue destination="YFQ-VQ-hit" kind="show" identifier="showDetail" id="JFb-8A-Jjt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwX-3E-Bd0" userLabel="First Responder" sceneMemberID="firstResponder"/>
