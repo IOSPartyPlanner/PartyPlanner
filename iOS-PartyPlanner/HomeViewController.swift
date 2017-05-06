@@ -202,10 +202,12 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 }
                 self.tasksList.append(self.taskList)
                 self.taskList = [Task]()
+               
                 
                 }, failure:{})
         
         }
     }
+    
 
 }
