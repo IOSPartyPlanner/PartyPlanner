@@ -17,6 +17,7 @@ target 'iOS-PartyPlanner' do
   pod 'Firebase/Database'
   pod 'AFNetworking', '~> 2.5'
   pod 'DLRadioButton', '~> 1.4'
+  pod 'MBProgressHUD'
 # Pods for iOS-PartyPlanner
 
 end

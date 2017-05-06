@@ -8,9 +8,10 @@ class Task: NSObject {
   var id: String
   var name: String
   var eventId: String
+  var eventName: String?
   var taskDescription: String
   var numberOfPeopleRequired: Int
-  var volunteerEmails: [String]
+  var volunteerEmails: [String]?
   var dueDate: Date
   var ref: FIRDatabaseReference?
   var key: String?
@@ -37,7 +38,7 @@ class Task: NSObject {
     eventId = snapshotValue["eventId"] as! String
     taskDescription = snapshotValue["taskDescription"] as! String
     numberOfPeopleRequired = snapshotValue["numberOfPeopleRequired"] as! Int
-    volunteerEmails = snapshotValue["volunteerEmails"] as! [String]
+    volunteerEmails = snapshotValue["volunteerEmails"] as? [String]
     dueDate = Utils.getTimeStampFromString(timeStampString: snapshotValue["dueDate"] as! String)
     ref = snapshot.ref
   }

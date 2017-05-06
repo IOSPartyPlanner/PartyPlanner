@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 
 class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
@@ -17,22 +18,36 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     @IBOutlet var homeSegmentedControl: UISegmentedControl!
     @IBOutlet var homeTableView: UITableView!
+    var refreshControl:UIRefreshControl!
     var pastEventList = [Event]()
     var upcomingEventList = [Event]()
-    var taskList = [Task]()
+    var taskList = [Task]() //Task list of the user for each event
+    var tasksList = [[Task]]() // Whole events tasks
     var sectionEvents = ["Upcoming", "Past"]
-    var sectionTasks = ["House Warming Party", "House Warming Party"] //[String]() //TODO:
-    var sign = 0
-    
-    
+    var sectionTasks = [String]()
+    var sign = 0 // 0.Display Events 1.Display Tasks
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        homeTableView.insertSubview(refreshControl, at: 0)
         fetchEvents()
         
     }
     
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        //TODO:Needed to check refreshing part
+        /*pastEventList = [Event]()
+        upcomingEventList = [Event]()
+        tasksList = [[Task]]()
+        sectionTasks = [String]()
+        fetchEvents()*/
+        refreshControl.endRefreshing()
+    }
     
     @IBAction func indexChanged(_ sender: Any) {
         switch homeSegmentedControl.selectedSegmentIndex
@@ -68,8 +83,6 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             return self.sectionTasks.count
         }
     }
-    
-
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if sign == 0 {
@@ -80,15 +93,8 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 return pastEventList.count
             }
         }
-    
-        //TODO:Will change
         else{
-            if section == 0{
-                return 3
-            }
-            else {
-                return 2
-            }
+            return tasksList[section].count
         }
     }
     
@@ -115,9 +121,10 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         }
         else{
-           let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTaskTableViewCell") as! HomeTaskTableViewCell
-            
-        return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTaskTableViewCell") as! HomeTaskTableViewCell
+            var tasks = tasksList[indexPath.section]
+            cell.task = tasks[indexPath.item]
+            return cell
         }
     }
     
@@ -169,13 +176,36 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 }
             }
             self.homeTableView.reloadData()
+            self.fetchTasks()
             
         }, failure: {} )
+        
+   
     }
     
+    
     func fetchTasks(){
-        //TODO: Needed API function
-      
+        
+        for event in upcomingEventList {
+            TaskApi.sharedInstance.getTasksByEventId(eventId: event.id, success: {(tasks: [Task])
+                in
+                for task in tasks {
+                    if (task.volunteerEmails?.contains((User._currentUser?.email)!))! {
+                        task.eventName = event.name
+                        self.taskList.append(task)
+                        print(task.name)
+                        self.homeTableView.reloadData()
+                        if !self.sectionTasks.contains(event.name!){
+                            self.sectionTasks.append(event.name!)
+                        }
+                    }
+                }
+                self.tasksList.append(self.taskList)
+                self.taskList = [Task]()
+                
+                }, failure:{})
+        
+        }
     }
 
 }

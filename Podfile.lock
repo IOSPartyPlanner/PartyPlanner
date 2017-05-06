@@ -79,6 +79,7 @@ PODS:
   - GTMSessionFetcher/Core (1.1.9)
   - GTMSessionFetcher/Full (1.1.9):
     - GTMSessionFetcher/Core (= 1.1.9)
+  - MBProgressHUD (1.0.0)
   - TwitterCore (2.8.0):
     - Fabric
   - TwitterKit (2.8.1):
@@ -95,6 +96,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - GoogleSignIn
+  - MBProgressHUD
   - TwitterCore
   - TwitterKit
 
@@ -116,9 +118,10 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
   TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
 
-PODFILE CHECKSUM: e2cab13cacec5ea90c38c530f40a235b776eaadc
+PODFILE CHECKSUM: 68c2182014b3c80cdb04cde44afc77318abbb990
 
 COCOAPODS: 1.2.1
