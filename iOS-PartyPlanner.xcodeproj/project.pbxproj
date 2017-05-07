@@ -51,6 +51,7 @@
 		F7B01E961EBBB7610023852A /* HomeEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E951EBBB7610023852A /* HomeEventTableViewCell.swift */; };
 		F7B01E981EBBB7770023852A /* HomeTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E971EBBB7770023852A /* HomeTaskTableViewCell.swift */; };
 		F7B01E9A1EBDD5860023852A /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E991EBDD5860023852A /* TaskTableViewCell.swift */; };
+		F7B01E9C1EBEA2540023852A /* EventsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		F7B01E951EBBB7610023852A /* HomeEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeEventTableViewCell.swift; sourceTree = "<group>"; };
 		F7B01E971EBBB7770023852A /* HomeTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTaskTableViewCell.swift; sourceTree = "<group>"; };
 		F7B01E991EBDD5860023852A /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsMapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +266,7 @@
 				821B65E31EB04B1C0078333B /* LoginViewController.swift */,
 				F7B01E8F1EB7EC190023852A /* EventDetailViewController.swift */,
 				8209022B1EBAC8C2009C7C6D /* CalViewController.swift */,
+				F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 			files = (
 				821B65E41EB04B1C0078333B /* LoginViewController.swift in Sources */,
 				8209022C1EBAC8C2009C7C6D /* CalViewController.swift in Sources */,
+				F7B01E9C1EBEA2540023852A /* EventsMapViewController.swift in Sources */,
 				8209022A1EBABFA5009C7C6D /* CalendarAPI.swift in Sources */,
 				821B65CA1EB00FE20078333B /* EventSummaryTableViewCell.swift in Sources */,
 				821B65C51EB007230078333B /* VideoView.swift in Sources */,
