@@ -105,6 +105,12 @@ class RSVPViewController: UIViewController{
         rsvpResponse = .maybe
       }
     }
+    
+    let uuid = UUID().uuidString
+    let name = "Birthday bash " + uuid
+    let testEvent = Event(id: uuid, invitationVideoURL: "", name: name, dateTime: Date(), tagline: "Test event", hostEmail: "u2@userr.com", guestEmailList: ["una.020@gmail.com","una.020@gmail.com"], location: "somewhere", inviteMediaUrl: "http://wallpaper-gallery.net/images/party-images/party-images-15.jpg", inviteMediaType: .image, postEventImages: [], postEventVideos: [], likesCount: 0, postEventCommentIdList: [])
+    
+    EventApi.sharedInstance.storeEvent(event: testEvent)
   }
     /*
     // MARK: - Navigation
