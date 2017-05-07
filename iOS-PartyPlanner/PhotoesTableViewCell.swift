@@ -15,6 +15,8 @@ class PhotoesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     
     var photoes: [String]?
     
+    var viewController: EventViewController?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -42,7 +44,14 @@ class PhotoesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
         if let photo = photoes?[indexPath.row] {
             cell?.photoImageView.setImageWith(NSURL(string:photo)! as URL)
         }
+        let gesture = UILongPressGestureRecognizer(target: cell?.photoImageView, action: #selector(selectImage(_:)))
+        cell?.photoImageView.addGestureRecognizer(gesture)
+        
         return cell!
+    }
+    
+    @IBAction func selectImage(_ sender: UILongPressGestureRecognizer) {
+        viewController?.performSegue(withIdentifier: "showPhotos", sender: self)
     }
 
 }

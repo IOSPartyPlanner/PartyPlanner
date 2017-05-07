@@ -71,6 +71,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             let cell1 = eventTableView.dequeueReusableCell(withIdentifier: "PhotoesTableViewCell", for: indexPath) as? PhotoesTableViewCell
             cell1?.photoes = event?.postEventImages
+            cell1?.viewController = self
             return cell1!
         default:
             //TODO: Need to declare EventGuestCommentTableViewCell ?

@@ -127,6 +127,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //TODO: Perform Segue ShowDetails
         if sign == 0{
            homeTableView.deselectRow(at:indexPath, animated: true)
         }

@@ -273,9 +273,6 @@
                                                                             <constraint firstAttribute="width" constant="80" id="LYy-c3-bna"/>
                                                                             <constraint firstAttribute="height" constant="80" id="mmz-yz-O1l"/>
                                                                         </constraints>
-                                                                        <connections>
-                                                                            <outletCollection property="gestureRecognizers" destination="XAI-jR-kbM" appends="YES" id="o9p-Yr-S9R"/>
-                                                                        </connections>
                                                                     </imageView>
                                                                 </subviews>
                                                             </view>
@@ -366,7 +363,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="av6-Ky-zzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="XAI-jR-kbM"/>
             </objects>
             <point key="canvasLocation" x="1868" y="583"/>
         </scene>
@@ -381,12 +377,22 @@
                     <view key="view" contentMode="scaleToFill" id="jiI-Pc-ePh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C32-H8-w4z">
+                                <rect key="frame" x="0.0" y="206" width="375" height="128"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C32-H8-w4z" firstAttribute="centerX" secondItem="jiI-Pc-ePh" secondAttribute="centerX" id="1hQ-oE-bKl"/>
+                            <constraint firstItem="C32-H8-w4z" firstAttribute="leading" secondItem="jiI-Pc-ePh" secondAttribute="leading" id="CpP-K0-TuT"/>
+                            <constraint firstAttribute="trailing" secondItem="C32-H8-w4z" secondAttribute="trailing" id="KxT-WI-9um"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gw5-9k-4R7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2794" y="582"/>
+            <point key="canvasLocation" x="2792.8000000000002" y="581.55922038980509"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="DK1-5g-iBM">
@@ -1028,7 +1034,7 @@
             <objects>
                 <navigationController storyboardIdentifier="EventViewNC" automaticallyAdjustsScrollViewInsets="NO" id="VOF-yO-m27" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5iL-Dk-x6m">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5iL-Dk-x6m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
