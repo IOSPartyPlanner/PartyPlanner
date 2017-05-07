@@ -15,7 +15,7 @@ class EventsMapViewController: UIViewController,CLLocationManagerDelegate{
     @IBOutlet var mapView: MKMapView!
     //TODO: Current Location is not working
     var locationManager : CLLocationManager!
-    var events = [Event]()
+    var events : [Event]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,7 @@ class EventsMapViewController: UIViewController,CLLocationManagerDelegate{
         // Do any additional setup after loading the view.
         let centerLocation = CLLocation(latitude: 37.7833, longitude: -122.4167)
         goToLocation(location: centerLocation)
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -33,10 +34,9 @@ class EventsMapViewController: UIViewController,CLLocationManagerDelegate{
     }
     
     func pinEvents(){
-          //TODO:Will be edited
-          addAnnotationAtAddress(address: "3rd Street San Francisco", title: "Airport")
-          addAnnotationAtAddress(address: "4rd Street San Francisco", title: "Airport")
-
+        for event in events! {
+            addAnnotationAtAddress(address: event.location, title: event.name!)
+        }
     }
     
     override func didReceiveMemoryWarning() {

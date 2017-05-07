@@ -21,7 +21,10 @@ class HomeTaskTableViewCell: UITableViewCell {
             }
         
             if let time = task?.dueDate{
-                dueDateLabel.text = Utils.getTimeStampStringFromDate(date: time)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .long
+                dateFormatter.timeStyle = .long
+                dueDateLabel.text = dateFormatter.string(from: (time))
             }
         }
     }

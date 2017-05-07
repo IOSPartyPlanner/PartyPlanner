@@ -138,33 +138,33 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Party name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nd-gJ-wrH">
-                                                    <rect key="frame" x="18" y="215" width="339" height="21.5"/>
+                                                    <rect key="frame" x="18" y="215" width="339" height="22"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="ZuB-22-PkL" userLabel="Location Image View">
-                                                    <rect key="frame" x="38" y="265.5" width="24" height="24"/>
+                                                    <rect key="frame" x="38" y="266" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="3ka-kh-Apf"/>
                                                         <constraint firstAttribute="width" constant="24" id="j9z-QT-xQO"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfv-CO-Wek">
-                                                    <rect key="frame" x="74" y="260.5" width="283" height="34"/>
+                                                    <rect key="frame" x="74" y="261" width="283" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date" translatesAutoresizingMaskIntoConstraints="NO" id="ywC-W0-8YM">
-                                                    <rect key="frame" x="38" y="302.5" width="24" height="24"/>
+                                                    <rect key="frame" x="38" y="302" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="L3m-WW-1bV"/>
                                                         <constraint firstAttribute="height" constant="24" id="wLp-cr-TFo"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NnD-RS-9uC">
-                                                    <rect key="frame" x="74" y="302.5" width="100" height="19.5"/>
+                                                    <rect key="frame" x="74" y="302" width="100" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="tbd-AW-yFp"/>
                                                     </constraints>
@@ -173,7 +173,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njJ-11-1ii">
-                                                    <rect key="frame" x="212" y="302.5" width="100" height="19.5"/>
+                                                    <rect key="frame" x="212" y="302" width="100" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="9VW-jH-EdL"/>
                                                     </constraints>
@@ -182,17 +182,17 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="time" translatesAutoresizingMaskIntoConstraints="NO" id="7xm-LS-UoO">
-                                                    <rect key="frame" x="184" y="302.5" width="16" height="16"/>
+                                                    <rect key="frame" x="184" y="302" width="16" height="16"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tagline" translatesAutoresizingMaskIntoConstraints="NO" id="VKb-yZ-gqn">
-                                                    <rect key="frame" x="38" y="332.5" width="24" height="24"/>
+                                                    <rect key="frame" x="38" y="332" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="iDa-WV-45o"/>
                                                         <constraint firstAttribute="width" constant="24" id="uJy-1j-N9G"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCN-8H-EKf">
-                                                    <rect key="frame" x="74" y="332.5" width="283" height="24"/>
+                                                    <rect key="frame" x="74" y="332" width="283" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -314,13 +314,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9W-Y8-pdZ">
-                                                    <rect key="frame" x="100" y="15.5" width="257" height="21"/>
+                                                    <rect key="frame" x="100" y="16" width="257" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkd-Hb-E8F">
-                                                    <rect key="frame" x="100" y="38.5" width="42" height="21"/>
+                                                    <rect key="frame" x="100" y="39" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -362,7 +362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="av6-Ky-zzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2222" y="544"/>
+            <point key="canvasLocation" x="1868" y="583"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="DK1-5g-iBM">
@@ -463,7 +463,7 @@
                                             <outlet property="invitationImageView" destination="pJa-mJ-kdp" id="Bhp-ar-7Jd"/>
                                             <outlet property="profileImageView" destination="9vh-AM-0XT" id="oWa-Ff-mbo"/>
                                             <outlet property="rsvpButton" destination="4Ai-M3-1TK" id="dhF-6r-Fe6"/>
-                                            <segue destination="YFQ-VQ-hit" kind="push" id="997-iv-NvV"/>
+                                            <segue destination="YFQ-VQ-hit" kind="push" identifier="showEvent" id="997-iv-NvV"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeTaskTableViewCell" rowHeight="61" id="lZi-cL-mra" customClass="HomeTaskTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
@@ -554,7 +554,7 @@
                         <barButtonItem key="rightBarButtonItem" image="map" id="mLg-Ne-pH0">
                             <inset key="imageInsets" minX="5" minY="5" maxX="0.0" maxY="0.0"/>
                             <connections>
-                                <segue destination="Qw0-cb-mJG" kind="push" id="9FZ-dc-TpA"/>
+                                <segue destination="Qw0-cb-mJG" kind="push" identifier="mapSegue" id="9FZ-dc-TpA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -647,7 +647,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eV1-cx-fyP">
-                                                    <rect key="frame" x="4" y="16" width="24" height="24"/>
+                                                    <rect key="frame" x="4" y="16" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -774,7 +774,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Acu-9w-hyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3322" y="502"/>
+            <point key="canvasLocation" x="3590" y="-279"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4F8-Mu-coF">
@@ -792,7 +792,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVy-am-7v3">
-                                <rect key="frame" x="60" y="167" width="255" height="42"/>
+                                <rect key="frame" x="60" y="123" width="255" height="42"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Will you attend?">
                                         <attributes>
@@ -804,12 +804,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eca-v2-WPF">
-                                <rect key="frame" x="188" y="212" width="0.0" height="0.0"/>
+                                <rect key="frame" x="188" y="168" width="0.0" height="0.0"/>
                                 <attributedString key="attributedText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kh0-3S-3JR" customClass="DLRadioButton">
-                                <rect key="frame" x="66" y="322" width="300" height="50"/>
+                                <rect key="frame" x="66" y="278" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="TyH-kd-Zie"/>
                                     <constraint firstAttribute="width" constant="300" id="rua-vn-kdk"/>
@@ -840,7 +840,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="olE-e0-5QC" customClass="DLRadioButton">
-                                <rect key="frame" x="66" y="402" width="200" height="50"/>
+                                <rect key="frame" x="66" y="358" width="200" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="LIY-DC-NSl"/>
                                     <constraint firstAttribute="height" constant="50" id="heS-es-Q3L"/>
@@ -871,7 +871,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XaJ-IK-Y85">
-                                <rect key="frame" x="147" y="607" width="82" height="54"/>
+                                <rect key="frame" x="147" y="563" width="82" height="54"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -887,7 +887,7 @@
                                 </connections>
                             </button>
                             <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="dbv-ax-aKe">
-                                <rect key="frame" x="138" y="539" width="100" height="36"/>
+                                <rect key="frame" x="138" y="495" width="100" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="mCr-Fp-iBE"/>
                                     <constraint firstAttribute="height" constant="35" id="nQe-Oc-Ouc"/>
@@ -904,7 +904,7 @@
                                 </connections>
                             </segmentedControl>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecz-ie-P9M">
-                                <rect key="frame" x="149" y="507" width="77" height="24"/>
+                                <rect key="frame" x="149" y="463" width="77" height="24"/>
                                 <attributedString key="attributedText">
                                     <fragment content="0 (+ You)">
                                         <attributes>
@@ -916,7 +916,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XT8-Ns-g94" customClass="DLRadioButton">
-                                <rect key="frame" x="74" y="245" width="200" height="50"/>
+                                <rect key="frame" x="74" y="201" width="200" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="eKq-ve-dC9"/>
                                     <constraint firstAttribute="width" constant="200" id="jNy-Dr-4Fu"/>
@@ -947,7 +947,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qv-pl-dEt">
-                                <rect key="frame" x="118" y="124" width="139" height="28"/>
+                                <rect key="frame" x="118" y="80" width="139" height="28"/>
                                 <attributedString key="attributedText">
                                     <fragment content="RSVP Please">
                                         <attributes>
@@ -1004,7 +1004,7 @@
             <objects>
                 <navigationController storyboardIdentifier="EventViewNC" automaticallyAdjustsScrollViewInsets="NO" id="VOF-yO-m27" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5iL-Dk-x6m">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5iL-Dk-x6m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

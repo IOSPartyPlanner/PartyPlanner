@@ -31,7 +31,6 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(self.refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         homeTableView.insertSubview(refreshControl, at: 0)
@@ -134,7 +133,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      
+        if (segue.identifier?.isEqual("showEvent"))! {
         if sign == 0{
             let indexPath = homeTableView.indexPathForSelectedRow
            
@@ -148,6 +147,12 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             }
             let eventViewController = segue.destination as! EventViewController
             eventViewController.event = event
+          }
+        }
+        
+        else if (segue.identifier?.isEqual("mapSegue"))!  {
+            let mapViewController = segue.destination as! EventsMapViewController
+            mapViewController.events = pastEventList
         }
     }
     

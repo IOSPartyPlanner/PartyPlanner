@@ -40,7 +40,10 @@ class HomeEventTableViewCell: UITableViewCell {
             }
             
             if let time = event?.dateTime{
-                eventTimeLabel.text = Utils.getTimeStampStringFromDate(date: time)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .long
+                dateFormatter.timeStyle = .long
+                eventTimeLabel.text = dateFormatter.string(from: (time))
             }
             
             if let rsvpStatus = event?.response {
