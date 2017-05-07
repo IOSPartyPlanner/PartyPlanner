@@ -100,7 +100,6 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
-        
         if sign == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeEventTableViewCell") as! HomeEventTableViewCell
             let currSection = sectionEvents[indexPath.section]
@@ -125,6 +124,30 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             var tasks = tasksList[indexPath.section]
             cell.task = tasks[indexPath.item]
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if sign == 0{
+           homeTableView.deselectRow(at:indexPath, animated: true)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      
+        if sign == 0{
+            let indexPath = homeTableView.indexPathForSelectedRow
+           
+            let section = indexPath?.section
+            let event : Event
+            if section == 0 {
+                event = upcomingEventList[(indexPath?.row)!]
+            }
+            else{
+                event = pastEventList[(indexPath?.row)!]
+            }
+            let eventViewController = segue.destination as! EventViewController
+            eventViewController.event = event
         }
     }
     

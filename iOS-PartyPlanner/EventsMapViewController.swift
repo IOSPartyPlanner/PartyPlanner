@@ -34,8 +34,9 @@ class EventsMapViewController: UIViewController,CLLocationManagerDelegate{
     
     func pinEvents(){
           //TODO:Will be edited
-          addAnnotationAtAddress(address: "San Francisco Airport San Francisco", title: "Airport")
-        
+          addAnnotationAtAddress(address: "3rd Street San Francisco", title: "Airport")
+          addAnnotationAtAddress(address: "4rd Street San Francisco", title: "Airport")
+
     }
     
     override func didReceiveMemoryWarning() {
