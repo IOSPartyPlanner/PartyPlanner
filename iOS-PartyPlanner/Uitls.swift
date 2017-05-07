@@ -16,6 +16,7 @@ class Utils: NSObject {
   
   private static var formatter = DateFormatter()
   
+  // Mark: - Date Time related
   static func getTimeStampFromString(timeStampString: String) -> Date {
     formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
     return formatter.date(from: timeStampString)!
@@ -25,6 +26,33 @@ class Utils: NSObject {
     formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
     return formatter.string(from: date)
   }
+  
+  // The following two functions don't inlcude 
+  // seconds and timezone info
+  static func getShortTimeStampFromString(timeStampString: String) -> Date {
+    formatter.dateFormat = "EEE MMM d HH:mm"
+    return formatter.date(from: timeStampString)!
+  }
+  
+  static func getShortTimeStampStringFromDate(date: Date) -> String {
+    formatter.dateFormat = "EEE MMM d HH:mm"
+    return formatter.string(from: date)
+  }
+  
+  static func isDateTimePast(date: Date) -> Bool {
+    if date.timeIntervalSinceNow < 0 {
+      return true
+    }
+    return false
+  }
+  
+  static func isDateTimeFuture(date: Date) -> Bool {
+    if date.timeIntervalSinceNow > 0 {
+      return true
+    }
+    return false
+  }
+  
     
   static func doCircleImage(image: UIImageView) -> UIImageView {
         image.layer.borderWidth = 1
