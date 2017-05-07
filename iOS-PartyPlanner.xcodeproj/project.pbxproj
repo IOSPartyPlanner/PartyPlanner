@@ -32,6 +32,7 @@
 		821B65E91EB053B30078333B /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821B65E81EB053B30078333B /* AVKit.framework */; };
 		821B65EB1EB053BB0078333B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821B65EA1EB053BB0078333B /* AVFoundation.framework */; };
 		826897E41EB65A0400C3B4D6 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826897E31EB65A0400C3B4D6 /* PhotoCollectionViewCell.swift */; };
+		82CCAEA61EBF9BCE00D3C71C /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CCAEA51EBF9BCE00D3C71C /* PhotoBrowserViewController.swift */; };
 		82D4AF0A1EB52D990087E0A6 /* PhotoesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D4AF091EB52D990087E0A6 /* PhotoesTableViewCell.swift */; };
 		A1470F371EAF20C600DE373A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F361EAF20C600DE373A /* AppDelegate.swift */; };
 		A1470F3C1EAF20C600DE373A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1470F3A1EAF20C600DE373A /* Main.storyboard */; };
@@ -79,6 +80,7 @@
 		821B65E81EB053B30078333B /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		821B65EA1EB053BB0078333B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		826897E31EB65A0400C3B4D6 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		82CCAEA51EBF9BCE00D3C71C /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
 		82D4AF091EB52D990087E0A6 /* PhotoesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoesTableViewCell.swift; sourceTree = "<group>"; };
 		90C13D833579335699BC48A0 /* Pods-iOS-PartyPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PartyPlanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner.release.xcconfig"; sourceTree = "<group>"; };
 		96B49B93AA647D8D6A2EED1E /* Pods-iOS-PartyPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PartyPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner.debug.xcconfig"; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				F7B01E8F1EB7EC190023852A /* EventDetailViewController.swift */,
 				8209022B1EBAC8C2009C7C6D /* CalViewController.swift */,
 				F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */,
+				82CCAEA51EBF9BCE00D3C71C /* PhotoBrowserViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82CCAEA61EBF9BCE00D3C71C /* PhotoBrowserViewController.swift in Sources */,
 				821B65E41EB04B1C0078333B /* LoginViewController.swift in Sources */,
 				8209022C1EBAC8C2009C7C6D /* CalViewController.swift in Sources */,
 				F7B01E9C1EBEA2540023852A /* EventsMapViewController.swift in Sources */,
