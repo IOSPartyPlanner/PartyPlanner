@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		52C0AA7EC45E7B8440B6BF1B /* Pods_iOS_PartyPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EBBF46E02386A7137CFD03 /* Pods_iOS_PartyPlanner.framework */; };
+		2044D7611EB14F26002AB803 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2044D7601EB14F26002AB803 /* GoogleService-Info.plist */; };
+		23BA99FF7269C05C70C2274A /* Pods_iOS_PartyPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8DCCBDCBEA68C30D6893BC /* Pods_iOS_PartyPlanner.framework */; };
 		8209022A1EBABFA5009C7C6D /* CalendarAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820902291EBABFA5009C7C6D /* CalendarAPI.swift */; };
 		8209022C1EBAC8C2009C7C6D /* CalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8209022B1EBAC8C2009C7C6D /* CalViewController.swift */; };
 		821B65BE1EAFF1C60078333B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65BD1EAFF1C60078333B /* HomeViewController.swift */; };
@@ -37,10 +39,26 @@
 		A1470F3C1EAF20C600DE373A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1470F3A1EAF20C600DE373A /* Main.storyboard */; };
 		A1470F3E1EAF20C600DE373A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1470F3D1EAF20C600DE373A /* Assets.xcassets */; };
 		A1470F411EAF20C600DE373A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1470F3F1EAF20C600DE373A /* LaunchScreen.storyboard */; };
+		A1470F6D1EB17AA600DE373A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F6C1EB17AA600DE373A /* Comment.swift */; };
+		A14EE5F41EB51BAD006889D1 /* Uitls.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14EE5F31EB51BAD006889D1 /* Uitls.swift */; };
+		A190B1721EB66D7F006328AF /* EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B16E1EB66D7F006328AF /* EventApi.swift */; };
+		A190B1731EB66D7F006328AF /* ItemApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B16F1EB66D7F006328AF /* ItemApi.swift */; };
+		A190B1741EB66D7F006328AF /* RsvpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1701EB66D7F006328AF /* RsvpApi.swift */; };
+		A190B1751EB66D7F006328AF /* TaskApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1711EB66D7F006328AF /* TaskApi.swift */; };
+		A190B1771EB67D2B006328AF /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1761EB67D2B006328AF /* UserApi.swift */; };
+		A190B17A1EB68B0D006328AF /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1791EB68B0D006328AF /* CommentApi.swift */; };
+		F7B01E901EB7EC190023852A /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E8F1EB7EC190023852A /* EventDetailViewController.swift */; };
+		F7B01E921EB7F4C70023852A /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E911EB7F4C70023852A /* MediaCollectionViewCell.swift */; };
+		F7B01E941EB7F4E30023852A /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E931EB7F4E30023852A /* CommentsTableViewCell.swift */; };
+		F7B01E961EBBB7610023852A /* HomeEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E951EBBB7610023852A /* HomeEventTableViewCell.swift */; };
+		F7B01E981EBBB7770023852A /* HomeTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E971EBBB7770023852A /* HomeTaskTableViewCell.swift */; };
+		F7B01E9A1EBDD5860023852A /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E991EBDD5860023852A /* TaskTableViewCell.swift */; };
+		F7B01E9C1EBEA2540023852A /* EventsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		61B03BE56FFB211323485B06 /* Pods-iOS-PartyPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PartyPlanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner.release.xcconfig"; sourceTree = "<group>"; };
+		2044D7601EB14F26002AB803 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		820902291EBABFA5009C7C6D /* CalendarAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarAPI.swift; sourceTree = "<group>"; };
 		8209022B1EBAC8C2009C7C6D /* CalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalViewController.swift; sourceTree = "<group>"; };
 		821B65BD1EAFF1C60078333B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +85,9 @@
 		82811A971EB7C88D00B8E40E /* UserComments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserComments.swift; sourceTree = "<group>"; };
 		82D4AF091EB52D990087E0A6 /* PhotoesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoesTableViewCell.swift; sourceTree = "<group>"; };
 		8BB929AEE9BAC6864BEFC749 /* Pods-iOS-PartyPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PartyPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner.debug.xcconfig"; sourceTree = "<group>"; };
+		82D4AF091EB52D990087E0A6 /* PhotoesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoesTableViewCell.swift; sourceTree = "<group>"; };
+		90C13D833579335699BC48A0 /* Pods-iOS-PartyPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PartyPlanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner.release.xcconfig"; sourceTree = "<group>"; };
+		96B49B93AA647D8D6A2EED1E /* Pods-iOS-PartyPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PartyPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 		A1470F331EAF20C600DE373A /* iOS-PartyPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-PartyPlanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1470F361EAF20C600DE373A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1470F3B1EAF20C600DE373A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,6 +95,22 @@
 		A1470F401EAF20C600DE373A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1470F421EAF20C600DE373A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0EBBF46E02386A7137CFD03 /* Pods_iOS_PartyPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_PartyPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1470F6C1EB17AA600DE373A /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		A14EE5F31EB51BAD006889D1 /* Uitls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Uitls.swift; sourceTree = "<group>"; };
+		A190B16E1EB66D7F006328AF /* EventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventApi.swift; sourceTree = "<group>"; };
+		A190B16F1EB66D7F006328AF /* ItemApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemApi.swift; sourceTree = "<group>"; };
+		A190B1701EB66D7F006328AF /* RsvpApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RsvpApi.swift; sourceTree = "<group>"; };
+		A190B1711EB66D7F006328AF /* TaskApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskApi.swift; sourceTree = "<group>"; };
+		A190B1761EB67D2B006328AF /* UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		A190B1791EB68B0D006328AF /* CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
+		BA8DCCBDCBEA68C30D6893BC /* Pods_iOS_PartyPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_PartyPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7B01E8F1EB7EC190023852A /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		F7B01E911EB7F4C70023852A /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
+		F7B01E931EB7F4E30023852A /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
+		F7B01E951EBBB7610023852A /* HomeEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeEventTableViewCell.swift; sourceTree = "<group>"; };
+		F7B01E971EBBB7770023852A /* HomeTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTaskTableViewCell.swift; sourceTree = "<group>"; };
+		F7B01E991EBDD5860023852A /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsMapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +121,7 @@
 				821B65EB1EB053BB0078333B /* AVFoundation.framework in Frameworks */,
 				821B65E91EB053B30078333B /* AVKit.framework in Frameworks */,
 				52C0AA7EC45E7B8440B6BF1B /* Pods_iOS_PartyPlanner.framework in Frameworks */,
+				23BA99FF7269C05C70C2274A /* Pods_iOS_PartyPlanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +163,13 @@
 				821B65D91EB0403A0078333B /* EventMediaCollectionTableViewCell.swift */,
 				821B65DB1EB040500078333B /* EventGuestEventGuestCommentTableViewCellTableViewCell.swift */,
 				82D4AF091EB52D990087E0A6 /* PhotoesTableViewCell.swift */,
+				821B65DB1EB040500078333B /* EventGuestsTableViewCell.swift */,
+				F7B01E911EB7F4C70023852A /* MediaCollectionViewCell.swift */,
+				F7B01E931EB7F4E30023852A /* CommentsTableViewCell.swift */,
+				82D4AF091EB52D990087E0A6 /* PhotoesTableViewCell.swift */,
+				F7B01E951EBBB7610023852A /* HomeEventTableViewCell.swift */,
+				F7B01E971EBBB7770023852A /* HomeTaskTableViewCell.swift */,
+				F7B01E991EBDD5860023852A /* TaskTableViewCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -135,6 +180,7 @@
 				821B65EA1EB053BB0078333B /* AVFoundation.framework */,
 				821B65E81EB053B30078333B /* AVKit.framework */,
 				D0EBBF46E02386A7137CFD03 /* Pods_iOS_PartyPlanner.framework */,
+				BA8DCCBDCBEA68C30D6893BC /* Pods_iOS_PartyPlanner.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -147,6 +193,15 @@
 			name = CollectionViewCell;
 			sourceTree = "<group>";
 		};
+		84E3C8EBDAFBEAD0E29C4BE4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				96B49B93AA647D8D6A2EED1E /* Pods-iOS-PartyPlanner.debug.xcconfig */,
+				90C13D833579335699BC48A0 /* Pods-iOS-PartyPlanner.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A1470F2A1EAF20C600DE373A = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +209,7 @@
 				A1470F341EAF20C600DE373A /* Products */,
 				821B65E71EB053B30078333B /* Frameworks */,
 				1F9B3F79DBE6049CA6B6C480 /* Pods */,
+				84E3C8EBDAFBEAD0E29C4BE4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,6 +224,7 @@
 		A1470F351EAF20C600DE373A /* iOS-PartyPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				A14EE5F21EB51B98006889D1 /* Utils */,
 				820902281EBABF77009C7C6D /* Calendar */,
 				821B65C31EB006FF0078333B /* UIComponents */,
 				A1470F4D1EAF244000DE373A /* ViewControllers */,
@@ -179,6 +236,7 @@
 				A1470F3D1EAF20C600DE373A /* Assets.xcassets */,
 				A1470F3F1EAF20C600DE373A /* LaunchScreen.storyboard */,
 				A1470F421EAF20C600DE373A /* Info.plist */,
+				2044D7601EB14F26002AB803 /* GoogleService-Info.plist */,
 			);
 			path = "iOS-PartyPlanner";
 			sourceTree = "<group>";
@@ -192,6 +250,7 @@
 				821B65D11EB011410078333B /* RSVP.swift */,
 				821B65D31EB0115C0078333B /* Item.swift */,
 				82811A971EB7C88D00B8E40E /* UserComments.swift */,
+				A1470F6C1EB17AA600DE373A /* Comment.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -199,7 +258,13 @@
 		A1470F4B1EAF243200DE373A /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				A190B16E1EB66D7F006328AF /* EventApi.swift */,
+				A190B16F1EB66D7F006328AF /* ItemApi.swift */,
+				A190B1701EB66D7F006328AF /* RsvpApi.swift */,
+				A190B1711EB66D7F006328AF /* TaskApi.swift */,
 				821B65E51EB04C7E0078333B /* APIClient.swift */,
+				A190B1761EB67D2B006328AF /* UserApi.swift */,
+				A190B1791EB68B0D006328AF /* CommentApi.swift */,
 			);
 			name = APIs;
 			sourceTree = "<group>";
@@ -222,8 +287,19 @@
 				821B65E11EB04ABD0078333B /* EventViewController.swift */,
 				821B65E31EB04B1C0078333B /* LoginViewController.swift */,
 				8209022B1EBAC8C2009C7C6D /* CalViewController.swift */,
+				F7B01E8F1EB7EC190023852A /* EventDetailViewController.swift */,
+				8209022B1EBAC8C2009C7C6D /* CalViewController.swift */,
+				F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A14EE5F21EB51B98006889D1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A14EE5F31EB51BAD006889D1 /* Uitls.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +315,13 @@
 				A1470F311EAF20C600DE373A /* Resources */,
 				18CE5379F80F052A802EE07A /* [CP] Embed Pods Frameworks */,
 				04B8F8FE601DC361C9169CF7 /* [CP] Copy Pods Resources */,
+				58EB7BC6B2D91DF6663392E0 /* [CP] Check Pods Manifest.lock */,
+				A1470F2F1EAF20C600DE373A /* Sources */,
+				A1470F301EAF20C600DE373A /* Frameworks */,
+				A1470F311EAF20C600DE373A /* Resources */,
+				6E784677F281C773C25D3B6D /* [CP] Embed Pods Frameworks */,
+				EEE73D99978E25283AF0B3DB /* [CP] Copy Pods Resources */,
+				20D9642B1EB2AB6900AF75D0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -262,7 +345,13 @@
 					A1470F321EAF20C600DE373A = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 5JR4XX68PE;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -290,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1470F411EAF20C600DE373A /* LaunchScreen.storyboard in Resources */,
+				2044D7611EB14F26002AB803 /* GoogleService-Info.plist in Resources */,
 				A1470F3E1EAF20C600DE373A /* Assets.xcassets in Resources */,
 				A1470F3C1EAF20C600DE373A /* Main.storyboard in Resources */,
 			);
@@ -299,6 +389,7 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		04B8F8FE601DC361C9169CF7 /* [CP] Copy Pods Resources */ = {
+		20D9642B1EB2AB6900AF75D0 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -314,6 +405,24 @@
 			showEnvVarsInLog = 0;
 		};
 		18CE5379F80F052A802EE07A /* [CP] Embed Pods Frameworks */ = {
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 60435a67414f14ed43a413382b4ec2409caa5406 a5acb084877a5e2f40be96bae48f9fd9e57c77acb65f66166bf23314822e3e4e ";
+		};
+		58EB7BC6B2D91DF6663392E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6E784677F281C773C25D3B6D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -329,6 +438,7 @@
 			showEnvVarsInLog = 0;
 		};
 		1D955693B7CDDD761DCF1799 /* [CP] Check Pods Manifest.lock */ = {
+		EEE73D99978E25283AF0B3DB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -336,11 +446,13 @@
 			inputPaths = (
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -352,15 +464,21 @@
 			files = (
 				821B65E41EB04B1C0078333B /* LoginViewController.swift in Sources */,
 				8209022C1EBAC8C2009C7C6D /* CalViewController.swift in Sources */,
+				F7B01E9C1EBEA2540023852A /* EventsMapViewController.swift in Sources */,
 				8209022A1EBABFA5009C7C6D /* CalendarAPI.swift in Sources */,
 				821B65CA1EB00FE20078333B /* EventSummaryTableViewCell.swift in Sources */,
 				821B65C51EB007230078333B /* VideoView.swift in Sources */,
 				821B65DA1EB0403A0078333B /* EventMediaCollectionTableViewCell.swift in Sources */,
 				82811A981EB7C88D00B8E40E /* UserComments.swift in Sources */,
+				A14EE5F41EB51BAD006889D1 /* Uitls.swift in Sources */,
+				A190B1741EB66D7F006328AF /* RsvpApi.swift in Sources */,
+				A190B1721EB66D7F006328AF /* EventApi.swift in Sources */,
+				F7B01E941EB7F4E30023852A /* CommentsTableViewCell.swift in Sources */,
 				821B65D81EB0400C0078333B /* EventTableViewCell.swift in Sources */,
 				821B65CE1EB011160078333B /* Event.swift in Sources */,
 				821B65E61EB04C7E0078333B /* APIClient.swift in Sources */,
 				821B65E21EB04ABD0078333B /* EventViewController.swift in Sources */,
+				A190B1771EB67D2B006328AF /* UserApi.swift in Sources */,
 				821B65CC1EB011070078333B /* User.swift in Sources */,
 				821B65C21EAFF1E90078333B /* MaterialViewController.swift in Sources */,
 				821B65BE1EAFF1C60078333B /* HomeViewController.swift in Sources */,
@@ -369,10 +487,19 @@
 				821B65DC1EB040500078333B /* EventGuestEventGuestCommentTableViewCellTableViewCell.swift in Sources */,
 				821B65DE1EB040B30078333B /* RSVPViewController.swift in Sources */,
 				821B65D41EB0115C0078333B /* Item.swift in Sources */,
+				A190B1751EB66D7F006328AF /* TaskApi.swift in Sources */,
+				F7B01E981EBBB7770023852A /* HomeTaskTableViewCell.swift in Sources */,
+				F7B01E921EB7F4C70023852A /* MediaCollectionViewCell.swift in Sources */,
+				A1470F6D1EB17AA600DE373A /* Comment.swift in Sources */,
 				821B65C01EAFF1D60078333B /* TasksViewController.swift in Sources */,
+				A190B1731EB66D7F006328AF /* ItemApi.swift in Sources */,
 				821B65D01EB011290078333B /* Task.swift in Sources */,
+				A190B17A1EB68B0D006328AF /* CommentApi.swift in Sources */,
 				A1470F371EAF20C600DE373A /* AppDelegate.swift in Sources */,
 				82D4AF0A1EB52D990087E0A6 /* PhotoesTableViewCell.swift in Sources */,
+				F7B01E961EBBB7610023852A /* HomeEventTableViewCell.swift in Sources */,
+				F7B01E901EB7EC190023852A /* EventDetailViewController.swift in Sources */,
+				F7B01E9A1EBDD5860023852A /* TaskTableViewCell.swift in Sources */,
 				821B65D61EB03FCB0078333B /* GuestPickupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,11 +626,18 @@
 			baseConfigurationReference = 8BB929AEE9BAC6864BEFC749 /* Pods-iOS-PartyPlanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+			baseConfigurationReference = 96B49B93AA647D8D6A2EED1E /* Pods-iOS-PartyPlanner.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "iOS-PartyPlanner/iOS-PartyPlanner.entitlements";
 				DEVELOPMENT_TEAM = 5JR4XX68PE;
 				INFOPLIST_FILE = "iOS-PartyPlanner/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.partydevs.iOS-PartyPlanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -513,8 +647,14 @@
 			baseConfigurationReference = 61B03BE56FFB211323485B06 /* Pods-iOS-PartyPlanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+			baseConfigurationReference = 90C13D833579335699BC48A0 /* Pods-iOS-PartyPlanner.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "iOS-PartyPlanner/iOS-PartyPlanner.entitlements";
 				DEVELOPMENT_TEAM = 5JR4XX68PE;
 				INFOPLIST_FILE = "iOS-PartyPlanner/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.partydevs.iOS-PartyPlanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -7,18 +7,69 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import Firebase
+import GoogleSignIn
+import Fabric
+import TwitterKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate{ //, GIDSignInDelegate{
 
   var window: UIWindow?
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+
+    print("didFinishLaunchingWithOptions")
+    FIRApp.configure()
+
+    GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
+    
+    FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    
+//    Fabric.with([Twitter.self])
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    if User.currentUser != nil {
+      let vc = storyboard.instantiateViewController(withIdentifier: "EventViewNC") //as! EventViewController
+      window?.rootViewController = vc
+    }
+    
+    NotificationCenter.default.addObserver(forName: User.logout.name, object: nil, queue: OperationQueue.main) { (Notification) in
+      let vc = storyboard.instantiateInitialViewController()
+      self.window?.rootViewController = vc
+    }
+    RSVP.currentInstance = nil
     return true
   }
+    
+   
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+      
+      print("UIApplicationOpenURLOptionsKey")
+        FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        
+        GIDSignIn.sharedInstance().handle(url, sourceApplication:
+            options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+      
+      if (url.absoluteString.hasPrefix("rsvp")){
+        RSVP.currentInstance = RSVP()
+        RSVP.currentInstance?.handleRsvpUrl(url)
+        
+          let storyboard = UIStoryboard(name: "Main", bundle: nil)
+          if User.currentUser != nil {
+            let vc = storyboard.instantiateViewController(withIdentifier: "RSVP") //as! EventViewController
+            window?.rootViewController = vc
+          }
+          else {
+            let vc = storyboard.instantiateInitialViewController()
+            self.window?.rootViewController = vc
+          }
+      }
+      return true
+    }
+  
   func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

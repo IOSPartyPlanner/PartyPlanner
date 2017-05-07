@@ -10,6 +10,9 @@ import UIKit
 
 class EventViewController: UIViewController {
 
+  @IBAction func onSignout(_ sender: UIBarButtonItem) {
+    User.currentUser?.signout()
+  }
     @IBOutlet weak var eventTableView: UITableView!
     
     var event: Event?
