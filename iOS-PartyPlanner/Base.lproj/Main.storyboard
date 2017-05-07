@@ -597,7 +597,7 @@
             </objects>
             <point key="canvasLocation" x="1868" y="-185.75712143928038"/>
         </scene>
-        <!--Events Map View Controller-->
+        <!--Upcoming Events-->
         <scene sceneID="1V9-4Z-q72">
             <objects>
                 <viewController id="Qw0-cb-mJG" customClass="EventsMapViewController" customModule="iOS_PartyPlanner" customModuleProvider="target" sceneMemberID="viewController">
@@ -616,7 +616,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aBI-37-uNB"/>
+                    <navigationItem key="navigationItem" title="Upcoming Events" id="aBI-37-uNB"/>
                     <connections>
                         <outlet property="mapView" destination="7n3-5l-4NP" id="N3O-JV-MCn"/>
                     </connections>
