@@ -53,6 +53,7 @@
 		F7B01E981EBBB7770023852A /* HomeTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E971EBBB7770023852A /* HomeTaskTableViewCell.swift */; };
 		F7B01E9A1EBDD5860023852A /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E991EBDD5860023852A /* TaskTableViewCell.swift */; };
 		F7B01E9C1EBEA2540023852A /* EventsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */; };
+		F7B01E9E1EBFA1050023852A /* OldEventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E9D1EBFA1050023852A /* OldEventApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		F7B01E971EBBB7770023852A /* HomeTaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTaskTableViewCell.swift; sourceTree = "<group>"; };
 		F7B01E991EBDD5860023852A /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsMapViewController.swift; sourceTree = "<group>"; };
+		F7B01E9D1EBFA1050023852A /* OldEventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldEventApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 				821B65E51EB04C7E0078333B /* APIClient.swift */,
 				A190B1761EB67D2B006328AF /* UserApi.swift */,
 				A190B1791EB68B0D006328AF /* CommentApi.swift */,
+				F7B01E9D1EBFA1050023852A /* OldEventApi.swift */,
 			);
 			name = APIs;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				A190B1741EB66D7F006328AF /* RsvpApi.swift in Sources */,
 				A190B1721EB66D7F006328AF /* EventApi.swift in Sources */,
 				F7B01E941EB7F4E30023852A /* CommentsTableViewCell.swift in Sources */,
+				F7B01E9E1EBFA1050023852A /* OldEventApi.swift in Sources */,
 				821B65D81EB0400C0078333B /* EventTableViewCell.swift in Sources */,
 				821B65CE1EB011160078333B /* Event.swift in Sources */,
 				821B65E61EB04C7E0078333B /* APIClient.swift in Sources */,
