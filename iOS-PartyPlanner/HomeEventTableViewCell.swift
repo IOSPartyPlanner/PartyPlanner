@@ -11,7 +11,6 @@ import AFNetworking
 
 class HomeEventTableViewCell: UITableViewCell {
     
-    
     @IBOutlet var invitationImageView: UIImageView!
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var eventNameLabel: UILabel!
@@ -41,7 +40,10 @@ class HomeEventTableViewCell: UITableViewCell {
             }
             
             if let time = event?.dateTime{
-                eventTimeLabel.text = Utils.getTimeStampStringFromDate(date: time)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .long
+                dateFormatter.timeStyle = .long
+                eventTimeLabel.text = dateFormatter.string(from: (time))
             }
             
             if let rsvpStatus = event?.response {
@@ -53,6 +55,9 @@ class HomeEventTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        rsvpButton.layer.cornerRadius = 3
+        /*rsvpButton.layer.borderWidth = 1
+        rsvpButton.layer.borderColor = UIColor.purple.cgColor*/
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

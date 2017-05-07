@@ -17,14 +17,13 @@ class Task: NSObject {
   var key: String?
   
   init(id: String, name: String,
-       eventId: String,taskDescription: String,
-       volunteerEmails: [String], numberOfPeopleRequired: Int, dueDate: Date) {
+       eventId: String,taskDescription: String, numberOfPeopleRequired: Int, dueDate: Date) {
     self.id = id
     self.name = name
     self.eventId = eventId
     self.taskDescription = taskDescription
     self.numberOfPeopleRequired = numberOfPeopleRequired
-    self.volunteerEmails = volunteerEmails
+   // self.volunteerEmails = volunteerEmails
     self.dueDate = dueDate
     self.ref = ref ?? nil
   }

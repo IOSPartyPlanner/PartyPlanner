@@ -26,7 +26,12 @@ class TaskTableViewCell: UITableViewCell {
             }
             
             if let count = task?.numberOfPeopleRequired{
-                peopleCountLabel.text = String(count - (task?.volunteerEmails?.count)!)
+                if task?.volunteerEmails != nil {
+                    peopleCountLabel.text = String(count - (task?.volunteerEmails?.count)!)
+                }
+                else{
+                     peopleCountLabel.text = String(count)
+                }
             }
             
         }

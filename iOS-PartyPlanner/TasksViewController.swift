@@ -21,11 +21,14 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var addButton: UIButton!
     @IBOutlet var blurView: UIVisualEffectView!
+    var event : Event?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
         fetchTasks()
         addTaskView.isHidden = true
         blurView.isHidden = true
@@ -60,11 +63,11 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell") as! TaskTableViewCell
         if indexPath.section == 0 {
            cell.task = unassignedTaskList[indexPath.item]
-            cell.taskStatusImage.image = UIImage(named: "location")
+            cell.taskStatusImage.image = UIImage(named: "unchecked")
         }
         else{
            cell.task = assignedTaskList[indexPath.item]
-           cell.taskStatusImage.image = UIImage(named: "calendar")
+           cell.taskStatusImage.image = UIImage(named: "checked")
         }
         return cell
     }
@@ -76,24 +79,44 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
     }
     
     func fetchTasks(){
-
-            TaskApi.sharedInstance.getTasksByEventId(eventId: "1", success: {(tasks: [Task])
+            //TODO: It returns data 2 times - Bug
+            TaskApi.sharedInstance.getTasksByEventId(eventId: (event?.id)!, success: {(tasks: [Task])
                 in
+                 self.assignedTaskList = [Task]()
+                 self.unassignedTaskList = [Task]()
                 for task in tasks {
-                    if (task.numberOfPeopleRequired - (task.volunteerEmails?.count)!) > 0{
-                       self.unassignedTaskList.append(task)
+                    
+                    if task.volunteerEmails?.count != nil {
+                        if (task.numberOfPeopleRequired - (task.volunteerEmails?.count)!) > 0{
+                            self.unassignedTaskList.append(task)
+                        }
+                        else{
+                            self.assignedTaskList.append(task)
+                        }
                     }
-                    else{
-                       self.assignedTaskList.append(task)
+                    else {
+                        if task.numberOfPeopleRequired > 0 {
+                            self.unassignedTaskList.append(task)
+                        }
+                        else{
+                            self.assignedTaskList.append(task)
+                        }
+                        
                     }
-                }
+                  
+                 }
+               
                 self.tasksTableView.reloadData()
+                
                 
             }, failure:{})
     
     }
     
     @IBAction func itemBarOnClickAdd(_ sender: Any) {
+        taskNameTextField.text = ""
+        taskDescriptionTextField.text = ""
+        requiredPeopleCountTextField.text = ""
         addTaskView.isHidden = false
         blurView.isHidden = false
     }
@@ -104,15 +127,14 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
     }
     
     @IBAction func onClickAdd(_ sender: Any) {
-        //Bug
-        //TODO: Event id field will be changed
-        let createdTask = Task(id: "8982", name: taskNameTextField.text!, eventId: "1", taskDescription: taskDescriptionTextField.text, volunteerEmails: [""], numberOfPeopleRequired: (Int)(requiredPeopleCountTextField.text!)! + 1, dueDate: Utils.getTimeStampFromString(timeStampString: "Fri May 18 16:36:57 -0700 2017"))
+      
+      /*  let createdTask = Task(id: "8982", name: taskNameTextField.text!, eventId: "1", taskDescription: taskDescriptionTextField.text, numberOfPeopleRequired: (Int)(requiredPeopleCountTextField.text!)!, dueDate: Utils.getTimeStampFromString(timeStampString: "Fri May 18 16:36:57 -0700 2017"))*/
+        
+        let taskId = taskNameTextField.text! + taskDescriptionTextField.text + requiredPeopleCountTextField.text!
+        let createdTask = Task(id: taskId, name: taskNameTextField.text!, eventId: (event?.id)!, taskDescription: taskDescriptionTextField.text, numberOfPeopleRequired: (Int)(requiredPeopleCountTextField.text!)!, dueDate: Utils.getTimeStampFromString(timeStampString: String(describing: event?.dateTime)))
         TaskApi.sharedInstance.storeTask(task: createdTask)
-
-        self.tasksTableView.reloadData()
         addTaskView.isHidden = true
         blurView.isHidden = true
     }
-    
     
 }
