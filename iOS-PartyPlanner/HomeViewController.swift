@@ -128,7 +128,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     func fetchEvents(){
         //TODO:Needed to fix API function
-        EventApi.sharedInstance.getPastEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
+        EventApi.sharedInstance.getPastEventsHostedByUserEmail(userEmail: (User.currentUser?.email)!, success: { (events: [Event]) in
             self.pastEventList = events
             self.homeTableView.reloadData()
             /*for i in 0...self.pastEventList.count{

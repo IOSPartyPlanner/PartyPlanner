@@ -73,8 +73,11 @@ class User: NSObject {
   static var _currentUser: User?
   static var currentUser : User? {
     get {
+      
       if _currentUser == nil {
         let defaults = UserDefaults.standard
+//        defaults.removeObject(forKey: "currentUserData")
+
         let userData = defaults.object(forKey: "currentUserData") as? Data
         if userData != nil {
           let dictionary: [String:String] = try!
@@ -103,8 +106,9 @@ class User: NSObject {
             }
           }
         }
+//                defaults.removeObject(forKey: "currentUserData")
+        print("current user", _currentUser?.imageUrl)
       }
-      
       return _currentUser
     }
     
@@ -131,8 +135,11 @@ class User: NSObject {
         
         let data = try! JSONSerialization.data(withJSONObject: userDictionary as Any, options: [])
         defaults.set(data, forKey: "currentUserData")
+        print("current user", user?.imageUrl)
+
       }
       else {
+        print("removing current user")
         defaults.removeObject(forKey: "currentUserData")
         
       }
@@ -143,12 +150,12 @@ class User: NSObject {
   func signout(){
     do {
      let user = FIRAuth.auth()?.currentUser
-      
+
       user?.delete { error in
         if error != nil {
-//          print("Error while deleting a user", error?.localizedDescription as Any)
+          print("Error while deleting a user", error?.localizedDescription as Any)
         } else {
-//          print(user as Any, " : has been deleted")
+          print(user as Any, " : has been deleted")
         }
       }
       try FIRAuth.auth()?.signOut()
@@ -156,7 +163,7 @@ class User: NSObject {
       print("Error in signout the user: ", signoutEror)
       return
     }
-    UserApi.sharedInstance.removeUser(user: User.currentUser!)
+//    UserApi.sharedInstance.removeUser(user: User.currentUser!)
     User.currentUser = nil
     NotificationCenter.default.post(User.logout)
   }
