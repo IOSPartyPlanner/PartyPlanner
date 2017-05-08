@@ -10,9 +10,10 @@ import UIKit
 
 class EventViewController: UIViewController {
 
-  @IBAction func onSignout(_ sender: UIBarButtonItem) {
-    User.currentUser?.signout()
-  }
+    @IBAction func onSignout(_ sender: UIBarButtonItem) {
+        User.currentUser?.signout()
+    }
+    
     @IBOutlet weak var eventTableView: UITableView!
   
     var event: Event?
@@ -50,7 +51,11 @@ class EventViewController: UIViewController {
 
 extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        if event?.isUserOnwer() {
+            return 5
+        } else {
+            return 3
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
