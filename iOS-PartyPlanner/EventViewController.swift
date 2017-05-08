@@ -59,33 +59,51 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0,1:
-            return 1
-        default:
-            return event?.postEventCommentIdList!.count ?? 0
+        if (event?.isUserOnwer())! {
+            switch section {
+            case 0..<4:
+                return 1
+            default:
+                return event?.postEventCommentIdList!.count ?? 0
+            }
+        } else {
+            switch section {
+            case 0..<2:
+                return 1
+            default:
+                return event?.postEventCommentIdList!.count ?? 0
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
+        switch (indexPath.section, (event?.isUserOnwer())!) {
+        case (0, _):
             let cell0 = eventTableView.dequeueReusableCell(withIdentifier: "EventSummaryTableViewCell", for: indexPath) as? EventSummaryTableViewCell
             cell0?.event = event
             return cell0!
-        case 1:
+        case (1, true):
             let cell1 = eventTableView.dequeueReusableCell(withIdentifier: "PhotoesTableViewCell", for: indexPath) as? PhotoesTableViewCell
             cell1?.photoes = event?.postEventImages
             cell1?.viewController = self
             return cell1!
+        case (2, true):
+            let cell1 = eventTableView.dequeueReusableCell(withIdentifier: "PhotoesTableViewCell", for: indexPath) as? PhotoesTableViewCell
+            cell1?.photoes = event?.postEventImages
+            cell1?.viewController = self
+            return cell1!
+        case (1, false),
+             (3, true):
+                let cell3 = eventTableView.dequeueReusableCell(withIdentifier: "PhotoesTableViewCell", for: indexPath) as? PhotoesTableViewCell
+                cell3?.photoes = event?.postEventImages
+                cell3?.viewController = self
+                return cell3!
         default:
-            //TODO: Need to declare EventGuestCommentTableViewCell ?
-            /*let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestCommentTableViewCell", for: indexPath) as? EventGuestCommentTableViewCell
-            if let userComment = event?.postEventComments?[indexPath.row] {
-                cell2?.comments = userComment
-            }*/
-            let cell2 = UITableViewCell()
-            return cell2
+            let cell4 = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestCommentTableViewCell", for: indexPath) as? EventGuestCommentTableViewCell
+//            if let userComment = event?.postEventCommentIdList?[indexPath.row] {
+//                cell4?.comments = userComment
+//            }
+            return cell4!
         }
 
     }
