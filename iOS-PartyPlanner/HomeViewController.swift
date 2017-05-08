@@ -127,6 +127,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //TODO: Perform Segue ShowDetails
         if sign == 0{
            homeTableView.deselectRow(at:indexPath, animated: true)
         }
@@ -152,7 +153,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         else if (segue.identifier?.isEqual("mapSegue"))!  {
             let mapViewController = segue.destination as! EventsMapViewController
-            mapViewController.events = pastEventList
+            mapViewController.events = upcomingEventList
         }
     }
     
@@ -165,48 +166,49 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         /*-----Get past events ----*/
 
-        EventApi.sharedInstance.getPastEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
+        OldEventApi.sharedInstance.getPastEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
             if events.count > 0 {
                 for i in 0...events.count-1{
                     events[i].hostProfileImage = User.currentUser?.imageUrl
                     self.pastEventList.append(events[i])
                 }
             }
-        }, failure: nil )
+        }, failure: {} )
         
         //TODO: Need to get host profile
-        EventApi.sharedInstance.getPastEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
+        OldEventApi.sharedInstance.getPastEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
             if events.count > 0 {
                 for i in 0...events.count-1{
                     self.pastEventList.append(events[i])
                 }
             }
             self.homeTableView.reloadData()
-        }, failure: nil )
+        }, failure: {} )
        
         
         /*-----Get upcoming events ----*/
         
-        EventApi.sharedInstance.getUpcomingEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
+        OldEventApi.sharedInstance.getUpcomingEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
             if events.count > 0 {
                 for i in 0...events.count-1{
                     events[i].hostProfileImage = User.currentUser?.imageUrl
                     self.upcomingEventList.append(events[i])
                 }
             }
-        }, failure: nil )
+        }, failure: {} )
         
         //TODO: Need to get host profile
-        EventApi.sharedInstance.getUpcomingEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
+        OldEventApi.sharedInstance.getUpcomingEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
             if events.count > 0 {
                 for i in 0...events.count-1{
                     self.upcomingEventList.append(events[i])
                 }
+                
             }
             self.homeTableView.reloadData()
             self.fetchTasks()
             
-        }, failure: nil )
+        }, failure: {} )
         
    
     }
@@ -218,7 +220,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             TaskApi.sharedInstance.getTasksByEventId(eventId: event.id, success: {(tasks: [Task])
                 in
                 for task in tasks {
-                    if (task.volunteerEmails?.contains((User._currentUser?.email)!))! {
+                    if task.volunteerEmails != nil && (task.volunteerEmails?.contains((User._currentUser?.email)!))! {
                         task.eventName = event.name
                         self.taskList.append(task)
                         print(task.name)

@@ -14,8 +14,14 @@ class TaskApi: NSObject {
   func storeTask(task: Task) {
     let taskRef = fireBaseTaskRef.child(task.id)
     taskRef.setValue(task.toAnyObject())
-    delegate?.taskApi!(taskApi: self, taskUpdated: task)
+    //delegate?.taskApi!(taskApi: self, taskUpdated: task)
   }
+    
+  /*func addVolunteer(email: String, task:String) {
+        let taskRef = fireBaseTaskRef.child(task).child("volunteerEmails").child("8")
+        taskRef.setValue(email)
+        //delegate?.taskApi!(taskApi: self, taskUpdated: task)
+  }*/
   
   func getTaskById(taskId: String, success: @escaping (Task?) ->(), failure: @escaping () -> ()) {
     print("TaskAPI : searching for taskId \(taskId)")

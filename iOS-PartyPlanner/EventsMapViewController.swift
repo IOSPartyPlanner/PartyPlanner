@@ -39,6 +39,22 @@ class EventsMapViewController: UIViewController,CLLocationManagerDelegate{
         }
     }
     
+    /*func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseID = "myAnnotationView"
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
+        if (annotationView == nil) {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+            annotationView!.canShowCallout = true
+            annotationView!.leftCalloutAccessoryView = UIImageView(frame: CGRect(x:0, y:0, width: 50, height:50))
+        }
+        
+        let imageView = annotationView?.leftCalloutAccessoryView as! UIImageView
+        imageView.image = UIImage(named: "location")
+        
+        return annotationView
+    }*/
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -75,6 +91,7 @@ class EventsMapViewController: UIViewController,CLLocationManagerDelegate{
                     let annotation = MKPointAnnotation()
                     annotation.coordinate = coordinate.coordinate
                     annotation.title = title
+                
                     self.mapView.addAnnotation(annotation)
                 }
             }

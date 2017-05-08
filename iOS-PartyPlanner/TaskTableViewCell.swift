@@ -14,6 +14,7 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet var taskStatusImage: UIImageView!
     @IBOutlet var taskDescriptionLabel: UILabel!
     @IBOutlet var peopleCountLabel: UILabel!
+    @IBOutlet var colorView: UIView!
     
     var task: Task? {
         didSet {
