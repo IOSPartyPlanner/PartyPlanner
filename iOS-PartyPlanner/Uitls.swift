@@ -30,12 +30,12 @@ class Utils: NSObject {
   // The following two functions don't inlcude 
   // seconds and timezone info
   static func getShortTimeStampFromString(timeStampString: String) -> Date {
-    formatter.dateFormat = "EEE MMM d HH:mm"
+    formatter.dateFormat = "EEE MMM d HH:mm a"
     return formatter.date(from: timeStampString)!
   }
   
   static func getShortTimeStampStringFromDate(date: Date) -> String {
-    formatter.dateFormat = "EEE MMM d HH:mm"
+    formatter.dateFormat = "EEE MMM d HH:mm a"
     return formatter.string(from: date)
   }
   

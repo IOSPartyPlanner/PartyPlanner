@@ -83,25 +83,31 @@ class EventCreationStep1ViewController: UIViewController {
     if currentDateFieldSelected == startDateTimeTextField {
       // check if date is set in past
       if Utils.isDateTimePast(date: datepicker.date) {
-        let eventStartDateCannotBeInPast = UIAlertController(title: "Event start date cannot be ni past!", message: nil, preferredStyle: .actionSheet)
+        let eventStartDateCannotBeInPast = UIAlertController(title: "Event start date cannot be in past!", message: nil, preferredStyle: .alert)
+        eventStartDateCannotBeInPast.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(eventStartDateCannotBeInPast, animated: true, completion: nil)
       } else {
         startDateTime = datepicker.date
         // enable end date selection only when start date is set
         endDateTimeTextField.isEnabled = true
+        
+        currentDateFieldSelected.text = Utils.getShortTimeStampStringFromDate(date: datepicker.date)
+        currentDateFieldSelected.resignFirstResponder()
       }
     } else if currentDateFieldSelected == endDateTimeTextField {
       // check if end date before the event start date
-      if startDateTime < endDateTime {
-        endDateTime = datepicker.date
-      } else {
+      if startDateTime > datepicker.date {
         let eventCannotEndBeforeStartAlert = UIAlertController(title: "Event cannot end before it starts!", message: nil, preferredStyle: .alert)
+        eventCannotEndBeforeStartAlert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(eventCannotEndBeforeStartAlert, animated: true, completion: nil)
+      } else {
+        endDateTime = datepicker.date
+        currentDateFieldSelected.text = Utils.getShortTimeStampStringFromDate(date: datepicker.date)
+        currentDateFieldSelected.resignFirstResponder()
       }
     }
     
-    currentDateFieldSelected.text = Utils.getShortTimeStampStringFromDate(date: datepicker.date)
-    currentDateFieldSelected.resignFirstResponder()
+    
   }
   
 }
@@ -176,7 +182,7 @@ extension EventCreationStep1ViewController: UIImagePickerControllerDelegate, UIN
     // If selected Media is Image
     if info[UIImagePickerControllerMediaType] as! String == "public.image" {
       
-      let selectImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+      let selectImage = info[UIImagePickerControllerEditedImage] as? UIImage
       image = UIImageJPEGRepresentation(selectImage!, 0.55)! as NSData
       mediaDisplayView.image = selectImage
       
