@@ -100,7 +100,7 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
     func fetchTasks(){
             //TODO: It returns data 2 times - Bug
         // (event?.id)!
-            TaskApi.sharedInstance.getTasksByEventId(eventId: "1", success: {(tasks: [Task])
+            TaskApi.sharedInstance.getTasksByEventId(eventId: (event?.id)!, success: {(tasks: [Task])
                 in
                  self.assignedTaskList = [Task]()
                  self.unassignedTaskList = [Task]()
@@ -149,7 +149,7 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
     @IBAction func onClickAdd(_ sender: Any) {
         let volunteerEmails = [String]()
         let taskId = taskNameTextField.text! + taskDescriptionTextField.text + requiredPeopleCountTextField.text!
-      /* let createdTask = Task(id: taskId, name: taskNameTextField.text!, eventId: "1", taskDescription: taskDescriptionTextField.text,volunteerEmails: volunteerEmails, numberOfPeopleRequired: (Int)(requiredPeopleCountTextField.text!)!, dueDate: Utils.getTimeStampFromString(timeStampString: "Fri May 18 16:36:57 -0700 2017"))
+        /*let createdTask = Task(id: taskId, name: taskNameTextField.text!, eventId: "1", taskDescription: taskDescriptionTextField.text,volunteerEmails: volunteerEmails, numberOfPeopleRequired: (Int)(requiredPeopleCountTextField.text!)!, dueDate: Utils.getTimeStampFromString(timeStampString: "Fri May 18 16:36:57 -0700 2017"))
            TaskApi.sharedInstance.storeTask(task: createdTask)*/
         
  
