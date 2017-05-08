@@ -22,7 +22,7 @@
 		821B65D21EB011410078333B /* RSVP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65D11EB011410078333B /* RSVP.swift */; };
 		821B65D41EB0115C0078333B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65D31EB0115C0078333B /* Item.swift */; };
 		821B65D61EB03FCB0078333B /* GuestPickupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65D51EB03FCB0078333B /* GuestPickupView.swift */; };
-		821B65D81EB0400C0078333B /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65D71EB0400C0078333B /* EventTableViewCell.swift */; };
+		821B65D81EB0400C0078333B /* EventGuestCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65D71EB0400C0078333B /* EventGuestCommentTableViewCell.swift */; };
 		821B65DA1EB0403A0078333B /* EventMediaCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65D91EB0403A0078333B /* EventMediaCollectionTableViewCell.swift */; };
 		821B65DC1EB040500078333B /* EventGuestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65DB1EB040500078333B /* EventGuestsTableViewCell.swift */; };
 		821B65DE1EB040B30078333B /* RSVPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B65DD1EB040B30078333B /* RSVPViewController.swift */; };
@@ -32,6 +32,8 @@
 		821B65E91EB053B30078333B /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821B65E81EB053B30078333B /* AVKit.framework */; };
 		821B65EB1EB053BB0078333B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821B65EA1EB053BB0078333B /* AVFoundation.framework */; };
 		826897E41EB65A0400C3B4D6 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826897E31EB65A0400C3B4D6 /* PhotoCollectionViewCell.swift */; };
+		8298EBA11EC00D8100EBA37F /* EventTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298EBA01EC00D8100EBA37F /* EventTasksTableViewCell.swift */; };
+		8298EBA31EC01C2800EBA37F /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298EBA21EC01C2800EBA37F /* CreateTaskViewController.swift */; };
 		82CCAEA61EBF9BCE00D3C71C /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CCAEA51EBF9BCE00D3C71C /* PhotoBrowserViewController.swift */; };
 		82D4AF0A1EB52D990087E0A6 /* PhotoesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D4AF091EB52D990087E0A6 /* PhotoesTableViewCell.swift */; };
 		A1470F371EAF20C600DE373A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F361EAF20C600DE373A /* AppDelegate.swift */; };
@@ -71,7 +73,7 @@
 		821B65D11EB011410078333B /* RSVP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSVP.swift; sourceTree = "<group>"; };
 		821B65D31EB0115C0078333B /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		821B65D51EB03FCB0078333B /* GuestPickupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestPickupView.swift; sourceTree = "<group>"; };
-		821B65D71EB0400C0078333B /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		821B65D71EB0400C0078333B /* EventGuestCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventGuestCommentTableViewCell.swift; sourceTree = "<group>"; };
 		821B65D91EB0403A0078333B /* EventMediaCollectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMediaCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		821B65DB1EB040500078333B /* EventGuestsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventGuestsTableViewCell.swift; sourceTree = "<group>"; };
 		821B65DD1EB040B30078333B /* RSVPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSVPViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,8 @@
 		821B65E81EB053B30078333B /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		821B65EA1EB053BB0078333B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		826897E31EB65A0400C3B4D6 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		8298EBA01EC00D8100EBA37F /* EventTasksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTasksTableViewCell.swift; sourceTree = "<group>"; };
+		8298EBA21EC01C2800EBA37F /* CreateTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 		82CCAEA51EBF9BCE00D3C71C /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
 		82D4AF091EB52D990087E0A6 /* PhotoesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoesTableViewCell.swift; sourceTree = "<group>"; };
 		90C13D833579335699BC48A0 /* Pods-iOS-PartyPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PartyPlanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,9 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				821B65C91EB00FE20078333B /* EventSummaryTableViewCell.swift */,
-				821B65D71EB0400C0078333B /* EventTableViewCell.swift */,
+				821B65D71EB0400C0078333B /* EventGuestCommentTableViewCell.swift */,
 				821B65D91EB0403A0078333B /* EventMediaCollectionTableViewCell.swift */,
 				821B65DB1EB040500078333B /* EventGuestsTableViewCell.swift */,
+				8298EBA01EC00D8100EBA37F /* EventTasksTableViewCell.swift */,
 				F7B01E911EB7F4C70023852A /* MediaCollectionViewCell.swift */,
 				F7B01E931EB7F4E30023852A /* CommentsTableViewCell.swift */,
 				82D4AF091EB52D990087E0A6 /* PhotoesTableViewCell.swift */,
@@ -273,6 +278,7 @@
 				8209022B1EBAC8C2009C7C6D /* CalViewController.swift */,
 				F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */,
 				82CCAEA51EBF9BCE00D3C71C /* PhotoBrowserViewController.swift */,
+				8298EBA21EC01C2800EBA37F /* CreateTaskViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -443,7 +449,7 @@
 				A190B1721EB66D7F006328AF /* EventApi.swift in Sources */,
 				F7B01E941EB7F4E30023852A /* CommentsTableViewCell.swift in Sources */,
 				F7B01E9E1EBFA1050023852A /* OldEventApi.swift in Sources */,
-				821B65D81EB0400C0078333B /* EventTableViewCell.swift in Sources */,
+				821B65D81EB0400C0078333B /* EventGuestCommentTableViewCell.swift in Sources */,
 				821B65CE1EB011160078333B /* Event.swift in Sources */,
 				821B65E61EB04C7E0078333B /* APIClient.swift in Sources */,
 				821B65E21EB04ABD0078333B /* EventViewController.swift in Sources */,
@@ -470,6 +476,8 @@
 				F7B01E901EB7EC190023852A /* EventDetailViewController.swift in Sources */,
 				F7B01E9A1EBDD5860023852A /* TaskTableViewCell.swift in Sources */,
 				821B65D61EB03FCB0078333B /* GuestPickupView.swift in Sources */,
+				8298EBA11EC00D8100EBA37F /* EventTasksTableViewCell.swift in Sources */,
+				8298EBA31EC01C2800EBA37F /* CreateTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,7 +609,7 @@
 				INFOPLIST_FILE = "iOS-PartyPlanner/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.partydevs.iOS-PartyPlanner";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.haiboyan.iOS-PartyPlanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -619,7 +627,7 @@
 				INFOPLIST_FILE = "iOS-PartyPlanner/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.partydevs.iOS-PartyPlanner";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.haiboyan.iOS-PartyPlanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
