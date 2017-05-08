@@ -37,6 +37,9 @@
 		A14EE5F41EB51BAD006889D1 /* Uitls.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14EE5F31EB51BAD006889D1 /* Uitls.swift */; };
 		A156CD791EB9ACC40070647B /* EventCreationStep1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A156CD781EB9ACC40070647B /* EventCreationStep1ViewController.swift */; };
 		A1627F0D1EBFB3BD00F8EA33 /* EventCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1627F0C1EBFB3BD00F8EA33 /* EventCreationViewController.swift */; };
+		A172BAC41EC043A100044081 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A172BAC31EC043A100044081 /* CustomTextField.swift */; };
+		A172BAC91EC0468000044081 /* TextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A172BAC71EC0468000044081 /* TextInputCell.swift */; };
+		A172BACA1EC0468000044081 /* TextInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A172BAC81EC0468000044081 /* TextInputCell.xib */; };
 		A18A8D5F1EBFEDE90043A555 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A8D5D1EBFEDE90043A555 /* ImageCell.swift */; };
 		A18A8D601EBFEDE90043A555 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18A8D5E1EBFEDE90043A555 /* ImageCell.xib */; };
 		A190B1721EB66D7F006328AF /* EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B16E1EB66D7F006328AF /* EventApi.swift */; };
@@ -85,6 +88,9 @@
 		A14EE5F31EB51BAD006889D1 /* Uitls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Uitls.swift; sourceTree = "<group>"; };
 		A156CD781EB9ACC40070647B /* EventCreationStep1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCreationStep1ViewController.swift; sourceTree = "<group>"; };
 		A1627F0C1EBFB3BD00F8EA33 /* EventCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCreationViewController.swift; sourceTree = "<group>"; };
+		A172BAC31EC043A100044081 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		A172BAC71EC0468000044081 /* TextInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputCell.swift; sourceTree = "<group>"; };
+		A172BAC81EC0468000044081 /* TextInputCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputCell.xib; sourceTree = "<group>"; };
 		A18A8D5D1EBFEDE90043A555 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		A18A8D5E1EBFEDE90043A555 /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		A190B16E1EB66D7F006328AF /* EventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventApi.swift; sourceTree = "<group>"; };
@@ -117,6 +123,7 @@
 		821B65C31EB006FF0078333B /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				A172BAC21EC0437200044081 /* Custom Components */,
 				A1C9115F1EBEEB0E00A0A557 /* Prototypes */,
 				821B65C81EB00FAC0078333B /* TableViewCell */,
 				821B65C41EB007230078333B /* VideoView.swift */,
@@ -223,6 +230,7 @@
 		A1470F4C1EAF243B00DE373A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				821B65C31EB006FF0078333B /* UIComponents */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -248,9 +256,16 @@
 			isa = PBXGroup;
 			children = (
 				A14EE5F31EB51BAD006889D1 /* Uitls.swift */,
-				821B65C31EB006FF0078333B /* UIComponents */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		A172BAC21EC0437200044081 /* Custom Components */ = {
+			isa = PBXGroup;
+			children = (
+				A172BAC31EC043A100044081 /* CustomTextField.swift */,
+			);
+			name = "Custom Components";
 			sourceTree = "<group>";
 		};
 		A1C9115F1EBEEB0E00A0A557 /* Prototypes */ = {
@@ -258,6 +273,8 @@
 			children = (
 				A18A8D5D1EBFEDE90043A555 /* ImageCell.swift */,
 				A18A8D5E1EBFEDE90043A555 /* ImageCell.xib */,
+				A172BAC71EC0468000044081 /* TextInputCell.swift */,
+				A172BAC81EC0468000044081 /* TextInputCell.xib */,
 			);
 			name = Prototypes;
 			sourceTree = "<group>";
@@ -333,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1470F411EAF20C600DE373A /* LaunchScreen.storyboard in Resources */,
+				A172BACA1EC0468000044081 /* TextInputCell.xib in Resources */,
 				2044D7611EB14F26002AB803 /* GoogleService-Info.plist in Resources */,
 				A1470F3E1EAF20C600DE373A /* Assets.xcassets in Resources */,
 				A18A8D601EBFEDE90043A555 /* ImageCell.xib in Resources */,
@@ -422,6 +440,7 @@
 				821B65CE1EB011160078333B /* Event.swift in Sources */,
 				821B65E61EB04C7E0078333B /* APIClient.swift in Sources */,
 				821B65E21EB04ABD0078333B /* EventViewController.swift in Sources */,
+				A172BAC41EC043A100044081 /* CustomTextField.swift in Sources */,
 				A190B1771EB67D2B006328AF /* UserApi.swift in Sources */,
 				A1627F0D1EBFB3BD00F8EA33 /* EventCreationViewController.swift in Sources */,
 				821B65CC1EB011070078333B /* User.swift in Sources */,
@@ -430,6 +449,7 @@
 				821B65D21EB011410078333B /* RSVP.swift in Sources */,
 				821B65DC1EB040500078333B /* EventGuestsTableViewCell.swift in Sources */,
 				821B65DE1EB040B30078333B /* RSVPViewController.swift in Sources */,
+				A172BAC91EC0468000044081 /* TextInputCell.swift in Sources */,
 				821B65D41EB0115C0078333B /* Item.swift in Sources */,
 				A18A8D5F1EBFEDE90043A555 /* ImageCell.swift in Sources */,
 				A190B1751EB66D7F006328AF /* TaskApi.swift in Sources */,

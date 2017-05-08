@@ -19,9 +19,12 @@ class EventCreationViewController: UIViewController {
     
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 200
-
-    let cellNib = UINib(nibName: "ImageCell", bundle: Bundle.main)
-    tableView.register(cellNib, forCellReuseIdentifier: "ImageCell")
+    
+    let imageCellNib = UINib(nibName: "ImageCell", bundle: Bundle.main)
+    tableView.register(imageCellNib, forCellReuseIdentifier: "ImageCell")
+    
+    let inputCellNib = UINib(nibName: "TextInputCell", bundle: Bundle.main)
+    tableView.register(inputCellNib, forCellReuseIdentifier: "TextInputCell")
   }
   
   override func didReceiveMemoryWarning() {
@@ -41,6 +44,13 @@ class EventCreationViewController: UIViewController {
 }
 
 // MARK: - Table
+extension EventCreationViewController: UITextFieldDelegate {
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    print("\n textFieldDidBeginEditing \n")
+  }
+}
+
+// MARK: - Table
 extension EventCreationViewController: UITableViewDelegate, UITableViewDataSource {
   
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -52,24 +62,58 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    var cell: UITableViewCell!
-    // Cell 0: Event Image
-    
+    // Image
     if indexPath.row == 0 {
-      cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! ImageCell
+      let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! ImageCell
+      cell.myImageView.image = #imageLiteral(resourceName: "Theme")
+      return cell
     }
-    else {
-      cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! ImageCell
-      // error Here
-      //cell.myImage
+      
+    else if indexPath.row == 1 {
+      // Event Name label
+      let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell", for: indexPath) as! TextInputCell
+      cell.textInput.leftImage = #imageLiteral(resourceName: "Pen")
+      cell.textInput.leftPadding = 40
+      cell.textInput.placeholder = "Event Name"
+      return cell
     }
     
+    else if indexPath.row == 2 {
+      // Location
+      let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell", for: indexPath) as! TextInputCell
+      cell.textInput.leftImage = #imageLiteral(resourceName: "Marker")
+      cell.textInput.leftPadding = 40
+      cell.textInput.placeholder = "Location"
+      cell.indexRow = indexPath.row
+      return cell
+    }
     
-    return cell
+    else if indexPath.row == 3 {
+      // Start Time
+      let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell", for: indexPath) as! TextInputCell
+      cell.textInput.leftImage = #imageLiteral(resourceName: "TimerEmpty")
+      cell.textInput.leftPadding = 40
+      cell.textInput.placeholder = "Event Start Date Time"
+      cell.indexRow = indexPath.row
+      return cell
+    }
+      
+    else if indexPath.row == 4 {
+      // End Time
+      let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell", for: indexPath) as! TextInputCell
+      cell.textInput.leftImage = #imageLiteral(resourceName: "TimerFilled")
+      cell.textInput.leftPadding = 40
+      cell.textInput.placeholder = "Event End Date Time"
+      cell.indexRow = indexPath.row
+      return cell
+    }
     
+    return UITableViewCell()
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print("row selected")
+    print("\n\n row selected \(indexPath.row)\n\n")
   }
+  
+  
 }

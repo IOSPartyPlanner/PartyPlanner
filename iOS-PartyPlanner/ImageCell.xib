@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="287" height="160.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Theme" translatesAutoresizingMaskIntoConstraints="NO" id="yoK-lx-Msm">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yoK-lx-Msm">
                         <rect key="frame" x="0.0" y="0.0" width="287" height="160"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="160" id="NaF-U8-stC"/>
@@ -41,7 +41,4 @@
             <point key="canvasLocation" x="8.5" y="110.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="Theme" width="1920" height="1200"/>
-    </resources>
 </document>
