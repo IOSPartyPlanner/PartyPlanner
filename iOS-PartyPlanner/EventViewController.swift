@@ -51,7 +51,7 @@ class EventViewController: UIViewController {
 
 extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        if event?.isUserOnwer() {
+        if (event?.isUserOnwer())! {
             return 5
         } else {
             return 3
