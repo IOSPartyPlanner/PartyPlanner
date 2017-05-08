@@ -285,7 +285,7 @@
                                         <rect key="frame" x="0.0" y="1257" width="375" height="375"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9U1-67-dZ5" id="svQ-KP-lkz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBL-Ad-fwx">
@@ -397,114 +397,6 @@
                                             <outlet property="videoView" destination="VBL-Ad-fwx" id="0mH-Ft-Gbf"/>
                                         </connections>
                                     </tableViewCell>
-
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="PhotoesTableViewCell" id="llZ-JE-fjv" customClass="PhotoesTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="403" width="375" height="375"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="llZ-JE-fjv" id="Szc-oH-BlJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4HO-Za-ZlI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="100" id="e06-MK-sKd"/>
-                                                    </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dpr-8U-bzC">
-                                                        <size key="itemSize" width="100" height="100"/>
-                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    </collectionViewFlowLayout>
-                                                    <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="2yx-Hv-Q2G" customClass="PhotoCollectionViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DIN-Bf-8td">
-                                                                        <rect key="frame" x="10" y="10" width="80" height="80"/>
-                                                                        <gestureRecognizers/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="80" id="LYy-c3-bna"/>
-                                                                            <constraint firstAttribute="height" constant="80" id="mmz-yz-O1l"/>
-                                                                        </constraints>
-                                                                    </imageView>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstItem="DIN-Bf-8td" firstAttribute="leading" secondItem="2yx-Hv-Q2G" secondAttribute="leading" constant="10" id="GQx-P9-mdO"/>
-                                                                <constraint firstItem="DIN-Bf-8td" firstAttribute="top" secondItem="2yx-Hv-Q2G" secondAttribute="top" constant="10" id="gp3-1b-KUL"/>
-                                                            </constraints>
-                                                            <connections>
-                                                                <outlet property="photoImageView" destination="DIN-Bf-8td" id="VCn-kU-eFH"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                    </cells>
-                                                </collectionView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="4HO-Za-ZlI" firstAttribute="top" secondItem="Szc-oH-BlJ" secondAttribute="top" id="Lh6-e9-dZo"/>
-                                                <constraint firstItem="4HO-Za-ZlI" firstAttribute="leading" secondItem="Szc-oH-BlJ" secondAttribute="leading" id="Xuc-qF-gbd"/>
-                                                <constraint firstAttribute="bottom" secondItem="4HO-Za-ZlI" secondAttribute="bottom" id="oPn-AZ-xk7"/>
-                                                <constraint firstAttribute="trailing" secondItem="4HO-Za-ZlI" secondAttribute="trailing" id="yRD-XE-tX3"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="photoesCollectionView" destination="4HO-Za-ZlI" id="FcT-5T-E7t"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="EventGuestCommentTableViewCell" id="neZ-4a-QOy" customClass="EventGuestCommentTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="778" width="375" height="375"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="neZ-4a-QOy" id="jlD-jm-2mq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iaP-g1-vle">
-                                                    <rect key="frame" x="28" y="16" width="54" height="54"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="54" id="4QA-hc-NhP"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="Jwd-ek-ckE"/>
-                                                        <constraint firstAttribute="height" constant="54" id="RVq-KA-7JH"/>
-                                                        <constraint firstAttribute="width" constant="54" id="eQs-Hq-uRM"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9W-Y8-pdZ">
-                                                    <rect key="frame" x="100" y="16" width="257" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkd-Hb-E8F">
-                                                    <rect key="frame" x="100" y="39" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Vkd-Hb-E8F" firstAttribute="top" secondItem="G9W-Y8-pdZ" secondAttribute="bottom" constant="2" id="2Fk-qA-KL6"/>
-                                                <constraint firstItem="G9W-Y8-pdZ" firstAttribute="top" secondItem="iaP-g1-vle" secondAttribute="top" id="CI1-iT-LWx"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="iaP-g1-vle" secondAttribute="bottom" constant="8" id="EGI-P2-MOT"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="G9W-Y8-pdZ" secondAttribute="trailing" constant="10" id="Jtv-SM-opr"/>
-                                                <constraint firstItem="iaP-g1-vle" firstAttribute="leading" secondItem="jlD-jm-2mq" secondAttribute="leadingMargin" constant="20" id="Kad-Tk-uVH"/>
-                                                <constraint firstItem="G9W-Y8-pdZ" firstAttribute="leading" secondItem="iaP-g1-vle" secondAttribute="trailing" constant="18" id="awH-op-zLN"/>
-                                                <constraint firstItem="Vkd-Hb-E8F" firstAttribute="leading" secondItem="G9W-Y8-pdZ" secondAttribute="leading" id="rCa-mN-WXK"/>
-                                                <constraint firstItem="iaP-g1-vle" firstAttribute="top" secondItem="jlD-jm-2mq" secondAttribute="topMargin" constant="8" id="tSD-eT-ZDn"/>
-                                                <constraint firstItem="iaP-g1-vle" firstAttribute="centerY" secondItem="jlD-jm-2mq" secondAttribute="centerY" id="xcq-Ky-66p"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="guestComment" destination="Vkd-Hb-E8F" id="HhE-3R-MX3"/>
-                                            <outlet property="guestImageView" destination="iaP-g1-vle" id="WgI-ZS-6q5"/>
-                                            <outlet property="guestName" destination="G9W-Y8-pdZ" id="hNP-jh-Oev"/>
-                                        </connections>
-                                    </tableViewCell>
-
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -539,8 +431,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C32-H8-w4z">
-                                <rect key="frame" x="0.0" y="206" width="375" height="128"/>
-
+                                <rect key="frame" x="0.0" y="206" width="375" height="211"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -595,7 +486,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t6a-5e-4BY" id="8sx-fN-PYQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="249.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="249"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t7q-OF-IDe">
@@ -681,7 +572,7 @@
                                         <rect key="frame" x="0.0" y="278" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lZi-cL-mra" id="6hC-e6-6bq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bring Desert" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTW-mW-ShO">
@@ -827,7 +718,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3WC-Ry-SX6" id="HvG-5s-Cs6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4j-oF-leN">
