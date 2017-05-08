@@ -25,12 +25,13 @@ class UserApi: NSObject {
   func storeUser(user: User) {
     print("UserAPI : Storing/updating user")
     let userRef = fireBaseTaskRef.child(user.uid)
+    userRef.setValue(user.toAnyObject())
+
     //Adding the ref and key to the stored user.
     let refPath = "user/"+user.uid
     user.ref = FIRDatabase.database().reference(withPath: refPath)
     user.key = user.ref?.key
     
-    userRef.setValue(user.toAnyObject())
     delegate?.userApi!(userApi: self, userUpdated: user)
   }
   

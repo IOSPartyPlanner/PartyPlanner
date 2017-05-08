@@ -131,17 +131,23 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     func signIntoFirebase(credentials: FIRAuthCredential, _ authType:AuthenticationType){
         FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
             if error != nil {
-                print("Failed to login to firebase", error ?? "")
-                return
-            }
+                print("Failed to login to firebase", error?.localizedDescription)
+             return }
           
-          print("Successful login to firebase", user ?? "")
+          print("Successful login to firebase", user?.displayName ?? "")
             
           var uuid:String = (user?.email?.replacingOccurrences(of: ".", with: ""))!
           uuid = uuid.replacingOccurrences(of: "@", with: "")
-
-          print(uuid)
-          User.currentUser = User(name: (user?.displayName)!, email: user?.email, imageUrl: user?.photoURL as? String, authType: authType.rawValue, uid: uuid)
+          
+          
+          let profilePicUrl = user?.photoURL?.absoluteString
+          User.currentUser = User(name: (user?.displayName)!, email: user?.email, imageUrl: profilePicUrl, authType: authType.rawValue, uid: uuid)
+          User.currentUser?.imageUrl = profilePicUrl
+          User.currentUser?.name = (user?.displayName)!
+          User.currentUser?.email = (user?.email)!
+          User.currentUser?.authType = authType.rawValue
+          User.currentUser?.uid = uuid
+          
           UserApi.sharedInstance.storeUser(user: User.currentUser!)
           if RSVP.currentInstance == nil {
             self.performSegue(withIdentifier: "EventViewSegue", sender: self)

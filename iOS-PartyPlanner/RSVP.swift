@@ -75,6 +75,9 @@ class RSVP: NSObject {
         if item.name == "eventId" {
           RSVP.currentInstance?.eventId = (item.value)!
         }
+        if item.name == "guestEmail" {
+          RSVP.currentInstance?.guestEmail = (item.value)!
+        }
       }
     }
   }
