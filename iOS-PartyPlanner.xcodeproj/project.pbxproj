@@ -45,6 +45,10 @@
 		A18AB06F1EC19D3B00E83B0C /* MediaApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18AB06E1EC19D3B00E83B0C /* MediaApi.swift */; };
 		A18AB0721EC19DFF00E83B0C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18AB0711EC19DFF00E83B0C /* CustomTextField.swift */; };
 		A18AB0741EC19E7E00E83B0C /* EventCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18AB0731EC19E7E00E83B0C /* EventCreationViewController.swift */; };
+		A18AB0791EC1A17700E83B0C /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18AB0751EC1A17700E83B0C /* ImageCell.swift */; };
+		A18AB07A1EC1A17700E83B0C /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18AB0761EC1A17700E83B0C /* ImageCell.xib */; };
+		A18AB07B1EC1A17700E83B0C /* TextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18AB0771EC1A17700E83B0C /* TextInputCell.swift */; };
+		A18AB07C1EC1A17700E83B0C /* TextInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18AB0781EC1A17700E83B0C /* TextInputCell.xib */; };
 		A190B1721EB66D7F006328AF /* EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B16E1EB66D7F006328AF /* EventApi.swift */; };
 		A190B1731EB66D7F006328AF /* ItemApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B16F1EB66D7F006328AF /* ItemApi.swift */; };
 		A190B1741EB66D7F006328AF /* RsvpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1701EB66D7F006328AF /* RsvpApi.swift */; };
@@ -103,6 +107,10 @@
 		A18AB06E1EC19D3B00E83B0C /* MediaApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaApi.swift; sourceTree = "<group>"; };
 		A18AB0711EC19DFF00E83B0C /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		A18AB0731EC19E7E00E83B0C /* EventCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCreationViewController.swift; sourceTree = "<group>"; };
+		A18AB0751EC1A17700E83B0C /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		A18AB0761EC1A17700E83B0C /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		A18AB0771EC1A17700E83B0C /* TextInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputCell.swift; sourceTree = "<group>"; };
+		A18AB0781EC1A17700E83B0C /* TextInputCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputCell.xib; sourceTree = "<group>"; };
 		A190B16E1EB66D7F006328AF /* EventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventApi.swift; sourceTree = "<group>"; };
 		A190B16F1EB66D7F006328AF /* ItemApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemApi.swift; sourceTree = "<group>"; };
 		A190B1701EB66D7F006328AF /* RsvpApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RsvpApi.swift; sourceTree = "<group>"; };
@@ -145,8 +153,10 @@
 		821B65C31EB006FF0078333B /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				826897E21EB659DD00C3B4D6 /* CollectionViewCell */,
-				821B65C81EB00FAC0078333B /* TableViewCell */,
+				A18AB0751EC1A17700E83B0C /* ImageCell.swift */,
+				A18AB0761EC1A17700E83B0C /* ImageCell.xib */,
+				A18AB0771EC1A17700E83B0C /* TextInputCell.swift */,
+				A18AB0781EC1A17700E83B0C /* TextInputCell.xib */,
 				821B65C41EB007230078333B /* VideoView.swift */,
 			);
 			name = UIComponents;
@@ -220,7 +230,6 @@
 			children = (
 				A14EE5F21EB51B98006889D1 /* Utils */,
 				820902281EBABF77009C7C6D /* Calendar */,
-				821B65C31EB006FF0078333B /* UIComponents */,
 				A1470F4D1EAF244000DE373A /* ViewControllers */,
 				A1470F4C1EAF243B00DE373A /* Views */,
 				A1470F4B1EAF243200DE373A /* APIs */,
@@ -267,6 +276,9 @@
 		A1470F4C1EAF243B00DE373A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				826897E21EB659DD00C3B4D6 /* CollectionViewCell */,
+				821B65C81EB00FAC0078333B /* TableViewCell */,
+				821B65C31EB006FF0078333B /* UIComponents */,
 				A18AB0701EC19DA100E83B0C /* CustomComponents */,
 			);
 			name = Views;
@@ -379,8 +391,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1470F411EAF20C600DE373A /* LaunchScreen.storyboard in Resources */,
+				A18AB07C1EC1A17700E83B0C /* TextInputCell.xib in Resources */,
 				2044D7611EB14F26002AB803 /* GoogleService-Info.plist in Resources */,
 				A1470F3E1EAF20C600DE373A /* Assets.xcassets in Resources */,
+				A18AB07A1EC1A17700E83B0C /* ImageCell.xib in Resources */,
 				A1470F3C1EAF20C600DE373A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +486,7 @@
 				A18AB06F1EC19D3B00E83B0C /* MediaApi.swift in Sources */,
 				821B65CE1EB011160078333B /* Event.swift in Sources */,
 				821B65E61EB04C7E0078333B /* APIClient.swift in Sources */,
+				A18AB0791EC1A17700E83B0C /* ImageCell.swift in Sources */,
 				821B65E21EB04ABD0078333B /* EventViewController.swift in Sources */,
 				A190B1771EB67D2B006328AF /* UserApi.swift in Sources */,
 				821B65CC1EB011070078333B /* User.swift in Sources */,
@@ -491,6 +506,7 @@
 				821B65D01EB011290078333B /* Task.swift in Sources */,
 				A190B17A1EB68B0D006328AF /* CommentApi.swift in Sources */,
 				A1470F371EAF20C600DE373A /* AppDelegate.swift in Sources */,
+				A18AB07B1EC1A17700E83B0C /* TextInputCell.swift in Sources */,
 				82D4AF0A1EB52D990087E0A6 /* PhotoesTableViewCell.swift in Sources */,
 				F7B01E961EBBB7610023852A /* HomeEventTableViewCell.swift in Sources */,
 				F7B01E901EB7EC190023852A /* EventDetailViewController.swift in Sources */,
