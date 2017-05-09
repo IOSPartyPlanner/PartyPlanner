@@ -180,7 +180,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4HO-Za-ZlI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dpr-8U-bzC">
                                                         <size key="itemSize" width="100" height="100"/>
@@ -689,7 +689,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Upcoming Events" id="aBI-37-uNB"/>
+                    <navigationItem key="navigationItem" title="Upcoming Events" id="aBI-37-uNB">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="ogi-lf-3DN">
+                            <connections>
+                                <segue destination="5l7-Bl-PH1" kind="push" id="KRo-c3-AOe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="7n3-5l-4NP" id="N3O-JV-MCn"/>
                     </connections>
@@ -883,7 +889,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Acu-9w-hyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3648.8000000000002" y="-186.65667166416793"/>
+            <point key="canvasLocation" x="3532" y="-933"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4F8-Mu-coF">
@@ -1108,6 +1114,176 @@
             </objects>
             <point key="canvasLocation" x="1760.8" y="-957.57121439280365"/>
         </scene>
+        <!--Edit Photo View Controller-->
+        <scene sceneID="P3e-LA-Xfw">
+            <objects>
+                <viewController id="5l7-Bl-PH1" customClass="EditPhotoViewController" customModule="iOS_PartyPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9bX-nI-qhy"/>
+                        <viewControllerLayoutGuide type="bottom" id="nHS-Ky-xDb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fu4-Wo-G1E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="cCF-uc-A5I">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OIr-K1-AT8">
+                                <rect key="frame" x="0.0" y="587" width="375" height="168"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="i3U-Ze-Qru">
+                                        <rect key="frame" x="17" y="20" width="54" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="X5X-bu-wfh" appends="YES" id="fzq-tu-xgu"/>
+                                            <outletCollection property="gestureRecognizers" destination="aRr-7d-FF7" appends="YES" id="VnH-Xe-UPp"/>
+                                            <outletCollection property="gestureRecognizers" destination="XRX-cU-EX3" appends="YES" id="d7Z-oA-jPW"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cake" translatesAutoresizingMaskIntoConstraints="NO" id="K8x-HH-Rt7">
+                                        <rect key="frame" x="95" y="20" width="54" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="k3b-cs-BfP" appends="YES" id="rbU-1B-Qvh"/>
+                                            <outletCollection property="gestureRecognizers" destination="DJR-Fp-dcB" appends="YES" id="BjK-De-eWc"/>
+                                            <outletCollection property="gestureRecognizers" destination="nG0-rn-Ogg" appends="YES" id="YoK-2Y-gXb"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hat" translatesAutoresizingMaskIntoConstraints="NO" id="S20-6e-8Po">
+                                        <rect key="frame" x="170" y="20" width="54" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="6nQ-om-7Wz" appends="YES" id="LMI-fK-7xq"/>
+                                            <outletCollection property="gestureRecognizers" destination="Ihp-Li-vEl" appends="YES" id="2Q9-D7-0Ow"/>
+                                            <outletCollection property="gestureRecognizers" destination="ME2-AZ-Bxe" appends="YES" id="6jx-51-10V"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mustache" translatesAutoresizingMaskIntoConstraints="NO" id="Mp6-Tg-Ppc">
+                                        <rect key="frame" x="244" y="20" width="54" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="tj0-TJ-DnD" appends="YES" id="e0o-oo-u5E"/>
+                                            <outletCollection property="gestureRecognizers" destination="oSB-Ge-Ta1" appends="YES" id="uJu-Tx-6kK"/>
+                                            <outletCollection property="gestureRecognizers" destination="5R2-kr-EZs" appends="YES" id="3RY-OD-hgE"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="glass" highlightedImage="glass" translatesAutoresizingMaskIntoConstraints="NO" id="Pal-f2-jEy">
+                                        <rect key="frame" x="308" y="20" width="54" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="kbx-bb-erT" appends="YES" id="zvc-xt-Aqb"/>
+                                            <outletCollection property="gestureRecognizers" destination="oz9-WV-lZi" appends="YES" id="4Qc-OI-ceH"/>
+                                            <outletCollection property="gestureRecognizers" destination="Gkx-iD-Jff" appends="YES" id="FXr-Db-vDS"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="iat-7k-ean" appends="YES" id="quu-qU-dzJ"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6ve-cL-x1C"/>
+                    <connections>
+                        <outlet property="parentView" destination="Fu4-Wo-G1E" id="2uL-CI-Zer"/>
+                        <outlet property="trayView" destination="OIr-K1-AT8" id="b5g-3A-QR8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Uw-7y-90C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="iat-7k-ean">
+                    <connections>
+                        <action selector="onTrayPanGesture:" destination="5l7-Bl-PH1" id="esl-Un-2bx"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="X5X-bu-wfh">
+                    <connections>
+                        <action selector="onEmojiPanGesture:" destination="5l7-Bl-PH1" id="vaO-Me-cXo"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="k3b-cs-BfP">
+                    <connections>
+                        <action selector="onEmojiPanGesture:" destination="5l7-Bl-PH1" id="Q0j-gu-pOh"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="kbx-bb-erT">
+                    <connections>
+                        <action selector="onEmojiPanGesture:" destination="5l7-Bl-PH1" id="G3R-6u-nbr"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="tj0-TJ-DnD">
+                    <connections>
+                        <action selector="onEmojiPanGesture:" destination="5l7-Bl-PH1" id="jPF-hq-L1q"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="6nQ-om-7Wz">
+                    <connections>
+                        <action selector="onEmojiPanGesture:" destination="5l7-Bl-PH1" id="Vut-Ls-0f4"/>
+                    </connections>
+                </panGestureRecognizer>
+                <pinchGestureRecognizer id="aRr-7d-FF7">
+                    <connections>
+                        <action selector="handlePinchWithRecognizer:" destination="5l7-Bl-PH1" id="a7P-bX-vnc"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <rotationGestureRecognizer id="XRX-cU-EX3">
+                    <connections>
+                        <action selector="handleRotateWithRecognizer:" destination="5l7-Bl-PH1" id="JEY-0M-b61"/>
+                    </connections>
+                </rotationGestureRecognizer>
+                <rotationGestureRecognizer id="DJR-Fp-dcB">
+                    <connections>
+                        <action selector="handleRotateWithRecognizer:" destination="5l7-Bl-PH1" id="V1b-Xh-saz"/>
+                    </connections>
+                </rotationGestureRecognizer>
+                <rotationGestureRecognizer id="Ihp-Li-vEl">
+                    <connections>
+                        <action selector="handleRotateWithRecognizer:" destination="5l7-Bl-PH1" id="YLu-mX-1Z5"/>
+                    </connections>
+                </rotationGestureRecognizer>
+                <rotationGestureRecognizer id="oSB-Ge-Ta1">
+                    <connections>
+                        <action selector="handleRotateWithRecognizer:" destination="5l7-Bl-PH1" id="olR-dm-QPg"/>
+                    </connections>
+                </rotationGestureRecognizer>
+                <rotationGestureRecognizer id="oz9-WV-lZi">
+                    <connections>
+                        <action selector="handleRotateWithRecognizer:" destination="5l7-Bl-PH1" id="ddn-yU-nZa"/>
+                    </connections>
+                </rotationGestureRecognizer>
+                <pinchGestureRecognizer id="nG0-rn-Ogg">
+                    <connections>
+                        <action selector="handlePinchWithRecognizer:" destination="5l7-Bl-PH1" id="Kqv-f6-Vqi"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="ME2-AZ-Bxe">
+                    <connections>
+                        <action selector="handlePinchWithRecognizer:" destination="5l7-Bl-PH1" id="YWd-0d-HNp"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="5R2-kr-EZs">
+                    <connections>
+                        <action selector="handlePinchWithRecognizer:" destination="5l7-Bl-PH1" id="rxo-jT-aEi"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="Gkx-iD-Jff">
+                    <connections>
+                        <action selector="handlePinchWithRecognizer:" destination="5l7-Bl-PH1" id="DRW-8a-Zdl"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3597.5999999999999" y="-116.49175412293854"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="o6r-RN-ypf">
             <objects>
@@ -1131,14 +1307,19 @@
         <image name="2" width="300" height="300"/>
         <image name="Theme" width="1920" height="1200"/>
         <image name="add" width="50" height="50"/>
+        <image name="cake" width="400" height="298"/>
         <image name="calendar" width="50" height="50"/>
         <image name="date" width="16" height="16"/>
         <image name="fbLogin" width="376" height="60"/>
         <image name="gLogin" width="373" height="60"/>
+        <image name="glass" width="800" height="931"/>
+        <image name="hat" width="640" height="1371"/>
         <image name="location" width="50" height="50"/>
         <image name="loginPage" width="1920" height="1200"/>
         <image name="logout" width="32" height="32"/>
         <image name="map" width="32" height="32"/>
+        <image name="mustache" width="2400" height="1034"/>
+        <image name="photo" width="408" height="612"/>
         <image name="rsvpBackground" width="1400" height="1400"/>
         <image name="tagline" width="16" height="16"/>
         <image name="time" width="16" height="16"/>

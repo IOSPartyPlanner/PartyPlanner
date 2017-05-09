@@ -56,6 +56,7 @@
 		F7B01E9A1EBDD5860023852A /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E991EBDD5860023852A /* TaskTableViewCell.swift */; };
 		F7B01E9C1EBEA2540023852A /* EventsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */; };
 		F7B01E9E1EBFA1050023852A /* OldEventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E9D1EBFA1050023852A /* OldEventApi.swift */; };
+		F7F330D51EC12FE1008892DC /* EditPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F330D41EC12FE1008892DC /* EditPhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		F7B01E991EBDD5860023852A /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsMapViewController.swift; sourceTree = "<group>"; };
 		F7B01E9D1EBFA1050023852A /* OldEventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldEventApi.swift; sourceTree = "<group>"; };
+		F7F330D41EC12FE1008892DC /* EditPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,7 +216,6 @@
 			children = (
 				A14EE5F21EB51B98006889D1 /* Utils */,
 				820902281EBABF77009C7C6D /* Calendar */,
-				821B65C31EB006FF0078333B /* UIComponents */,
 				A1470F4D1EAF244000DE373A /* ViewControllers */,
 				A1470F4C1EAF243B00DE373A /* Views */,
 				A1470F4B1EAF243200DE373A /* APIs */,
@@ -279,6 +280,7 @@
 				F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */,
 				82CCAEA51EBF9BCE00D3C71C /* PhotoBrowserViewController.swift */,
 				8298EBA21EC01C2800EBA37F /* CreateTaskViewController.swift */,
+				F7F330D41EC12FE1008892DC /* EditPhotoViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -286,6 +288,7 @@
 		A14EE5F21EB51B98006889D1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				821B65C31EB006FF0078333B /* UIComponents */,
 				A14EE5F31EB51BAD006889D1 /* Uitls.swift */,
 			);
 			name = Utils;
@@ -451,6 +454,7 @@
 				F7B01E9E1EBFA1050023852A /* OldEventApi.swift in Sources */,
 				821B65D81EB0400C0078333B /* EventGuestCommentTableViewCell.swift in Sources */,
 				821B65CE1EB011160078333B /* Event.swift in Sources */,
+				F7F330D51EC12FE1008892DC /* EditPhotoViewController.swift in Sources */,
 				821B65E61EB04C7E0078333B /* APIClient.swift in Sources */,
 				821B65E21EB04ABD0078333B /* EventViewController.swift in Sources */,
 				A190B1771EB67D2B006328AF /* UserApi.swift in Sources */,
