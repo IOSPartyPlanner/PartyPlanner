@@ -228,6 +228,7 @@
 		A1470F351EAF20C600DE373A /* iOS-PartyPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				A1470F3D1EAF20C600DE373A /* Assets.xcassets */,
 				A14EE5F21EB51B98006889D1 /* Utils */,
 				820902281EBABF77009C7C6D /* Calendar */,
 				A1470F4D1EAF244000DE373A /* ViewControllers */,
@@ -236,7 +237,6 @@
 				A1470F481EAF241B00DE373A /* Models */,
 				A1470F361EAF20C600DE373A /* AppDelegate.swift */,
 				A1470F3A1EAF20C600DE373A /* Main.storyboard */,
-				A1470F3D1EAF20C600DE373A /* Assets.xcassets */,
 				A1470F3F1EAF20C600DE373A /* LaunchScreen.storyboard */,
 				A1470F421EAF20C600DE373A /* Info.plist */,
 				2044D7601EB14F26002AB803 /* GoogleService-Info.plist */,
@@ -427,7 +427,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6E784677F281C773C25D3B6D /* [CP] Embed Pods Frameworks */ = {
