@@ -12,6 +12,9 @@ class EventCreationViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
+  var datepicker = UIDatePicker()
+  var toolbar = UIToolbar()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.delegate = self
@@ -43,7 +46,7 @@ class EventCreationViewController: UIViewController {
    */
 }
 
-// MARK: - Table
+// MARK: - Text
 extension EventCreationViewController: UITextFieldDelegate {
   func textFieldDidBeginEditing(_ textField: UITextField) {
     print("\n textFieldDidBeginEditing \n")
@@ -58,7 +61,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 6
+    return 5
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,6 +78,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.textInput.leftImage = #imageLiteral(resourceName: "Pen")
       cell.textInput.leftPadding = 40
       cell.textInput.placeholder = "Event Name"
+      cell.delegate = self
       return cell
     }
       
@@ -85,6 +89,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.textInput.leftPadding = 40
       cell.textInput.placeholder = "Location"
       cell.indexRow = indexPath.row
+      cell.delegate = self
       return cell
     }
       
@@ -95,16 +100,23 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.textInput.leftPadding = 40
       cell.textInput.placeholder = "Event Start Date Time"
       cell.indexRow = indexPath.row
+      cell.datePickerHidden = false
+//      cell.textInput.inputView = datepicker
+//      cell.textInput.inputAccessoryView = toolbar
+      cell.delegate = self
       return cell
     }
       
     else if indexPath.row == 4 {
       // End Time
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell", for: indexPath) as! TextInputCell
-      cell.textInput.leftImage = #imageLiteral(resourceName: "TimerFilled")
+      cell.textInput.leftImage = #imageLiteral(resourceName: "TimerComplete")
       cell.textInput.leftPadding = 40
       cell.textInput.placeholder = "Event End Date Time"
       cell.indexRow = indexPath.row
+//      cell.textInput.inputView = datepicker
+//      cell.textInput.inputAccessoryView = toolbar
+      cell.delegate = self
       return cell
     }
     
@@ -113,5 +125,46 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     print("\n\n row selected \(indexPath.row)\n\n")
+  }
+}
+
+
+// MARK: - Date Picker
+extension EventCreationViewController {
+  func showDatePicker() {
+
+    datepicker.datePickerMode = UIDatePickerMode.dateAndTime
+    
+    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(self.datePickerValueChanged))
+    toolbar.backgroundColor = UIColor.blue
+    toolbar.setItems([doneButton], animated: true)
+    toolbar.isUserInteractionEnabled = true
+    
+    let pickerSize : CGSize = datepicker.sizeThatFits(CGSize(width: 0, height: 0))
+    datepicker.frame = CGRect(x: 0, y: 300, width: pickerSize.width, height: 250)
+
+    //you probably don't want to set background color as black
+    datepicker.backgroundColor = UIColor.gray
+    view.addSubview(datepicker)
+  }
+  
+  func datePickerValueChanged(sender: Any) {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = DateFormatter.Style.medium
+    dateFormatter.timeStyle = DateFormatter.Style.medium
+    
+    print("\n\n \(datepicker.date) \n")
+  }
+
+}
+
+// MARK: - TextInputCell delegates
+extension EventCreationViewController: TextInputCellDelegate {
+  func textInputCell (textInputCell: TextInputCell, startDateTimeStarted row: Int) {
+//    showDatePicker()
+  }
+  
+  func textInputCell (textInputCell: TextInputCell, endDateTimeStarted row: Int) {
+//    showDatePicker()
   }
 }

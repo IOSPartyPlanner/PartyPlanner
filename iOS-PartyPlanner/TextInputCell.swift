@@ -10,25 +10,28 @@ import UIKit
 
 @objc protocol TextInputCellDelegate {
   // Event Name
-  @objc optional func textInputCellDelegate (textInputCellDelegate: TextInputCell, eventNameEntered name: String)
+  @objc optional func textInputCell(textInputCell: TextInputCell, eventNameEntered name: String)
   
   // Location
-  @objc optional func textInputCellDelegate (textInputCellDelegate: TextInputCell, locationInputStarted location: String)
-  @objc optional func textInputCellDelegate (textInputCellDelegate: TextInputCell, locationInputSelected location: String)
+  @objc optional func textInputCell(textInputCell: TextInputCell, locationInputStarted location: String)
+  @objc optional func textInputCell(textInputCell: TextInputCell, locationInputSelected location: String)
   
   // Start Date
-  @objc optional func textInputCellDelegate (textInputCellDelegate: TextInputCell, startDateTimeStarted startDate: String)
-  @objc optional func textInputCellDelegate (textInputCellDelegate: TextInputCell, startDateTimeSelected startDate: Date)
+  @objc optional func textInputCell(textInputCell: TextInputCell, startDateTimeStarted row: Int)
+  @objc optional func textInputCell(textInputCell: TextInputCell, startDateTimeSelected row: Int)
   
   // End Date
-  @objc optional func textInputCellDelegate (textInputCellDelegate: TextInputCell, endDateTimeStarted endDate: String)
-  @objc optional func textInputCellDelegate (textInputCellDelegate: TextInputCell, endDateTimeSelected endDate: Date)
+  @objc optional func textInputCell(textInputCell: TextInputCell, endDateTimeStarted row: Int)
+  @objc optional func textInputCell(textInputCell: TextInputCell, endDateTimeSelected row: Int)
 }
 
 class TextInputCell: UITableViewCell {
   
   @IBOutlet weak var textInput: CustomTextField!
+  @IBOutlet weak var datePicker: UIDatePicker!
+  
   var indexRow: Int = -1
+  var datePickerHidden = true
   
   weak var delegate: TextInputCellDelegate?
   
@@ -36,6 +39,7 @@ class TextInputCell: UITableViewCell {
     super.awakeFromNib()
     // Initialization code
     textInput.delegate = self
+    datePicker.isHidden = datePickerHidden
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
@@ -57,18 +61,20 @@ extension TextInputCell: UITextFieldDelegate {
     }
     else if indexRow == 3 {
       print("you selected Start Date")
-      delegate?.textInputCellDelegate!(textInputCellDelegate: self, startDateTimeStarted: "StartTime")
+//      textField.resignFirstResponder()
+      delegate?.textInputCell!(textInputCell: self, startDateTimeStarted: indexRow)
     }
     else if indexRow == 4 {
       print("you selected End Date")
-      delegate?.textInputCellDelegate!(textInputCellDelegate: self, endDateTimeStarted: "EndTime")
+//      textField.resignFirstResponder()
+      delegate?.textInputCell!(textInputCell: self, endDateTimeStarted: indexRow)
     }
   }
   
   func textFieldDidEndEditing(_ textField: UITextField) {
     if indexRow == 1 {
       print("you completed 1")
-      delegate?.textInputCellDelegate!(textInputCellDelegate: self, eventNameEntered: textInput.text!)
+      delegate?.textInputCell!(textInputCell: self, eventNameEntered: textInput.text!)
     }
     else if indexRow == 2 {
       print("you selected 2")
@@ -76,18 +82,27 @@ extension TextInputCell: UITextFieldDelegate {
     }
     else if indexRow == 3 {
       print("you selected Start Date")
-      delegate?.textInputCellDelegate!(textInputCellDelegate: self, startDateTimeSelected: Date.init())
+//      delegate?.textInputCell!(textInputCell: self, startDateTimeSelected: indexRow)
     }
     else if indexRow == 4 {
       print("you selected End Date")
-      delegate?.textInputCellDelegate!(textInputCellDelegate: self, endDateTimeSelected: Date.init())
+//      delegate?.textInputCell!(textInputCell: self, endDateTimeSelected: indexRow)
     }
   }
-  
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
     return true
   }
+  
+  func datePickerValueChanged(sender: Any) {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = DateFormatter.Style.medium
+    dateFormatter.timeStyle = DateFormatter.Style.medium
+    
+    print("\n\n date:::::khdjh \n")
+  }
+
+  
 }
 
