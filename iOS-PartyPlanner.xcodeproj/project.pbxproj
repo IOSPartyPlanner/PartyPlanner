@@ -44,6 +44,7 @@
 		A14EE5F41EB51BAD006889D1 /* Uitls.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14EE5F31EB51BAD006889D1 /* Uitls.swift */; };
 		A18AB06F1EC19D3B00E83B0C /* MediaApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18AB06E1EC19D3B00E83B0C /* MediaApi.swift */; };
 		A18AB0721EC19DFF00E83B0C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18AB0711EC19DFF00E83B0C /* CustomTextField.swift */; };
+		A18AB0741EC19E7E00E83B0C /* EventCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18AB0731EC19E7E00E83B0C /* EventCreationViewController.swift */; };
 		A190B1721EB66D7F006328AF /* EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B16E1EB66D7F006328AF /* EventApi.swift */; };
 		A190B1731EB66D7F006328AF /* ItemApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B16F1EB66D7F006328AF /* ItemApi.swift */; };
 		A190B1741EB66D7F006328AF /* RsvpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1701EB66D7F006328AF /* RsvpApi.swift */; };
@@ -101,6 +102,7 @@
 		A14EE5F31EB51BAD006889D1 /* Uitls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Uitls.swift; sourceTree = "<group>"; };
 		A18AB06E1EC19D3B00E83B0C /* MediaApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaApi.swift; sourceTree = "<group>"; };
 		A18AB0711EC19DFF00E83B0C /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		A18AB0731EC19E7E00E83B0C /* EventCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCreationViewController.swift; sourceTree = "<group>"; };
 		A190B16E1EB66D7F006328AF /* EventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventApi.swift; sourceTree = "<group>"; };
 		A190B16F1EB66D7F006328AF /* ItemApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemApi.swift; sourceTree = "<group>"; };
 		A190B1701EB66D7F006328AF /* RsvpApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RsvpApi.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */,
 				82CCAEA51EBF9BCE00D3C71C /* PhotoBrowserViewController.swift */,
 				8298EBA21EC01C2800EBA37F /* CreateTaskViewController.swift */,
+				A18AB0731EC19E7E00E83B0C /* EventCreationViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				821B65C51EB007230078333B /* VideoView.swift in Sources */,
 				821B65DA1EB0403A0078333B /* EventMediaCollectionTableViewCell.swift in Sources */,
 				A14EE5F41EB51BAD006889D1 /* Uitls.swift in Sources */,
+				A18AB0741EC19E7E00E83B0C /* EventCreationViewController.swift in Sources */,
 				A190B1741EB66D7F006328AF /* RsvpApi.swift in Sources */,
 				A190B1721EB66D7F006328AF /* EventApi.swift in Sources */,
 				F7B01E941EB7F4E30023852A /* CommentsTableViewCell.swift in Sources */,
