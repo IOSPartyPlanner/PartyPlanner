@@ -10,9 +10,9 @@ import UIKit
 
 
 @objc protocol TextInputCell2Delegate {
-  // Event Name
 
-  @objc optional func textInputCell2(textInputCell2: TextInputCell2, eventNameEntered name: String)
+  // Event Name entered
+  @objc optional func textInputCell2(textInputCell2: TextInputCell2, eventNameEntered eventName: String)
   
   // Location
   @objc optional func textInputCell2(textInputCell2: TextInputCell2, locationInputStarted location: String)

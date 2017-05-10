@@ -15,13 +15,12 @@ class EventCreationViewController: UIViewController {
   var datepicker = UIDatePicker()
   var toolbar = UIToolbar()
 
-  var mediaSelectionToolBar = UIToolbar()
   var currentIndex: Int!
-  
-  var eventName: String?
   
   var eventStartDateTime: Date!
   var eventEndDateTime: Date!
+  
+  var eventName: String?
   
   var locationSelected = false
   var location: String?
@@ -57,10 +56,9 @@ class EventCreationViewController: UIViewController {
       vc.delegate = self
     }
   }
-  
 }
 
-// MARK: - Location Picker
+  // MARK: - Location Picker
 extension EventCreationViewController: LocationsViewControllerDelegate {
   
   func locationsPickedLocation(controller: LocationsViewController, location: String) {
@@ -74,7 +72,6 @@ extension EventCreationViewController: LocationsViewControllerDelegate {
   func locationsPickedLocation(controller: LocationsViewController, cancelled: String) {
     // TODO: This is a temporary fix for location search view showing up after cancel
     locationSelected = true
-
   }
   
 }
@@ -174,14 +171,8 @@ extension EventCreationViewController {
     toolbar.sizeToFit()
     let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(datePickerValueChanged))
     toolbar.setItems([doneButton], animated: true)
-    
-    mediaSelectionToolBar.sizeToFit()
-    let changeMediaButton = UIBarButtonItem(barButtonSystemItem: .camera, target: nil, action: #selector(selectMedia))
-    mediaSelectionToolBar.setItems([changeMediaButton], animated: true)
   }
-  
-  func selectMedia(sender: Any) {
-  }
+
   
   func datePickerValueChanged(sender: Any) {
     view.endEditing(true)
@@ -196,7 +187,6 @@ extension EventCreationViewController {
       eventStartDateTime = datetime
       let indexPath = IndexPath(item: currentIndex!, section: 0)
       tableView.reloadRows(at: [indexPath], with: .automatic)
-
     } else if currentIndex == 4 {
       // end time selected
       eventEndDateTime = datetime
@@ -204,7 +194,6 @@ extension EventCreationViewController {
       tableView.reloadRows(at: [indexPath], with: .automatic)
     }
   }
-  
 }
 // MARK: - Media Selection delegates and methods
 extension EventCreationViewController: ImageCellDelegate {
