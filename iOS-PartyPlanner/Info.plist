@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>To capture images and video for events</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To use images in event</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>To record voice in video</string>
 	<key>NSLocationWhenInUseUsageDescription </key>
 	<string>To show your location on the map </string>
 	<key>Fabric</key>
@@ -70,25 +76,6 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>Fabric</key>
-	<dict>
-		<key>APIKey</key>
-		<string>60435a67414f14ed43a413382b4ec2409caa5406</string>
-		<key>Kits</key>
-		<array>
-			<dict>
-				<key>KitInfo</key>
-				<dict>
-					<key>consumerKey</key>
-					<string>u2pdpnTSWAyunvauLHDZ6hNmF</string>
-					<key>consumerSecret</key>
-					<string>FdJF5KNfVzkyxs7ztCqTtGQrmrSVgRmiUxv5sW8h0HFJGFXuTy</string>
-				</dict>
-				<key>KitName</key>
-				<string>Twitter</string>
-			</dict>
-		</array>
-	</dict>
 	<key>FacebookAppID</key>
 	<string>656208881246578</string>
 	<key>FacebookDisplayName</key>

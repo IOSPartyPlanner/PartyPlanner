@@ -12,19 +12,20 @@ class EventCreationViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
+  // toolbars
   var datepicker = UIDatePicker()
   var toolbar = UIToolbar()
-
-  var currentIndex: Int!
   
+  // current states
+  var currentIndex: Int!
   var eventStartDateTime: Date!
   var eventEndDateTime: Date!
-  
   var eventName: String?
-  
   var locationSelected = false
   var location: String?
-
+  
+  // image/video
+  var eventImage: UIImage?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -58,7 +59,7 @@ class EventCreationViewController: UIViewController {
   }
 }
 
-  // MARK: - Location Picker
+// MARK: - Location Picker
 extension EventCreationViewController: LocationsViewControllerDelegate {
   
   func locationsPickedLocation(controller: LocationsViewController, location: String) {
@@ -76,7 +77,7 @@ extension EventCreationViewController: LocationsViewControllerDelegate {
   
 }
 
-  // MARK: - Table
+// MARK: - Table
 extension EventCreationViewController: UITableViewDelegate, UITableViewDataSource {
   
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -91,7 +92,11 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
     // Image
     if indexPath.row == 0 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! ImageCell
-      cell.myImageView.image = #imageLiteral(resourceName: "Theme")
+      if eventImage != nil {
+        cell.myImageView.image = eventImage
+      } else {
+        cell.myImageView.image = #imageLiteral(resourceName: "Theme")
+      }
       cell.delegate = self
       return cell
     }
@@ -102,11 +107,9 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.textInput.leftImage = #imageLiteral(resourceName: "Pen")
       cell.textInput.leftPadding = 40
       cell.textInput.placeholder = "Event Name"
-
       if eventName != nil {
         cell.textInput.text = eventName
       }
-      
       cell.indexRow = indexPath.row
       cell.delegate = self
       return cell
@@ -198,17 +201,70 @@ extension EventCreationViewController {
 }
 
 // MARK: - Media Selection delegates and methods
-extension EventCreationViewController: ImageCellDelegate {
+extension EventCreationViewController: ImageCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
   func imageCell(imageCell: ImageCell, media: String) {
     let alert = UIAlertController(title: "Choose Source", message: nil, preferredStyle: .actionSheet)
     alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
-//      self.openCamera()
+      self.openCamera()
     }))
     alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
-//      self.openGallery()
+      self.openGallery()
     }))
     alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
     self.present(alert, animated: true, completion: nil)
+  }
+  
+  func openCamera() {
+    if UIImagePickerController.isSourceTypeAvailable(.camera) {
+      let picker = UIImagePickerController()
+      picker.delegate = self
+      picker.sourceType = .camera
+      picker.mediaTypes = ["public.image", "public.movie"]
+      present(picker, animated: true) { }
+    } else {
+      let cameraPermissionDisabled = UIAlertController(title: "You have disabled camera permissions. Please enable the camera permissions in your phone settings!", message: nil, preferredStyle: .alert)
+      cameraPermissionDisabled.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+      self.present(cameraPermissionDisabled, animated: true, completion: nil)
+      openGallery()
+    }
+  }
+  
+  func openGallery() {
+    let picker = UIImagePickerController()
+    picker.delegate = self
+    picker.allowsEditing = true
+    picker.sourceType = .photoLibrary
+    picker.mediaTypes = ["public.image", "public.movie"]
+    picker.videoMaximumDuration = 45.0
+    picker.videoQuality = .typeMedium
+    self.present(picker, animated: true,completion: nil)
+  }
+  
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    
+    // If selected Media is Image
+    if info[UIImagePickerControllerMediaType] as! String == "public.image" {
+      
+      let selectImage = info[UIImagePickerControllerEditedImage] as? UIImage
+      //      let image = UIImageJPEGRepresentation(selectImage!, 0.55)! as NSData
+      eventImage = selectImage
+      let indexpath = IndexPath(item: 0, section: 0)
+      tableView.reloadRows(at: [indexpath], with: .fade)
+    }
+    // video
+    //    else if info["UIImagePickerControllerMediaType"] as! String == "public.movie" {
+    //
+    //      selectedVideoUrl = info[UIImagePickerControllerMediaURL] as? URL
+    //      print(selectedVideoUrl ?? "URL could not be fetched")
+    //      video = NSData(contentsOf: selectedVideoUrl!)
+    //      mediaDisplayView.image = Utils.previewImageFromVideo(selectedVideoUrl!)!
+    //        }
+    //    mediaDisplayView.contentMode = .scaleAspectFit
+    dismiss(animated: true) {}
+  }
+  
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    dismiss(animated: true) {}
   }
 }
 
