@@ -20,17 +20,42 @@ public class Event: NSObject {
     var tagline: String?
     var hostEmail: String
     var hostProfileImage : String?
-    var guestEmailList: [String]?
+    
+    var guestEmailList: [String]? {
+        didSet {
+            self.guests = [User]()
+            guestEmailList?.forEach{UserApi.sharedInstance.getUserByEmail(userEmail: $0, success: { (user) in
+                self.guests?.append(user!)
+            }, failure: {})
+            }
+        }
+    }
     var location: String
     var inviteMediaUrl: String?
     var inviteMediaType: MediaType?
     var postEventImages: [String]?
     var postEventVideos: [String]?
     var likesCount: Int?
-    var postEventCommentIdList: [String]?
+    
+    var postEventCommentIdList: [String]?{
+        didSet {
+            self.postComments = [Comment]()
+            postEventCommentIdList?.forEach{CommentApi.sharedInstance.getCommentById(commentId: $0, success: { (comment) in
+                self.postComments?.append(comment!)
+            }, failure: {})
+            }
+        }
+    }
+    
     var ref: FIRDatabaseReference?
     var key: String?
     var response : String?
+    
+    var guests: [User]?
+    
+    var postComments: [Comment]?
+    
+    var tasks: [Task]?
     
     //TODO: Need to add detail field to event table in Friebase
     init(id: String, invitationVideoURL:String?, name: String?,

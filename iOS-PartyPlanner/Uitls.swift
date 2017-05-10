@@ -24,13 +24,12 @@ class Utils: NSObject {
     return formatter.string(from: date)
   }
     
-  static func doCircleImage(image: UIImageView) -> UIImageView {
+  static func formatCircleImage(image: UIImageView) {
         image.layer.borderWidth = 1
         image.layer.masksToBounds = false
         image.layer.borderColor = UIColor.white.cgColor
         image.layer.cornerRadius = image.frame.height/2
         image.clipsToBounds = true
-        return image
   }
   
 }

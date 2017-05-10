@@ -66,7 +66,7 @@ class EventDetailViewController: UIViewController, UITableViewDelegate,UITableVi
             //First,Second,Third Guest will be assigned here
         
             
-            userProfileImageView = Utils.doCircleImage(image: userProfileImageView)
+            Utils.formatCircleImage(image: userProfileImageView)
             setHostInfo(hostEmail: (event?.hostEmail)!)
             
            

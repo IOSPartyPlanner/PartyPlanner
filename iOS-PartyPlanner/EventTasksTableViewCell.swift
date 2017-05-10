@@ -10,6 +10,10 @@ import UIKit
 
 class EventTasksTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var taskImageView: UIImageView!
+    
+    @IBOutlet weak var taskDescLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -9,6 +9,20 @@
 import UIKit
 
 class EventGuestCommentTableViewCell: UITableViewCell {
+    var comment: Comment? {
+        didSet {
+            guestImageView.setImageWith((comment?.userImageURL)!)
+            guestName.text = comment?.userName
+            guestComment.text = comment?.text
+        }
+    }
+
+    @IBOutlet weak var guestImageView: UIImageView!
+    
+    @IBOutlet weak var guestName: UILabel!
+    
+    @IBOutlet weak var guestComment: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
