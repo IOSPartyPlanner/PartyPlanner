@@ -41,12 +41,23 @@ class EventViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
+    */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier! {
+            case "ShowPhotos":
+                let target =  segue.destination as? PhotoBrowserViewController
+                target?.photosURL = (event?.postEventPhotoesURL)!
+            case "addPhoto":
+                break
+            case "addTask":
+                break
+            case "addComment":
+                break
+            default:
+                break
+        }
+    }
 }
 
 extension EventViewController: UITableViewDelegate, UITableViewDataSource {

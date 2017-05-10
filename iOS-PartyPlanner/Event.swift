@@ -12,13 +12,21 @@ public class Event: NSObject {
     let fireBaseRef = FIRDatabase.database().reference(withPath: "event")
     
     var invitationVideoURL: String?
+    
     var id: String
+    
     var name: String?
+    
     var detail: String?
+    
     var dateTime: Date
+    
     var peroid: TimeInterval?
+    
     var tagline: String?
+    
     var hostEmail: String
+    
     var hostProfileImage : String?
     
     var guestEmailList: [String]? {
@@ -31,10 +39,23 @@ public class Event: NSObject {
         }
     }
     var location: String
+    
     var inviteMediaUrl: String?
+    
     var inviteMediaType: MediaType?
-    var postEventImages: [String]?
+    
+    var postEventImages: [String]? {
+        didSet {
+            postEventPhotoesURL = postEventImages?.map{
+                return URL(string: $0)!
+            }
+        }
+    }
+    
     var postEventVideos: [String]?
+    
+    var postEventPhotoesURL: [URL]?
+    
     var likesCount: Int?
     
     var postEventCommentIdList: [String]?{
@@ -48,7 +69,9 @@ public class Event: NSObject {
     }
     
     var ref: FIRDatabaseReference?
+    
     var key: String?
+    
     var response : String?
     
     var guests: [User]?
@@ -92,14 +115,14 @@ public class Event: NSObject {
         dateTime = Utils.getTimeStampFromString(timeStampString: snapshotValue["dateTime"] as! String)
         tagline = snapshotValue["tagline"] as? String
         hostEmail = snapshotValue["hostEmail"] as! String
-        guestEmailList = snapshotValue["guestEmailList"] as? [String] ?? [""]
+        guestEmailList = snapshotValue["guestEmailList"] as? [String] ?? []
         location = snapshotValue["location"] as! String
         inviteMediaUrl = snapshotValue["inviteImageUrl"] as? String
         inviteMediaType = MediaType(rawValue: snapshotValue["inviteMediaType"] as! String)!
-        postEventImages = snapshotValue["postEventImages"] as? [String] ?? [""]
-        postEventVideos = snapshotValue["postEventVideos"] as? [String] ?? [""]
+        postEventImages = snapshotValue["postEventImages"] as? [String] ?? []
+        postEventVideos = snapshotValue["postEventVideos"] as? [String] ?? []
         likesCount = snapshotValue["likesCount"] as? Int ?? 0
-        postEventCommentIdList = snapshotValue["postEventCommentIdList"] as? [String] ?? [""]
+        postEventCommentIdList = snapshotValue["postEventCommentIdList"] as? [String] ?? []
     }
     
     func isUserOnwer() -> Bool {
