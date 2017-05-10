@@ -11,7 +11,11 @@ import UIKit
 
 @objc protocol TextInputCell2Delegate {
   // Event Name
+<<<<<<< HEAD
   @objc optional func textInputCell2(textInputCell2: TextInputCell2, eventNameEntered name: String)
+=======
+  @objc optional func textInputCell2(textInputCell2: TextInputCell2, eventNameEntered eventName: String)
+>>>>>>> eventcreation3
   
   // Location
   @objc optional func textInputCell2(textInputCell2: TextInputCell2, locationInputStarted location: String)
@@ -73,6 +77,7 @@ extension TextInputCell2: UITextFieldDelegate {
       print("you completed 1")
       delegate?.textInputCell2!(textInputCell2: self, eventNameEntered: textInput.text!)
     }
+<<<<<<< HEAD
     else if indexRow == 2 {
       print("you selected 2")
       //TODO: for location open new page
@@ -85,6 +90,11 @@ extension TextInputCell2: UITextFieldDelegate {
       print("you selected End Date")
       //      delegate?.textInputCell!(textInputCell: self, endDateTimeSelected: indexRow)
     }
+=======
+    else if indexRow == 2 { }
+    else if indexRow == 3 { }
+    else if indexRow == 4 { }
+>>>>>>> eventcreation3
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {

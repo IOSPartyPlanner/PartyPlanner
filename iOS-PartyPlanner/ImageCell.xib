@@ -24,9 +24,22 @@
                             <constraint firstAttribute="height" constant="160" id="NaF-U8-stC"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SL-ir-PEX">
+                        <rect key="frame" x="237" y="120" width="50" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="fqt-yj-QvH"/>
+                            <constraint firstAttribute="height" constant="40" id="yj8-K1-0nI"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="Add Camera-96"/>
+                        <connections>
+                            <action selector="onCameraButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bxe-Yr-lha"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="yoK-lx-Msm" secondAttribute="trailing" id="6Xm-oG-xxP"/>
+                    <constraint firstAttribute="bottom" secondItem="8SL-ir-PEX" secondAttribute="bottom" id="Em8-w9-spd"/>
+                    <constraint firstAttribute="trailing" secondItem="8SL-ir-PEX" secondAttribute="trailing" id="VX6-Cb-9Fy"/>
                     <constraint firstItem="yoK-lx-Msm" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="faj-92-ok8"/>
                     <constraint firstItem="yoK-lx-Msm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="h40-S3-yA0"/>
                     <constraint firstItem="yoK-lx-Msm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lk0-hU-LZJ"/>
@@ -38,7 +51,10 @@
             <connections>
                 <outlet property="myImageView" destination="yoK-lx-Msm" id="KbI-db-PSG"/>
             </connections>
-            <point key="canvasLocation" x="8.5" y="110.5"/>
+            <point key="canvasLocation" x="-149" y="31"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Add Camera-96" width="48" height="48"/>
+    </resources>
 </document>
