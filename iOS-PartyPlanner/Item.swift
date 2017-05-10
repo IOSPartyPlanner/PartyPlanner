@@ -9,7 +9,7 @@ class Item: NSObject {
   var name: String
   var itemDescription: String
   var quantityRequired: Int
-  var volunteerEmails: [String:String]
+  var volunteerEmails: [String:String]?
   var dueDate: Date
   var ref: FIRDatabaseReference?
   var key: String?
@@ -22,7 +22,7 @@ class Item: NSObject {
     self.quantityRequired = quantityRequired
     for email in volunteerEmails {
       let key = (email.replacingOccurrences(of: ".", with: "")).replacingOccurrences(of: "@", with: "")
-      self.volunteerEmails[key] = email
+      self.volunteerEmails?[key] = email
     }
     self.dueDate = dueDate
     self.ref = ref ?? nil
@@ -36,7 +36,7 @@ class Item: NSObject {
     name = snapshotValue["name"] as! String
     itemDescription = snapshotValue["itemDescription"] as! String
     quantityRequired = snapshotValue["quantityRequired"] as! Int
-    volunteerEmails = snapshotValue["volunteerEmails"] as! [String:String]
+    volunteerEmails = snapshotValue["volunteerEmails"] as? [String:String]
     dueDate = Utils.getTimeStampFromString(timeStampString: snapshotValue["dueDate"] as! String)
     ref = snapshot.ref
   }
