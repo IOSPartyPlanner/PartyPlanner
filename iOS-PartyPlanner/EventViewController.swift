@@ -25,10 +25,10 @@ class EventViewController: UIViewController {
         eventTableView.delegate = self
         eventTableView.dataSource = self
         
+        //TODO: There is no fetchEvent in the APIClient
+        //event = APIClient.sharedInstance.fecthEvent(byId: "")        
         eventTableView.rowHeight = UITableViewAutomaticDimension
         eventTableView.estimatedRowHeight = 120
-        //TODO: There is no fetchEvent in the APIClient
-        //event = APIClient.sharedInstance.fecthEvent(byId: "")
     }
 
     override func didReceiveMemoryWarning() {
