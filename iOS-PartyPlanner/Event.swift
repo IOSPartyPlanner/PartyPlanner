@@ -129,6 +129,10 @@ public class Event: NSObject {
         return true
     }
     
+    func isPast() -> Bool {
+        return dateTime <= Date()
+    }
+    
     func toAnyObject() -> Any {
         return [
             "id": id,
