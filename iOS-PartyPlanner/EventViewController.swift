@@ -62,29 +62,22 @@ class EventViewController: UIViewController {
 
 extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        if (event?.isUserOnwer())! {
-            return 5
-        } else {
+        if (event?.isPast())! || (event?.isUserOnwer())! {
             return 3
+        } else {
+            return 1
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (event?.isUserOnwer())! {
-            switch section {
-            case 0, 1, 3:
-                return 1
-            case 2:
-                return event?.tasks!.count ?? 0
-            default:
-                return event?.postComments!.count ?? 0
-            }
-        } else {
-            switch section {
-            case 0, 1:
-                return 1
-            default:
-                return event?.postEventCommentIdList!.count ?? 0
+        switch section {
+        case 0, 1:
+            return 1
+        default:
+            if (event?.isPast())! {
+                return event?.postComments?.count ?? 0
+            } else {
+                return event?.tasks?.count ?? 0
             }
         }
     }
@@ -97,7 +90,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
                 return "Tasks"
             }
         } else {
-            if section == 3 {
+            if section == 1 {
                 return "Media"
             }
         }
@@ -115,23 +108,22 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             cell1?.guests = event?.guests
             cell1?.viewController = self
             return cell1!
+        case (1, false):
+            let cell1 = eventTableView.dequeueReusableCell(withIdentifier: "PhotoesTableViewCell", for: indexPath) as? PhotoesTableViewCell
+            cell1?.photoes = event?.postEventImages
+            cell1?.viewController = self
+            return cell1!
         case (2, true):
             let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventTasksTableViewCell", for: indexPath) as? EventTasksTableViewCell
 //            cell2?.photoes = event?.postEventImages
 //            cell1?.viewController = self
             return cell2!
-        case (1, false),
-             (3, true):
-                let cell3 = eventTableView.dequeueReusableCell(withIdentifier: "PhotoesTableViewCell", for: indexPath) as? PhotoesTableViewCell
-                cell3?.photoes = event?.postEventImages
-                cell3?.viewController = self
-                return cell3!
         default:
-            let cell4 = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestCommentTableViewCell", for: indexPath) as? EventGuestCommentTableViewCell
+            let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestCommentTableViewCell", for: indexPath) as? EventGuestCommentTableViewCell
             if let userComment = event?.postComments?[indexPath.row] {
-                cell4?.comment = userComment
+                cell2?.comment = userComment
             }
-            return cell4!
+            return cell2!
         }
 
     }
