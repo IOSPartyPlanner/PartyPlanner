@@ -24,7 +24,6 @@ class EventCreationViewController: UIViewController {
   
   var locationSelected = false
   var location: String?
-
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,6 +34,7 @@ class EventCreationViewController: UIViewController {
     
     // initially set the event start time as currrent time and
     // end time an hour later
+
     eventStartDateTime = Date.init()
     eventEndDateTime = Date.init().addingTimeInterval(60.0)
     
@@ -106,7 +106,6 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       if eventName != nil {
         cell.textInput.text = eventName
       }
-      
       cell.indexRow = indexPath.row
       cell.delegate = self
       return cell
@@ -173,7 +172,7 @@ extension EventCreationViewController {
     let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(datePickerValueChanged))
     toolbar.setItems([doneButton], animated: true)
   }
-  
+
   
   func datePickerValueChanged(sender: Any) {
     view.endEditing(true)
@@ -196,7 +195,6 @@ extension EventCreationViewController {
     }
   }
 }
-
 // MARK: - Media Selection delegates and methods
 extension EventCreationViewController: ImageCellDelegate {
   func imageCell(imageCell: ImageCell, media: String) {

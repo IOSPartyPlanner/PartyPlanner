@@ -10,6 +10,7 @@ import UIKit
 
 
 @objc protocol TextInputCell2Delegate {
+
   // Event Name entered
   @objc optional func textInputCell2(textInputCell2: TextInputCell2, eventNameEntered eventName: String)
   
@@ -76,7 +77,6 @@ extension TextInputCell2: UITextFieldDelegate {
     else if indexRow == 2 { }
     else if indexRow == 3 { }
     else if indexRow == 4 { }
-
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
