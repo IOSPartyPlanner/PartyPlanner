@@ -54,7 +54,7 @@ class User: NSObject {
     name = snapshotValue["name"] as! String
     email = snapshotValue["email"] as? String
     phone = snapshotValue["phone"] as? String
-    imageUrl = snapshotValue["imageUrl"] as! String
+    imageUrl = snapshotValue["imageUrl"] as? String
     authType = snapshotValue["authType"] as? String
     uid = snapshotValue["uid"] as! String
   }
@@ -135,8 +135,6 @@ class User: NSObject {
         
         let data = try! JSONSerialization.data(withJSONObject: userDictionary as Any, options: [])
         defaults.set(data, forKey: "currentUserData")
-        print("current user", user?.imageUrl)
-
       }
       else {
         print("removing current user")
