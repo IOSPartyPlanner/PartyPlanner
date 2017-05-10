@@ -18,6 +18,9 @@ class EditPhotoViewController: UIViewController, UIGestureRecognizerDelegate{
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var adjustColorView: UIView!
     
+    @IBOutlet var addStickerButton: UIButton!
+    @IBOutlet var adjustColorButton: UIButton!
+    
     fileprivate var colorControl = ColorControl()
     @IBOutlet var trayView: UIView!
     var trayOriginalCenter: CGPoint!
@@ -41,6 +44,11 @@ class EditPhotoViewController: UIViewController, UIGestureRecognizerDelegate{
         colorControl.input(imageView.image!)
         self.setUISLidersValues()
         trayView.isHidden = true
+        trayView.layer.cornerRadius = 7
+        adjustColorView.layer.cornerRadius = 7
+        addStickerButton.layer.cornerRadius = 7
+        adjustColorButton.layer.cornerRadius = 7
+        
     }
 
     override func didReceiveMemoryWarning() {
