@@ -93,6 +93,7 @@
 		8298EBA01EC00D8100EBA37F /* EventTasksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTasksTableViewCell.swift; sourceTree = "<group>"; };
 		8298EBA21EC01C2800EBA37F /* CreateTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 		82CCAEA51EBF9BCE00D3C71C /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
+		82D476401EC2A1790056CFF0 /* iOS-PartyPlanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOS-PartyPlanner-Bridging-Header.h"; sourceTree = "<group>"; };
 		82D4AF091EB52D990087E0A6 /* PhotoesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoesTableViewCell.swift; sourceTree = "<group>"; };
 		90C13D833579335699BC48A0 /* Pods-iOS-PartyPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PartyPlanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner.release.xcconfig"; sourceTree = "<group>"; };
 		96B49B93AA647D8D6A2EED1E /* Pods-iOS-PartyPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PartyPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner.debug.xcconfig"; sourceTree = "<group>"; };
@@ -240,6 +241,7 @@
 				A1470F3F1EAF20C600DE373A /* LaunchScreen.storyboard */,
 				A1470F421EAF20C600DE373A /* Info.plist */,
 				2044D7601EB14F26002AB803 /* GoogleService-Info.plist */,
+				82D476401EC2A1790056CFF0 /* iOS-PartyPlanner-Bridging-Header.h */,
 			);
 			path = "iOS-PartyPlanner";
 			sourceTree = "<group>";
@@ -427,7 +429,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6E784677F281C773C25D3B6D /* [CP] Embed Pods Frameworks */ = {
@@ -647,6 +649,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.haiboyan.iOS-PartyPlanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS-PartyPlanner/iOS-PartyPlanner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -665,6 +668,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.haiboyan.iOS-PartyPlanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS-PartyPlanner/iOS-PartyPlanner-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

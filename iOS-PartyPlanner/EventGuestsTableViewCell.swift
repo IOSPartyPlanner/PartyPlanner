@@ -10,6 +10,8 @@ import UIKit
 
 class EventGuestsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var guestCollectionView: UICollectionView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

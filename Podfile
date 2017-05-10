@@ -19,6 +19,7 @@ target 'iOS-PartyPlanner' do
   pod 'AFNetworking', '~> 2.5'
   pod 'DLRadioButton', '~> 1.4'
   pod 'MBProgressHUD'
+  pod "MWPhotoBrowser"
 # Pods for iOS-PartyPlanner
 
 end
