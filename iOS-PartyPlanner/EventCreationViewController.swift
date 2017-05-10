@@ -14,38 +14,27 @@ class EventCreationViewController: UIViewController {
   
   var datepicker = UIDatePicker()
   var toolbar = UIToolbar()
-<<<<<<< HEAD
+
   var currentIndex: Int!
   
   var eventStartDateTime: Date!
   var eventEndDateTime: Date!
-=======
-  var mediaSelectionToolBar = UIToolbar()
-  var currentIndex: Int!
   
   var eventName: String?
   
-  var eventStartDateTime: Date!
-  var eventEndDateTime: Date!
-  
   var locationSelected = false
   var location: String?
->>>>>>> eventcreation3
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.delegate = self
     tableView.dataSource = self
     
-<<<<<<< HEAD
-    createDatepicker()
-    
-=======
     prepareToolBars()
     
     // initially set the event start time as currrent time and
     // end time an hour later
->>>>>>> eventcreation3
     eventStartDateTime = Date.init()
     eventEndDateTime = Date.init().addingTimeInterval(60.0)
     
@@ -67,30 +56,9 @@ class EventCreationViewController: UIViewController {
       vc.delegate = self
     }
   }
-  
-<<<<<<< HEAD
-  
-  
-  // MARK: - Navigation
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "locationSelectionSegue" {
-      let vc = segue.destination as! LocationsViewController
-      vc.delegate = self
-    }
-  }
-  
 }
 
-  // MARK: - Location Picker 
-extension EventCreationViewController: LocationsViewControllerDelegate {
-  
-  func locationsPickedLocation(controller: LocationsViewController, location: String) {
-    print("Addres picked was \(location)")
-=======
-}
-
-// MARK: - Location Picker
+  // MARK: - Location Picker
 extension EventCreationViewController: LocationsViewControllerDelegate {
   
   func locationsPickedLocation(controller: LocationsViewController, location: String) {
@@ -104,7 +72,6 @@ extension EventCreationViewController: LocationsViewControllerDelegate {
   func locationsPickedLocation(controller: LocationsViewController, cancelled: String) {
     // TODO: This is a temporary fix for location search view showing up after cancel
     locationSelected = true
->>>>>>> eventcreation3
   }
   
 }
@@ -135,12 +102,11 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.textInput.leftImage = #imageLiteral(resourceName: "Pen")
       cell.textInput.leftPadding = 40
       cell.textInput.placeholder = "Event Name"
-<<<<<<< HEAD
-=======
+
       if eventName != nil {
         cell.textInput.text = eventName
       }
->>>>>>> eventcreation3
+      
       cell.indexRow = indexPath.row
       cell.delegate = self
       return cell
@@ -202,44 +168,12 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
 
 // MARK: - Date and Media Selection
 extension EventCreationViewController {
-<<<<<<< HEAD
-  //  func showDatePicker() {
-  //
-  //    datepicker.datePickerMode = UIDatePickerMode.dateAndTime
-  //
-  //    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(self.datePickerValueChanged))
-  //    toolbar.backgroundColor = UIColor.blue
-  //    toolbar.setItems([doneButton], animated: true)
-  //    toolbar.isUserInteractionEnabled = true
-  //
-  //    let pickerSize : CGSize = datepicker.sizeThatFits(CGSize(width: 0, height: 0))
-  //    datepicker.frame = CGRect(x: 0, y: 300, width: pickerSize.width, height: 250)
-  //
-  //    //you probably don't want to set background color as black
-  //    datepicker.backgroundColor = UIColor.gray
-  //    view.addSubview(datepicker)
-  //  }
-  
-  // Mark: - Date Selection
-  func createDatepicker() {
-    toolbar.sizeToFit()
-    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(datePickerValueChanged))
-    toolbar.setItems([doneButton], animated: true)
-=======
   func prepareToolBars() {
     toolbar.sizeToFit()
     let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(datePickerValueChanged))
     toolbar.setItems([doneButton], animated: true)
-    
-    mediaSelectionToolBar.sizeToFit()
-    let changeMediaButton = UIBarButtonItem(barButtonSystemItem: .camera, target: nil, action: #selector(selectMedia))
-    mediaSelectionToolBar.setItems([changeMediaButton], animated: true)
   }
   
-  func selectMedia(sender: Any) {
-    
->>>>>>> eventcreation3
-  }
   
   func datePickerValueChanged(sender: Any) {
     view.endEditing(true)
@@ -254,10 +188,6 @@ extension EventCreationViewController {
       eventStartDateTime = datetime
       let indexPath = IndexPath(item: currentIndex!, section: 0)
       tableView.reloadRows(at: [indexPath], with: .automatic)
-<<<<<<< HEAD
-      
-=======
->>>>>>> eventcreation3
     } else if currentIndex == 4 {
       // end time selected
       eventEndDateTime = datetime
@@ -265,9 +195,6 @@ extension EventCreationViewController {
       tableView.reloadRows(at: [indexPath], with: .automatic)
     }
   }
-  
-<<<<<<< HEAD
-=======
 }
 
 // MARK: - Media Selection delegates and methods
@@ -283,18 +210,12 @@ extension EventCreationViewController: ImageCellDelegate {
     alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
     self.present(alert, animated: true, completion: nil)
   }
->>>>>>> eventcreation3
 }
 
 // MARK: - TextInputCell delegates
 extension EventCreationViewController: TextInputCell2Delegate {
   
   // Event Name filed
-<<<<<<< HEAD
-  func textInputCell2(textInputCell2: TextInputCell2, eventNameEntered name: String) {
-    //    currentIndex = 1
-    print(name)
-=======
   func textInputCell2(textInputCell2: TextInputCell2, eventNameEntered eventName: String) {
     currentIndex = 1
     locationSelected = false
@@ -302,37 +223,10 @@ extension EventCreationViewController: TextInputCell2Delegate {
     self.eventName = eventName
     let indexPath = IndexPath(item: currentIndex!, section: 0)
     tableView.reloadRows(at: [indexPath], with: .automatic)
->>>>>>> eventcreation3
   }
   
   // Location Field
   func textInputCell2(textInputCell2: TextInputCell2, locationInputStarted location: String) {
-<<<<<<< HEAD
-    self.performSegue(withIdentifier: "locationSelectionSegue", sender: self)
-    currentIndex = 2
-  }
-  
-  func textInputCell2(textInputCell2: TextInputCell2, locationInputSelected location: String) {
-    
-  }
-  
-  // Start Date Field
-  func textInputCell2(textInputCell2: TextInputCell2, startDateTimeStarted row: Int) {
-    currentIndex  = 3
-  }
-  
-  func textInputCell2(textInputCell2: TextInputCell2, startDateTimeSelected row: Int) {
-    
-  }
-  
-  // End Date Field
-  func textInputCell2(textInputCell2: TextInputCell2, endDateTimeStarted row: Int) {
-    currentIndex = 4
-  }
-  
-  func textInputCell2(textInputCell2: TextInputCell2, endDateTimeSelected row: Int) {
-    
-=======
     currentIndex = 2
     if !locationSelected {
       self.performSegue(withIdentifier: "locationSelectionSegue", sender: self)
@@ -349,6 +243,5 @@ extension EventCreationViewController: TextInputCell2Delegate {
   func textInputCell2(textInputCell2: TextInputCell2, endDateTimeStarted row: Int) {
     currentIndex = 4
     locationSelected = false
->>>>>>> eventcreation3
   }
 }

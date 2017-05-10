@@ -1285,7 +1285,7 @@
             <objects>
                 <navigationController storyboardIdentifier="EventViewNC" automaticallyAdjustsScrollViewInsets="NO" id="VOF-yO-m27" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5iL-Dk-x6m">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5iL-Dk-x6m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1303,7 +1303,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QfT-mN-LLz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lIx-7Y-afv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lIx-7Y-afv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
