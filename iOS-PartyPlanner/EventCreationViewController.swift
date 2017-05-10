@@ -36,6 +36,7 @@ class EventCreationViewController: UIViewController {
     
     // initially set the event start time as currrent time and
     // end time an hour later
+
     eventStartDateTime = Date.init()
     eventEndDateTime = Date.init().addingTimeInterval(60.0)
     
@@ -176,7 +177,7 @@ extension EventCreationViewController {
     let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(datePickerValueChanged))
     toolbar.setItems([doneButton], animated: true)
   }
-  
+
   
   func datePickerValueChanged(sender: Any) {
     view.endEditing(true)
@@ -199,7 +200,6 @@ extension EventCreationViewController {
     }
   }
 }
-
 // MARK: - Media Selection delegates and methods
 extension EventCreationViewController: ImageCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
   func imageCell(imageCell: ImageCell, media: String) {
