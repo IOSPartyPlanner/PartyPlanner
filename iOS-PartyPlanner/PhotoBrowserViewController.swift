@@ -7,18 +7,49 @@
 //
 
 import UIKit
+import MWPhotoBrowser
 
-class PhotoBrowserViewController: UIViewController {
+class PhotoBrowserViewController: UIViewController, MWPhotoBrowserDelegate {
+    var photosURL: [URL] = [] {
+        didSet {
+            photos = photosURL.map{ return MWPhoto.init(url: $0)}
+        }
+    }
+    
+    var photos: [MWPhoto]?
+    
+    var browser: MWPhotoBrowser?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        browser = MWPhotoBrowser(delegate: self)
+        browser?.displayActionButton = true
+        browser?.displayNavArrows = true
+        browser?.displaySelectionButtons = true
+        
+        browser?.setCurrentPhotoIndex(1)
+//        browser?.showNextPhoto(animated: true)
+//        browser?.showPreviousPhoto(animated: true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func numberOfPhotos(in photoBrowser: MWPhotoBrowser!) -> UInt {
+        return UInt((photos?.count)!)
+    }
+    
+    func photoBrowser(_ photoBrowser: MWPhotoBrowser!, photoAt index: UInt) -> MWPhotoProtocol! {
+        let uindex = Int(index)
+        if uindex < (photos?.count)! {
+            return photos![uindex]
+        }
+
+        return nil
     }
     
 
