@@ -14,6 +14,7 @@ import UIKit
 @objc protocol LocationsViewControllerDelegate {
   @objc optional func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber)
   @objc optional func locationsPickedLocation(controller: LocationsViewController, location: String)
+  @objc optional func locationsPickedLocation(controller: LocationsViewController, cancelled: String)
 }
 
 class LocationsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
@@ -41,8 +42,8 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
   }
   
   @IBAction func onCancel(_ sender: Any) {
-//    self.dismiss(animated: true, completion: nil)
-    _ = navigationController?.popViewController(animated: true)
+    delegate?.locationsPickedLocation!(controller: self, cancelled: "cancel")
+    navigationController?.popViewController(animated: true)
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,8 +70,7 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
       address = addressName
     }
     delegate?.locationsPickedLocation!(controller: self, location: address!)
-//    self.dismiss(animated: true, completion: nil)
-    _ = navigationController?.popViewController(animated: true)
+    navigationController?.popViewController(animated: true)
   }
   
   func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

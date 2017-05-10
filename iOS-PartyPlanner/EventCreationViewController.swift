@@ -14,18 +14,26 @@ class EventCreationViewController: UIViewController {
   
   var datepicker = UIDatePicker()
   var toolbar = UIToolbar()
+  var mediaSelectionToolBar = UIToolbar()
   var currentIndex: Int!
+  
+  var eventName: String?
   
   var eventStartDateTime: Date!
   var eventEndDateTime: Date!
+  
+  var locationSelected = false
+  var location: String?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.delegate = self
     tableView.dataSource = self
     
-    createDatepicker()
+    prepareToolBars()
     
+    // initially set the event start time as currrent time and
+    // end time an hour later
     eventStartDateTime = Date.init()
     eventEndDateTime = Date.init().addingTimeInterval(60.0)
     
@@ -39,13 +47,6 @@ class EventCreationViewController: UIViewController {
     tableView.register(inputCellNib, forCellReuseIdentifier: "TextInputCell")
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
-  
-  
   // MARK: - Navigation
   // In a storyboard-based application, you will often want to do a little preparation before navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,16 +58,24 @@ class EventCreationViewController: UIViewController {
   
 }
 
-  // MARK: - Location Picker 
+// MARK: - Location Picker
 extension EventCreationViewController: LocationsViewControllerDelegate {
   
   func locationsPickedLocation(controller: LocationsViewController, location: String) {
+    locationSelected = true
     print("Addres picked was \(location)")
+    self.location = location
+    let indexpath = IndexPath(item: currentIndex, section: 0)
+    tableView.reloadRows(at: [indexpath], with: .automatic)
   }
   
+  func locationsPickedLocation(controller: LocationsViewController, cancelled: String) {
+    // TODO: This is a temporary fix for location search view showing up after cancel
+    locationSelected = true
+  }
 }
 
-  // MARK: - Table
+// MARK: - Table
 extension EventCreationViewController: UITableViewDelegate, UITableViewDataSource {
   
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -82,6 +91,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
     if indexPath.row == 0 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! ImageCell
       cell.myImageView.image = #imageLiteral(resourceName: "Theme")
+      cell.delegate = self
       return cell
     }
       
@@ -91,6 +101,9 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.textInput.leftImage = #imageLiteral(resourceName: "Pen")
       cell.textInput.leftPadding = 40
       cell.textInput.placeholder = "Event Name"
+      if eventName != nil {
+        cell.textInput.text = eventName
+      }
       cell.indexRow = indexPath.row
       cell.delegate = self
       return cell
@@ -102,6 +115,9 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.textInput.leftImage = #imageLiteral(resourceName: "Marker")
       cell.textInput.leftPadding = 40
       cell.textInput.placeholder = "Location"
+      if location != nil {
+        cell.textInput.text = location
+      }
       cell.indexRow = indexPath.row
       cell.delegate = self
       return cell
@@ -139,35 +155,28 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print("\n\n row selected \(indexPath.row)\n\n")
+    // location
+    if indexPath.row == 2 {
+      print("you selected location")
+    }
   }
 }
 
 
-// MARK: - Date Picker
+// MARK: - Date and Media Selection
 extension EventCreationViewController {
-  //  func showDatePicker() {
-  //
-  //    datepicker.datePickerMode = UIDatePickerMode.dateAndTime
-  //
-  //    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(self.datePickerValueChanged))
-  //    toolbar.backgroundColor = UIColor.blue
-  //    toolbar.setItems([doneButton], animated: true)
-  //    toolbar.isUserInteractionEnabled = true
-  //
-  //    let pickerSize : CGSize = datepicker.sizeThatFits(CGSize(width: 0, height: 0))
-  //    datepicker.frame = CGRect(x: 0, y: 300, width: pickerSize.width, height: 250)
-  //
-  //    //you probably don't want to set background color as black
-  //    datepicker.backgroundColor = UIColor.gray
-  //    view.addSubview(datepicker)
-  //  }
-  
-  // Mark: - Date Selection
-  func createDatepicker() {
+  func prepareToolBars() {
     toolbar.sizeToFit()
     let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(datePickerValueChanged))
     toolbar.setItems([doneButton], animated: true)
+    
+    mediaSelectionToolBar.sizeToFit()
+    let changeMediaButton = UIBarButtonItem(barButtonSystemItem: .camera, target: nil, action: #selector(selectMedia))
+    mediaSelectionToolBar.setItems([changeMediaButton], animated: true)
+  }
+  
+  func selectMedia(sender: Any) {
+    
   }
   
   func datePickerValueChanged(sender: Any) {
@@ -183,7 +192,6 @@ extension EventCreationViewController {
       eventStartDateTime = datetime
       let indexPath = IndexPath(item: currentIndex!, section: 0)
       tableView.reloadRows(at: [indexPath], with: .automatic)
-      
     } else if currentIndex == 4 {
       // end time selected
       eventEndDateTime = datetime
@@ -194,40 +202,51 @@ extension EventCreationViewController {
   
 }
 
+// MARK: - Media Selection delegates and methods
+extension EventCreationViewController: ImageCellDelegate {
+  func imageCell(imageCell: ImageCell, media: String) {
+    let alert = UIAlertController(title: "Choose Source", message: nil, preferredStyle: .actionSheet)
+    alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+//      self.openCamera()
+    }))
+    alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+//      self.openGallery()
+    }))
+    alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+    self.present(alert, animated: true, completion: nil)
+  }
+}
+
 // MARK: - TextInputCell delegates
 extension EventCreationViewController: TextInputCell2Delegate {
   
   // Event Name filed
-  func textInputCell2(textInputCell2: TextInputCell2, eventNameEntered name: String) {
-    //    currentIndex = 1
-    print(name)
+  func textInputCell2(textInputCell2: TextInputCell2, eventNameEntered eventName: String) {
+    currentIndex = 1
+    locationSelected = false
+    
+    self.eventName = eventName
+    let indexPath = IndexPath(item: currentIndex!, section: 0)
+    tableView.reloadRows(at: [indexPath], with: .automatic)
   }
   
   // Location Field
   func textInputCell2(textInputCell2: TextInputCell2, locationInputStarted location: String) {
-    self.performSegue(withIdentifier: "locationSelectionSegue", sender: self)
     currentIndex = 2
-  }
-  
-  func textInputCell2(textInputCell2: TextInputCell2, locationInputSelected location: String) {
-    
+    if !locationSelected {
+      self.performSegue(withIdentifier: "locationSelectionSegue", sender: self)
+    }
   }
   
   // Start Date Field
   func textInputCell2(textInputCell2: TextInputCell2, startDateTimeStarted row: Int) {
     currentIndex  = 3
-  }
-  
-  func textInputCell2(textInputCell2: TextInputCell2, startDateTimeSelected row: Int) {
-    
+    locationSelected = false
   }
   
   // End Date Field
   func textInputCell2(textInputCell2: TextInputCell2, endDateTimeStarted row: Int) {
     currentIndex = 4
-  }
-  
-  func textInputCell2(textInputCell2: TextInputCell2, endDateTimeSelected row: Int) {
-    
+    locationSelected = false
   }
 }
