@@ -40,9 +40,23 @@ The following **optional** user stories:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of implemented user stories:<br>
 
+Login Screen <br>
 <img src='https://github.com/IOSPartyPlanner/PartyPlanner/blob/master/demos/partyPlannerDemo.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
+
+Home Screen<br>
+<img src='https://github.com/IOSPartyPlanner/PartyPlanner/blob/master/demos/homescreendemo.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
+
+Task Screen<br>
+<img src='https://github.com/IOSPartyPlanner/PartyPlanner/blob/master/demos/taskscreendemo.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
+
+Event Creation<br>
+<img src='https://github.com/IOSPartyPlanner/PartyPlanner/blob/master/demos/EventCreationDemo.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
+
+RSVP Screen<br>
+<img src="https://github.com/IOSPartyPlanner/PartyPlanner/blob/master/demos/rsvpScreen.gif" title='Video Walkthrough' width='300' alt='Video Walkthrough' />
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

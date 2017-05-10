@@ -9,6 +9,7 @@ target 'iOS-PartyPlanner' do
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
   pod ‘Firebase/Auth’
+  pod ‘Firebase/Storage’
   pod 'GoogleSignIn'
   pod 'Fabric'
   pod 'TwitterKit'

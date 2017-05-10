@@ -17,11 +17,21 @@ class TaskApi: NSObject {
     //delegate?.taskApi!(taskApi: self, taskUpdated: task)
   }
     
-  /*func addVolunteer(email: String, task:String) {
-        let taskRef = fireBaseTaskRef.child(task).child("volunteerEmails").child("8")
+  func addVolunteer(emails: [String], taskId:String) {
+    for email in emails{
+        let volunteerId = (email.replacingOccurrences(of: ".", with: "")).replacingOccurrences(of: "@", with: "")
+        let taskRef = fireBaseTaskRef.child(taskId).child("volunteerEmails").child(volunteerId)
         taskRef.setValue(email)
-        //delegate?.taskApi!(taskApi: self, taskUpdated: task)
-  }*/
+    }
+  }
+  
+  func removeVolunteer(emails: [String], taskId:String){
+    for email in emails{
+      let volunteerId = (email.replacingOccurrences(of: ".", with: "")).replacingOccurrences(of: "@", with: "")
+      let taskRef = fireBaseTaskRef.child(taskId).child("volunteerEmails").child(volunteerId)
+      taskRef.removeValue()
+    }
+  }
   
   func getTaskById(taskId: String, success: @escaping (Task?) ->(), failure: @escaping () -> ()) {
     print("TaskAPI : searching for taskId \(taskId)")

@@ -17,17 +17,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
 
     @IBOutlet weak var fbLoginButton: UIButton!
     @IBOutlet weak var gLoginButton: UIButton!
-//    @IBOutlet weak var tLoginButton: UIButton!
+
     
   override func viewDidLoad() {
-    
-//    FIRAuth.auth()?.addStateDidChangeListener { auth, user in
-//        if let user = user {
-//            print("User is signed in.")
-//        } else {
-//            print("User is signed out.")
-//        }
-//    }
     
     super.viewDidLoad()
     
@@ -37,42 +29,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     view.addSubview(gLoginButton)
     gLoginButton.addTarget(self, action: #selector(handleGLogin), for: .touchUpInside)
     
-//    view.addSubview(tLoginButton)
-//    tLoginButton.addTarget(self, action: #selector(handleTLogin), for: .touchUpInside)
-    
     GIDSignIn.sharedInstance().uiDelegate = self
     GIDSignIn.sharedInstance().delegate = self
   }
     
-//    func handleTLogin() {
-//        
-//        Twitter.sharedInstance().logIn { (session, error) in
-//            if error != nil {
-//                print("Twitter login failed", error ?? "")
-//                return
-//            }
-//            guard let token = session?.authToken else {return}
-//            guard let secret = session?.authTokenSecret else { return }
-//            let credentials = FIRTwitterAuthProvider.credential(withToken: token, secret: secret)
-//            
-//            self.signIntoFirebase(credentials: credentials)
-//            self.performSegue(withIdentifier: "EventViewSegue", sender: self)
-//        }
-//        
-//        let client = TWTRAPIClient.withCurrentUser()
-//        let request = client.urlRequest(withMethod: "GET",
-//                                        url: "https://api.twitter.com/1.1/account/verify_credentials.json",
-//                                                  parameters: ["include_email": "true", "skip_status": "true"],
-//                                                  error: nil)
-//        
-//        client.sendTwitterRequest(request) { response, data, connectionError in
-//            print(data)
-//            print(response)
-//        }
-//        
-//    }
-    
-
     func handleFbLogin(){
         FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self) { (result, error) in
             if error != nil {
@@ -85,7 +45,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
             let credentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
 
             self.signIntoFirebase(credentials: credentials, .Facebook)
-//            self.performSegue(withIdentifier: "EventViewSegue", sender: self)
             self.showEmail()
             
         }
@@ -109,7 +68,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
         
         signIntoFirebase(credentials: credential, .Google)
-//        performSegue(withIdentifier: "EventViewSegue", sender: self)
     }
   
   func showEmail(){
