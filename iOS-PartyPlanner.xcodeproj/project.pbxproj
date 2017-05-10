@@ -57,6 +57,11 @@
 		F7B01E9C1EBEA2540023852A /* EventsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */; };
 		F7B01E9E1EBFA1050023852A /* OldEventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E9D1EBFA1050023852A /* OldEventApi.swift */; };
 		F7F330D51EC12FE1008892DC /* EditPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F330D41EC12FE1008892DC /* EditPhotoViewController.swift */; };
+		F7F330D71EC281B6008892DC /* ColorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F330D61EC281B6008892DC /* ColorControl.swift */; };
+		F7F330D91EC28229008892DC /* Brightnessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F330D81EC28229008892DC /* Brightnessable.swift */; };
+		F7F330DB1EC28248008892DC /* Contrastable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F330DA1EC28248008892DC /* Contrastable.swift */; };
+		F7F330DD1EC2825E008892DC /* Saturationable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F330DC1EC2825E008892DC /* Saturationable.swift */; };
+		F7F330DF1EC282CB008892DC /* Processable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F330DE1EC282CB008892DC /* Processable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +119,11 @@
 		F7B01E9B1EBEA2540023852A /* EventsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsMapViewController.swift; sourceTree = "<group>"; };
 		F7B01E9D1EBFA1050023852A /* OldEventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldEventApi.swift; sourceTree = "<group>"; };
 		F7F330D41EC12FE1008892DC /* EditPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPhotoViewController.swift; sourceTree = "<group>"; };
+		F7F330D61EC281B6008892DC /* ColorControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorControl.swift; sourceTree = "<group>"; };
+		F7F330D81EC28229008892DC /* Brightnessable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brightnessable.swift; sourceTree = "<group>"; };
+		F7F330DA1EC28248008892DC /* Contrastable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contrastable.swift; sourceTree = "<group>"; };
+		F7F330DC1EC2825E008892DC /* Saturationable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Saturationable.swift; sourceTree = "<group>"; };
+		F7F330DE1EC282CB008892DC /* Processable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Processable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +300,11 @@
 			children = (
 				821B65C31EB006FF0078333B /* UIComponents */,
 				A14EE5F31EB51BAD006889D1 /* Uitls.swift */,
+				F7F330D61EC281B6008892DC /* ColorControl.swift */,
+				F7F330D81EC28229008892DC /* Brightnessable.swift */,
+				F7F330DA1EC28248008892DC /* Contrastable.swift */,
+				F7F330DC1EC2825E008892DC /* Saturationable.swift */,
+				F7F330DE1EC282CB008892DC /* Processable.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -446,12 +461,14 @@
 				8209022A1EBABFA5009C7C6D /* CalendarAPI.swift in Sources */,
 				821B65CA1EB00FE20078333B /* EventSummaryTableViewCell.swift in Sources */,
 				821B65C51EB007230078333B /* VideoView.swift in Sources */,
+				F7F330DB1EC28248008892DC /* Contrastable.swift in Sources */,
 				821B65DA1EB0403A0078333B /* EventMediaCollectionTableViewCell.swift in Sources */,
 				A14EE5F41EB51BAD006889D1 /* Uitls.swift in Sources */,
 				A190B1741EB66D7F006328AF /* RsvpApi.swift in Sources */,
 				A190B1721EB66D7F006328AF /* EventApi.swift in Sources */,
 				F7B01E941EB7F4E30023852A /* CommentsTableViewCell.swift in Sources */,
 				F7B01E9E1EBFA1050023852A /* OldEventApi.swift in Sources */,
+				F7F330D71EC281B6008892DC /* ColorControl.swift in Sources */,
 				821B65D81EB0400C0078333B /* EventGuestCommentTableViewCell.swift in Sources */,
 				821B65CE1EB011160078333B /* Event.swift in Sources */,
 				F7F330D51EC12FE1008892DC /* EditPhotoViewController.swift in Sources */,
@@ -467,6 +484,8 @@
 				821B65DE1EB040B30078333B /* RSVPViewController.swift in Sources */,
 				821B65D41EB0115C0078333B /* Item.swift in Sources */,
 				A190B1751EB66D7F006328AF /* TaskApi.swift in Sources */,
+				F7F330DD1EC2825E008892DC /* Saturationable.swift in Sources */,
+				F7F330DF1EC282CB008892DC /* Processable.swift in Sources */,
 				F7B01E981EBBB7770023852A /* HomeTaskTableViewCell.swift in Sources */,
 				F7B01E921EB7F4C70023852A /* MediaCollectionViewCell.swift in Sources */,
 				A1470F6D1EB17AA600DE373A /* Comment.swift in Sources */,
@@ -478,6 +497,7 @@
 				82D4AF0A1EB52D990087E0A6 /* PhotoesTableViewCell.swift in Sources */,
 				F7B01E961EBBB7610023852A /* HomeEventTableViewCell.swift in Sources */,
 				F7B01E901EB7EC190023852A /* EventDetailViewController.swift in Sources */,
+				F7F330D91EC28229008892DC /* Brightnessable.swift in Sources */,
 				F7B01E9A1EBDD5860023852A /* TaskTableViewCell.swift in Sources */,
 				821B65D61EB03FCB0078333B /* GuestPickupView.swift in Sources */,
 				8298EBA11EC00D8100EBA37F /* EventTasksTableViewCell.swift in Sources */,
