@@ -220,7 +220,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             TaskApi.sharedInstance.getTasksByEventId(eventId: event.id, success: {(tasks: [Task])
                 in
                 for task in tasks {
-                    if task.volunteerEmails != nil && (task.volunteerEmails?.contains((User._currentUser?.email)!))! {
+                    if task.volunteerEmails != nil && (task.volunteerEmails?.values.contains((User._currentUser?.email)!))! {
                         task.eventName = event.name
                         self.taskList.append(task)
                         print(task.name)

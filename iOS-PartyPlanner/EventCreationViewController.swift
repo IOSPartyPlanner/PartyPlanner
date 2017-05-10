@@ -27,8 +27,14 @@ class EventCreationViewController: UIViewController {
   // image/video
   var eventImage: UIImage?
   
+  //Event host profileImage
+  var eventHostProfileImage: String?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    eventHostProfileImage = User.currentUser?.imageUrl
+    
     tableView.delegate = self
     tableView.dataSource = self
     

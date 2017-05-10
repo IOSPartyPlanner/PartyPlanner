@@ -66,7 +66,7 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
            cell.task = unassignedTaskList[indexPath.item]
             //cell.taskStatusImage.image = UIImage(named: "unchecked")
             cell.taskStatusImage.isHidden = true
-            if unassignedTaskList[indexPath.item].volunteerEmails != nil && (unassignedTaskList[indexPath.item].volunteerEmails?.contains((User._currentUser?.email)!))!{
+            if unassignedTaskList[indexPath.item].volunteerEmails != nil && (unassignedTaskList[indexPath.item].volunteerEmails?.values.contains((User._currentUser?.email)!))!{
                 cell.colorView.layer.backgroundColor = UIColor.green.cgColor
             }
             else{
