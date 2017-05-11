@@ -75,9 +75,9 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             return 1
         default:
             if (event?.isPast())! {
-                return event?.postComments?.count ?? 0
+                return event?.postComments.count ?? 0
             } else {
-                return event?.tasks?.count ?? 0
+                return event?.tasks.count ?? 0
             }
         }
     }
@@ -120,7 +120,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             return cell2!
         default:
             let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestCommentTableViewCell", for: indexPath) as? EventGuestCommentTableViewCell
-            if let userComment = event?.postComments?[indexPath.row] {
+            if let userComment = event?.postComments[indexPath.row] {
                 cell2?.comment = userComment
             }
             return cell2!

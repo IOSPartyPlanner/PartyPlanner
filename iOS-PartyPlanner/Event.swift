@@ -33,7 +33,7 @@ public class Event: NSObject {
         didSet {
             self.guests = [User]()
             guestEmailList?.forEach{UserApi.sharedInstance.getUserByEmail(userEmail: $0, success: { (user) in
-                self.guests?.append(user!)
+                self.guests.append(user!)
             }, failure: {})
             }
         }
@@ -62,7 +62,7 @@ public class Event: NSObject {
         didSet {
             self.postComments = [Comment]()
             postEventCommentIdList?.forEach{CommentApi.sharedInstance.getCommentById(commentId: $0, success: { (comment) in
-                self.postComments?.append(comment!)
+                self.postComments.append(comment!)
             }, failure: {})
             }
         }
@@ -74,11 +74,11 @@ public class Event: NSObject {
     
     var response : String?
     
-    var guests: [User]?
+    var guests: [User] = []
     
-    var postComments: [Comment]?
+    var postComments: [Comment] = []
     
-    var tasks: [Task]?
+    var tasks: [Task] = []
     
     //TODO: Need to add detail field to event table in Friebase
     init(id: String, invitationVideoURL:String?, name: String?,
