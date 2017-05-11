@@ -29,28 +29,15 @@ public class Event: NSObject {
     
     var hostProfileImage : String?
     
-    var guestEmailList: [String]? {
-        didSet {
-            self.guests = [User]()
-            guestEmailList?.forEach{UserApi.sharedInstance.getUserByEmail(userEmail: $0, success: { (user) in
-                self.guests.append(user!)
-            }, failure: {})
-            }
-        }
-    }
+    var guestEmailList: [String]?
+    
     var location: String
     
     var inviteMediaUrl: String?
     
     var inviteMediaType: MediaType?
     
-    var postEventImages: [String]? {
-        didSet {
-            postEventPhotoesURL = postEventImages?.map{
-                return URL(string: $0)!
-            }
-        }
-    }
+    var postEventImages: [String]?
     
     var postEventVideos: [String]?
     
@@ -58,15 +45,7 @@ public class Event: NSObject {
     
     var likesCount: Int?
     
-    var postEventCommentIdList: [String]?{
-        didSet {
-            self.postComments = [Comment]()
-            postEventCommentIdList?.forEach{CommentApi.sharedInstance.getCommentById(commentId: $0, success: { (comment) in
-                self.postComments.append(comment!)
-            }, failure: {})
-            }
-        }
-    }
+    var postEventCommentIdList: [String]?
     
     var ref: FIRDatabaseReference?
     
@@ -115,7 +94,7 @@ public class Event: NSObject {
         dateTime = Utils.getTimeStampFromString(timeStampString: snapshotValue["dateTime"] as! String)
         tagline = snapshotValue["tagline"] as? String
         hostEmail = snapshotValue["hostEmail"] as! String
-        guestEmailList = snapshotValue["guestEmailList"] as? [String] ?? []
+        guestEmailList = snapshotValue["guestEmailList"] as? [String] ?? []        
         location = snapshotValue["location"] as! String
         inviteMediaUrl = snapshotValue["inviteImageUrl"] as? String
         inviteMediaType = MediaType(rawValue: snapshotValue["inviteMediaType"] as! String)!
@@ -150,6 +129,28 @@ public class Event: NSObject {
             "likesCount": likesCount,
             "postEventCommentIdList": postEventCommentIdList
         ]
+    }
+    
+    func fecthRelateData() {
+        guests.removeAll()
+        guestEmailList?.forEach{UserApi.sharedInstance.getUserByEmail(userEmail: $0, success: { (user) in
+            self.guests.append(user!)
+        }, failure: {})
+        }
+
+        postComments.removeAll()
+        postEventCommentIdList?.forEach{CommentApi.sharedInstance.getCommentById(commentId: $0, success: { (comment) in
+            self.postComments.append(comment!)
+        }, failure: {})
+        }
+
+        TaskApi.sharedInstance.getTasksByEventId(eventId: id, success: { (tasks) in
+            self.tasks = tasks
+        }, failure: {})
+        
+        postEventPhotoesURL = postEventImages?.map{
+            return URL(string: $0)!
+        }
     }
     
 }

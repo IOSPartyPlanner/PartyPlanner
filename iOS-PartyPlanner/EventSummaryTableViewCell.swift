@@ -15,7 +15,7 @@ class VideoView: UIView {
     
     let playImage = UIImage(named: "play")
     
-    var isPlaying: Bool = true {
+    var isPlaying: Bool = false {
         didSet {
             if isPlaying {
                 avPlayButton.setImage(pauseImage, for: .normal)
@@ -29,7 +29,7 @@ class VideoView: UIView {
     
     let avPlayButton: UIButton =  {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "pause.png"), for: .normal)
+        button.setImage(UIImage(named: "play.png"), for: .normal)
         button.tintColor = UIColor.white
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -58,6 +58,7 @@ class VideoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func switchPlay() {
         isPlaying = !isPlaying
     }
@@ -73,7 +74,7 @@ class VideoView: UIView {
         playerController.view.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         playerController.view.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
 
-        playerController.player!.play()
+        //playerController.player!.play()
         playerController.player!.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil)
         print(playerController.view.frame)
     }
@@ -99,7 +100,7 @@ class EventSummaryTableViewCell: UITableViewCell {
             locationLabel.text = event?.location
             
             if event?.invitationVideoURL != nil {
-                videoPlayView?.setVideoURL((NSURL(string: event!.invitationVideoURL!) as! URL))
+                videoPlayView?.setVideoURL(URL(string: event!.invitationVideoURL!)!)
             }
             
             let dateFormatter = DateFormatter()

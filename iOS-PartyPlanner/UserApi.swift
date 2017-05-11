@@ -53,6 +53,7 @@ class UserApi: NSObject {
       .observe(.value, with: { snapshot in
         for userChild in snapshot.children {
           user = User(snapshot: userChild as! FIRDataSnapshot)
+          print("Get user: \(user?.name)")
           break
         }
         

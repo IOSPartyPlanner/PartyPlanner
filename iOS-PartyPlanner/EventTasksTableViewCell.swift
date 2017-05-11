@@ -14,6 +14,8 @@ class EventTasksTableViewCell: UITableViewCell {
     
     @IBOutlet weak var taskDescLabel: UILabel!
     
+    var viewController: EventViewController?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

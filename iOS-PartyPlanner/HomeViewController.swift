@@ -35,7 +35,6 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         refreshControl.addTarget(self, action: #selector(self.refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         homeTableView.insertSubview(refreshControl, at: 0)
         fetchEvents()
-        
     }
     
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
@@ -151,6 +150,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 }
                 let eventViewController = segue.destination as! EventViewController
                 eventViewController.event = event
+                print("Switch view \(event.guests.count)" )
             }
         }
             
@@ -173,6 +173,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             if events.count > 0 {
                 for i in 0...events.count-1{
                     events[i].hostProfileImage = User.currentUser?.imageUrl
+                    events[i].fecthRelateData()
                     self.pastEventList.append(events[i])
                 }
             }
@@ -195,6 +196,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             if events.count > 0 {
                 for i in 0...events.count-1{
                     events[i].hostProfileImage = User.currentUser?.imageUrl
+                    events[i].fecthRelateData()
                     self.upcomingEventList.append(events[i])
                 }
             }
@@ -218,7 +220,6 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     
     func fetchTasks(){
-        
         for event in upcomingEventList {
             TaskApi.sharedInstance.getTasksByEventId(eventId: event.id, success: {(tasks: [Task])
                 in

@@ -18,6 +18,8 @@ class EventViewController: UIViewController {
   
     var event: Event?
     
+    var guestsCell: EventGuestsTableViewCell?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,8 +27,6 @@ class EventViewController: UIViewController {
         eventTableView.delegate = self
         eventTableView.dataSource = self
         
-        //TODO: There is no fetchEvent in the APIClient
-        //event = APIClient.sharedInstance.fecthEvent(byId: "")        
         eventTableView.rowHeight = UITableViewAutomaticDimension
         eventTableView.estimatedRowHeight = 120
     }
@@ -104,10 +104,10 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             cell0?.event = event
             return cell0!
         case (1, true):
-            let cell1 = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestsTableViewCell", for: indexPath) as? EventGuestsTableViewCell
-            cell1?.guests = event?.guests
-            cell1?.viewController = self
-            return cell1!
+            guestsCell = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestsTableViewCell", for: indexPath) as? EventGuestsTableViewCell
+            guestsCell?.guests = event?.guests
+            guestsCell?.viewController = self
+            return guestsCell!
         case (1, false):
             let cell1 = eventTableView.dequeueReusableCell(withIdentifier: "PhotoesTableViewCell", for: indexPath) as? PhotoesTableViewCell
             cell1?.photoes = event?.postEventImages

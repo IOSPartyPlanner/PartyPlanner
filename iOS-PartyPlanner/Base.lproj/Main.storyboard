@@ -106,17 +106,17 @@
                                                     <rect key="frame" x="8" y="8" width="359" height="358.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4C3-qP-WfO">
-                                                        <size key="itemSize" width="50" height="50"/>
+                                                        <size key="itemSize" width="56" height="56"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GuestCollectionViewCell" id="fbJ-zh-y32" customClass="GuestCollectionViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WFl-zd-MlH">
@@ -129,8 +129,10 @@
                                                                 </subviews>
                                                             </view>
                                                             <constraints>
-                                                                <constraint firstItem="WFl-zd-MlH" firstAttribute="leading" secondItem="fbJ-zh-y32" secondAttribute="leading" constant="4" id="ENh-dk-RIq"/>
-                                                                <constraint firstItem="WFl-zd-MlH" firstAttribute="top" secondItem="fbJ-zh-y32" secondAttribute="top" constant="4" id="vF7-k8-O9q"/>
+                                                                <constraint firstAttribute="trailing" secondItem="WFl-zd-MlH" secondAttribute="trailing" constant="4" id="9Zl-QO-2m8"/>
+                                                                <constraint firstAttribute="bottom" secondItem="WFl-zd-MlH" secondAttribute="bottom" constant="4" id="ZXx-yR-PXO"/>
+                                                                <constraint firstItem="WFl-zd-MlH" firstAttribute="top" secondItem="fbJ-zh-y32" secondAttribute="top" constant="4" id="gVR-sK-7zL"/>
+                                                                <constraint firstItem="WFl-zd-MlH" firstAttribute="leading" secondItem="fbJ-zh-y32" secondAttribute="leading" constant="4" id="q6X-cR-VZx"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="guestImageView" destination="WFl-zd-MlH" id="wek-mw-ebz"/>
