@@ -92,7 +92,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
+    return 7
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -163,6 +163,28 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.delegate = self
       return cell
     }
+    else if indexPath.row == 5 {
+      // Add Guests
+      let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
+      cell.textInput.leftImage = #imageLiteral(resourceName: "TimerComplete")
+      cell.textInput.leftPadding = 40
+      cell.textInput.placeholder = "Add guests for the event"
+      cell.indexRow = indexPath.row
+      cell.textInput.isUserInteractionEnabled = false
+      cell.delegate = self
+      return cell
+    }
+    else if indexPath.row == 6 {
+      // Add Tasks
+      let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
+      cell.textInput.leftImage = #imageLiteral(resourceName: "TimerComplete")
+      cell.textInput.leftPadding = 40
+      cell.textInput.placeholder = "Add tasks"
+      cell.indexRow = indexPath.row
+      cell.textInput.isUserInteractionEnabled = false
+      cell.delegate = self
+      return cell
+    }
     
     return UITableViewCell()
   }
@@ -171,6 +193,16 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
     // location
     if indexPath.row == 2 {
       print("you selected location")
+    }
+    
+    if indexPath.row == 5 {
+      print("you selected Add Guests")
+      self.performSegue(withIdentifier: "EventCreationAddTaskSegue", sender: self)
+    }
+    
+    if indexPath.row == 6 {
+      print("you selected Add Tasks")
+      self.performSegue(withIdentifier: "EventCreationAddContactSegue", sender: self)
     }
   }
 }
@@ -303,6 +335,18 @@ extension EventCreationViewController: TextInputCell2Delegate {
   
   // End Date Field
   func textInputCell2(textInputCell2: TextInputCell2, endDateTimeStarted row: Int) {
+    currentIndex = 4
+    locationSelected = false
+  }
+  
+  // Add Guests
+  func textInputCell2(textInputCell2: TextInputCell2, addGuestsSelected row: Int) {
+    currentIndex = 4
+    locationSelected = false
+  }
+  
+  // Add Tasks
+  func textInputCell2(textInputCell2: TextInputCell2, addTasksSelected row: Int) {
     currentIndex = 4
     locationSelected = false
   }

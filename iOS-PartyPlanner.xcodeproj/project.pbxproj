@@ -37,6 +37,7 @@
 		8298EBA31EC01C2800EBA37F /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298EBA21EC01C2800EBA37F /* CreateTaskViewController.swift */; };
 		82CCAEA61EBF9BCE00D3C71C /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CCAEA51EBF9BCE00D3C71C /* PhotoBrowserViewController.swift */; };
 		82D4AF0A1EB52D990087E0A6 /* PhotoesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D4AF091EB52D990087E0A6 /* PhotoesTableViewCell.swift */; };
+		A10DA9AD1EC513CB00DBCD6C /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10DA9AC1EC513CB00DBCD6C /* AddContactsViewController.swift */; };
 		A1470F371EAF20C600DE373A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F361EAF20C600DE373A /* AppDelegate.swift */; };
 		A1470F3C1EAF20C600DE373A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1470F3A1EAF20C600DE373A /* Main.storyboard */; };
 		A1470F3E1EAF20C600DE373A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1470F3D1EAF20C600DE373A /* Assets.xcassets */; };
@@ -108,6 +109,7 @@
 		82D4AF091EB52D990087E0A6 /* PhotoesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoesTableViewCell.swift; sourceTree = "<group>"; };
 		90C13D833579335699BC48A0 /* Pods-iOS-PartyPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PartyPlanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner.release.xcconfig"; sourceTree = "<group>"; };
 		96B49B93AA647D8D6A2EED1E /* Pods-iOS-PartyPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-PartyPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-PartyPlanner/Pods-iOS-PartyPlanner.debug.xcconfig"; sourceTree = "<group>"; };
+		A10DA9AC1EC513CB00DBCD6C /* AddContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsViewController.swift; sourceTree = "<group>"; };
 		A1470F331EAF20C600DE373A /* iOS-PartyPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-PartyPlanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1470F361EAF20C600DE373A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1470F3B1EAF20C600DE373A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 			children = (
 				A18AB0731EC19E7E00E83B0C /* EventCreationViewController.swift */,
 				A1B731081EC2BA6A00976FB8 /* LocationsViewController.swift */,
+				A10DA9AC1EC513CB00DBCD6C /* AddContactsViewController.swift */,
 			);
 			name = "Event Creation";
 			sourceTree = "<group>";
@@ -475,7 +478,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6E784677F281C773C25D3B6D /* [CP] Embed Pods Frameworks */ = {
@@ -530,6 +533,7 @@
 				A18AB0741EC19E7E00E83B0C /* EventCreationViewController.swift in Sources */,
 				A190B1741EB66D7F006328AF /* RsvpApi.swift in Sources */,
 				A190B1721EB66D7F006328AF /* EventApi.swift in Sources */,
+				A10DA9AD1EC513CB00DBCD6C /* AddContactsViewController.swift in Sources */,
 				82869EA21EC2CF5D0044AFCB /* GuestCollectionViewCell.swift in Sources */,
 				F7B01E941EB7F4E30023852A /* CommentsTableViewCell.swift in Sources */,
 				A18AB0721EC19DFF00E83B0C /* CustomTextField.swift in Sources */,
