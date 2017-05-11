@@ -246,4 +246,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     
     
+    @IBAction func onAddEvent(_ sender: Any) {
+        self.performSegue(withIdentifier: "CreateEventSegue", sender:self)
+    }
 }
