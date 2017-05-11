@@ -121,8 +121,8 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             return cell1!
         case (2, true):
             let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventTasksTableViewCell", for: indexPath) as? EventTasksTableViewCell
-//            cell2?.photoes = event?.postEventImages
-//            cell1?.viewController = self
+            let task = event?.tasks[indexPath.row]
+            cell2?.taskDescLabel.text = task?.name
             return cell2!
         default:
             let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestCommentTableViewCell", for: indexPath) as? EventGuestCommentTableViewCell

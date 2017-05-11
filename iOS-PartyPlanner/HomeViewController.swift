@@ -169,41 +169,43 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
         /*-----Get past events ----*/
         
-        OldEventApi.sharedInstance.getPastEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
+        EventApi.sharedInstance.getPastEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
             if events.count > 0 {
                 for i in 0...events.count-1{
                     events[i].hostProfileImage = User.currentUser?.imageUrl
                     events[i].fecthRelateData()
                     self.pastEventList.append(events[i])
                 }
+                self.homeTableView.reloadData()
             }
-        }, failure: {} )
+        }, failure: nil )
         
         //TODO: Need to get host profile
-        OldEventApi.sharedInstance.getPastEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
+        EventApi.sharedInstance.getPastEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
             if events.count > 0 {
                 for i in 0...events.count-1{
                     self.pastEventList.append(events[i])
                 }
             }
             self.homeTableView.reloadData()
-        }, failure: {} )
+        }, failure: nil )
         
         
         /*-----Get upcoming events ----*/
         
-        OldEventApi.sharedInstance.getUpcomingEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
+        EventApi.sharedInstance.getUpcomingEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
             if events.count > 0 {
                 for i in 0...events.count-1{
                     events[i].hostProfileImage = User.currentUser?.imageUrl
                     events[i].fecthRelateData()
                     self.upcomingEventList.append(events[i])
                 }
+                self.homeTableView.reloadData()
             }
-        }, failure: {} )
+        }, failure: nil )
         
         //TODO: Need to get host profile
-        OldEventApi.sharedInstance.getUpcomingEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
+        EventApi.sharedInstance.getUpcomingEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
             if events.count > 0 {
                 for i in 0...events.count-1{
                     self.upcomingEventList.append(events[i])
@@ -213,7 +215,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             self.homeTableView.reloadData()
             self.fetchTasks()
             
-        }, failure: {} )
+        }, failure: nil )
         
         
     }

@@ -58,7 +58,11 @@ class EventApi: NSObject {
                 var events = snapshot.children.map({ return Event(snapshot: $0 as! FIRDataSnapshot)})
                 
                 if let predicate = predicate {
-                    events = events.filter{ return predicate($0) }
+                    events = events.filter{
+                        print($0.dateTime.timeIntervalSinceNow)
+                        print(predicate($0))
+                        return predicate($0)
+                    }
                 }
                 
                 if events.count == 0 {
