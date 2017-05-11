@@ -11,10 +11,10 @@ import MBProgressHUD
 
 
 class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
-
-  @IBAction func onSignout(_ sender: Any) {
-    User.currentUser?.signout()
-  }
+    
+    @IBAction func onSignout(_ sender: Any) {
+        User.currentUser?.signout()
+    }
     
     @IBOutlet var homeSegmentedControl: UISegmentedControl!
     @IBOutlet var homeTableView: UITableView!
@@ -26,10 +26,10 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     var sectionEvents = ["Upcoming", "Past"]
     var sectionTasks = [String]()
     var sign = 0 // 0.Display Events 1.Display Tasks
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(self.refreshControlAction(_:)), for: UIControlEvents.valueChanged)
@@ -41,10 +41,10 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
         //TODO:Needed to check refreshing part
         /*pastEventList = [Event]()
-        upcomingEventList = [Event]()
-        tasksList = [[Task]]()
-        sectionTasks = [String]()
-        fetchEvents()*/
+         upcomingEventList = [Event]()
+         tasksList = [[Task]]()
+         sectionTasks = [String]()
+         fetchEvents()*/
         refreshControl.endRefreshing()
     }
     
@@ -57,7 +57,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             self.homeTableView.reloadData()
         case 1:
             sign = 1
-             homeTableView.rowHeight = 50
+            homeTableView.rowHeight = 50
             self.homeTableView.reloadData()
         default:
             break
@@ -65,9 +65,9 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     
     
-  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if sign == 0 {
-           return self.sectionEvents [section]
+            return self.sectionEvents [section]
         }
         else{
             return self.sectionTasks [section]
@@ -82,7 +82,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             return self.sectionTasks.count
         }
     }
- 
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if sign == 0 {
             if section == 0 {
@@ -98,7 +98,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      
+        
         if sign == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeEventTableViewCell") as! HomeEventTableViewCell
             let currSection = sectionEvents[indexPath.section]
@@ -111,12 +111,12 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             case "Past":
                 cell.event = pastEventList[indexPath.item]
                 break;
-            
+                
             default:
                 break;
             }
             return cell
-        
+            
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTaskTableViewCell") as! HomeTaskTableViewCell
@@ -128,29 +128,32 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //TODO: Perform Segue ShowDetails
-        if sign == 0{
-           homeTableView.deselectRow(at:indexPath, animated: true)
+        
+        if sign == 0 {
+            homeTableView.deselectRow(at:indexPath, animated: true)
+            self.performSegue(withIdentifier: "showEvent", sender: self)
+            
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier?.isEqual("showEvent"))! {
-        if sign == 0{
-            let indexPath = homeTableView.indexPathForSelectedRow
-           
-            let section = indexPath?.section
-            let event : Event
-            if section == 0 {
-                event = upcomingEventList[(indexPath?.row)!]
+            if sign == 0{
+                let indexPath = homeTableView.indexPathForSelectedRow
+                
+                let section = indexPath?.section
+                let event : Event
+                if section == 0 {
+                    event = upcomingEventList[(indexPath?.row)!]
+                }
+                else{
+                    event = pastEventList[(indexPath?.row)!]
+                }
+                let eventViewController = segue.destination as! EventViewController
+                eventViewController.event = event
             }
-            else{
-                event = pastEventList[(indexPath?.row)!]
-            }
-            let eventViewController = segue.destination as! EventViewController
-            eventViewController.event = event
-          }
         }
-        
+            
         else if (segue.identifier?.isEqual("mapSegue"))!  {
             let mapViewController = segue.destination as! EventsMapViewController
             mapViewController.events = upcomingEventList
@@ -165,7 +168,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     func fetchEvents(){
         
         /*-----Get past events ----*/
-
+        
         OldEventApi.sharedInstance.getPastEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
             if events.count > 0 {
                 for i in 0...events.count-1{
@@ -184,7 +187,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             }
             self.homeTableView.reloadData()
         }, failure: {} )
-       
+        
         
         /*-----Get upcoming events ----*/
         
@@ -210,7 +213,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             
         }, failure: {} )
         
-   
+        
     }
     
     
@@ -232,12 +235,12 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 }
                 self.tasksList.append(self.taskList)
                 self.taskList = [Task]()
-               
                 
-                }, failure:{})
-        
+                
+            }, failure:{})
+            
         }
     }
     
-
+    
 }
