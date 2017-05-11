@@ -83,18 +83,24 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if (event?.isUserOnwer())! {
-            if section == 1 {
+        switch section {
+        case 0:
+            return nil
+        case 1:
+            if (event?.isPast())! {
+                return nil
+            } else {
                 return "Guests"
+            }
+        case 2:
+            if (event?.isPast())! {
+                return nil
             } else {
                 return "Tasks"
             }
-        } else {
-            if section == 1 {
-                return "Media"
-            }
+        default:
+            return nil
         }
-        return nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

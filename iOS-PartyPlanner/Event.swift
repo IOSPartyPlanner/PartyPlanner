@@ -105,7 +105,7 @@ public class Event: NSObject {
     }
     
     func isUserOnwer() -> Bool {
-        return true
+        return User._currentUser?.email == hostEmail
     }
     
     func isPast() -> Bool {
