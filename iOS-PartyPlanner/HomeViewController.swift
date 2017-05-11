@@ -130,7 +130,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         //TODO: Perform Segue ShowDetails
         
         if sign == 0 {
-            homeTableView.deselectRow(at:indexPath, animated: true)
+            //homeTableView.deselectRow(at:indexPath, animated: true)
             self.performSegue(withIdentifier: "showEvent", sender: self)
             
         }
