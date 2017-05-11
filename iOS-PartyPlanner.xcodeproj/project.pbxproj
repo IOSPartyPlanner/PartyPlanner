@@ -332,7 +332,6 @@
 		A14EE5F21EB51B98006889D1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				821B65C31EB006FF0078333B /* UIComponents */,
 				A14EE5F31EB51BAD006889D1 /* Uitls.swift */,
 				F7F330D61EC281B6008892DC /* ColorControl.swift */,
 				F7F330D81EC28229008892DC /* Brightnessable.swift */,

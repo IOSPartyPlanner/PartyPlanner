@@ -11,7 +11,7 @@ class Task: NSObject {
   var eventName: String?
   var taskDescription: String
   var numberOfPeopleRequired: Int
-  var volunteerEmails: [String]?
+  var volunteerEmails: [String:String]?
   var dueDate: Date
   var ref: FIRDatabaseReference?
   var key: String?
@@ -23,7 +23,10 @@ class Task: NSObject {
     self.eventId = eventId
     self.taskDescription = taskDescription
     self.numberOfPeopleRequired = numberOfPeopleRequired
-    self.volunteerEmails = volunteerEmails
+    for email in volunteerEmails {
+      let key = (email.replacingOccurrences(of: ".", with: "")).replacingOccurrences(of: "@", with: "")
+      self.volunteerEmails?[key] = email
+    }
     self.dueDate = dueDate
     self.ref = ref ?? nil
   }
@@ -37,7 +40,7 @@ class Task: NSObject {
     eventId = snapshotValue["eventId"] as! String
     taskDescription = snapshotValue["taskDescription"] as! String
     numberOfPeopleRequired = snapshotValue["numberOfPeopleRequired"] as! Int
-    volunteerEmails = snapshotValue["volunteerEmails"] as? [String]
+    volunteerEmails = snapshotValue["volunteerEmails"] as? [String:String]
     dueDate = Utils.getTimeStampFromString(timeStampString: snapshotValue["dueDate"] as! String)
     ref = snapshot.ref
   }
