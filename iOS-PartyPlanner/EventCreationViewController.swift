@@ -197,12 +197,12 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
     
     if indexPath.row == 5 {
       print("you selected Add Guests")
-      self.performSegue(withIdentifier: "EventCreationAddTaskSegue", sender: self)
+      self.performSegue(withIdentifier: "EventCreationAddContactSegue", sender: self)
     }
     
     if indexPath.row == 6 {
       print("you selected Add Tasks")
-      self.performSegue(withIdentifier: "EventCreationAddContactSegue", sender: self)
+      self.performSegue(withIdentifier: "EventCreationAddTaskSegue", sender: self)
     }
   }
 }
@@ -323,7 +323,7 @@ extension EventCreationViewController: TextInputCell2Delegate {
   func textInputCell2(textInputCell2: TextInputCell2, locationInputStarted location: String) {
     currentIndex = 2
     if !locationSelected {
-      self.performSegue(withIdentifier: "locationSelectionSegue", sender: self)
+      self.performSegue(withIdentifier: "EventCreationSelectLocationSegue", sender: self)
     }
   }
   
@@ -335,18 +335,6 @@ extension EventCreationViewController: TextInputCell2Delegate {
   
   // End Date Field
   func textInputCell2(textInputCell2: TextInputCell2, endDateTimeStarted row: Int) {
-    currentIndex = 4
-    locationSelected = false
-  }
-  
-  // Add Guests
-  func textInputCell2(textInputCell2: TextInputCell2, addGuestsSelected row: Int) {
-    currentIndex = 4
-    locationSelected = false
-  }
-  
-  // Add Tasks
-  func textInputCell2(textInputCell2: TextInputCell2, addTasksSelected row: Int) {
     currentIndex = 4
     locationSelected = false
   }

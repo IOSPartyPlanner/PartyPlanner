@@ -1428,33 +1428,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l6Z-Mt-4m0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="105" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l6Z-Mt-4m0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="2UP-wG-xfT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactSelectionCell" rowHeight="50" id="2UP-wG-xfT" customClass="ContactSelectionCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2UP-wG-xfT" id="FWd-gD-y5x">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Helo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ppz-TN-TUT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="49" id="anp-tU-pLv"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Ppz-TN-TUT" secondAttribute="trailing" id="3hG-fn-ebQ"/>
-                                                <constraint firstAttribute="bottom" secondItem="Ppz-TN-TUT" secondAttribute="bottom" id="63J-8N-7M4"/>
-                                                <constraint firstItem="Ppz-TN-TUT" firstAttribute="top" secondItem="FWd-gD-y5x" secondAttribute="top" id="WZm-Rq-rDf"/>
-                                                <constraint firstItem="Ppz-TN-TUT" firstAttribute="leading" secondItem="FWd-gD-y5x" secondAttribute="leading" id="yk6-Hm-M8V"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -1468,7 +1451,17 @@
                             <constraint firstAttribute="trailing" secondItem="l6Z-Mt-4m0" secondAttribute="trailing" id="zog-FX-JjH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="YJe-Iq-b1B"/>
+                    <navigationItem key="navigationItem" id="YJe-Iq-b1B">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="JQJ-nH-zBe">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onCancel:" destination="fkB-Zh-RbC" id="FQ8-jO-8gT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="l6Z-Mt-4m0" id="J3q-k0-C9R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HN1-O2-p9x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1531,9 +1524,9 @@
                     <navigationItem key="navigationItem" id="UKa-r2-56p"/>
                     <connections>
                         <outlet property="tableView" destination="0SJ-lk-MOs" id="jpv-CX-tBh"/>
-                        <segue destination="1xP-P1-hlA" kind="show" identifier="locationSelectionSegue" id="cMw-e2-QMk"/>
+                        <segue destination="1xP-P1-hlA" kind="show" identifier="EventCreationSelectLocationSegue" id="cMw-e2-QMk"/>
                         <segue destination="GBq-dB-2K0" kind="show" identifier="EventCreationAddTaskSegue" id="btp-xE-CTX"/>
-                        <segue destination="fkB-Zh-RbC" kind="push" identifier="EventCreationAddContactSegue" id="TkZ-GM-Xnc"/>
+                        <segue destination="fkB-Zh-RbC" kind="show" identifier="EventCreationAddContactSegue" id="TkZ-GM-Xnc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1wP-n7-XVg" userLabel="First Responder" sceneMemberID="firstResponder"/>

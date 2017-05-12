@@ -9,27 +9,34 @@
 import UIKit
 
 class AddContactsViewController: UIViewController {
+  let contacts = [ ["Tristan": "tristan.yim@gmail.com"],
+                   ["Rabia": "tgcksr@gmail.com"],
+                   ["Anusha": "una.020@gmail.com"],
+                   ["Bharath": "bharathmh@gmail.com"] ]
+  
+  @IBOutlet weak var tableView: UITableView!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    tableView.delegate = self
+    tableView.dataSource = self
+  }
+  
+  @IBAction func onCancel(_ sender: Any) {
+    navigationController?.popViewController(animated: true)
+  }
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+// Mark: - TableView
+extension AddContactsViewController: UITableViewDelegate, UITableViewDataSource {
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return contacts.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "contactSelectionCell", for: indexPath) as! ContactSelectionCell
+    cell.textLabel?.text = "\(contacts[indexPath.row])"
+    return cell
+  }
 }
