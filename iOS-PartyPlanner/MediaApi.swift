@@ -45,7 +45,7 @@ class MediaApi: NSObject {
     })
   }
   
-  func uploadFilesToFireBase(mediaUrl: URL,  event: Event, completion: @escaping (Bool) -> ()){
+  func uploadFilesToFireBase(mediaUrl: URL,  event: Event, completion: @escaping (String) -> ()){
     let filePath  = "media/" + event.id + UUID().uuidString
     let urlAbsoulteString = mediaUrl.absoluteString
     var mediaType: MediaType = MediaType.video
@@ -53,12 +53,12 @@ class MediaApi: NSObject {
       mediaType = MediaType.image
     }
       
-    MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: mediaUrl, type: mediaType, filepath: filePath, success: { (msg : String) in
-      print("Upload success", msg)
-      completion(true)
+    MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: mediaUrl, type: mediaType, filepath: filePath, success: { (downloadUrl : String) in
+      print("Upload success", downloadUrl)
+      completion(downloadUrl)
     }) {
       print("upload failed")
-      completion(false)
+      completion("Error in upload")
     }
   }
 }
