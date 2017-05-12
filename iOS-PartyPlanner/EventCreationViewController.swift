@@ -306,6 +306,10 @@ extension EventCreationViewController: ImageCellDelegate, UIImagePickerControlle
       eventImage = selectImage
       let indexpath = IndexPath(item: 0, section: 0)
       tableView.reloadRows(at: [indexpath], with: .fade)
+//      
+//      let imageURL = UIImageJPEGRepresentation(eventImage!, 0.5) as! NSData
+//      print(imageURL)
+      
     }
     // video
     //    else if info["UIImagePickerControllerMediaType"] as! String == "public.movie" {
@@ -368,9 +372,9 @@ extension EventCreationViewController: TasksViewControllerDelegate, AddContactsV
     tableView.reloadRows(at: [indexPath], with: .automatic)
   }
   
-  func tasksViewController(tasksViewController: TasksViewController,  count: Int) {
-    if count > 0 {
-      eventTaskCount = count
+  func tasksViewController(tasksViewController: TasksViewController,  tasksAddedCount: Int) {
+    if tasksAddedCount > 0 {
+      eventTaskCount = tasksAddedCount
       let indexPath = IndexPath(item: 6, section: 0)
       tableView.reloadRows(at: [indexPath], with: .automatic)
     }

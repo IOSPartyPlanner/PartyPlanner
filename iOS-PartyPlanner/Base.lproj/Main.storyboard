@@ -900,7 +900,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Acu-9w-hyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4562" y="-1682"/>
+            <point key="canvasLocation" x="4606" y="-1802"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4F8-Mu-coF">
@@ -1488,7 +1488,7 @@
         <!--Select Guests-->
         <scene sceneID="gxy-Bz-jKX">
             <objects>
-                <viewController storyboardIdentifier="eventCreationAddContactSegue" id="fkB-Zh-RbC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="eventCreationAddContactSegue" id="fkB-Zh-RbC" customClass="AddContactsViewController" customModule="iOS_PartyPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1hP-Mx-A4n"/>
                         <viewControllerLayoutGuide type="bottom" id="dff-KP-3OE"/>
@@ -1501,7 +1501,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactSelectionCell" id="Onz-Eh-rMi">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactSelectionCell" id="Onz-Eh-rMi" customClass="ContactSelectionCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="Onz-Eh-rMi" id="TyF-Yj-rUy">
@@ -1629,8 +1629,8 @@
                     <connections>
                         <outlet property="tableView" destination="0SJ-lk-MOs" id="jpv-CX-tBh"/>
                         <segue destination="1xP-P1-hlA" kind="show" identifier="locationSelectionSegue" id="cMw-e2-QMk"/>
-                        <segue destination="GBq-dB-2K0" kind="show" id="btp-xE-CTX"/>
-                        <segue destination="fkB-Zh-RbC" kind="show" id="TkZ-GM-Xnc"/>
+                        <segue destination="GBq-dB-2K0" kind="show" identifier="EventCreationAddTaskSegue" id="btp-xE-CTX"/>
+                        <segue destination="fkB-Zh-RbC" kind="show" identifier="EventCreationAddContactSegue" id="TkZ-GM-Xnc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1wP-n7-XVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
