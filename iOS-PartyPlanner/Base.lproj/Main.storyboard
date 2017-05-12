@@ -333,14 +333,14 @@
                                             <outlet property="photoesCollectionView" destination="4HO-Za-ZlI" id="FcT-5T-E7t"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventTasksTableViewCell" id="5de-fl-MYv" customClass="EventTasksTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="563" width="375" height="375"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventTasksTableViewCell" rowHeight="80" id="5de-fl-MYv" customClass="EventTasksTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="563" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5de-fl-MYv" id="2N8-Ye-SlH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L53-Cp-esO">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="assigning" translatesAutoresizingMaskIntoConstraints="NO" id="L53-Cp-esO">
                                                     <rect key="frame" x="24" y="16.5" width="48" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="48" id="j9d-ze-m0y"/>
@@ -357,6 +357,7 @@
                                             <constraints>
                                                 <constraint firstItem="R1g-hu-Ykj" firstAttribute="leading" secondItem="L53-Cp-esO" secondAttribute="trailing" constant="8" id="GQ4-aT-bu2"/>
                                                 <constraint firstItem="R1g-hu-Ykj" firstAttribute="top" secondItem="L53-Cp-esO" secondAttribute="top" id="Jwa-65-DKB"/>
+                                                <constraint firstItem="L53-Cp-esO" firstAttribute="centerY" secondItem="2N8-Ye-SlH" secondAttribute="centerY" id="oLc-FY-LWb"/>
                                                 <constraint firstItem="L53-Cp-esO" firstAttribute="top" secondItem="2N8-Ye-SlH" secondAttribute="topMargin" constant="8" id="s17-yZ-pcL"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="R1g-hu-Ykj" secondAttribute="trailing" constant="10" id="vfk-sc-YsA"/>
                                                 <constraint firstItem="L53-Cp-esO" firstAttribute="leading" secondItem="2N8-Ye-SlH" secondAttribute="leadingMargin" constant="16" id="zb2-u7-5xN"/>
@@ -368,7 +369,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="EventGuestCommentTableViewCell" id="neZ-4a-QOy" customClass="EventGuestCommentTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="938" width="375" height="375"/>
+                                        <rect key="frame" x="0.0" y="643" width="375" height="375"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="neZ-4a-QOy" id="jlD-jm-2mq">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
@@ -1697,6 +1698,7 @@
         <image name="9" width="100" height="47"/>
         <image name="Theme" width="1920" height="1200"/>
         <image name="add" width="50" height="50"/>
+        <image name="assigning" width="300" height="300"/>
         <image name="calendar" width="50" height="50"/>
         <image name="date" width="24" height="24"/>
         <image name="fbLogin" width="376" height="60"/>

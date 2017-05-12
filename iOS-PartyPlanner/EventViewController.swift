@@ -127,6 +127,12 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
         case (2, false):
             let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventTasksTableViewCell", for: indexPath) as? EventTasksTableViewCell
             let task = event?.tasks[indexPath.row]
+            if task?.volunteerEmails == nil || task?.volunteerEmails?.count == 0 {
+                cell2?.taskImageView.image = UIImage(named: "assigning")
+            } else {
+                cell2?.taskImageView.image = UIImage(named: "assigned")
+            }
+            cell2?.taskImageView.translatesAutoresizingMaskIntoConstraints = true
             cell2?.taskDescLabel.text = task?.name
             return cell2!
         default:
