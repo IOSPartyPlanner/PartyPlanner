@@ -17,7 +17,7 @@ class EventCreationViewController: UIViewController {
   var toolbar = UIToolbar()
   
   fileprivate var event: Event!
-
+  
   // current states
   fileprivate var currentIndex: Int!
   fileprivate var eventStartDateTime: Date!
@@ -47,7 +47,7 @@ class EventCreationViewController: UIViewController {
     
     // initially set the event start time as currrent time and
     // end time an hour later
-
+    
     eventStartDateTime = Date.init()
     eventEndDateTime = Date.init().addingTimeInterval(60.0)
     
@@ -108,7 +108,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
+    return 7
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -203,6 +203,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.delegate = self
       return cell
     }
+    
     return UITableViewCell()
   }
   
@@ -210,6 +211,16 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
     // location
     if indexPath.row == 2 {
       print("you selected location")
+    }
+    
+    if indexPath.row == 5 {
+      print("you selected Add Guests")
+      self.performSegue(withIdentifier: "EventCreationAddContactSegue", sender: self)
+    }
+    
+    if indexPath.row == 6 {
+      print("you selected Add Tasks")
+      self.performSegue(withIdentifier: "EventCreationAddTaskSegue", sender: self)
     }
   }
 }
@@ -222,7 +233,7 @@ extension EventCreationViewController {
     let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(datePickerValueChanged))
     toolbar.setItems([doneButton], animated: true)
   }
-
+  
   
   func datePickerValueChanged(sender: Any) {
     view.endEditing(true)
@@ -330,7 +341,7 @@ extension EventCreationViewController: TextInputCell2Delegate {
   func textInputCell2(textInputCell2: TextInputCell2, locationInputStarted location: String) {
     currentIndex = 2
     if !locationSelected {
-      self.performSegue(withIdentifier: "locationSelectionSegue", sender: self)
+      self.performSegue(withIdentifier: "EventCreationSelectLocationSegue", sender: self)
     }
   }
   

@@ -16,10 +16,10 @@ class AddContactsViewController: UIViewController {
   
   fileprivate var addedEmails: Set<String> = []
   fileprivate let contacts = [ ["name": "Tristan",  "email": "tristan.yim@gmail.com"],
-                   ["name": "Rabia",    "email":  "tgcksr@gmail.com"],
-                   ["name": "Anusha",   "email": "una.020@gmail.com"],
-                   ["name": "Bharath",  "email":  "bharathmh@gmail.com"] ]
-
+                               ["name": "Rabia",    "email":  "tgcksr@gmail.com"],
+                               ["name": "Anusha",   "email": "una.020@gmail.com"],
+                               ["name": "Bharath",  "email":  "bharathmh@gmail.com"] ]
+  
   @IBOutlet weak var tableView: UITableView!
   weak var delegate: AddContactsViewControllerDelegate?
   
@@ -59,7 +59,7 @@ extension AddContactsViewController: UITableViewDelegate, UITableViewDataSource 
   }
   
   func toggleCellCheckbox(_ cell: ContactSelectionCell) {
-    UIView.animate(withDuration: 0.23) { 
+    UIView.animate(withDuration: 0.23) {
       cell.accessoryType = .checkmark
       cell.nameLabel?.textColor = UIColor.gray
       cell.emailLabel?.textColor = UIColor.gray
