@@ -31,6 +31,13 @@ class EventViewController: UIViewController {
         
         eventTableView.rowHeight = UITableViewAutomaticDimension
         eventTableView.estimatedRowHeight = 100
+        
+        eventTableView.sectionHeaderHeight = UITableViewAutomaticDimension
+        eventTableView.estimatedSectionHeaderHeight = 100
+        
+        if !(event?.isPast())! {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,6 +45,9 @@ class EventViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func generateQCode(_ barItem: UIBarButtonItem) {
+        performSegue(withIdentifier: "generateQCode", sender: self)
+    }
     
     /*
      // MARK: - Navigation
@@ -85,6 +95,31 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
                 return event?.tasks.count ?? 0
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = eventTableView.dequeueReusableCell(withIdentifier: "HeadAddTableViewCell") as? HeadAddTableViewCell
+        cell?.viewController = self
+        switch section {
+        case 1:
+            if (event?.isPast())! {
+                cell?.titleLabel.text = "Photoes/Videoes"
+                cell?.segueName = "addMedia"
+            } else {
+                cell?.titleLabel.text = "Guests"
+                cell?.segueName = "addGuest"
+            }
+        case 2:
+            if (event?.isPast())! {
+                cell?.titleLabel.text = "Comments"
+                cell?.segueName = "addComment"
+            } else {
+                cell?.titleLabel.text = "Tasks"
+                cell?.segueName = "addTask"            }
+        default:
+            return nil
+        }
+        return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

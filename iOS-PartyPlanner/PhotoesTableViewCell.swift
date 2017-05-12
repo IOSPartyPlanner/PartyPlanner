@@ -44,26 +44,20 @@ class PhotoesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (photoes?.count ?? 0) + 1
+        return photoes?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = photoesCollectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as? PhotoCollectionViewCell
-        if indexPath.row == 0 {
-            cell!.photoImageView.image = UIImage(named: "add")
-            cell?.photoImageView.isUserInteractionEnabled = true
-            let gesture = UITapGestureRecognizer(target: self, action: #selector(addPhoto(_:)))
-            cell?.addGestureRecognizer(gesture)
-        } else {
-            if let photo = photoes?[indexPath.row - 1] {
-                cell?.photoImageView.setImageWith(URL(string:photo)!)
-                cell?.photoImageView.isUserInteractionEnabled = true
-                let gesture = UITapGestureRecognizer(target: self, action: #selector(selectImage(_:)))
-                cell?.addGestureRecognizer(gesture)
-            }
 
+        if let photo = photoes?[indexPath.row] {
+            cell?.photoImageView.setImageWith(URL(string:photo)!)
+            cell?.photoImageView.isUserInteractionEnabled = true
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(selectImage(_:)))
+            cell?.addGestureRecognizer(gesture)
         }
-        Utils.formatCircleImage(image: cell!.photoImageView)
+//        Utils.formatCircleImage(image: cell!.photoImageView)
+        cell!.photoImageView.layer.cornerRadius = 6
         return cell!
     }
     
@@ -76,7 +70,7 @@ class PhotoesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
         browser?.displayNavArrows = true
         browser?.displaySelectionButtons = true
         
-        browser?.setCurrentPhotoIndex(UInt((indexPath?.row)! - 1))
+        browser?.setCurrentPhotoIndex(UInt((indexPath?.row)!))
         viewController?.navigationController?.pushViewController(browser!, animated: true)
     }
     
