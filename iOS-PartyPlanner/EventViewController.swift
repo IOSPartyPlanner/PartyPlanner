@@ -26,9 +26,15 @@ class EventViewController: UIViewController {
         // Do any additional setup after loading the view.
         eventTableView.delegate = self
         eventTableView.dataSource = self
-        
-        eventTableView.rowHeight = UITableViewAutomaticDimension
-        eventTableView.estimatedRowHeight = 120
+
+      eventTableView.sectionHeaderHeight = UITableViewAutomaticDimension
+      eventTableView.estimatedSectionHeaderHeight = 25
+  
+      eventTableView.sectionFooterHeight = UITableViewAutomaticDimension
+      eventTableView.estimatedSectionHeaderHeight = 25
+      
+      eventTableView.rowHeight = UITableViewAutomaticDimension
+      eventTableView.estimatedRowHeight = 100
     }
 
     override func didReceiveMemoryWarning() {
