@@ -35,10 +35,6 @@ class EventViewController: UIViewController {
       
       eventTableView.rowHeight = UITableViewAutomaticDimension
       eventTableView.estimatedRowHeight = 100
-
-      
-      
-      
     }
 
     override func didReceiveMemoryWarning() {
