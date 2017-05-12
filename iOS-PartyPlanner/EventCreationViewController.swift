@@ -17,7 +17,7 @@ class EventCreationViewController: UIViewController {
   var toolbar = UIToolbar()
   
   fileprivate var event: Event!
-
+  
   // current states
   fileprivate var currentIndex: Int!
   fileprivate var eventStartDateTime: Date!
@@ -47,7 +47,7 @@ class EventCreationViewController: UIViewController {
     
     // initially set the event start time as currrent time and
     // end time an hour later
-
+    
     eventStartDateTime = Date.init()
     eventEndDateTime = Date.init().addingTimeInterval(60.0)
     
@@ -108,7 +108,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
+    return 7
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -222,7 +222,7 @@ extension EventCreationViewController {
     let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(datePickerValueChanged))
     toolbar.setItems([doneButton], animated: true)
   }
-
+  
   
   func datePickerValueChanged(sender: Any) {
     view.endEditing(true)
