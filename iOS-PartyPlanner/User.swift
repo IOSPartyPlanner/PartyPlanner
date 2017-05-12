@@ -71,6 +71,7 @@ class User: NSObject {
   }
 
   static var _currentUser: User?
+    
   static var currentUser : User? {
     get {
       

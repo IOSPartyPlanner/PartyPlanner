@@ -129,6 +129,9 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             let task = event?.tasks[indexPath.row]
             if task?.volunteerEmails == nil || task?.volunteerEmails?.count == 0 {
                 cell2?.taskImageView.image = UIImage(named: "assigning")
+                cell2?.taskImageView.isUserInteractionEnabled = true
+                let gesture = UITapGestureRecognizer(target: self, action: #selector(assignToMe(_:)))
+                cell2?.addGestureRecognizer(gesture)
             } else {
                 cell2?.taskImageView.image = UIImage(named: "assigned")
             }
@@ -141,6 +144,16 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
                 cell2?.comment = userComment
             }
             return cell2!
+        }
+        
+    }
+    
+    func assignToMe(_ sender: UITapGestureRecognizer) {
+        let cell = sender.view as? EventTasksTableViewCell
+        let indexPath = eventTableView.indexPath(for: cell!)
+        if let task = event?.tasks[(indexPath?.row)!] {
+            TaskApi.sharedInstance.addVolunteer(emails: [(User._currentUser?.email)!], taskId: task.id)
+            cell?.taskImageView.image = UIImage(named: "assigned")
         }
         
     }
