@@ -203,6 +203,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.delegate = self
       return cell
     }
+    
     return UITableViewCell()
   }
   
@@ -210,6 +211,16 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
     // location
     if indexPath.row == 2 {
       print("you selected location")
+    }
+    
+    if indexPath.row == 5 {
+      print("you selected Add Guests")
+      self.performSegue(withIdentifier: "EventCreationAddContactSegue", sender: self)
+    }
+    
+    if indexPath.row == 6 {
+      print("you selected Add Tasks")
+      self.performSegue(withIdentifier: "EventCreationAddTaskSegue", sender: self)
     }
   }
 }
@@ -330,7 +341,7 @@ extension EventCreationViewController: TextInputCell2Delegate {
   func textInputCell2(textInputCell2: TextInputCell2, locationInputStarted location: String) {
     currentIndex = 2
     if !locationSelected {
-      self.performSegue(withIdentifier: "locationSelectionSegue", sender: self)
+      self.performSegue(withIdentifier: "EventCreationSelectLocationSegue", sender: self)
     }
   }
   
