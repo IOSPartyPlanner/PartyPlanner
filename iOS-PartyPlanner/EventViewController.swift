@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ELCImagePickerController
+import AddressBookUI
 
 class EventViewController: UIViewController {
     
@@ -19,6 +21,10 @@ class EventViewController: UIViewController {
     var event: Event?
     
     var guestsCell: EventGuestsTableViewCell?
+    
+    let photoesPicker = ELCImagePickerController()
+    
+    let pickerController = ABPeoplePickerNavigationController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +40,9 @@ class EventViewController: UIViewController {
         
         eventTableView.sectionHeaderHeight = UITableViewAutomaticDimension
         eventTableView.estimatedSectionHeaderHeight = 100
+        
+        photoesPicker.imagePickerDelegate = self
+        pickerController.peoplePickerDelegate = self
         
         if !(event?.isPast())! {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
@@ -104,18 +113,19 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             if (event?.isPast())! {
                 cell?.titleLabel.text = "Photoes/Videoes"
-                cell?.segueName = "addMedia"
+                let gesture = UITapGestureRecognizer(target: self, action: #selector(addPhotoes(_:)))
+                cell?.addImageView.addGestureRecognizer(gesture)
             } else {
                 cell?.titleLabel.text = "Guests"
-                cell?.segueName = "addGuest"
+                let gesture = UITapGestureRecognizer(target: self, action: #selector(addGuests(_:)))
+                cell?.addImageView.addGestureRecognizer(gesture)
             }
         case 2:
             if (event?.isPast())! {
                 cell?.titleLabel.text = "Comments"
-                cell?.segueName = "addComment"
             } else {
                 cell?.titleLabel.text = "Tasks"
-                cell?.segueName = "addTask"            }
+            }
         default:
             return nil
         }
@@ -192,4 +202,52 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
     }
+    
+    func addPhotoes(_ sender: UITapGestureRecognizer) {
+        navigationController?.present(photoesPicker, animated: true, completion: nil)
+    }
+    
+    func addGuests(_ sender: UITapGestureRecognizer) {
+        navigationController?.present(pickerController, animated: true, completion: nil)
+    }
 }
+
+
+extension EventViewController: ELCImagePickerControllerDelegate {
+    func elcImagePickerController(_ picker: ELCImagePickerController!, didFinishPickingMediaWithInfo info: [Any]!) {
+        print(info)
+        let images = info as? [NSDictionary]
+        for line in images! {
+            let mediaURL = line["UIImagePickerControllerReferenceURL"] as? URL
+            let assets = PHAsset.fetchAssets(withALAssetURLs: [mediaURL!], options: nil)
+            let asset = assets.firstObject
+            asset?.requestContentEditingInput(with: nil, completionHandler: { (contentEditingInput, info) in
+                let imageFile = contentEditingInput?.fullSizeImageURL
+                let imageName = UUID().uuidString
+                MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: imageFile!, type: .image, filepath: "\((self.event?.id)!)/\(imageName)", success: { (url) in
+                    EventApi.sharedInstance.addPhotoURL(url, withEvent: self.event!)
+                }, failure: {})
+            })
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    /**
+     * Called when image selection was cancelled, by tapping the 'Cancel' BarButtonItem.
+     */
+    func elcImagePickerControllerDidCancel(_ picker: ELCImagePickerController!) {
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension EventViewController: ABPeoplePickerNavigationControllerDelegate {
+    
+    func peoplePickerNavigationControllerDidCancel(_ peoplePicker: ABPeoplePickerNavigationController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func peoplePickerNavigationController(_ peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord) {
+        print("\(person)")
+        dismiss(animated: true, completion: nil)
+    }
+}
+

@@ -3,3 +3,4 @@
 //
 
 #import "MWPhotoBrowser/MWPhotoBrowser.h"
+#import "ELCImagePickerController/ELCImagePickerController.h"

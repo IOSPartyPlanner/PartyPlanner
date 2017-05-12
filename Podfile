@@ -18,6 +18,7 @@ target 'iOS-PartyPlanner' do
   pod 'Firebase/Database'
   pod 'AFNetworking', '~> 2.5'
   pod 'DLRadioButton', '~> 1.4'
+  pod 'ELCImagePickerController', '~> 0.2'
   pod 'MBProgressHUD'
   pod "MWPhotoBrowser"
 # Pods for iOS-PartyPlanner
