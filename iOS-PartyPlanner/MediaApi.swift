@@ -46,7 +46,7 @@ class MediaApi: NSObject {
   }
   
   func uploadFilesToFireBase(mediaUrl: URL,  event: Event, completion: @escaping (String) -> ()){
-    let filePath  = "media/" + event.id + UUID().uuidString
+    let filePath  = event.id + UUID().uuidString
     let urlAbsoulteString = mediaUrl.absoluteString
     var mediaType: MediaType = MediaType.video
     if ((urlAbsoulteString.hasSuffix("PNG")) || (urlAbsoulteString.hasSuffix("JPG")) || (urlAbsoulteString.hasSuffix("JPEG"))){
