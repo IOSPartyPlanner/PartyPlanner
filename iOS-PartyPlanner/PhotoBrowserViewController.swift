@@ -16,6 +16,8 @@ class PhotoBrowserViewController: UIViewController, MWPhotoBrowserDelegate {
         }
     }
     
+    var startIndex: Int = 1
+    
     var photos: [MWPhoto]?
     
     var browser: MWPhotoBrowser?
@@ -23,20 +25,13 @@ class PhotoBrowserViewController: UIViewController, MWPhotoBrowserDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        photosURL = [
-            URL(string: "https://farm1.staticflickr.com/73/154716528_717697a157.jpg")!,
-            URL(string: "https://farm3.staticflickr.com/2582/4105054854_2927d15bc6.jpg")!,
-            URL(string: "https://farm8.staticflickr.com/7405/12510424374_9d5ec0845c.jpg")!,
-            URL(string: "https://farm1.staticflickr.com/204/489660321_a6833ba9cf.jpg")!
-        ]
-        
+        // Do any additional setup after loading the view.        
         browser = MWPhotoBrowser(delegate: self)
         browser?.displayActionButton = true
         browser?.displayNavArrows = true
         browser?.displaySelectionButtons = true
         
-        browser?.setCurrentPhotoIndex(1)
+        browser?.setCurrentPhotoIndex(UInt(startIndex))
         self.navigationController?.pushViewController(browser!, animated: true)
 //        browser?.showNextPhoto(animated: true)
 //        browser?.showPreviousPhoto(animated: true)

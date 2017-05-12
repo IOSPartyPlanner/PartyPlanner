@@ -9,53 +9,68 @@
 import UIKit
 
 class EventViewController: UIViewController {
-
+    
     @IBAction func onSignout(_ sender: UIBarButtonItem) {
         User.currentUser?.signout()
     }
     
     @IBOutlet weak var eventTableView: UITableView!
-  
+    
     var event: Event?
     
     var guestsCell: EventGuestsTableViewCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print("load event view controller")
+        
         // Do any additional setup after loading the view.
         eventTableView.delegate = self
         eventTableView.dataSource = self
         
         eventTableView.rowHeight = UITableViewAutomaticDimension
-        eventTableView.estimatedRowHeight = 120
+        eventTableView.estimatedRowHeight = 100
+        
+        eventTableView.sectionHeaderHeight = UITableViewAutomaticDimension
+        eventTableView.estimatedSectionHeaderHeight = 100
+        
+        if !(event?.isPast())! {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    func generateQCode(_ barItem: UIBarButtonItem) {
+        performSegue(withIdentifier: "generateQCode", sender: self)
+    }
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier! {
-            case "ShowPhotos":
-                let target =  segue.destination as? PhotoBrowserViewController
-                target?.photosURL = (event?.postEventPhotoesURL)!
-            case "addPhoto":
-                break
-            case "addTask":
-                break
-            case "addComment":
-                break
-            default:
-                break
+        case "showPhotoes":
+            let target =  segue.destination as? PhotoBrowserViewController
+            target?.startIndex = (sender as? Int)!
+            if let postEventImages = event?.postEventImages {
+                target?.photosURL = postEventImages.map{ return URL(string: $0)! }
+            }
+        case "addPhoto":
+            break
+        case "addTask":
+            break
+        case "addComment":
+            break
+        default:
+            break
         }
     }
 }
@@ -82,19 +97,44 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = eventTableView.dequeueReusableCell(withIdentifier: "HeadAddTableViewCell") as? HeadAddTableViewCell
+        cell?.viewController = self
+        switch section {
+        case 1:
+            if (event?.isPast())! {
+                cell?.titleLabel.text = "Photoes/Videoes"
+                cell?.segueName = "addMedia"
+            } else {
+                cell?.titleLabel.text = "Guests"
+                cell?.segueName = "addGuest"
+            }
+        case 2:
+            if (event?.isPast())! {
+                cell?.titleLabel.text = "Comments"
+                cell?.segueName = "addComment"
+            } else {
+                cell?.titleLabel.text = "Tasks"
+                cell?.segueName = "addTask"            }
+        default:
+            return nil
+        }
+        return cell
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
             return nil
         case 1:
             if (event?.isPast())! {
-                return nil
+                return "Photoes/Videoes"
             } else {
                 return "Guests"
             }
         case 2:
             if (event?.isPast())! {
-                return nil
+                return "Comments"
             } else {
                 return "Tasks"
             }
@@ -104,24 +144,33 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch (indexPath.section, (event?.isUserOnwer())!) {
+        switch (indexPath.section, (event?.isPast())!) {
         case (0, _):
             let cell0 = eventTableView.dequeueReusableCell(withIdentifier: "EventSummaryTableViewCell", for: indexPath) as? EventSummaryTableViewCell
             cell0?.event = event
             return cell0!
-        case (1, true):
+        case (1, false):
             guestsCell = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestsTableViewCell", for: indexPath) as? EventGuestsTableViewCell
             guestsCell?.guests = event?.guests
             guestsCell?.viewController = self
             return guestsCell!
-        case (1, false):
+        case (1, true):
             let cell1 = eventTableView.dequeueReusableCell(withIdentifier: "PhotoesTableViewCell", for: indexPath) as? PhotoesTableViewCell
             cell1?.photoes = event?.postEventImages
             cell1?.viewController = self
             return cell1!
-        case (2, true):
+        case (2, false):
             let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventTasksTableViewCell", for: indexPath) as? EventTasksTableViewCell
             let task = event?.tasks[indexPath.row]
+            if task?.volunteerEmails == nil || task?.volunteerEmails?.count == 0 {
+                cell2?.taskImageView.image = UIImage(named: "assigning")
+                cell2?.taskImageView.isUserInteractionEnabled = true
+                let gesture = UITapGestureRecognizer(target: self, action: #selector(assignToMe(_:)))
+                cell2?.addGestureRecognizer(gesture)
+            } else {
+                cell2?.taskImageView.image = UIImage(named: "assigned")
+            }
+            cell2?.taskImageView.translatesAutoresizingMaskIntoConstraints = true
             cell2?.taskDescLabel.text = task?.name
             return cell2!
         default:
@@ -131,6 +180,16 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             }
             return cell2!
         }
-
+        
+    }
+    
+    func assignToMe(_ sender: UITapGestureRecognizer) {
+        let cell = sender.view as? EventTasksTableViewCell
+        let indexPath = eventTableView.indexPath(for: cell!)
+        if let task = event?.tasks[(indexPath?.row)!] {
+            TaskApi.sharedInstance.addVolunteer(emails: [(User._currentUser?.email)!], taskId: task.id)
+            cell?.taskImageView.image = UIImage(named: "assigned")
+        }
+        
     }
 }

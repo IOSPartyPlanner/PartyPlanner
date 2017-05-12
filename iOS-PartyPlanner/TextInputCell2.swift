@@ -11,13 +11,20 @@ import UIKit
 
 @objc protocol TextInputCell2Delegate {
 
+  // Event Name entered
   @objc optional func textInputCell2(textInputCell2: TextInputCell2, eventNameEntered eventName: String)
-  @objc optional func textInputCell2(textInputCell2: TextInputCell2, locationInputStarted location: String)
-  @objc optional func textInputCell2(textInputCell2: TextInputCell2, startDateTimeStarted row: Int)
-  @objc optional func textInputCell2(textInputCell2: TextInputCell2, endDateTimeStarted row: Int)
-  // @objc optional func textInputCell2(textInputCell2: TextInputCell2, addGuestsSelected row: Int)
-  // @objc optional func textInputCell2(textInputCell2: TextInputCell2, addTasksSelected row: Int)
   
+  // Location
+  @objc optional func textInputCell2(textInputCell2: TextInputCell2, locationInputStarted location: String)
+  @objc optional func textInputCell2(textInputCell2: TextInputCell2, locationInputSelected location: String)
+  
+  // Start Date
+  @objc optional func textInputCell2(textInputCell2: TextInputCell2, startDateTimeStarted row: Int)
+  @objc optional func textInputCell2(textInputCell2: TextInputCell2, startDateTimeSelected row: Int)
+  
+  // End Date
+  @objc optional func textInputCell2(textInputCell2: TextInputCell2, endDateTimeStarted row: Int)
+  @objc optional func textInputCell2(textInputCell2: TextInputCell2, endDateTimeSelected row: Int)
 }
 
 class TextInputCell2: UITableViewCell {
@@ -47,24 +54,19 @@ extension TextInputCell2: UITextFieldDelegate {
     }
     else if indexRow == 2 {
       print("you selected 2")
+      //TODO: for location open new page
       delegate?.textInputCell2!(textInputCell2: self, locationInputStarted: "Location")
     }
     else if indexRow == 3 {
       print("you selected Start Date")
+      //      textField.resignFirstResponder()
       delegate?.textInputCell2!(textInputCell2: self, startDateTimeStarted: indexRow)
     }
     else if indexRow == 4 {
       print("you selected End Date")
+      //      textField.resignFirstResponder()
       delegate?.textInputCell2!(textInputCell2: self, endDateTimeStarted: indexRow)
     }
-//    else if indexRow == 5 {
-//      print("you selected Add Guests")
-//      delegate?.textInputCell2!(textInputCell2: self, addGuestsSelected: indexRow)
-//    }
-//    else if indexRow == 6 {
-//      print("you selected Add Tasks")
-//      delegate?.textInputCell2!(textInputCell2: self, addTasksSelected: indexRow)
-//    }
   }
   
   func textFieldDidEndEditing(_ textField: UITextField) {

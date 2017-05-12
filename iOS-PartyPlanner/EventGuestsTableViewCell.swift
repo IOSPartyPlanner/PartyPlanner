@@ -30,25 +30,16 @@ class EventGuestsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (guests!.count ?? 0) + 1
+        return guests!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = guestCollectionView.dequeueReusableCell(withReuseIdentifier: "GuestCollectionViewCell", for: indexPath) as? GuestCollectionViewCell
-        if indexPath.row == 0 {
-            cell!.guestImageView.image = UIImage(named: "add")
-            let gesture = UITapGestureRecognizer(target: cell?.guestImageView, action: #selector(addGuest(_:)))
-            cell?.guestImageView.addGestureRecognizer(gesture)
-        } else {
-            if let guest = guests?[indexPath.row - 1] {
-                cell?.guestImageView.setImageWith(URL(string:guest.imageUrl!)! as URL)
-            }
+
+        if let guest = guests?[indexPath.row] {
+            cell?.guestImageView.setImageWith(URL(string:guest.imageUrl!)! as URL)
         }
         Utils.formatCircleImage(image: cell!.guestImageView)
         return cell!
-    }
-    
-    @IBAction func addGuest(_ sender: UITapGestureRecognizer) {
-        viewController?.performSegue(withIdentifier: "addGuest", sender: self)
     }
 }
