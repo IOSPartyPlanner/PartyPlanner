@@ -95,8 +95,199 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="EventSummaryTableViewCell" rowHeight="375" id="9U1-67-dZ5" customClass="EventSummaryTableViewCell" customModule="iOS_PartyPlanner">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventGuestsTableViewCell" id="FCV-9X-lXx" customClass="EventGuestsTableViewCell" customModule="iOS_PartyPlanner">
                                         <rect key="frame" x="0.0" y="28" width="375" height="375"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FCV-9X-lXx" id="ZDH-dG-dtm">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-Hb-Alu">
+                                                    <rect key="frame" x="8" y="8" width="359" height="358.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4C3-qP-WfO">
+                                                        <size key="itemSize" width="56" height="56"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GuestCollectionViewCell" id="fbJ-zh-y32" customClass="GuestCollectionViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WFl-zd-MlH">
+                                                                        <rect key="frame" x="4" y="4" width="48" height="48"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="48" id="7VR-5c-8GV"/>
+                                                                            <constraint firstAttribute="width" constant="48" id="eaP-Q1-xMU"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                </subviews>
+                                                            </view>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="WFl-zd-MlH" secondAttribute="trailing" constant="4" id="9Zl-QO-2m8"/>
+                                                                <constraint firstAttribute="bottom" secondItem="WFl-zd-MlH" secondAttribute="bottom" constant="4" id="ZXx-yR-PXO"/>
+                                                                <constraint firstItem="WFl-zd-MlH" firstAttribute="top" secondItem="fbJ-zh-y32" secondAttribute="top" constant="4" id="gVR-sK-7zL"/>
+                                                                <constraint firstItem="WFl-zd-MlH" firstAttribute="leading" secondItem="fbJ-zh-y32" secondAttribute="leading" constant="4" id="q6X-cR-VZx"/>
+                                                            </constraints>
+                                                            <size key="customSize" width="56" height="56"/>
+                                                            <connections>
+                                                                <outlet property="guestImageView" destination="WFl-zd-MlH" id="wek-mw-ebz"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7Dh-Hb-Alu" secondAttribute="trailing" id="CXo-Bf-Kaw"/>
+                                                <constraint firstItem="7Dh-Hb-Alu" firstAttribute="leading" secondItem="ZDH-dG-dtm" secondAttribute="leadingMargin" id="Vm3-Ab-gwU"/>
+                                                <constraint firstItem="7Dh-Hb-Alu" firstAttribute="top" secondItem="ZDH-dG-dtm" secondAttribute="topMargin" id="auP-cE-40s"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="7Dh-Hb-Alu" secondAttribute="bottom" id="qWH-4y-BaM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="guestCollectionView" destination="7Dh-Hb-Alu" id="sVe-wd-juu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="PhotoesTableViewCell" id="llZ-JE-fjv" customClass="PhotoesTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="403" width="375" height="375"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="llZ-JE-fjv" id="Szc-oH-BlJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4HO-Za-ZlI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dpr-8U-bzC">
+                                                        <size key="itemSize" width="100" height="100"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="2yx-Hv-Q2G" customClass="PhotoCollectionViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DIN-Bf-8td">
+                                                                        <rect key="frame" x="10" y="10" width="80" height="80"/>
+                                                                        <gestureRecognizers/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="80" id="LYy-c3-bna"/>
+                                                                            <constraint firstAttribute="height" constant="80" id="mmz-yz-O1l"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                </subviews>
+                                                            </view>
+                                                            <constraints>
+                                                                <constraint firstItem="DIN-Bf-8td" firstAttribute="leading" secondItem="2yx-Hv-Q2G" secondAttribute="leading" constant="10" id="GQx-P9-mdO"/>
+                                                                <constraint firstItem="DIN-Bf-8td" firstAttribute="top" secondItem="2yx-Hv-Q2G" secondAttribute="top" constant="10" id="gp3-1b-KUL"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="photoImageView" destination="DIN-Bf-8td" id="VCn-kU-eFH"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4HO-Za-ZlI" firstAttribute="top" secondItem="Szc-oH-BlJ" secondAttribute="top" id="Lh6-e9-dZo"/>
+                                                <constraint firstItem="4HO-Za-ZlI" firstAttribute="leading" secondItem="Szc-oH-BlJ" secondAttribute="leading" id="Xuc-qF-gbd"/>
+                                                <constraint firstAttribute="bottom" secondItem="4HO-Za-ZlI" secondAttribute="bottom" id="oPn-AZ-xk7"/>
+                                                <constraint firstAttribute="trailing" secondItem="4HO-Za-ZlI" secondAttribute="trailing" id="yRD-XE-tX3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="photoesCollectionView" destination="4HO-Za-ZlI" id="FcT-5T-E7t"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventTasksTableViewCell" id="5de-fl-MYv" customClass="EventTasksTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="778" width="375" height="375"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5de-fl-MYv" id="2N8-Ye-SlH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L53-Cp-esO">
+                                                    <rect key="frame" x="24" y="16.5" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="48" id="j9d-ze-m0y"/>
+                                                        <constraint firstAttribute="height" constant="48" id="sI3-1M-g3g"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1g-hu-Ykj">
+                                                    <rect key="frame" x="80" y="16.5" width="277" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="R1g-hu-Ykj" firstAttribute="leading" secondItem="L53-Cp-esO" secondAttribute="trailing" constant="8" id="GQ4-aT-bu2"/>
+                                                <constraint firstItem="R1g-hu-Ykj" firstAttribute="top" secondItem="L53-Cp-esO" secondAttribute="top" id="Jwa-65-DKB"/>
+                                                <constraint firstItem="L53-Cp-esO" firstAttribute="top" secondItem="2N8-Ye-SlH" secondAttribute="topMargin" constant="8" id="s17-yZ-pcL"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="R1g-hu-Ykj" secondAttribute="trailing" constant="10" id="vfk-sc-YsA"/>
+                                                <constraint firstItem="L53-Cp-esO" firstAttribute="leading" secondItem="2N8-Ye-SlH" secondAttribute="leadingMargin" constant="16" id="zb2-u7-5xN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="taskDescLabel" destination="R1g-hu-Ykj" id="13t-2r-Hiw"/>
+                                            <outlet property="taskImageView" destination="L53-Cp-esO" id="EkK-kj-qky"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="EventGuestCommentTableViewCell" id="neZ-4a-QOy" customClass="EventGuestCommentTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1153" width="375" height="375"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="neZ-4a-QOy" id="jlD-jm-2mq">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iaP-g1-vle">
+                                                    <rect key="frame" x="24" y="16.5" width="54" height="54"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="54" id="RVq-KA-7JH"/>
+                                                        <constraint firstAttribute="width" constant="54" id="eQs-Hq-uRM"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9W-Y8-pdZ">
+                                                    <rect key="frame" x="96" y="16.5" width="261" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkd-Hb-E8F">
+                                                    <rect key="frame" x="96" y="39.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Vkd-Hb-E8F" firstAttribute="top" secondItem="G9W-Y8-pdZ" secondAttribute="bottom" constant="2" id="2Fk-qA-KL6"/>
+                                                <constraint firstItem="G9W-Y8-pdZ" firstAttribute="top" secondItem="iaP-g1-vle" secondAttribute="top" id="CI1-iT-LWx"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="G9W-Y8-pdZ" secondAttribute="trailing" constant="10" id="Jtv-SM-opr"/>
+                                                <constraint firstItem="iaP-g1-vle" firstAttribute="leading" secondItem="jlD-jm-2mq" secondAttribute="leadingMargin" constant="16" id="Kad-Tk-uVH"/>
+                                                <constraint firstItem="G9W-Y8-pdZ" firstAttribute="leading" secondItem="iaP-g1-vle" secondAttribute="trailing" constant="18" id="awH-op-zLN"/>
+                                                <constraint firstItem="Vkd-Hb-E8F" firstAttribute="leading" secondItem="G9W-Y8-pdZ" secondAttribute="leading" id="rCa-mN-WXK"/>
+                                                <constraint firstItem="iaP-g1-vle" firstAttribute="top" secondItem="jlD-jm-2mq" secondAttribute="topMargin" constant="8" id="tSD-eT-ZDn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="guestComment" destination="Vkd-Hb-E8F" id="Lq8-ZL-ndF"/>
+                                            <outlet property="guestImageView" destination="iaP-g1-vle" id="u3W-jU-9NL"/>
+                                            <outlet property="guestName" destination="G9W-Y8-pdZ" id="tjW-1Y-SmU"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="EventSummaryTableViewCell" rowHeight="375" id="9U1-67-dZ5" customClass="EventSummaryTableViewCell" customModule="iOS_PartyPlanner">
+                                        <rect key="frame" x="0.0" y="1528" width="375" height="375"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9U1-67-dZ5" id="svQ-KP-lkz">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
@@ -209,196 +400,6 @@
                                             <outlet property="partyTimeLabel" destination="njJ-11-1ii" id="tHt-z4-6tI"/>
                                             <outlet property="taglineLabel" destination="JCN-8H-EKf" id="mCv-oL-BJm"/>
                                             <outlet property="videoView" destination="VBL-Ad-fwx" id="0mH-Ft-Gbf"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventGuestsTableViewCell" rowHeight="80" id="FCV-9X-lXx" customClass="EventGuestsTableViewCell" customModule="iOS_PartyPlanner">
-                                        <rect key="frame" x="0.0" y="403" width="375" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FCV-9X-lXx" id="ZDH-dG-dtm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-Hb-Alu">
-                                                    <rect key="frame" x="8" y="8" width="359" height="63.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="63.5" id="lh2-ZS-X9v"/>
-                                                    </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4C3-qP-WfO">
-                                                        <size key="itemSize" width="56" height="56"/>
-                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    </collectionViewFlowLayout>
-                                                    <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GuestCollectionViewCell" id="fbJ-zh-y32" customClass="GuestCollectionViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WFl-zd-MlH">
-                                                                        <rect key="frame" x="4" y="4" width="60" height="60"/>
-                                                                    </imageView>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstAttribute="bottomMargin" secondItem="WFl-zd-MlH" secondAttribute="bottom" constant="-16" id="80l-P3-gfB"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="WFl-zd-MlH" secondAttribute="trailing" constant="-16" id="G7D-wc-BLu"/>
-                                                                <constraint firstItem="WFl-zd-MlH" firstAttribute="top" secondItem="fbJ-zh-y32" secondAttribute="topMargin" constant="-4" id="VYX-sq-iJF"/>
-                                                                <constraint firstItem="WFl-zd-MlH" firstAttribute="leading" secondItem="fbJ-zh-y32" secondAttribute="leadingMargin" constant="-4" id="nts-co-kPN"/>
-                                                            </constraints>
-                                                            <size key="customSize" width="56" height="56"/>
-                                                            <connections>
-                                                                <outlet property="guestImageView" destination="WFl-zd-MlH" id="wek-mw-ebz"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                    </cells>
-                                                </collectionView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="7Dh-Hb-Alu" firstAttribute="leading" secondItem="ZDH-dG-dtm" secondAttribute="leadingMargin" id="IdS-3k-QUF"/>
-                                                <constraint firstItem="7Dh-Hb-Alu" firstAttribute="top" secondItem="ZDH-dG-dtm" secondAttribute="topMargin" id="T8X-nr-YS2"/>
-                                                <constraint firstItem="7Dh-Hb-Alu" firstAttribute="trailing" secondItem="ZDH-dG-dtm" secondAttribute="trailingMargin" id="YVA-Wa-COO"/>
-                                                <constraint firstItem="7Dh-Hb-Alu" firstAttribute="bottom" secondItem="ZDH-dG-dtm" secondAttribute="bottomMargin" id="gEU-CJ-swS"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="guestCollectionView" destination="7Dh-Hb-Alu" id="sVe-wd-juu"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventTasksTableViewCell" id="5de-fl-MYv" customClass="EventTasksTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="483" width="375" height="375"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5de-fl-MYv" id="2N8-Ye-SlH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L53-Cp-esO">
-                                                    <rect key="frame" x="24" y="16" width="48" height="48"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="48" id="j9d-ze-m0y"/>
-                                                        <constraint firstAttribute="height" constant="48" id="sI3-1M-g3g"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1g-hu-Ykj">
-                                                    <rect key="frame" x="80" y="16" width="277" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="R1g-hu-Ykj" firstAttribute="leading" secondItem="L53-Cp-esO" secondAttribute="trailing" constant="8" id="GQ4-aT-bu2"/>
-                                                <constraint firstItem="R1g-hu-Ykj" firstAttribute="top" secondItem="L53-Cp-esO" secondAttribute="top" id="Jwa-65-DKB"/>
-                                                <constraint firstItem="L53-Cp-esO" firstAttribute="top" secondItem="2N8-Ye-SlH" secondAttribute="topMargin" constant="8" id="s17-yZ-pcL"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="R1g-hu-Ykj" secondAttribute="trailing" constant="10" id="vfk-sc-YsA"/>
-                                                <constraint firstItem="L53-Cp-esO" firstAttribute="leading" secondItem="2N8-Ye-SlH" secondAttribute="leadingMargin" constant="16" id="zb2-u7-5xN"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="taskDescLabel" destination="R1g-hu-Ykj" id="13t-2r-Hiw"/>
-                                            <outlet property="taskImageView" destination="L53-Cp-esO" id="EkK-kj-qky"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="PhotoesTableViewCell" id="llZ-JE-fjv" customClass="PhotoesTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="858" width="375" height="375"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="llZ-JE-fjv" id="Szc-oH-BlJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4HO-Za-ZlI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dpr-8U-bzC">
-                                                        <size key="itemSize" width="100" height="100"/>
-                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    </collectionViewFlowLayout>
-                                                    <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="2yx-Hv-Q2G" customClass="PhotoCollectionViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DIN-Bf-8td">
-                                                                        <rect key="frame" x="10" y="10" width="80" height="80"/>
-                                                                        <gestureRecognizers/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="80" id="LYy-c3-bna"/>
-                                                                            <constraint firstAttribute="height" constant="80" id="mmz-yz-O1l"/>
-                                                                        </constraints>
-                                                                    </imageView>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstItem="DIN-Bf-8td" firstAttribute="leading" secondItem="2yx-Hv-Q2G" secondAttribute="leading" constant="10" id="GQx-P9-mdO"/>
-                                                                <constraint firstItem="DIN-Bf-8td" firstAttribute="top" secondItem="2yx-Hv-Q2G" secondAttribute="top" constant="10" id="gp3-1b-KUL"/>
-                                                            </constraints>
-                                                            <connections>
-                                                                <outlet property="photoImageView" destination="DIN-Bf-8td" id="VCn-kU-eFH"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                    </cells>
-                                                </collectionView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="4HO-Za-ZlI" firstAttribute="top" secondItem="Szc-oH-BlJ" secondAttribute="top" id="Lh6-e9-dZo"/>
-                                                <constraint firstItem="4HO-Za-ZlI" firstAttribute="leading" secondItem="Szc-oH-BlJ" secondAttribute="leading" id="Xuc-qF-gbd"/>
-                                                <constraint firstAttribute="bottom" secondItem="4HO-Za-ZlI" secondAttribute="bottom" id="oPn-AZ-xk7"/>
-                                                <constraint firstAttribute="trailing" secondItem="4HO-Za-ZlI" secondAttribute="trailing" id="yRD-XE-tX3"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="photoesCollectionView" destination="4HO-Za-ZlI" id="FcT-5T-E7t"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="EventGuestCommentTableViewCell" id="neZ-4a-QOy" customClass="EventGuestCommentTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1233" width="375" height="375"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="neZ-4a-QOy" id="jlD-jm-2mq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iaP-g1-vle">
-                                                    <rect key="frame" x="24" y="16" width="54" height="54"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="54" id="RVq-KA-7JH"/>
-                                                        <constraint firstAttribute="width" constant="54" id="eQs-Hq-uRM"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9W-Y8-pdZ">
-                                                    <rect key="frame" x="96" y="16" width="261" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkd-Hb-E8F">
-                                                    <rect key="frame" x="96" y="39" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Vkd-Hb-E8F" firstAttribute="top" secondItem="G9W-Y8-pdZ" secondAttribute="bottom" constant="2" id="2Fk-qA-KL6"/>
-                                                <constraint firstItem="G9W-Y8-pdZ" firstAttribute="top" secondItem="iaP-g1-vle" secondAttribute="top" id="CI1-iT-LWx"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="G9W-Y8-pdZ" secondAttribute="trailing" constant="10" id="Jtv-SM-opr"/>
-                                                <constraint firstItem="iaP-g1-vle" firstAttribute="leading" secondItem="jlD-jm-2mq" secondAttribute="leadingMargin" constant="16" id="Kad-Tk-uVH"/>
-                                                <constraint firstItem="G9W-Y8-pdZ" firstAttribute="leading" secondItem="iaP-g1-vle" secondAttribute="trailing" constant="18" id="awH-op-zLN"/>
-                                                <constraint firstItem="Vkd-Hb-E8F" firstAttribute="leading" secondItem="G9W-Y8-pdZ" secondAttribute="leading" id="rCa-mN-WXK"/>
-                                                <constraint firstItem="iaP-g1-vle" firstAttribute="top" secondItem="jlD-jm-2mq" secondAttribute="topMargin" constant="8" id="tSD-eT-ZDn"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="guestComment" destination="Vkd-Hb-E8F" id="Lq8-ZL-ndF"/>
-                                            <outlet property="guestImageView" destination="iaP-g1-vle" id="u3W-jU-9NL"/>
-                                            <outlet property="guestName" destination="G9W-Y8-pdZ" id="tjW-1Y-SmU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
