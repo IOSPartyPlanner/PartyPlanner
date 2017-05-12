@@ -49,7 +49,7 @@ class MediaApi: NSObject {
     let filePath  = "media/" + event.id + UUID().uuidString
     let urlAbsoulteString = mediaUrl.absoluteString
     var mediaType: MediaType = MediaType.video
-    if ((urlAbsoulteString.hasSuffix("png")) || (urlAbsoulteString.hasSuffix("jpg")) || (urlAbsoulteString.hasSuffix("jpeg"))){
+    if ((urlAbsoulteString.hasSuffix("PNG")) || (urlAbsoulteString.hasSuffix("JPG")) || (urlAbsoulteString.hasSuffix("JPEG"))){
       mediaType = MediaType.image
     }
       
