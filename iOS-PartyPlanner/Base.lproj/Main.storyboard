@@ -77,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="545.625" y="-1064.9766666666667"/>
+            <point key="canvasLocation" x="798" y="-1066"/>
         </scene>
         <!--Event View Controller-->
         <scene sceneID="Lg0-db-PbI">
@@ -690,7 +690,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwX-3E-Bd0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1167.5" y="-206.5"/>
+            <point key="canvasLocation" x="1753" y="-272"/>
         </scene>
         <!--Upcoming Events-->
         <scene sceneID="1V9-4Z-q72">
@@ -718,7 +718,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kLE-Nd-thh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2148" y="-207"/>
+            <point key="canvasLocation" x="2913" y="-272"/>
         </scene>
         <!--Event Tasks-->
         <scene sceneID="jA9-2v-xwR">
@@ -1092,7 +1092,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="leF-08-mR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100.5" y="-1064.5"/>
+            <point key="canvasLocation" x="1754" y="-1066"/>
         </scene>
         <!--Edit Photo View Controller-->
         <scene sceneID="P3e-LA-Xfw">
@@ -1483,9 +1483,9 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3503" y="-185"/>
+            <point key="canvasLocation" x="3649" y="-272"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Guests-->
         <scene sceneID="gxy-Bz-jKX">
             <objects>
                 <viewController storyboardIdentifier="eventCreationAddContactSegue" id="fkB-Zh-RbC" sceneMemberID="viewController">
@@ -1507,7 +1507,39 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Onz-Eh-rMi" id="TyF-Yj-rUy">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h37-x3-AAD" userLabel="Name">
+                                                    <rect key="frame" x="15" y="4" width="360" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="kNh-xv-NlT"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfa-Ff-ZBq" userLabel="Email">
+                                                    <rect key="frame" x="15" y="35" width="360" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="5jP-go-aHF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Rfa-Ff-ZBq" secondAttribute="bottom" constant="4" id="2e8-ho-I4t"/>
+                                                <constraint firstItem="Rfa-Ff-ZBq" firstAttribute="leading" secondItem="RlY-Mv-EEc" secondAttribute="leading" constant="15" id="3wY-IG-eTD"/>
+                                                <constraint firstItem="h37-x3-AAD" firstAttribute="leading" secondItem="RlY-Mv-EEc" secondAttribute="leading" constant="15" id="9Dp-fc-5WX"/>
+                                                <constraint firstAttribute="trailing" secondItem="Rfa-Ff-ZBq" secondAttribute="trailing" id="B5T-iC-QRT"/>
+                                                <constraint firstItem="h37-x3-AAD" firstAttribute="top" secondItem="RlY-Mv-EEc" secondAttribute="top" constant="4" id="boK-gc-A0Q"/>
+                                                <constraint firstAttribute="trailing" secondItem="h37-x3-AAD" secondAttribute="trailing" id="iUp-pp-quO"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="emailLabel" destination="Rfa-Ff-ZBq" id="dGZ-hV-ctC"/>
+                                            <outlet property="nameLabel" destination="h37-x3-AAD" id="sTM-HA-15S"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1520,10 +1552,21 @@
                             <constraint firstAttribute="trailing" secondItem="l6Z-Mt-4m0" secondAttribute="trailing" id="zog-FX-JjH"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Select Guests" id="YJe-Iq-b1B">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="JQJ-nH-zBe">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onCancel:" destination="fkB-Zh-RbC" id="FQ8-jO-8gT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="l6Z-Mt-4m0" id="J3q-k0-C9R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HN1-O2-p9x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4560.8000000000002" y="-369.26536731634184"/>
+            <point key="canvasLocation" x="4606" y="-272"/>
         </scene>
         <!--Event Creation View Controller-->
         <scene sceneID="VWG-Ap-LMQ">
@@ -1589,7 +1632,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1wP-n7-XVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3696.8000000000002" y="-958.4707646176912"/>
+            <point key="canvasLocation" x="3650" y="-1066"/>
         </scene>
         <!--Event Location-->
         <scene sceneID="WZh-R0-1es">
@@ -1677,14 +1720,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fIO-4i-HUW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4561" y="-1030"/>
+            <point key="canvasLocation" x="4606" y="-1096"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o6r-RN-ypf">
             <objects>
                 <navigationController storyboardIdentifier="EventViewNC" automaticallyAdjustsScrollViewInsets="NO" id="VOF-yO-m27" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5iL-Dk-x6m">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5iL-Dk-x6m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1702,7 +1745,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QfT-mN-LLz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lIx-7Y-afv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lIx-7Y-afv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1713,7 +1756,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j81-yv-yu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2916" y="-958.4707646176912"/>
+            <point key="canvasLocation" x="2913" y="-1066"/>
         </scene>
     </scenes>
     <resources>
@@ -1754,7 +1797,7 @@
         <image name="time" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Kp-hc-4ib"/>
+        <segue reference="gL2-Aa-NB4"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.82704166670000001" green="0.2466242914" blue="0.1034497729" alpha="1" colorSpace="calibratedRGB"/>
 </document>

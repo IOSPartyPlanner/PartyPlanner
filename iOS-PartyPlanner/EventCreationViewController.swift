@@ -16,16 +16,20 @@ class EventCreationViewController: UIViewController {
   var datepicker = UIDatePicker()
   var toolbar = UIToolbar()
   
+  fileprivate var event: Event!
+
   // current states
-  var currentIndex: Int!
-  var eventStartDateTime: Date!
-  var eventEndDateTime: Date!
-  var eventName: String?
-  var locationSelected = false
-  var location: String?
+  fileprivate var currentIndex: Int!
+  fileprivate var eventStartDateTime: Date!
+  fileprivate var eventEndDateTime: Date!
+  fileprivate var eventName: String?
+  fileprivate var eventTaskCount: Int = 0
+  fileprivate var eventGuestList: [String] = []
+  fileprivate var locationSelected = false
+  fileprivate var location: String?
   
   // image/video
-  var eventImage: UIImage?
+  fileprivate var eventImage: UIImage?
   
   //Event host profileImage
   var eventHostProfileImage: String?
@@ -38,6 +42,7 @@ class EventCreationViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     
+    event = Event()
     prepareToolBars()
     
     // initially set the event start time as currrent time and
@@ -59,8 +64,19 @@ class EventCreationViewController: UIViewController {
   // MARK: - Navigation
   // In a storyboard-based application, you will often want to do a little preparation before navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
     if segue.identifier == "locationSelectionSegue" {
       let vc = segue.destination as! LocationsViewController
+      vc.delegate = self
+    }
+    if segue.identifier == "EventCreationAddContactSegue" {
+      let vc = segue.destination as! AddContactsViewController
+      vc.delegate = self
+    }
+    if segue.identifier == "EventCreationAddTaskSegue" {
+      let vc = segue.destination as! TasksViewController
+      vc.isNewevent = true
+      vc.event = event
       vc.delegate = self
     }
   }
@@ -163,7 +179,30 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.delegate = self
       return cell
     }
-    
+    else if indexPath.row == 5 {
+      // Add Guests
+      let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
+      cell.textInput.leftImage = #imageLiteral(resourceName: "TimerComplete")
+      cell.textInput.leftPadding = 40
+      cell.textInput.placeholder = "Add guests for the event"
+      cell.indexRow = indexPath.row
+      cell.textInput.isUserInteractionEnabled = false
+      cell.textInput.text = "\(eventGuestList.count) guests added"
+      cell.delegate = self
+      return cell
+    }
+    else if indexPath.row == 6 {
+      // Add Tasks
+      let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
+      cell.textInput.leftImage = #imageLiteral(resourceName: "TimerComplete")
+      cell.textInput.leftPadding = 40
+      cell.textInput.placeholder = "Add tasks"
+      cell.indexRow = indexPath.row
+      cell.textInput.isUserInteractionEnabled = false
+      cell.textInput.text = "\(eventTaskCount) tasks added"
+      cell.delegate = self
+      return cell
+    }
     return UITableViewCell()
   }
   
@@ -306,4 +345,24 @@ extension EventCreationViewController: TextInputCell2Delegate {
     currentIndex = 4
     locationSelected = false
   }
+}
+
+// MARK: - Task creation and contact selection delegates
+extension EventCreationViewController: TasksViewControllerDelegate, AddContactsViewControllerDelegate {
+  
+  func addContactsViewController(addContactsViewController: AddContactsViewController, contactsAdded: [String]) {
+    let newGuestList = eventGuestList + contactsAdded
+    eventGuestList = Array(Set(newGuestList))
+    let indexPath = IndexPath(item: 5, section: 0)
+    tableView.reloadRows(at: [indexPath], with: .automatic)
+  }
+  
+  func tasksViewController(tasksViewController: TasksViewController,  count: Int) {
+    if count > 0 {
+      eventTaskCount = count
+      let indexPath = IndexPath(item: 6, section: 0)
+      tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+  }
+  
 }

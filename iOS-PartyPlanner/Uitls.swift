@@ -91,4 +91,8 @@ class Utils: NSObject {
     }
   }
   
+  static func generateUUID() -> String {
+    return UUID().uuidString
+  }
+  
 }

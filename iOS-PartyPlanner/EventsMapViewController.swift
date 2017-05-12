@@ -35,7 +35,7 @@ class EventsMapViewController: UIViewController,CLLocationManagerDelegate{
     
     func pinEvents(){
         for event in events! {
-            addAnnotationAtAddress(address: event.location, title: event.name!)
+            addAnnotationAtAddress(address: event.location!, title: event.name!)
         }
     }
     
