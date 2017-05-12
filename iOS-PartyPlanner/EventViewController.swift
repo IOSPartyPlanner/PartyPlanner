@@ -9,59 +9,55 @@
 import UIKit
 
 class EventViewController: UIViewController {
-
+    
     @IBAction func onSignout(_ sender: UIBarButtonItem) {
         User.currentUser?.signout()
     }
     
     @IBOutlet weak var eventTableView: UITableView!
-  
+    
     var event: Event?
     
     var guestsCell: EventGuestsTableViewCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print("load event view controller")
+        
         // Do any additional setup after loading the view.
         eventTableView.delegate = self
         eventTableView.dataSource = self
-
-      eventTableView.sectionHeaderHeight = UITableViewAutomaticDimension
-      eventTableView.estimatedSectionHeaderHeight = 25
-  
-      eventTableView.sectionFooterHeight = UITableViewAutomaticDimension
-      eventTableView.estimatedSectionHeaderHeight = 25
-      
-      eventTableView.rowHeight = UITableViewAutomaticDimension
-      eventTableView.estimatedRowHeight = 100
+        
+        eventTableView.rowHeight = UITableViewAutomaticDimension
+        eventTableView.estimatedRowHeight = 100
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier! {
-            case "ShowPhotos":
-                let target =  segue.destination as? PhotoBrowserViewController
-                target?.photosURL = (event?.postEventPhotoesURL)!
-            case "addPhoto":
-                break
-            case "addTask":
-                break
-            case "addComment":
-                break
-            default:
-                break
+        case "ShowPhotos":
+            let target =  segue.destination as? PhotoBrowserViewController
+            target?.photosURL = (event?.postEventPhotoesURL)!
+        case "addPhoto":
+            break
+        case "addTask":
+            break
+        case "addComment":
+            break
+        default:
+            break
         }
     }
 }
@@ -137,6 +133,6 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             }
             return cell2!
         }
-
+        
     }
 }

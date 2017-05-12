@@ -125,17 +125,18 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: Perform Segue ShowDetails
-        
-        if sign == 0 {
-            //homeTableView.deselectRow(at:indexPath, animated: true)
-            self.performSegue(withIdentifier: "showEvent", sender: self)
-            
-        }
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        //TODO: Perform Segue ShowDetails
+//        print("call didSelectRowAt")
+//        if sign == 0 {
+//            //homeTableView.deselectRow(at:indexPath, animated: true)
+//            self.performSegue(withIdentifier: "showEvent", sender: self)
+//            
+//        }
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("Call perform segue \(segue.identifier)")
         if (segue.identifier?.isEqual("showEvent"))! {
             if sign == 0{
                 let indexPath = homeTableView.indexPathForSelectedRow
@@ -152,9 +153,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 eventViewController.event = event
                 print("Switch view \(event.guests.count)" )
             }
-        }
-            
-        else if (segue.identifier?.isEqual("mapSegue"))!  {
+        } else if (segue.identifier?.isEqual("mapSegue"))!  {
             let mapViewController = segue.destination as! EventsMapViewController
             mapViewController.events = upcomingEventList
         }
