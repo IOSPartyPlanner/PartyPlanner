@@ -37,7 +37,8 @@ class EventGuestsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICol
         let cell = guestCollectionView.dequeueReusableCell(withReuseIdentifier: "GuestCollectionViewCell", for: indexPath) as? GuestCollectionViewCell
         if indexPath.row == 0 {
             cell!.guestImageView.image = UIImage(named: "add")
-            let gesture = UITapGestureRecognizer(target: cell?.guestImageView, action: #selector(addGuest(_:)))
+            cell!.guestImageView.isUserInteractionEnabled = true
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(addGuest(_:)))
             cell?.guestImageView.addGestureRecognizer(gesture)
         } else {
             if let guest = guests?[indexPath.row - 1] {
@@ -48,7 +49,7 @@ class EventGuestsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICol
         return cell!
     }
     
-    @IBAction func addGuest(_ sender: UITapGestureRecognizer) {
+    func addGuest(_ sender: UITapGestureRecognizer) {
         viewController?.performSegue(withIdentifier: "addGuest", sender: self)
     }
 }

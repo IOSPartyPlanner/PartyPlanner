@@ -8,14 +8,23 @@
 
 import UIKit
 import AFNetworking
+import MWPhotoBrowser
 
 class PhotoesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var photoesCollectionView: UICollectionView!
     
-    var photoes: [String]?
+    var photoes: [String]? {
+        didSet {
+            photos = photoes?.map({return URL(string: $0)}).map({ return MWPhoto.init(url: $0)})
+        }
+    }
     
     var viewController: EventViewController?
+    
+    var photos: [MWPhoto]?
+    
+    var browser: MWPhotoBrowser?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,32 +44,59 @@ class PhotoesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (photoes?.count)! + 1 ?? 0
+        return (photoes?.count ?? 0) + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = photoesCollectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as? PhotoCollectionViewCell
         if indexPath.row == 0 {
             cell!.photoImageView.image = UIImage(named: "add")
-            let gesture = UITapGestureRecognizer(target: cell?.photoImageView, action: #selector(addPhoto(_:)))
-            cell?.photoImageView.addGestureRecognizer(gesture)
+            cell?.photoImageView.isUserInteractionEnabled = true
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(addPhoto(_:)))
+            cell?.addGestureRecognizer(gesture)
         } else {
             if let photo = photoes?[indexPath.row - 1] {
-                cell?.photoImageView.setImageWith(NSURL(string:photo)! as URL)
+                cell?.photoImageView.setImageWith(URL(string:photo)!)
+                cell?.photoImageView.isUserInteractionEnabled = true
+                let gesture = UITapGestureRecognizer(target: self, action: #selector(selectImage(_:)))
+                cell?.addGestureRecognizer(gesture)
             }
-            let gesture = UITapGestureRecognizer(target: cell?.photoImageView, action: #selector(selectImage(_:)))
-            cell?.photoImageView.addGestureRecognizer(gesture)
+
         }
         Utils.formatCircleImage(image: cell!.photoImageView)
         return cell!
     }
     
-    @IBAction func selectImage(_ sender: UITapGestureRecognizer) {
-        viewController?.performSegue(withIdentifier: "showPhotos", sender: self)
+    func selectImage(_ sender: UITapGestureRecognizer) {
+        let cell = sender.view as? UICollectionViewCell
+        let indexPath = photoesCollectionView.indexPath(for: cell!)
+        
+        browser = MWPhotoBrowser(delegate: self)
+        browser?.displayActionButton = true
+        browser?.displayNavArrows = true
+        browser?.displaySelectionButtons = true
+        
+        browser?.setCurrentPhotoIndex(UInt((indexPath?.row)! - 1))
+        viewController?.navigationController?.pushViewController(browser!, animated: true)
     }
     
-    @IBAction func addPhoto(_ sender: UITapGestureRecognizer) {
+    func addPhoto(_ sender: UITapGestureRecognizer) {
         viewController?.performSegue(withIdentifier: "addPhoto", sender: self)
     }
     
+}
+
+extension PhotoesTableViewCell: MWPhotoBrowserDelegate {
+    func numberOfPhotos(in photoBrowser: MWPhotoBrowser!) -> UInt {
+        return UInt((photos?.count)!)
+    }
+    
+    func photoBrowser(_ photoBrowser: MWPhotoBrowser!, photoAt index: UInt) -> MWPhotoProtocol! {
+        let uindex = Int(index)
+        if uindex < (photos?.count)! {
+            return photos![uindex]
+        }
+        
+        return nil
+    }
 }

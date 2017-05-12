@@ -151,7 +151,6 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 }
                 let eventViewController = segue.destination as! EventViewController
                 eventViewController.event = event
-                print("Switch view \(event.guests.count)" )
             }
         } else if (segue.identifier?.isEqual("mapSegue"))!  {
             let mapViewController = segue.destination as! EventsMapViewController

@@ -279,36 +279,36 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4HO-Za-ZlI">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4HO-Za-ZlI">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dpr-8U-bzC">
-                                                        <size key="itemSize" width="100" height="100"/>
+                                                        <size key="itemSize" width="76" height="76"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="2yx-Hv-Q2G" customClass="PhotoCollectionViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="76" height="76"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="76" height="76"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DIN-Bf-8td">
-                                                                        <rect key="frame" x="10" y="10" width="80" height="80"/>
+                                                                        <rect key="frame" x="14" y="-2" width="64" height="64"/>
                                                                         <gestureRecognizers/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" constant="80" id="LYy-c3-bna"/>
-                                                                            <constraint firstAttribute="height" constant="80" id="mmz-yz-O1l"/>
+                                                                            <constraint firstAttribute="width" constant="64" id="LYy-c3-bna"/>
+                                                                            <constraint firstAttribute="height" constant="64" id="mmz-yz-O1l"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                 </subviews>
                                                             </view>
                                                             <constraints>
-                                                                <constraint firstItem="DIN-Bf-8td" firstAttribute="leading" secondItem="2yx-Hv-Q2G" secondAttribute="leading" constant="10" id="GQx-P9-mdO"/>
-                                                                <constraint firstItem="DIN-Bf-8td" firstAttribute="top" secondItem="2yx-Hv-Q2G" secondAttribute="top" constant="10" id="gp3-1b-KUL"/>
+                                                                <constraint firstItem="DIN-Bf-8td" firstAttribute="leading" secondItem="2yx-Hv-Q2G" secondAttribute="leadingMargin" constant="6" id="cYx-JU-qMB"/>
+                                                                <constraint firstAttribute="bottomMargin" secondItem="DIN-Bf-8td" secondAttribute="bottom" constant="6" id="uYQ-iN-wk5"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="photoImageView" destination="DIN-Bf-8td" id="VCn-kU-eFH"/>
@@ -420,11 +420,31 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="eventTableView" destination="CcY-UH-L2e" id="byi-LC-4TF"/>
+                        <segue destination="fuP-Vk-bLj" kind="show" identifier="addPhoto" id="C24-Iu-x8z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="av6-Ky-zzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1580" y="685"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ZiT-dw-dqe">
+            <objects>
+                <viewController id="fuP-Vk-bLj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d16-1q-lun"/>
+                        <viewControllerLayoutGuide type="bottom" id="1jh-KS-bza"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vMC-RW-eRD">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7Fw-89-xpq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UgA-cY-Pc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2775" y="684"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="DK1-5g-iBM">
@@ -1619,7 +1639,7 @@
             <objects>
                 <navigationController storyboardIdentifier="EventViewNC" automaticallyAdjustsScrollViewInsets="NO" id="VOF-yO-m27" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5iL-Dk-x6m">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5iL-Dk-x6m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1637,7 +1657,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QfT-mN-LLz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lIx-7Y-afv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lIx-7Y-afv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

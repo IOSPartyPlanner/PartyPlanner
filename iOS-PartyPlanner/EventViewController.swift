@@ -47,9 +47,12 @@ class EventViewController: UIViewController {
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier! {
-        case "ShowPhotos":
+        case "showPhotoes":
             let target =  segue.destination as? PhotoBrowserViewController
-            target?.photosURL = (event?.postEventPhotoesURL)!
+            target?.startIndex = (sender as? Int)!
+            if let postEventImages = event?.postEventImages {
+                target?.photosURL = postEventImages.map{ return URL(string: $0)! }
+            }
         case "addPhoto":
             break
         case "addTask":
@@ -106,22 +109,22 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch (indexPath.section, (event?.isUserOnwer())!) {
+        switch (indexPath.section, (event?.isPast())!) {
         case (0, _):
             let cell0 = eventTableView.dequeueReusableCell(withIdentifier: "EventSummaryTableViewCell", for: indexPath) as? EventSummaryTableViewCell
             cell0?.event = event
             return cell0!
-        case (1, true):
+        case (1, false):
             guestsCell = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestsTableViewCell", for: indexPath) as? EventGuestsTableViewCell
             guestsCell?.guests = event?.guests
             guestsCell?.viewController = self
             return guestsCell!
-        case (1, false):
+        case (1, true):
             let cell1 = eventTableView.dequeueReusableCell(withIdentifier: "PhotoesTableViewCell", for: indexPath) as? PhotoesTableViewCell
             cell1?.photoes = event?.postEventImages
             cell1?.viewController = self
             return cell1!
-        case (2, true):
+        case (2, false):
             let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventTasksTableViewCell", for: indexPath) as? EventTasksTableViewCell
             let task = event?.tasks[indexPath.row]
             cell2?.taskDescLabel.text = task?.name
