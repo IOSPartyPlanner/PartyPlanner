@@ -59,6 +59,8 @@
 		A190B17A1EB68B0D006328AF /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1791EB68B0D006328AF /* CommentApi.swift */; };
 		A1B731091EC2BA6A00976FB8 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B731081EC2BA6A00976FB8 /* LocationsViewController.swift */; };
 		A1B7310C1EC2BADC00976FB8 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7310B1EC2BADC00976FB8 /* LocationCell.swift */; };
+		A1DFE1421EC6400A007AE912 /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DFE1401EC6400A007AE912 /* AddContactsViewController.swift */; };
+		A1DFE1431EC6400A007AE912 /* ContactSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DFE1411EC6400A007AE912 /* ContactSelectionCell.swift */; };
 		A1F708011EC246F0004F7328 /* TextInputCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F708001EC246F0004F7328 /* TextInputCell2.swift */; };
 		F7B01E901EB7EC190023852A /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E8F1EB7EC190023852A /* EventDetailViewController.swift */; };
 		F7B01E921EB7F4C70023852A /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E911EB7F4C70023852A /* MediaCollectionViewCell.swift */; };
@@ -133,6 +135,8 @@
 		A190B1791EB68B0D006328AF /* CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
 		A1B731081EC2BA6A00976FB8 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		A1B7310B1EC2BADC00976FB8 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		A1DFE1401EC6400A007AE912 /* AddContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsViewController.swift; sourceTree = "<group>"; };
+		A1DFE1411EC6400A007AE912 /* ContactSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSelectionCell.swift; sourceTree = "<group>"; };
 		A1F708001EC246F0004F7328 /* TextInputCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputCell2.swift; sourceTree = "<group>"; };
 		BA8DCCBDCBEA68C30D6893BC /* Pods_iOS_PartyPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_PartyPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B01E8F1EB7EC190023852A /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
@@ -356,6 +360,8 @@
 		A1B731071EC2BA3200976FB8 /* Event Creation */ = {
 			isa = PBXGroup;
 			children = (
+				A1DFE1401EC6400A007AE912 /* AddContactsViewController.swift */,
+				A1DFE1411EC6400A007AE912 /* ContactSelectionCell.swift */,
 				A18AB0731EC19E7E00E83B0C /* EventCreationViewController.swift */,
 				A1B731081EC2BA6A00976FB8 /* LocationsViewController.swift */,
 			);
@@ -478,7 +484,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6E784677F281C773C25D3B6D /* [CP] Embed Pods Frameworks */ = {
@@ -539,11 +545,13 @@
 				F7B01E9E1EBFA1050023852A /* OldEventApi.swift in Sources */,
 				F7F330D71EC281B6008892DC /* ColorControl.swift in Sources */,
 				821B65D81EB0400C0078333B /* EventGuestCommentTableViewCell.swift in Sources */,
+				A1DFE1421EC6400A007AE912 /* AddContactsViewController.swift in Sources */,
 				A18AB06F1EC19D3B00E83B0C /* MediaApi.swift in Sources */,
 				821B65CE1EB011160078333B /* Event.swift in Sources */,
 				F7F330D51EC12FE1008892DC /* EditPhotoViewController.swift in Sources */,
 				821B65E61EB04C7E0078333B /* APIClient.swift in Sources */,
 				A18AB0791EC1A17700E83B0C /* ImageCell.swift in Sources */,
+				A1DFE1431EC6400A007AE912 /* ContactSelectionCell.swift in Sources */,
 				821B65E21EB04ABD0078333B /* EventViewController.swift in Sources */,
 				A190B1771EB67D2B006328AF /* UserApi.swift in Sources */,
 				821B65CC1EB011070078333B /* User.swift in Sources */,
