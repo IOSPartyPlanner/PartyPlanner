@@ -93,13 +93,13 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             return nil
         case 1:
             if (event?.isPast())! {
-                return nil
+                return "Photoes/Videoes"
             } else {
                 return "Guests"
             }
         case 2:
             if (event?.isPast())! {
-                return nil
+                return "Comments"
             } else {
                 return "Tasks"
             }
