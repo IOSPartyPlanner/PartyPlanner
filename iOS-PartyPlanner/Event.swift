@@ -62,7 +62,7 @@ public class Event: NSObject {
   override init() {
     id = Utils.generateUUID()
     dateTime = Date.init()
-    hostEmail = (User.currentUser?.email) ?? "dummy user"
+    hostEmail = (User.currentUser?.email) ?? "dummy user" // TODO: remove dummy user
   }
   
   //TODO: Need to add detail field to event table in Friebase

@@ -65,10 +65,10 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
     var address = venue.value(forKeyPath: "location.address") as? String
     let addressName = venue["name"] as? String
     print("Selected address Name \(addressName!)")
-    print("Selected address \(address!)")
     if address == nil {
       address = addressName
     }
+    print("Selected address \(address!)")
     delegate?.locationsPickedLocation!(controller: self, location: address!)
     navigationController?.popViewController(animated: true)
   }
