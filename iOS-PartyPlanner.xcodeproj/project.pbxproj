@@ -36,6 +36,7 @@
 		82869EA21EC2CF5D0044AFCB /* GuestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82869EA11EC2CF5D0044AFCB /* GuestCollectionViewCell.swift */; };
 		8298EBA11EC00D8100EBA37F /* EventTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298EBA01EC00D8100EBA37F /* EventTasksTableViewCell.swift */; };
 		8298EBA31EC01C2800EBA37F /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8298EBA21EC01C2800EBA37F /* CreateTaskViewController.swift */; };
+		82A7F15F1EC6CE0600D03CC9 /* AddInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A7F15E1EC6CE0600D03CC9 /* AddInfoViewController.swift */; };
 		82CCAEA61EBF9BCE00D3C71C /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CCAEA51EBF9BCE00D3C71C /* PhotoBrowserViewController.swift */; };
 		82D4AF0A1EB52D990087E0A6 /* PhotoesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D4AF091EB52D990087E0A6 /* PhotoesTableViewCell.swift */; };
 		A1470F371EAF20C600DE373A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F361EAF20C600DE373A /* AppDelegate.swift */; };
@@ -107,6 +108,7 @@
 		82869EA11EC2CF5D0044AFCB /* GuestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestCollectionViewCell.swift; sourceTree = "<group>"; };
 		8298EBA01EC00D8100EBA37F /* EventTasksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTasksTableViewCell.swift; sourceTree = "<group>"; };
 		8298EBA21EC01C2800EBA37F /* CreateTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
+		82A7F15E1EC6CE0600D03CC9 /* AddInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddInfoViewController.swift; sourceTree = "<group>"; };
 		82CCAEA51EBF9BCE00D3C71C /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
 		82D476401EC2A1790056CFF0 /* iOS-PartyPlanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOS-PartyPlanner-Bridging-Header.h"; sourceTree = "<group>"; };
 		82D4AF091EB52D990087E0A6 /* PhotoesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoesTableViewCell.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				82CCAEA51EBF9BCE00D3C71C /* PhotoBrowserViewController.swift */,
 				8298EBA21EC01C2800EBA37F /* CreateTaskViewController.swift */,
 				F7F330D41EC12FE1008892DC /* EditPhotoViewController.swift */,
+				82A7F15E1EC6CE0600D03CC9 /* AddInfoViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -484,7 +487,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6E784677F281C773C25D3B6D /* [CP] Embed Pods Frameworks */ = {
@@ -553,6 +556,7 @@
 				A18AB0791EC1A17700E83B0C /* ImageCell.swift in Sources */,
 				A1DFE1431EC6400A007AE912 /* ContactSelectionCell.swift in Sources */,
 				821B65E21EB04ABD0078333B /* EventViewController.swift in Sources */,
+				82A7F15F1EC6CE0600D03CC9 /* AddInfoViewController.swift in Sources */,
 				A190B1771EB67D2B006328AF /* UserApi.swift in Sources */,
 				821B65CC1EB011070078333B /* User.swift in Sources */,
 				821B65C21EAFF1E90078333B /* MaterialViewController.swift in Sources */,
