@@ -29,7 +29,7 @@ class EventCreationViewController: UIViewController {
   fileprivate var eventTaskCount: Int = 0
   fileprivate var eventMediaUrl: URL!
   fileprivate var eventMediaType: MediaType!
-  fileprivate var eventMediaFirebaseUrl: String!
+//  fileprivate var eventMediaFirebaseUrl: String!
   
   // image/video
   fileprivate var eventImage: UIImage?
@@ -413,29 +413,39 @@ extension EventCreationViewController {
     if eventName == nil {
       displayDisapperaingAlert("oops! you forgot to name your event")
       return
+    } else {
+      event.name = eventName
     }
     
     // check location
     if location == nil {
       displayDisapperaingAlert("Event location cannot be empty")
       return
+    } else {
+      event.location = location
     }
     
     // check start date < check end date
     if Utils.isDateTimePast(date: eventStartDateTime) {
       displayDisapperaingAlert("Event start date cannot be in the past!!!")
       return
+    } else {
+      event.dateTime = eventStartDateTime
     }
     
     if (eventEndDateTime < eventStartDateTime) ||  Utils.isDateTimePast(date: eventEndDateTime) {
       displayDisapperaingAlert("Event cannot end before beginning")
       return
+    } else {
+      event.peroid = eventEndDateTime.timeIntervalSince(eventEndDateTime)
     }
     
     // check guests
     if eventGuestList.count <= 0 {
       displayDisapperaingAlert("You forgot to invite friends and family")
       return
+    } else {
+      event.guestEmailList = eventGuestList
     }
     
     // if checks pass, upload Image
@@ -445,15 +455,33 @@ extension EventCreationViewController {
       filepath: "event\(event.id)/invitation.jpg",
       success: { (returnUrl) in
         print("image uploaded successfully")
-        self.eventMediaFirebaseUrl = returnUrl
+        self.event.inviteMediaUrl = returnUrl
     }) {
       print("\n\nimage upload error!!")
     }
+    var email = ""
+    if let currentUser = User.currentUser {
+      email = currentUser.email!
+    } else {
+      email = "u3@gmai.com"
+    }
     
-    // update event object
+    event.hostEmail = email
+    event.postEventImages = []
+    event.postEventVideos = []
+    event.likesCount = 0
+    event.postEventCommentIdList = []
     
     // call API to create RSVPs for guest
-    
+    RsvpApi.sharedInstance.generateRsvpForGuestList(
+      eventId: event.id,
+      guestEmailList: eventGuestList,
+      success: {
+        EventApi.sharedInstance.storeEvent(event: self.event)
+        self.displayDisapperaingAlert("Event Created Successfully")
+    },
+      failure: {
+    })
   }
   
   func displayDisapperaingAlert(_ message: String) {

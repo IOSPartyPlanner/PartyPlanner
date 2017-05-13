@@ -30,6 +30,18 @@ class RsvpApi:  NSObject {
     delegate?.rsvpApi!(rsvpApi: self, taskUpdated: rsvp)
   }
   
+  func generateRsvpForGuestList(eventId: String, guestEmailList: [String], success: @escaping () -> (), failure: @escaping () -> ()) {
+    print("generating RSVP for guest list")
+    for guestEmail in guestEmailList {
+      let rsvp = RSVP(id: Utils.generateUUID(),
+                      eventId: eventId,
+                      guestEmail: guestEmail,
+                      guestPlusX: 0,
+                      response: .no)
+      storeRsvp(rsvp: rsvp)
+    }
+  }
+  
   func getRsvpById(rsvpId: String, success: @escaping (RSVP?) ->(), failure: @escaping () -> ()) {
     print("RsvpAPI : searching rsvp by ID \(rsvpId)")
     var rsvp: RSVP?
