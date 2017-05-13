@@ -138,4 +138,10 @@ class EventApi: NSObject {
         event.postEventImages?.append(imageURL)
         storeEvent(event: event)
     }
+
+
+    func addGuestEmail(_ emailId: String, withEvent event: Event) {
+        event.guestEmailList?.append(emailId)
+        storeEvent(event: event)
+    }
 }

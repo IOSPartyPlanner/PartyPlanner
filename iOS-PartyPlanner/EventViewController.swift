@@ -246,7 +246,17 @@ extension EventViewController: ABPeoplePickerNavigationControllerDelegate {
     }
     
     func peoplePickerNavigationController(_ peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord) {
-        print("\(person)")
+        
+        let emails = ABRecordCopyValue(person, kABPersonEmailProperty).takeRetainedValue()  as ABMultiValue
+        let emailIds = ABMultiValueCopyArrayOfAllValues(emails).takeUnretainedValue() as! [String]
+        if emailIds.count > 0 {
+            EventApi.sharedInstance.addGuestEmail(emailIds.first!, withEvent: event!)
+            UserApi.sharedInstance.getUserByEmail(userEmail: emailIds.first!, success: { (user) in
+                self.event?.guests.append(user!)
+                self.eventTableView.reloadData()
+            }, failure: {})
+        }
+        
         dismiss(animated: true, completion: nil)
     }
 }
