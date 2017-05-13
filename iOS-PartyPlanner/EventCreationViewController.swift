@@ -20,19 +20,28 @@ class EventCreationViewController: UIViewController {
   
   // current states
   fileprivate var currentIndex: Int!
-  fileprivate var eventStartDateTime: Date!
-  fileprivate var eventEndDateTime: Date!
   fileprivate var eventName: String?
-  fileprivate var eventTaskCount: Int = 0
-  fileprivate var eventGuestList: [String] = []
   fileprivate var locationSelected = false
   fileprivate var location: String?
+  fileprivate var eventStartDateTime: Date!
+  fileprivate var eventEndDateTime: Date!
+  fileprivate var eventGuestList: [String] = []
+  fileprivate var eventTaskCount: Int = 0
+  fileprivate var eventMediaUrl: URL!
+  fileprivate var eventMediaType: MediaType!
+  fileprivate var eventMediaFirebaseUrl: String!
   
   // image/video
   fileprivate var eventImage: UIImage?
   
-  //Event host profileImage
+  // Event host profileImage
   var eventHostProfileImage: String?
+  
+  // placeholders
+  var eventNamePlaceHolder = "Event Name"
+  var eventLocationPlaceHodler = "Location"
+  var eventStartDatePlaceHodler = "Event Start Date Time"
+  var eventEndDatePlaceHodler = "Event End Date Time"
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -48,8 +57,8 @@ class EventCreationViewController: UIViewController {
     // initially set the event start time as currrent time and
     // end time an hour later
     
-    eventStartDateTime = Date.init()
-    eventEndDateTime = Date.init().addingTimeInterval(60.0)
+    eventStartDateTime = Date.init().addingTimeInterval(1000.0)
+    eventEndDateTime = Date.init().addingTimeInterval(4600.0)
     
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 200
@@ -61,11 +70,17 @@ class EventCreationViewController: UIViewController {
     tableView.register(inputCellNib, forCellReuseIdentifier: "TextInputCell")
   }
   
+  
+  @IBAction func onEventSave(_ sender: Any) {
+    validateSaveEvent()
+  }
+  
+  
   // MARK: - Navigation
   // In a storyboard-based application, you will often want to do a little preparation before navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
-    if segue.identifier == "locationSelectionSegue" {
+    if segue.identifier == "EventCreationSelectLocationSegue" {
       let vc = segue.destination as! LocationsViewController
       vc.delegate = self
     }
@@ -80,24 +95,6 @@ class EventCreationViewController: UIViewController {
       vc.delegate = self
     }
   }
-}
-
-// MARK: - Location Picker
-extension EventCreationViewController: LocationsViewControllerDelegate {
-  
-  func locationsPickedLocation(controller: LocationsViewController, location: String) {
-    locationSelected = true
-    print("Addres picked was \(location)")
-    self.location = location
-    let indexpath = IndexPath(item: currentIndex, section: 0)
-    tableView.reloadRows(at: [indexpath], with: .automatic)
-  }
-  
-  func locationsPickedLocation(controller: LocationsViewController, cancelled: String) {
-    // TODO: This is a temporary fix for location search view showing up after cancel
-    locationSelected = true
-  }
-  
 }
 
 // MARK: - Table
@@ -129,7 +126,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
       cell.textInput.leftImage = #imageLiteral(resourceName: "Pen")
       cell.textInput.leftPadding = 40
-      cell.textInput.placeholder = "Event Name"
+      cell.textInput.placeholder = eventNamePlaceHolder
       if eventName != nil {
         cell.textInput.text = eventName
       }
@@ -143,7 +140,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
       cell.textInput.leftImage = #imageLiteral(resourceName: "Marker")
       cell.textInput.leftPadding = 40
-      cell.textInput.placeholder = "Location"
+      cell.textInput.placeholder = eventLocationPlaceHodler
       if location != nil {
         cell.textInput.text = location
       }
@@ -157,7 +154,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
       cell.textInput.leftImage = #imageLiteral(resourceName: "TimerEmpty")
       cell.textInput.leftPadding = 40
-      cell.textInput.placeholder = "Event Start Date Time"
+      cell.textInput.placeholder = eventStartDatePlaceHodler
       cell.indexRow = indexPath.row
       cell.textInput.text = Utils.getShortTimeStampStringFromDate(date: eventStartDateTime)
       cell.textInput.inputView = datepicker
@@ -171,7 +168,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
       cell.textInput.leftImage = #imageLiteral(resourceName: "TimerComplete")
       cell.textInput.leftPadding = 40
-      cell.textInput.placeholder = "Event End Date Time"
+      cell.textInput.placeholder = eventEndDatePlaceHodler
       cell.indexRow = indexPath.row
       cell.textInput.text = Utils.getShortTimeStampStringFromDate(date: eventEndDateTime)
       cell.textInput.inputView = datepicker
@@ -256,6 +253,8 @@ extension EventCreationViewController {
     }
   }
 }
+
+
 // MARK: - Media Selection delegates and methods
 extension EventCreationViewController: ImageCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
   func imageCell(imageCell: ImageCell, media: String) {
@@ -302,13 +301,18 @@ extension EventCreationViewController: ImageCellDelegate, UIImagePickerControlle
     if info[UIImagePickerControllerMediaType] as! String == "public.image" {
       
       let selectImage = info[UIImagePickerControllerEditedImage] as? UIImage
-      //      let image = UIImageJPEGRepresentation(selectImage!, 0.55)! as NSData
       eventImage = selectImage
+      eventMediaType = MediaType.image
       let indexpath = IndexPath(item: 0, section: 0)
       tableView.reloadRows(at: [indexpath], with: .fade)
-//      
-//      let imageURL = UIImageJPEGRepresentation(eventImage!, 0.5) as! NSData
-//      print(imageURL)
+      
+      let mediaURL = info["UIImagePickerControllerReferenceURL"] as? URL
+      let assets = PHAsset.fetchAssets(withALAssetURLs: [mediaURL!], options: nil)
+      let asset = assets.firstObject
+      asset?.requestContentEditingInput(with: nil, completionHandler: { (contentEditingInput, info) in
+        self.eventMediaUrl = contentEditingInput?.fullSizeImageURL
+        print("\n eventMediaUrl  has been set!\n")
+      })
       
     }
     // video
@@ -380,4 +384,86 @@ extension EventCreationViewController: TasksViewControllerDelegate, AddContactsV
     }
   }
   
+}
+
+// MARK: - Location Picker
+extension EventCreationViewController: LocationsViewControllerDelegate {
+  
+  func locationsPickedLocation(controller: LocationsViewController, location: String) {
+    locationSelected = true
+    print("Addres picked was \(location)")
+    self.location = location
+    let indexpath = IndexPath(item: currentIndex, section: 0)
+    tableView.reloadRows(at: [indexpath], with: .automatic)
+  }
+  
+  func locationsPickedLocation(controller: LocationsViewController, cancelled: String) {
+    // TODO: This is a temporary fix for location search view showing up after cancel
+    locationSelected = true
+  }
+  
+}
+
+
+
+extension EventCreationViewController {
+  func validateSaveEvent() {
+    // (Optional) check image
+    // check name
+    if eventName == nil {
+      displayDisapperaingAlert("oops! you forgot to name your event")
+      return
+    }
+    
+    // check location
+    if location == nil {
+      displayDisapperaingAlert("Event location cannot be empty")
+      return
+    }
+    
+    // check start date < check end date
+    if Utils.isDateTimePast(date: eventStartDateTime) {
+      displayDisapperaingAlert("Event start date cannot be in the past!!!")
+      return
+    }
+    
+    if (eventEndDateTime < eventStartDateTime) ||  Utils.isDateTimePast(date: eventEndDateTime) {
+      displayDisapperaingAlert("Event cannot end before beginning")
+      return
+    }
+    
+    // check guests
+    if eventGuestList.count <= 0 {
+      displayDisapperaingAlert("You forgot to invite friends and family")
+      return
+    }
+    
+    // if checks pass, upload Image
+    MediaApi.sharedInstance.uploadMediaToFireBase(
+      mediaUrl: eventMediaUrl,
+      type: eventMediaType,
+      filepath: "event\(event.id)/invitation.jpg",
+      success: { (returnUrl) in
+        print("image uploaded successfully")
+        self.eventMediaFirebaseUrl = returnUrl
+    }) {
+      print("\n\nimage upload error!!")
+    }
+    
+    // update event object
+    
+    // call API to create RSVPs for guest
+    
+  }
+  
+  func displayDisapperaingAlert(_ message: String) {
+    let alert = UIAlertController(title: "", message: message, preferredStyle: .actionSheet)
+    self.present(alert, animated: true, completion: nil)
+    
+    // change to desired number of seconds (in this case 5 seconds)
+    let when = DispatchTime.now() + 2
+    DispatchQueue.main.asyncAfter(deadline: when){
+      alert.dismiss(animated: true, completion: nil)
+    }
+  }
 }

@@ -1707,10 +1707,17 @@
                             <constraint firstItem="0SJ-lk-MOs" firstAttribute="top" secondItem="WVz-1l-8aH" secondAttribute="top" id="pg6-sk-VUP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UKa-r2-56p"/>
+                    <navigationItem key="navigationItem" id="UKa-r2-56p">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="lId-9e-2tl">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="onEventSave:" destination="xQW-DA-swj" id="eSM-i8-1SI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="0SJ-lk-MOs" id="jpv-CX-tBh"/>
-                        <segue destination="1xP-P1-hlA" kind="show" identifier="locationSelectionSegue" id="cMw-e2-QMk"/>
+                        <segue destination="1xP-P1-hlA" kind="show" identifier="EventCreationSelectLocationSegue" id="cMw-e2-QMk"/>
                         <segue destination="GBq-dB-2K0" kind="show" identifier="EventCreationAddTaskSegue" id="btp-xE-CTX"/>
                         <segue destination="fkB-Zh-RbC" kind="show" identifier="EventCreationAddContactSegue" id="TkZ-GM-Xnc"/>
                     </connections>
