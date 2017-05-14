@@ -27,7 +27,7 @@ public class Event: NSObject {
   
   var hostEmail: String
   
-  var hostProfileImage : String?
+  var hostProfileImageUrl : String?
   
   var guestEmailList: [String]?
   
@@ -69,7 +69,7 @@ public class Event: NSObject {
   
   //TODO: Need to add detail field to event table in Friebase
   init(id: String, invitationVideoURL:String?, name: String?,
-       dateTime: Date, tagline: String, hostEmail: String, hostProfileImage: String,
+       dateTime: Date, tagline: String, hostEmail: String, hostProfileImageUrl: String,
        guestEmailList: [String], location: String, inviteMediaUrl: String,
        inviteMediaType: MediaType, postEventImages: [String], postEventVideos: [String],
        likesCount: Int, postEventCommentIdList: [String]) {
@@ -131,7 +131,7 @@ public class Event: NSObject {
       "dateTime": Utils.getTimeStampStringFromDate(date: dateTime),
       "tagline": tagline,
       "hostEmail": hostEmail,
-      "hostProfileImageUrl": hostProfileImage
+      "hostProfileImageUrl": hostProfileImageUrl,
       "guestEmailList": guestEmailList,
       "location": location,
       "inviteImageUrl": inviteMediaUrl,
