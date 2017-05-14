@@ -1633,6 +1633,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UKa-r2-56p">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Hnv-3G-Gde">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="onCancelButton:" destination="xQW-DA-swj" id="L8p-6k-HFn"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="lId-9e-2tl">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -1744,7 +1750,7 @@
             <objects>
                 <navigationController storyboardIdentifier="EventViewNC" automaticallyAdjustsScrollViewInsets="NO" id="VOF-yO-m27" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5iL-Dk-x6m">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5iL-Dk-x6m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1763,7 +1769,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j81-yv-yu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QfT-mN-LLz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lIx-7Y-afv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lIx-7Y-afv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

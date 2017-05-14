@@ -160,15 +160,14 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
       mapViewController.events = upcomingEventList
     }
     else if segue.identifier == "HomeToEventCreationSegue" {
-      let animationView = LOTAnimationView(name: "pencil_write")
-      animationView?.frame = view.bounds
-      animationView?.contentMode = .scaleAspectFit
-      animationView?.animationSpeed = 2
-      self.view.addSubview(animationView!)
-      
-      animationView?.play(completion: { finished in
-        self.navigationController?.popViewController(animated: true)
-      })
+//      let animationView = LOTAnimationView(name: "pencil_write")
+//      animationView?.frame = view.bounds
+//      animationView?.contentMode = .scaleAspectFit
+//      animationView?.animationSpeed = 4
+//      self.view.addSubview(animationView!)
+//      
+//      animationView?.play(completion: { finished in
+//      })
     }
   }
   
@@ -250,7 +249,6 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         }
         self.tasksList.append(self.taskList)
         self.taskList = [Task]()
-        
         
       }, failure:{})
       

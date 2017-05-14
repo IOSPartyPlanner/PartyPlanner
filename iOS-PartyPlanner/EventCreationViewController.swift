@@ -30,7 +30,7 @@ class EventCreationViewController: UIViewController {
   fileprivate var eventTaskCount: Int = 0
   fileprivate var eventMediaUrl: URL!
   fileprivate var eventMediaType: MediaType!
-//  fileprivate var eventMediaFirebaseUrl: String!
+  //  fileprivate var eventMediaFirebaseUrl: String!
   
   // image/video
   fileprivate var eventImage: UIImage?
@@ -57,7 +57,6 @@ class EventCreationViewController: UIViewController {
     
     // initially set the event start time as currrent time and
     // end time an hour later
-    
     eventStartDateTime = Date.init().addingTimeInterval(1000.0)
     eventEndDateTime = Date.init().addingTimeInterval(4600.0)
     
@@ -71,21 +70,14 @@ class EventCreationViewController: UIViewController {
     tableView.register(inputCellNib, forCellReuseIdentifier: "TextInputCell")
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-//    let animationView = LOTAnimationView(name: "pencil_write")
-//    animationView?.frame = view.bounds
-//    animationView?.contentMode = .scaleAspectFit
-//    self.view.addSubview(animationView!)
-//    
-//    animationView?.play(completion: { finished in
-//      animationView?.removeFromSuperview()
-//    })
-  }
-  
-  
   @IBAction func onEventSave(_ sender: Any) {
     validateSaveEvent()
   }
+  
+  @IBAction func onCancelButton(_ sender: Any) {
+    self.dismiss(animated: true, completion: nil)
+  }
+  
   
   
   // MARK: - Navigation
@@ -421,7 +413,11 @@ extension EventCreationViewController: LocationsViewControllerDelegate {
 
 extension EventCreationViewController {
   func validateSaveEvent() {
-    // (Optional) check image
+    // check image
+    if eventMediaUrl == nil {
+      displayDisapperaingAlert("Add an image to your party")
+      return
+    }
     // check name
     if eventName == nil {
       displayDisapperaingAlert("oops! you forgot to name your event")
@@ -462,42 +458,41 @@ extension EventCreationViewController {
     }
     
     // if checks pass, upload Image
-    MediaApi.sharedInstance.uploadMediaToFireBase(
-      mediaUrl: eventMediaUrl,
-      type: eventMediaType,
-      filepath: "event\(event.id)/invitation.jpg",
-      success: { (returnUrl) in
-        print("image uploaded successfully")
-        self.event.inviteMediaUrl = returnUrl
-        self.event.inviteMediaType = self.eventMediaType
-        
-        var email = ""
-        if let currentUser = User.currentUser {
-          email = currentUser.email!
-        } else {
-          email = "u3@gmai.com"
-        }
-        
-        self.event.hostEmail = email
-        self.event.postEventImages = []
-        self.event.postEventVideos = []
-        self.event.likesCount = 0
-        self.event.postEventCommentIdList = []
-        
-        // call API to create RSVPs for guest
-        let animationView = LOTAnimationView(name: "pen_tool_loop")
-        animationView?.frame = self.view.bounds
-        animationView?.contentMode = .scaleAspectFit
-        animationView?.animationSpeed = 2
-        self.view.addSubview(animationView!)
-        
-        animationView?.play(completion: { finished in
+    let animationView = LOTAnimationView(name: "pen_tool_loop")
+    animationView?.frame = self.view.bounds
+    animationView?.contentMode = .scaleAspectFit
+    animationView?.loopAnimation = true
+    self.view.addSubview(animationView!)
+    
+    animationView?.play(completion: { finished in
+      MediaApi.sharedInstance.uploadMediaToFireBase(
+        mediaUrl: self.eventMediaUrl,
+        type: self.eventMediaType,
+        filepath: "event\(self.event.id)/invitation.jpg",
+        success: { (returnUrl) in
+          print("image uploaded successfully")
+          self.event.inviteMediaUrl = returnUrl
+          self.event.inviteMediaType = self.eventMediaType
+          
+          var email = ""
+          if let currentUser = User.currentUser {
+            email = currentUser.email!
+          } else {
+            email = "u3@gmail.com"
+          }
+          
+          self.event.hostEmail = email
+          self.event.postEventImages = []
+          self.event.postEventVideos = []
+          self.event.likesCount = 0
+          self.event.postEventCommentIdList = []
+          
           EventApi.sharedInstance.storeEvent(event: self.event)
-        })
-
-    }) {
-      print("\n\nimage upload error!!")
-    }
+          self.dismiss(animated: true, completion: nil)
+      }) {
+        print("\n\nimage upload error!!")
+      }
+    })
   }
   
   func displayDisapperaingAlert(_ message: String) {
