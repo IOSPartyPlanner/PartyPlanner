@@ -8,13 +8,37 @@
 
 import UIKit
 
-class AddTextInputCell: UITableViewCell {
+class AddTextInputCell: UITableViewCell, UITextViewDelegate {
     
     @IBOutlet weak var textView: UITextView!
+    
+    var placeHolderText: String? {
+        didSet {
+            textView.text = placeHolderText
+            textView.textColor = UIColor.lightGray
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        textView.delegate = self
+
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = placeHolderText
+            textView.textColor = UIColor.lightGray
+        }
     }
 }
 
@@ -30,20 +54,46 @@ class DateSelectionCell: UITableViewCell {
     }
 }
 
-class AddInfoViewController: UIViewController {
+class DatePickerCell: UITableViewCell {
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+}
 
+
+class AddInfoViewController: UIViewController {
+    var dateFormatter = DateFormatter()
+    
     @IBOutlet weak var addInfoTableView: UITableView!
     
-    weak var textView: UITextView!
+    var textView: UITextView?
+    
+    weak var dateValueLabel: UILabel!
     
     var type: String?
+    
+    var isDateMode: Bool = false
+    
+    var datePicker: UIDatePicker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        addInfoTableView.delegate = self
+        addInfoTableView.dataSource = self
+        
+        addInfoTableView.rowHeight = UITableViewAutomaticDimension
+        addInfoTableView.estimatedRowHeight = 100
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
         switch type! {
-            case "Comments":
+            case "Comment":
                 navigationItem.title = "Add your comments here"
                 navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addComment(_:)))
             case "QCode":
@@ -90,24 +140,67 @@ class AddInfoViewController: UIViewController {
 extension AddInfoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch type! {
-        case "Comments":
-            return 2
-        case "QCode":
-            return 1
         case "Task":
-            return 2
+            if isDateMode {
+                return 3
+            } else {
+                return 2
+            }
+        case "QCode", "Comment":
+            return 1
         default:
             return 0
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 1 {
+            isDateMode = !isDateMode
+            if !isDateMode {
+                if let date = datePicker?.date {
+                    dateValueLabel.text = dateFormatter.string(from: date)
+                }
+            } else {
+                datePicker?.setDate(dateFormatter.date(from: dateValueLabel.text!)!, animated: true)
+            }
+            addInfoTableView.reloadData()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        switch indexPath.row {
+        case 0:
             let cell = addInfoTableView.dequeueReusableCell(withIdentifier: "AddTextInputCell", for: indexPath) as? AddTextInputCell
+            textView = cell?.textView
+            switch type! {
+            case "Task":
+                cell?.placeHolderText = "Please add your task here"
+            case "QCode":
+                cell?.placeHolderText = "Add your message to generate QCode"
+            case "Comment":
+                cell?.placeHolderText = "Add you comment for this event"
+            default:
+                break
+            }
             return cell!
-        } else {
+        case 1:
             let cell = addInfoTableView.dequeueReusableCell(withIdentifier: "DateSelectionCell", for: indexPath) as? DateSelectionCell
+            switch type! {
+            case "Task":
+                cell?.dateLabel.text = "Due"
+                if cell?.dateValueLabel.text == "Label" {
+                    cell?.dateValueLabel.text = dateFormatter.string(from: Date())
+                }
+            default:
+                break
+            }
+            dateValueLabel = cell?.dateValueLabel
             return cell!
+        default:
+            let cell = addInfoTableView.dequeueReusableCell(withIdentifier: "DatePickerCell", for: indexPath) as? DatePickerCell
+            datePicker = cell?.datePicker
+            return cell!
+            
         }
     }
 }

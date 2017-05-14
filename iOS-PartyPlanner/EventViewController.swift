@@ -44,7 +44,7 @@ class EventViewController: UIViewController {
         photoesPicker.imagePickerDelegate = self
         pickerController.peoplePickerDelegate = self
         
-        if !(event?.isPast())! {
+        if !(event?.isPast())! && (event?.isUserOnwer())! {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
         }
     }
@@ -55,7 +55,7 @@ class EventViewController: UIViewController {
     }
     
     func generateQCode(_ barItem: UIBarButtonItem) {
-        performSegue(withIdentifier: "generateQCode", sender: self)
+        performSegue(withIdentifier: "addInfo", sender: "QCode")
     }
     
     /*
@@ -65,18 +65,14 @@ class EventViewController: UIViewController {
      
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier! {
-        case "showPhotoes":
-            let target =  segue.destination as? PhotoBrowserViewController
-            target?.startIndex = (sender as? Int)!
-            if let postEventImages = event?.postEventImages {
-                target?.photosURL = postEventImages.map{ return URL(string: $0)! }
-            }
-        case "addPhoto":
+        let target = segue.destination as? AddInfoViewController
+        target?.type = sender as! String
+        switch (target?.type)! {
+        case "Comment":
             break
-        case "addTask":
+        case "QCode":
             break
-        case "addComment":
+        case "Task":
             break
         default:
             break
@@ -123,8 +119,12 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
         case 2:
             if (event?.isPast())! {
                 cell?.titleLabel.text = "Comments"
+                let gesture = UITapGestureRecognizer(target: self, action: #selector(addComment(_:)))
+                cell?.addImageView.addGestureRecognizer(gesture)
             } else {
                 cell?.titleLabel.text = "Tasks"
+                let gesture = UITapGestureRecognizer(target: self, action: #selector(addTask(_:)))
+                cell?.addImageView.addGestureRecognizer(gesture)
             }
         default:
             return nil
@@ -209,6 +209,14 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     
     func addGuests(_ sender: UITapGestureRecognizer) {
         navigationController?.present(pickerController, animated: true, completion: nil)
+    }
+    
+    func addComment(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "addInfo", sender: "Comment")
+    }
+    
+    func addTask(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "addInfo", sender: "Task")
     }
 }
 

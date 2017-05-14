@@ -465,7 +465,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="eventTableView" destination="CcY-UH-L2e" id="byi-LC-4TF"/>
-                        <segue destination="fuP-Vk-bLj" kind="show" identifier="addPhoto" id="C24-Iu-x8z"/>
+                        <segue destination="fuP-Vk-bLj" kind="show" identifier="addInfo" id="C24-Iu-x8z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="av6-Ky-zzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -486,7 +486,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="208" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t9h-7I-hHT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddTextInputCell" rowHeight="200" id="v0L-bD-fWs" customClass="AddTextInputCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
@@ -498,6 +498,9 @@
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DwK-gR-Lvm">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="199.5" id="6Ay-5t-Hyh"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -553,10 +556,35 @@
                                             <outlet property="dateValueLabel" destination="9uu-7m-4ZN" id="pD5-5D-KW7"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DatePickerCell" rowHeight="180" id="9xJ-Ue-Dvs" customClass="DatePickerCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="275" width="375" height="180"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9xJ-Ue-Dvs" id="McW-Uv-xai">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="179.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dx1-4y-rYg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="516397109.07598901">
+                                                        <!--2017-05-13 19:38:29 +0000-->
+                                                    </date>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dx1-4y-rYg" firstAttribute="top" secondItem="McW-Uv-xai" secondAttribute="top" id="9Yj-fa-P3b"/>
+                                                <constraint firstItem="dx1-4y-rYg" firstAttribute="leading" secondItem="McW-Uv-xai" secondAttribute="leading" id="IMF-h7-dRA"/>
+                                                <constraint firstAttribute="bottom" secondItem="dx1-4y-rYg" secondAttribute="bottom" id="YMz-tV-ELc"/>
+                                                <constraint firstAttribute="trailing" secondItem="dx1-4y-rYg" secondAttribute="trailing" id="mKm-dj-wFU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="datePicker" destination="dx1-4y-rYg" id="YSY-eO-vlb"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1jh-KS-bza" firstAttribute="top" secondItem="t9h-7I-hHT" secondAttribute="bottom" id="4Dh-EU-8Rd"/>
                             <constraint firstItem="t9h-7I-hHT" firstAttribute="leading" secondItem="vMC-RW-eRD" secondAttribute="leading" id="Zzi-Zo-wT0"/>
