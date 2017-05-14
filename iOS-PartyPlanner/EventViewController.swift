@@ -114,7 +114,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case 1:
             if (event?.isPast())! {
-                cell?.titleLabel.text = "Photoes/Videoes"
+                cell?.titleLabel.text = "Photos/Videos"
                 let gesture = UITapGestureRecognizer(target: self, action: #selector(addPhotoes(_:)))
                 cell?.addImageView.addGestureRecognizer(gesture)
             } else {
@@ -144,7 +144,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             return nil
         case 1:
             if (event?.isPast())! {
-                return "Photoes/Videoes"
+                return "Photos/Videos"
             } else {
                 return "Guests"
             }

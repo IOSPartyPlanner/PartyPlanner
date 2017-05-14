@@ -23,7 +23,7 @@ class HomeEventTableViewCell: UITableViewCell {
             
             Utils.formatCircleImage(image: profileImageView)
             
-            if let profileImageURL = event?.hostProfileImage{
+            if let profileImageURL = event?.hostProfileImageUrl{
                 profileImageView.setImageWith(NSURL(string:profileImageURL)! as URL)
             }
             

@@ -35,9 +35,6 @@ class EventCreationViewController: UIViewController {
   // image/video
   fileprivate var eventImage: UIImage?
   
-  // Event host profileImage
-  var eventHostProfileImage: String?
-  
   // placeholders
   var eventNamePlaceHolder = "Event Name"
   var eventLocationPlaceHodler = "Location"
@@ -46,8 +43,6 @@ class EventCreationViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    eventHostProfileImage = User.currentUser?.imageUrl
     
     tableView.delegate = self
     tableView.dataSource = self
@@ -482,6 +477,7 @@ extension EventCreationViewController {
           }
           
           self.event.hostEmail = email
+          self.event.hostProfileImageUrl = User.currentUser?.imageUrl
           self.event.postEventImages = []
           self.event.postEventVideos = []
           self.event.likesCount = 0
