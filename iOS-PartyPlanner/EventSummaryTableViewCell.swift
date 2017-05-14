@@ -107,11 +107,15 @@ class EventSummaryTableViewCell: UITableViewCell {
             
             if event?.inviteMediaType == .image {
                 if event?.inviteMediaUrl != nil {
+                    eventImageView = UIImageView(frame: videoView.frame)
                     eventImageView?.setImageWith(URL(string: event!.inviteMediaUrl!)!)
+                    videoView.addSubview(eventImageView!)
                 }
             } else {
                 if event?.inviteMediaUrl != nil {
+                    videoPlayView = VideoView(frame: videoView.frame)
                     videoPlayView?.setVideoURL(URL(string: event!.inviteMediaUrl!)!)
+                    videoView.addSubview(videoPlayView!)
                 }
             }
 
@@ -172,14 +176,6 @@ class EventSummaryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-
-        if event?.inviteMediaType == .image {
-            eventImageView = UIImageView(frame: videoView.frame)
-            videoView.addSubview(eventImageView!)
-        } else {
-            videoPlayView = VideoView(frame: videoView.frame)
-            videoView.addSubview(videoPlayView!)
-        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
