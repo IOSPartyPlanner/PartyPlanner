@@ -32,9 +32,6 @@ class AddContactsViewController: UIViewController {
     tableView.estimatedRowHeight = 200
   }
   
-  override func viewWillDisappear(_ animated: Bool) {
-  }
-  
   @IBAction func onCancel(_ sender: Any) {
     let animationView = LOTAnimationView(name: "spacehub")
     animationView?.frame = view.bounds
