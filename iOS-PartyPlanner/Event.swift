@@ -103,7 +103,7 @@ public class Event: NSObject {
     dateTime = Utils.getTimeStampFromString(timeStampString: snapshotValue["dateTime"] as! String)
     tagline = snapshotValue["tagline"] as? String
     hostEmail = snapshotValue["hostEmail"] as! String
-    hostProfileImageUrl = snapshotValue["hostProfileImageUrl"] as! String
+    hostProfileImageUrl = snapshotValue["hostProfileImageUrl"] as? String
     guestEmailList = snapshotValue["guestEmailList"] as? [String] ?? []
     location = snapshotValue["location"] as! String
     inviteMediaUrl = snapshotValue["inviteImageUrl"] as? String
