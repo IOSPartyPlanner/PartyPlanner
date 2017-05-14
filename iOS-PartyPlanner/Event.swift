@@ -121,7 +121,7 @@ public class Event: NSObject {
   func toAnyObject() -> Any {
     return [
       "id": id,
-      "invitationVideoURL": invitationVideoURL!,
+//      "invitationVideoURL": invitationVideoURL!,
       "name": name!,
       "dateTime": Utils.getTimeStampStringFromDate(date: dateTime),
       "tagline": tagline,
