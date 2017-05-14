@@ -95,8 +95,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     
     fbLoginButton.backgroundColor = .clear
     fbLoginButton.layer.cornerRadius = 10
-    fbLoginButton.layer.borderWidth = 1
-    fbLoginButton.layer.borderColor = UIColor.black.cgColor
+//    fbLoginButton.layer.borderWidth = 1
+//    fbLoginButton.layer.borderColor = UIColor.black.cgColor
 
     view.addSubview(fbLoginButton)
     fbLoginButton.addTarget(self, action: #selector(handleFbLogin), for: .touchUpInside)
@@ -104,8 +104,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     
     gLoginButton.backgroundColor = .clear
     gLoginButton.layer.cornerRadius = 10
-    gLoginButton.layer.borderWidth = 1
-    gLoginButton.layer.borderColor = UIColor.black.cgColor
+//    gLoginButton.layer.borderWidth = 1
+//    gLoginButton.layer.borderColor = UIColor.black.cgColor
 
     view.addSubview(gLoginButton)
     gLoginButton.addTarget(self, action: #selector(handleGLogin), for: .touchUpInside)
