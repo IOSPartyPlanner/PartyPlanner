@@ -119,17 +119,21 @@ class EventSummaryTableViewCell: UITableViewCell {
             
             taglineLabel.text = event?.tagline
             
-            if let qcode = event?.qcode {
-                let data = qcode.data(using: .isoLatin1, allowLossyConversion: false)
-                let filter = CIFilter(name: "CIQRCodeGenerator")
-                filter?.setValue(data, forKey: "inputMessage")
-                filter?.setValue("Q", forKey: "inputCorrectionLevel")
-                
-                barcodeImageView.image = convert((filter?.outputImage)!)
-                barcodeImageView.isUserInteractionEnabled = true
-
-                let gesture = UITapGestureRecognizer(target: self, action: #selector(handleQCode(_:)))
-                barcodeImageView.addGestureRecognizer(gesture)
+            if !(event?.isPast())! {
+                if let qcode = event?.qcode {
+                    if qcode.characters.count > 0 {
+                        let data = qcode.data(using: .isoLatin1, allowLossyConversion: false)
+                        let filter = CIFilter(name: "CIQRCodeGenerator")
+                        filter?.setValue(data, forKey: "inputMessage")
+                        filter?.setValue("Q", forKey: "inputCorrectionLevel")
+                        
+                        barcodeImageView.image = convert((filter?.outputImage)!)
+                        barcodeImageView.isUserInteractionEnabled = true
+                        
+                        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleQCode(_:)))
+                        barcodeImageView.addGestureRecognizer(gesture)
+                    }
+                }
             }
         }
     }
