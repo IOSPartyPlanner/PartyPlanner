@@ -94,6 +94,8 @@ class VideoView: UIView {
 class EventSummaryTableViewCell: UITableViewCell {
     var videoPlayView: VideoView?
     
+    var eventImageView: UIImageView?
+    
     @IBOutlet weak var barcodeImageView: UIImageView!
     
     var viewController: EventViewController?
@@ -103,10 +105,20 @@ class EventSummaryTableViewCell: UITableViewCell {
             partyNameLabel.text = event?.name
             locationLabel.text = event?.location
             
-            if event?.invitationVideoURL != nil {
-                videoPlayView?.setVideoURL(URL(string: event!.invitationVideoURL!)!)
+            if event?.inviteMediaType == .image {
+                if event?.inviteMediaUrl != nil {
+                    eventImageView = UIImageView(frame: videoView.frame)
+                    eventImageView?.setImageWith(URL(string: event!.inviteMediaUrl!)!)
+                    videoView.addSubview(eventImageView!)
+                }
+            } else {
+                if event?.inviteMediaUrl != nil {
+                    videoPlayView = VideoView(frame: videoView.frame)
+                    videoPlayView?.setVideoURL(URL(string: event!.inviteMediaUrl!)!)
+                    videoView.addSubview(videoPlayView!)
+                }
             }
-            
+
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .short
             dateFormatter.timeStyle = .none
@@ -164,10 +176,6 @@ class EventSummaryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        print(videoView.frame)
-        videoPlayView = VideoView(frame: videoView.frame)
-        videoView.addSubview(videoPlayView!)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

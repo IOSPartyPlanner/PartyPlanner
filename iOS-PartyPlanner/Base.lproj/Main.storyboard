@@ -687,8 +687,36 @@
                     <view key="view" contentMode="scaleToFill" id="Hmw-9P-JJc">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Anb-Qj-6eD">
+                                <rect key="frame" x="16" y="0.0" width="343" height="579"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2z-yY-LQk">
+                                <rect key="frame" x="16" y="579" width="343" height="24"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="0H5-td-5le"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="v2z-yY-LQk" firstAttribute="top" secondItem="Anb-Qj-6eD" secondAttribute="bottom" id="2uW-Nt-THL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v2z-yY-LQk" secondAttribute="trailing" id="5xA-ur-TtF"/>
+                            <constraint firstItem="Anb-Qj-6eD" firstAttribute="top" secondItem="k4k-dg-5wU" secondAttribute="bottom" id="6XA-KN-V1v"/>
+                            <constraint firstItem="SYD-be-Ecf" firstAttribute="top" secondItem="v2z-yY-LQk" secondAttribute="bottom" id="L4h-GV-RiB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Anb-Qj-6eD" secondAttribute="trailing" id="P5c-ag-X9R"/>
+                            <constraint firstItem="Anb-Qj-6eD" firstAttribute="leading" secondItem="Hmw-9P-JJc" secondAttribute="leadingMargin" id="nAX-fI-DMW"/>
+                            <constraint firstItem="v2z-yY-LQk" firstAttribute="leading" secondItem="Hmw-9P-JJc" secondAttribute="leadingMargin" id="nEn-uG-8PZ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="v2z-yY-LQk" id="t58-F0-HbQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YRq-I3-cq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
