@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 @objc protocol AddContactsViewControllerDelegate {
   @objc optional func addContactsViewController(addContactsViewController: AddContactsViewController, contactsAdded emails: [String])
@@ -27,15 +28,38 @@ class AddContactsViewController: UIViewController {
     super.viewDidLoad()
     tableView.delegate = self
     tableView.dataSource = self
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 200
   }
   
   override func viewWillDisappear(_ animated: Bool) {
-    delegate?.addContactsViewController!(addContactsViewController: self, contactsAdded: Array(addedEmails))
   }
   
   @IBAction func onCancel(_ sender: Any) {
-    navigationController?.popViewController(animated: true)
+    let animationView = LOTAnimationView(name: "spacehub")
+    animationView?.frame = view.bounds
+    animationView?.contentMode = .scaleAspectFit
+    animationView?.animationSpeed = 4
+    self.view.addSubview(animationView!)
+    
+    animationView?.play(completion: { finished in
+      self.navigationController?.popViewController(animated: true)
+    })
   }
+  
+  @IBAction func onSaveButton(_ sender: Any) {
+    let animationView = LOTAnimationView(name: "simple_check")
+    animationView?.frame = view.bounds
+    animationView?.contentMode = .scaleAspectFit
+    animationView?.animationSpeed = 4
+    self.view.addSubview(animationView!)
+    
+    animationView?.play(completion: { finished in
+      self.delegate?.addContactsViewController!(addContactsViewController: self, contactsAdded: Array(self.addedEmails))
+      self.navigationController?.popViewController(animated: true)
+    })
+  }
+  
 }
 
 // Mark: - TableView

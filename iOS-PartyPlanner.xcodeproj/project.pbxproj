@@ -60,6 +60,13 @@
 		A190B17A1EB68B0D006328AF /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1791EB68B0D006328AF /* CommentApi.swift */; };
 		A1B731091EC2BA6A00976FB8 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B731081EC2BA6A00976FB8 /* LocationsViewController.swift */; };
 		A1B7310C1EC2BADC00976FB8 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7310B1EC2BADC00976FB8 /* LocationCell.swift */; };
+		A1C1BB151EC7D81C00D316B8 /* back_arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = A1C1BB131EC7D81C00D316B8 /* back_arrow.json */; };
+		A1C1BB161EC7D81C00D316B8 /* splashy_loader.json in Resources */ = {isa = PBXBuildFile; fileRef = A1C1BB141EC7D81C00D316B8 /* splashy_loader.json */; };
+		A1C1BB1B1EC7E0E800D316B8 /* pen_tool_loop.json in Resources */ = {isa = PBXBuildFile; fileRef = A1C1BB171EC7E0E800D316B8 /* pen_tool_loop.json */; };
+		A1C1BB1C1EC7E0E800D316B8 /* pencil_write.json in Resources */ = {isa = PBXBuildFile; fileRef = A1C1BB181EC7E0E800D316B8 /* pencil_write.json */; };
+		A1C1BB1D1EC7E0E800D316B8 /* simple_check.json in Resources */ = {isa = PBXBuildFile; fileRef = A1C1BB191EC7E0E800D316B8 /* simple_check.json */; };
+		A1C1BB1E1EC7E0E800D316B8 /* spacehub.json in Resources */ = {isa = PBXBuildFile; fileRef = A1C1BB1A1EC7E0E800D316B8 /* spacehub.json */; };
+		A1C1BB201EC7E4FB00D316B8 /* material_load.json in Resources */ = {isa = PBXBuildFile; fileRef = A1C1BB1F1EC7E4FA00D316B8 /* material_load.json */; };
 		A1DFE1421EC6400A007AE912 /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DFE1401EC6400A007AE912 /* AddContactsViewController.swift */; };
 		A1DFE1431EC6400A007AE912 /* ContactSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DFE1411EC6400A007AE912 /* ContactSelectionCell.swift */; };
 		A1F708011EC246F0004F7328 /* TextInputCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F708001EC246F0004F7328 /* TextInputCell2.swift */; };
@@ -137,6 +144,13 @@
 		A190B1791EB68B0D006328AF /* CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
 		A1B731081EC2BA6A00976FB8 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		A1B7310B1EC2BADC00976FB8 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		A1C1BB131EC7D81C00D316B8 /* back_arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = back_arrow.json; sourceTree = "<group>"; };
+		A1C1BB141EC7D81C00D316B8 /* splashy_loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splashy_loader.json; sourceTree = "<group>"; };
+		A1C1BB171EC7E0E800D316B8 /* pen_tool_loop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pen_tool_loop.json; sourceTree = "<group>"; };
+		A1C1BB181EC7E0E800D316B8 /* pencil_write.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pencil_write.json; sourceTree = "<group>"; };
+		A1C1BB191EC7E0E800D316B8 /* simple_check.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple_check.json; sourceTree = "<group>"; };
+		A1C1BB1A1EC7E0E800D316B8 /* spacehub.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spacehub.json; sourceTree = "<group>"; };
+		A1C1BB1F1EC7E4FA00D316B8 /* material_load.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = material_load.json; sourceTree = "<group>"; };
 		A1DFE1401EC6400A007AE912 /* AddContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsViewController.swift; sourceTree = "<group>"; };
 		A1DFE1411EC6400A007AE912 /* ContactSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSelectionCell.swift; sourceTree = "<group>"; };
 		A1F708001EC246F0004F7328 /* TextInputCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputCell2.swift; sourceTree = "<group>"; };
@@ -309,6 +323,7 @@
 		A1470F4C1EAF243B00DE373A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A1C1BB121EC7D80600D316B8 /* Lottie Animations */,
 				826897E21EB659DD00C3B4D6 /* CollectionViewCell */,
 				821B65C81EB00FAC0078333B /* TableViewCell */,
 				821B65C31EB006FF0078333B /* UIComponents */,
@@ -378,6 +393,20 @@
 				A1B7310B1EC2BADC00976FB8 /* LocationCell.swift */,
 			);
 			name = "Event Creation";
+			sourceTree = "<group>";
+		};
+		A1C1BB121EC7D80600D316B8 /* Lottie Animations */ = {
+			isa = PBXGroup;
+			children = (
+				A1C1BB171EC7E0E800D316B8 /* pen_tool_loop.json */,
+				A1C1BB181EC7E0E800D316B8 /* pencil_write.json */,
+				A1C1BB191EC7E0E800D316B8 /* simple_check.json */,
+				A1C1BB1F1EC7E4FA00D316B8 /* material_load.json */,
+				A1C1BB1A1EC7E0E800D316B8 /* spacehub.json */,
+				A1C1BB131EC7D81C00D316B8 /* back_arrow.json */,
+				A1C1BB141EC7D81C00D316B8 /* splashy_loader.json */,
+			);
+			name = "Lottie Animations";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,12 +479,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1C1BB1C1EC7E0E800D316B8 /* pencil_write.json in Resources */,
 				A1470F411EAF20C600DE373A /* LaunchScreen.storyboard in Resources */,
+				A1C1BB151EC7D81C00D316B8 /* back_arrow.json in Resources */,
 				A18AB07C1EC1A17700E83B0C /* TextInputCell.xib in Resources */,
 				2044D7611EB14F26002AB803 /* GoogleService-Info.plist in Resources */,
+				A1C1BB201EC7E4FB00D316B8 /* material_load.json in Resources */,
 				A1470F3E1EAF20C600DE373A /* Assets.xcassets in Resources */,
+				A1C1BB161EC7D81C00D316B8 /* splashy_loader.json in Resources */,
 				A18AB07A1EC1A17700E83B0C /* ImageCell.xib in Resources */,
+				A1C1BB1E1EC7E0E800D316B8 /* spacehub.json in Resources */,
+				A1C1BB1D1EC7E0E800D316B8 /* simple_check.json in Resources */,
 				A1470F3C1EAF20C600DE373A /* Main.storyboard in Resources */,
+				A1C1BB1B1EC7E0E800D316B8 /* pen_tool_loop.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
