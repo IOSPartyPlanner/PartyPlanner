@@ -461,7 +461,7 @@ extension EventCreationViewController {
     let animationView = LOTAnimationView(name: "pen_tool_loop")
     animationView?.frame = self.view.bounds
     animationView?.contentMode = .scaleAspectFit
-    animationView?.loopAnimation = true
+    // animationView?.loopAnimation = true
     self.view.addSubview(animationView!)
     
     animationView?.play(completion: { finished in
