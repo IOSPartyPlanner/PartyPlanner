@@ -135,6 +135,7 @@ public class Event: NSObject {
       "inviteMediaType" : inviteMediaType!.rawValue,
       "postEventImages": postEventImages,
       "postEventVideos": postEventVideos,
+      "qcode": qcode,
       "likesCount": likesCount,
       "postEventCommentIdList": postEventCommentIdList
     ]
