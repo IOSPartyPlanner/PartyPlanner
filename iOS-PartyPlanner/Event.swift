@@ -10,8 +10,8 @@ enum MediaType: String {
 public class Event: NSObject {
   
   let fireBaseRef = FIRDatabase.database().reference(withPath: "event")
-//  
-//  var invitationVideoURL: String?
+  
+  var invitationVideoURL: String?
   
   var id: String
   
@@ -27,7 +27,7 @@ public class Event: NSObject {
   
   var hostEmail: String
   
-  var hostProfileImageUrl : String?
+  var hostProfileImage : String?
   
   var guestEmailList: [String]?
   
@@ -69,13 +69,13 @@ public class Event: NSObject {
   
   //TODO: Need to add detail field to event table in Friebase
   init(id: String, invitationVideoURL:String?, name: String?,
-       dateTime: Date, tagline: String, hostEmail: String, hostProfileImageUrl: String,
+       dateTime: Date, tagline: String, hostEmail: String, hostProfileImage: String,
        guestEmailList: [String], location: String, inviteMediaUrl: String,
        inviteMediaType: MediaType, postEventImages: [String], postEventVideos: [String],
        likesCount: Int, postEventCommentIdList: [String]) {
     
     self.id = id
-//    self.invitationVideoURL = "http://devstreaming.apple.com/videos/wwdc/2016/204t23fvanrkj7a1oj7/204/hls_vod_mvp.m3u8"
+    self.invitationVideoURL = "http://devstreaming.apple.com/videos/wwdc/2016/204t23fvanrkj7a1oj7/204/hls_vod_mvp.m3u8"
     self.name = name ?? "Party planner on-line celebration"
     self.dateTime = dateTime
     self.tagline = tagline
@@ -98,7 +98,7 @@ public class Event: NSObject {
     let snapshotValue = snapshot.value as! [String: AnyObject]
     
     id = snapshotValue["id"] as! String
-//    invitationVideoURL = snapshotValue["invitationVideoURL"] as? String
+    invitationVideoURL = snapshotValue["invitationVideoURL"] as? String
     name = snapshotValue["name"] as? String
     dateTime = Utils.getTimeStampFromString(timeStampString: snapshotValue["dateTime"] as! String)
     tagline = snapshotValue["tagline"] as? String
@@ -131,7 +131,7 @@ public class Event: NSObject {
       "dateTime": Utils.getTimeStampStringFromDate(date: dateTime),
       "tagline": tagline,
       "hostEmail": hostEmail,
-      "hostProfileImageUrl": hostProfileImageUrl,
+      "hostProfileImageUrl": hostProfileImage
       "guestEmailList": guestEmailList,
       "location": location,
       "inviteImageUrl": inviteMediaUrl,
