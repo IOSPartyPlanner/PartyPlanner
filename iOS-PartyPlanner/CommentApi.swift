@@ -45,22 +45,14 @@ class CommentApi: NSObject {
       })
   }
   
-  func getCommentsByEventId(eventId: String, success: @escaping ([Comment]?) ->(), failure: @escaping () -> ()) {
+  func getCommentsByEventId(eventId: String, success: @escaping ([Comment]) -> (), failure: @escaping () -> ()) {
     print("CommentApi : searching Comments by eventid \(eventId)")
-    var comments: [Comment]?
     fireBaseCommentRef.queryOrdered(byChild: "eventId")
       .queryEqual(toValue: eventId)
       .observe(.value, with: { snapshot in
-        for commentChild in snapshot.children {
-          let comment = Comment(snapshot: commentChild as! FIRDataSnapshot)
-          comments?.append(comment)
-        }
         
-        if comments == nil {
-          failure()
-        } else {
-          success(comments)
-        }
+        let comments = snapshot.children.map{  return Comment(snapshot: $0 as! FIRDataSnapshot) }
+        success(comments)
       })
   }
   

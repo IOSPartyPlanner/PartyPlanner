@@ -45,8 +45,6 @@ public class Event: NSObject {
   
   var likesCount: Int?
   
-  var postEventCommentIdList: [String]?
-  
   var ref: FIRDatabaseReference?
   
   var key: String?
@@ -72,7 +70,7 @@ public class Event: NSObject {
        dateTime: Date, tagline: String, hostEmail: String, guestEmailList: [String],
        location: String, inviteMediaUrl: String,
        inviteMediaType: MediaType, postEventImages: [String], postEventVideos: [String],
-       likesCount: Int, postEventCommentIdList: [String]) {
+       likesCount: Int) {
     
     self.id = id
 //    self.invitationVideoURL = "http://devstreaming.apple.com/videos/wwdc/2016/204t23fvanrkj7a1oj7/204/hls_vod_mvp.m3u8"
@@ -87,7 +85,6 @@ public class Event: NSObject {
     self.postEventImages = postEventImages
     self.postEventVideos = postEventVideos
     self.likesCount = likesCount
-    self.postEventCommentIdList = postEventCommentIdList
     self.ref = ref ?? nil
   }
   
@@ -109,7 +106,6 @@ public class Event: NSObject {
     postEventImages = snapshotValue["postEventImages"] as? [String] ?? []
     postEventVideos = snapshotValue["postEventVideos"] as? [String] ?? []
     likesCount = snapshotValue["likesCount"] as? Int ?? 0
-    postEventCommentIdList = snapshotValue["postEventCommentIdList"] as? [String] ?? []
     qcode = snapshotValue["qcode"] as? String ?? ""
   }
   
@@ -136,8 +132,7 @@ public class Event: NSObject {
       "postEventImages": postEventImages,
       "postEventVideos": postEventVideos,
       "qcode": qcode,
-      "likesCount": likesCount,
-      "postEventCommentIdList": postEventCommentIdList
+      "likesCount": likesCount
     ]
   }
   
@@ -148,11 +143,14 @@ public class Event: NSObject {
     }, failure: {})
     }
     
-    postComments.removeAll()
-    postEventCommentIdList?.forEach{CommentApi.sharedInstance.getCommentById(commentId: $0, success: { (comment) in
-      self.postComments.append(comment!)
+    CommentApi.sharedInstance.getCommentsByEventId(eventId: id, success: { comments in
+        self.postComments = comments
+        comments.forEach{comment in
+            UserApi.sharedInstance.getUserByEmail(userEmail: comment.userEmail, success: { (user) in
+                comment.userImageURL = URL(string: (user?.imageUrl)!)
+            }, failure: {})
+        }
     }, failure: {})
-    }
     
     TaskApi.sharedInstance.getTasksByEventId(eventId: id, success: { (tasks) in
       self.tasks = tasks

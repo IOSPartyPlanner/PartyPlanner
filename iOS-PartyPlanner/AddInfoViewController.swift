@@ -118,6 +118,7 @@ class AddInfoViewController: UIViewController {
         let commentContent = textView?.text
         let comment = Comment(id: Utils.generateUUID(), userEmail: (User._currentUser?.email)!, eventId: (event?.id)!, date: Date(), text: commentContent!)
         CommentApi.sharedInstance.storeComment(comment: comment)
+        comment.userImageURL = URL(string : (User._currentUser?.imageUrl)!)
         event?.postComments.append(comment)
         navigationController?.popViewController(animated: true)
     }
