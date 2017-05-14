@@ -58,6 +58,11 @@ class EventViewController: UIViewController {
         performSegue(withIdentifier: "addInfo", sender: "QCode")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        eventTableView.reloadData()
+    }
+    
     /*
      // MARK: - Navigation
      

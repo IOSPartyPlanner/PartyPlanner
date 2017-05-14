@@ -118,6 +118,7 @@ class AddInfoViewController: UIViewController {
         let commentContent = textView?.text
         let comment = Comment(id: Utils.generateUUID(), userEmail: (User._currentUser?.email)!, eventId: (event?.id)!, date: Date(), text: commentContent!)
         CommentApi.sharedInstance.storeComment(comment: comment)
+        event?.postComments.append(comment)
         navigationController?.popViewController(animated: true)
     }
 
@@ -131,6 +132,7 @@ class AddInfoViewController: UIViewController {
         let taskName = textView?.text
         let task = Task(id: Utils.generateUUID(), name: taskName!, eventId: (event?.id)!, taskDescription: taskName!, volunteerEmails: [], numberOfPeopleRequired: 3, dueDate: dateFormatter.date(from: dateValueLabel.text!)!)
         TaskApi.sharedInstance.storeTask(task: task)
+        event?.tasks.append(task)
         navigationController?.popViewController(animated: true)
     }
     
