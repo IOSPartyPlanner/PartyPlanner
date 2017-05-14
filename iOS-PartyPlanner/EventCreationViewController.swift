@@ -481,7 +481,6 @@ extension EventCreationViewController {
           self.event.postEventImages = []
           self.event.postEventVideos = []
           self.event.likesCount = 0
-          self.event.postEventCommentIdList = []
           
           EventApi.sharedInstance.storeEvent(event: self.event)
           self.dismiss(animated: true, completion: nil)

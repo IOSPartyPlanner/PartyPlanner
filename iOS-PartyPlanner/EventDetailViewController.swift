@@ -60,8 +60,6 @@ class EventDetailViewController: UIViewController, UITableViewDelegate,UITableVi
                 postEventImages = videos
             }
             
-           getComments(commentIds: (event?.postEventCommentIdList)!)
-            
             //TODO:Needed guest list
             //First,Second,Third Guest will be assigned here
         
