@@ -20,6 +20,7 @@ target 'iOS-PartyPlanner' do
   pod 'DLRadioButton', '~> 1.4'
   pod 'MBProgressHUD'
   pod "MWPhotoBrowser"
+
 # Pods for iOS-PartyPlanner
 
 end
