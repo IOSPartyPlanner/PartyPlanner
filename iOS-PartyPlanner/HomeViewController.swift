@@ -183,7 +183,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     EventApi.sharedInstance.getPastEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
       if events.count > 0 {
         for i in 0...events.count-1{
-          events[i].hostProfileImage = User.currentUser?.imageUrl
+//          events[i].hostProfileImageUrl = User.currentUser?.imageUrl
           events[i].fecthRelateData()
           self.pastEventList.append(events[i])
         }
@@ -207,7 +207,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     EventApi.sharedInstance.getUpcomingEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
       if events.count > 0 {
         for i in 0...events.count-1{
-          events[i].hostProfileImage = User.currentUser?.imageUrl
+//          events[i].hostProfileImageUrl = User.currentUser?.imageUrl
           events[i].fecthRelateData()
           self.upcomingEventList.append(events[i])
         }

@@ -35,9 +35,6 @@ class EventCreationViewController: UIViewController {
   // image/video
   fileprivate var eventImage: UIImage?
   
-  // Event host profileImage
-  var eventHostProfileImage: String?
-  
   // placeholders
   var eventNamePlaceHolder = "Event Name"
   var eventLocationPlaceHodler = "Location"
@@ -46,8 +43,6 @@ class EventCreationViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    eventHostProfileImage = User.currentUser?.imageUrl
     
     tableView.delegate = self
     tableView.dataSource = self
@@ -461,7 +456,7 @@ extension EventCreationViewController {
     let animationView = LOTAnimationView(name: "pen_tool_loop")
     animationView?.frame = self.view.bounds
     animationView?.contentMode = .scaleAspectFit
-//    animationView?.loopAnimation = true
+    // animationView?.loopAnimation = true
     self.view.addSubview(animationView!)
     
     animationView?.play(completion: { finished in
@@ -482,6 +477,7 @@ extension EventCreationViewController {
           }
           
           self.event.hostEmail = email
+          self.event.hostProfileImageUrl = User.currentUser?.imageUrl
           self.event.postEventImages = []
           self.event.postEventVideos = []
           self.event.likesCount = 0
