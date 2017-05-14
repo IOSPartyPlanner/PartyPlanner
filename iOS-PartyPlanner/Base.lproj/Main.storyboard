@@ -1497,46 +1497,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l6Z-Mt-4m0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="128" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l6Z-Mt-4m0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactSelectionCell" id="Onz-Eh-rMi" customClass="ContactSelectionCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactSelectionCell" rowHeight="128" id="Onz-Eh-rMi" customClass="ContactSelectionCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="Onz-Eh-rMi" id="TyF-Yj-rUy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Onz-Eh-rMi" id="TyF-Yj-rUy">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h37-x3-AAD" userLabel="Name">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h37-x3-AAD" userLabel="Name">
+                                                    <rect key="frame" x="15" y="6" width="360" height="35"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="kNh-xv-NlT"/>
+                                                        <constraint firstAttribute="height" constant="35" id="zs1-BK-cmB"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="22"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfa-Ff-ZBq" userLabel="Email">
-                                                    <rect key="frame" x="0.0" y="31" width="375" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfa-Ff-ZBq" userLabel="Email">
+                                                    <rect key="frame" x="15" y="44" width="360" height="25"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="5jP-go-aHF"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="cyJ-QO-r0E"/>
+                                                        <constraint firstAttribute="height" constant="25" id="cxF-tZ-9Cg"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="Rfa-Ff-ZBq" secondAttribute="bottom" constant="4" id="2e8-ho-I4t"/>
-                                                <constraint firstAttribute="trailing" secondItem="Rfa-Ff-ZBq" secondAttribute="trailing" id="B5T-iC-QRT"/>
-                                                <constraint firstItem="Rfa-Ff-ZBq" firstAttribute="top" secondItem="h37-x3-AAD" secondAttribute="bottom" id="B6X-tF-Xgt"/>
-                                                <constraint firstItem="Rfa-Ff-ZBq" firstAttribute="leading" secondItem="TyF-Yj-rUy" secondAttribute="leading" id="FoZ-F3-Xw2"/>
-                                                <constraint firstAttribute="trailing" secondItem="h37-x3-AAD" secondAttribute="trailing" id="NUp-IG-KOu"/>
-                                                <constraint firstAttribute="bottom" secondItem="Rfa-Ff-ZBq" secondAttribute="bottom" id="Srg-AN-7IS"/>
-                                                <constraint firstItem="h37-x3-AAD" firstAttribute="leading" secondItem="TyF-Yj-rUy" secondAttribute="leading" id="VZi-SH-1w4"/>
-                                                <constraint firstItem="h37-x3-AAD" firstAttribute="top" secondItem="TyF-Yj-rUy" secondAttribute="top" id="YaO-A1-cMP"/>
+                                                <constraint firstItem="Rfa-Ff-ZBq" firstAttribute="leading" secondItem="TyF-Yj-rUy" secondAttribute="leading" constant="15" id="5iG-zv-ghB"/>
+                                                <constraint firstItem="Rfa-Ff-ZBq" firstAttribute="top" secondItem="h37-x3-AAD" secondAttribute="bottom" constant="3" id="6Bb-gO-yII"/>
+                                                <constraint firstAttribute="trailing" secondItem="h37-x3-AAD" secondAttribute="trailing" id="JCl-cv-PUc"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Rfa-Ff-ZBq" secondAttribute="bottom" constant="5" id="PcX-6C-0Tl"/>
+                                                <constraint firstItem="h37-x3-AAD" firstAttribute="top" secondItem="TyF-Yj-rUy" secondAttribute="top" constant="6" id="ZR0-BN-hyX"/>
+                                                <constraint firstItem="h37-x3-AAD" firstAttribute="leading" secondItem="TyF-Yj-rUy" secondAttribute="leading" constant="15" id="g8h-Yg-hyL"/>
+                                                <constraint firstAttribute="trailing" secondItem="Rfa-Ff-ZBq" secondAttribute="trailing" id="sac-UC-gba"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1560,6 +1558,12 @@
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="onCancel:" destination="fkB-Zh-RbC" id="FQ8-jO-8gT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="cTk-zX-k83">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="onSaveButton:" destination="fkB-Zh-RbC" id="Mp1-x3-Z71"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

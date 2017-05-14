@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class EventCreationViewController: UIViewController {
   
@@ -70,6 +71,17 @@ class EventCreationViewController: UIViewController {
     tableView.register(inputCellNib, forCellReuseIdentifier: "TextInputCell")
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+//    let animationView = LOTAnimationView(name: "pencil_write")
+//    animationView?.frame = view.bounds
+//    animationView?.contentMode = .scaleAspectFit
+//    self.view.addSubview(animationView!)
+//    
+//    animationView?.play(completion: { finished in
+//      animationView?.removeFromSuperview()
+//    })
+  }
+  
   
   @IBAction func onEventSave(_ sender: Any) {
     validateSaveEvent()
@@ -96,6 +108,7 @@ class EventCreationViewController: UIViewController {
     }
   }
 }
+
 
 // MARK: - Table
 extension EventCreationViewController: UITableViewDelegate, UITableViewDataSource {

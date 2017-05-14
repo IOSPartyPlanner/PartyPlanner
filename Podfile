@@ -20,6 +20,9 @@ target 'iOS-PartyPlanner' do
   pod 'DLRadioButton', '~> 1.4'
   pod 'MBProgressHUD'
   pod "MWPhotoBrowser"
+  pod 'LTMorphingLabel'
+  pod 'lottie-ios'
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
 # Pods for iOS-PartyPlanner
 
 end
