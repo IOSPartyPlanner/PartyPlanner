@@ -469,32 +469,35 @@ extension EventCreationViewController {
       success: { (returnUrl) in
         print("image uploaded successfully")
         self.event.inviteMediaUrl = returnUrl
+        self.event.inviteMediaType = self.eventMediaType
+        
+        var email = ""
+        if let currentUser = User.currentUser {
+          email = currentUser.email!
+        } else {
+          email = "u3@gmai.com"
+        }
+        
+        self.event.hostEmail = email
+        self.event.postEventImages = []
+        self.event.postEventVideos = []
+        self.event.likesCount = 0
+        self.event.postEventCommentIdList = []
+        
+        // call API to create RSVPs for guest
+        let animationView = LOTAnimationView(name: "pen_tool_loop")
+        animationView?.frame = self.view.bounds
+        animationView?.contentMode = .scaleAspectFit
+        animationView?.animationSpeed = 2
+        self.view.addSubview(animationView!)
+        
+        animationView?.play(completion: { finished in
+          EventApi.sharedInstance.storeEvent(event: self.event)
+        })
+
     }) {
       print("\n\nimage upload error!!")
     }
-    var email = ""
-    if let currentUser = User.currentUser {
-      email = currentUser.email!
-    } else {
-      email = "u3@gmai.com"
-    }
-    
-    event.hostEmail = email
-    event.postEventImages = []
-    event.postEventVideos = []
-    event.likesCount = 0
-    event.postEventCommentIdList = []
-    
-    // call API to create RSVPs for guest
-    RsvpApi.sharedInstance.generateRsvpForGuestList(
-      eventId: event.id,
-      guestEmailList: eventGuestList,
-      success: {
-        EventApi.sharedInstance.storeEvent(event: self.event)
-        self.displayDisapperaingAlert("Event Created Successfully")
-    },
-      failure: {
-    })
   }
   
   func displayDisapperaingAlert(_ message: String) {
