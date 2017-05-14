@@ -94,6 +94,8 @@ class VideoView: UIView {
 class EventSummaryTableViewCell: UITableViewCell {
     var videoPlayView: VideoView?
     
+    @IBOutlet weak var barcodeImageView: UIImageView!
+    
     var event: Event? {
         didSet {
             partyNameLabel.text = event?.name
@@ -114,7 +116,23 @@ class EventSummaryTableViewCell: UITableViewCell {
             partyTimeLabel.text = timeFormatter.string(from: (event?.dateTime)!)
             
             taglineLabel.text = event?.tagline
+            
+            if let qcode = event?.qcode {
+                let data = qcode.data(using: .isoLatin1, allowLossyConversion: false)
+                let filter = CIFilter(name: "CIQRCodeGenerator")
+                filter?.setValue(data, forKey: "inputMessage")
+                filter?.setValue("Q", forKey: "inputCorrectionLevel")
+                
+                barcodeImageView.image = convert((filter?.outputImage)!)
+            }
         }
+    }
+    
+    func convert(_ cmage:CIImage) -> UIImage {
+        let context:CIContext = CIContext.init(options: nil)
+        let cgImage:CGImage = context.createCGImage(cmage, from: cmage.extent)!
+        let image:UIImage = UIImage.init(cgImage: cgImage)
+        return image
     }
     
     @IBOutlet weak var partyNameLabel: UILabel!
