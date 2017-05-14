@@ -33,8 +33,6 @@ class PhotoBrowserViewController: UIViewController, MWPhotoBrowserDelegate {
         
         browser?.setCurrentPhotoIndex(UInt(startIndex))
         self.navigationController?.pushViewController(browser!, animated: true)
-//        browser?.showNextPhoto(animated: true)
-//        browser?.showPreviousPhoto(animated: true)
     }
 
     override func didReceiveMemoryWarning() {
