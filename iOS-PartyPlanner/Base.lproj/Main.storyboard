@@ -647,7 +647,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Upcoming Events" id="aBI-37-uNB">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="CqP-st-W8y"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="CqP-st-W8y">
+                            <connections>
+                                <segue destination="5l7-Bl-PH1" kind="push" id="e2X-u9-uEv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="7n3-5l-4NP" id="N3O-JV-MCn"/>
@@ -1420,7 +1424,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2772" y="587"/>
+            <point key="canvasLocation" x="3127" y="-269"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="gxy-Bz-jKX">
