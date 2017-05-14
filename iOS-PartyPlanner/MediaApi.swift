@@ -55,7 +55,7 @@ class MediaApi: NSObject {
       
     MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: mediaUrl, type: mediaType, filepath: filePath, success: { (downloadUrl : String) in
       print("Upload success", downloadUrl)
-      event.postEventPhotoesURL?.append(URL(string: downloadUrl))
+      event.postEventPhotoesURL?.append(URL(string: downloadUrl)!)
       completion(true)
     }) {
       print("upload failed")

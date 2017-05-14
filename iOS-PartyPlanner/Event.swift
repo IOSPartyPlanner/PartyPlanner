@@ -58,6 +58,8 @@ public class Event: NSObject {
   var postComments: [Comment] = []
   
   var tasks: [Task] = []
+    
+  var qcode: String?
   
   override init() {
     id = Utils.generateUUID()
@@ -108,6 +110,7 @@ public class Event: NSObject {
     postEventVideos = snapshotValue["postEventVideos"] as? [String] ?? []
     likesCount = snapshotValue["likesCount"] as? Int ?? 0
     postEventCommentIdList = snapshotValue["postEventCommentIdList"] as? [String] ?? []
+    qcode = snapshotValue["qcode"] as? String ?? ""
   }
   
   func isUserOnwer() -> Bool {

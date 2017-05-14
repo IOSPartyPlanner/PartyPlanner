@@ -66,6 +66,8 @@ class DatePickerCell: UITableViewCell {
 
 
 class AddInfoViewController: UIViewController {
+    var event: Event?
+    
     var dateFormatter = DateFormatter()
     
     @IBOutlet weak var addInfoTableView: UITableView!
@@ -113,14 +115,22 @@ class AddInfoViewController: UIViewController {
     }
     
     func addComment(_ item: UIBarButtonItem) {
+        let commentContent = textView?.text
+        let comment = Comment(id: Utils.generateUUID(), userEmail: (User._currentUser?.email)!, eventId: (event?.id)!, date: Date(), text: commentContent!)
+        CommentApi.sharedInstance.storeComment(comment: comment)
         navigationController?.popViewController(animated: true)
     }
 
     func generateQCode(_ item: UIBarButtonItem) {
+        event?.qcode = textView?.text
+        EventApi.sharedInstance.storeEvent(event: event!)
         navigationController?.popViewController(animated: true)
     }
     
     func addTask(_ item: UIBarButtonItem) {
+        let taskName = textView?.text
+        let task = Task(id: Utils.generateUUID(), name: taskName!, eventId: (event?.id)!, taskDescription: taskName!, volunteerEmails: [], numberOfPeopleRequired: 3, dueDate: dateFormatter.date(from: dateValueLabel.text!)!)
+        TaskApi.sharedInstance.storeTask(task: task)
         navigationController?.popViewController(animated: true)
     }
     

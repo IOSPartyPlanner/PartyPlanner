@@ -67,6 +67,7 @@ class EventViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let target = segue.destination as? AddInfoViewController
         target?.type = sender as! String
+        target?.event = event
         switch (target?.type)! {
         case "Comment":
             break
