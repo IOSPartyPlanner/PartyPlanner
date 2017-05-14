@@ -96,13 +96,13 @@ class AddInfoViewController: UIViewController {
         
         switch type! {
             case "Comment":
-                navigationItem.title = "Add your comments here"
+                navigationItem.title = "New Comment"
                 navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addComment(_:)))
             case "QCode":
-                navigationItem.title = "Input the qcode message for this event"
+                navigationItem.title = "Generate QCode"
                 navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Generate", style: .plain, target: self, action: #selector(generateQCode(_:)))
             case "Task":
-                navigationItem.title = "Add your task here"
+                navigationItem.title = "New Task"
                 navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTask(_:)))
             default:
                 break

@@ -7,13 +7,37 @@
 //
 
 import UIKit
+import AVFoundation
 
-class QCodeViewController: UIViewController {
-
+class QCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    var captureSession:AVCaptureSession?
+    
+    var videoPreviewLayer:AVCaptureVideoPreviewLayer?
+    
+    var qrCodeFrameView:UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
+        let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        
+        do {
+            // Get an instance of the AVCaptureDeviceInput class using the previous device object.
+            let input = try AVCaptureDeviceInput(device: captureDevice)
+            
+            // Initialize the captureSession object.
+            captureSession = AVCaptureSession()
+            
+            // Set the input device on the capture session.
+            captureSession?.addInput(input)
+            
+        } catch {
+            // If any error occurs, simply print it out and don't continue any more.
+            print(error)
+            return
+        }
     }
 
     override func didReceiveMemoryWarning() {
