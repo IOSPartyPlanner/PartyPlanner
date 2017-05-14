@@ -11,7 +11,14 @@ import UIKit
 class EventGuestCommentTableViewCell: UITableViewCell {
     var comment: Comment? {
         didSet {
-            guestImageView.setImageWith((comment?.userImageURL)!)
+            if let userImageURL = comment?.userImageURL {
+                guestImageView.setImageWith(userImageURL)
+            } else {
+                UserApi.sharedInstance.getUserByEmail(userEmail: (comment?.userEmail)!, success: { (user) in
+                    self.comment?.userImageURL = URL(string: (user?.imageUrl)!)
+                    self.guestImageView.setImageWith((self.comment?.userImageURL)!)
+                }, failure: {})
+            }
             guestName.text = comment?.userName
             guestComment.text = comment?.text
         }
