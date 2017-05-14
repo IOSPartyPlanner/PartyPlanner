@@ -96,6 +96,8 @@ class EventSummaryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var barcodeImageView: UIImageView!
     
+    var viewController: EventViewController?
+    
     var event: Event? {
         didSet {
             partyNameLabel.text = event?.name
@@ -124,6 +126,10 @@ class EventSummaryTableViewCell: UITableViewCell {
                 filter?.setValue("Q", forKey: "inputCorrectionLevel")
                 
                 barcodeImageView.image = convert((filter?.outputImage)!)
+                barcodeImageView.isUserInteractionEnabled = true
+
+                let gesture = UITapGestureRecognizer(target: self, action: #selector(handleQCode(_:)))
+                barcodeImageView.addGestureRecognizer(gesture)
             }
         }
     }
@@ -133,6 +139,10 @@ class EventSummaryTableViewCell: UITableViewCell {
         let cgImage:CGImage = context.createCGImage(cmage, from: cmage.extent)!
         let image:UIImage = UIImage.init(cgImage: cgImage)
         return image
+    }
+    
+    func handleQCode(_ sender: UITapGestureRecognizer) {
+        viewController?.performSegue(withIdentifier: "handleQCode", sender: event)
     }
     
     @IBOutlet weak var partyNameLabel: UILabel!

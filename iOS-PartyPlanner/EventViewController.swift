@@ -164,6 +164,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
         case (0, _):
             let cell0 = eventTableView.dequeueReusableCell(withIdentifier: "EventSummaryTableViewCell", for: indexPath) as? EventSummaryTableViewCell
             cell0?.event = event
+            guestsCell?.viewController = self
             return cell0!
         case (1, false):
             guestsCell = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestsTableViewCell", for: indexPath) as? EventGuestsTableViewCell
