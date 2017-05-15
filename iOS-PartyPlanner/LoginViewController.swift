@@ -49,7 +49,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     collision = UICollisionBehavior()
     animator.addBehavior(collision)
     
-    elastic = UIDynamicItemBehavior(items: gs)//images)
+    elastic = UIDynamicItemBehavior(items: gs)
     elastic.elasticity = 1
     elastic.friction = 1
     animator.addBehavior(elastic)
@@ -95,6 +95,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     
     fbLoginButton.backgroundColor = .clear
     fbLoginButton.layer.cornerRadius = 10
+    fbLoginButton.roundedButton()
 //    fbLoginButton.layer.borderWidth = 1
 //    fbLoginButton.layer.borderColor = UIColor.black.cgColor
 
@@ -104,6 +105,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     
     gLoginButton.backgroundColor = .clear
     gLoginButton.layer.cornerRadius = 10
+    gLoginButton.roundedButton()
 //    gLoginButton.layer.borderWidth = 1
 //    gLoginButton.layer.borderColor = UIColor.black.cgColor
 
@@ -198,5 +200,20 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
           }
        })
     }
+}
+
+extension UIButton{
+  func roundedButton(){
+  
+    let maskPAth1 = UIBezierPath(roundedRect: self.bounds,
+                                 byRoundingCorners: [.topLeft , .topRight, .bottomLeft, .bottomRight],
+                                 cornerRadii:  CGSize(width: 6.0, height: 6.0))
+                                
+    let maskLayer1 = CAShapeLayer()
+    maskLayer1.frame = self.bounds
+    maskLayer1.path = maskPAth1.cgPath
+    self.layer.mask = maskLayer1
+    
+  }
 }
 
