@@ -92,12 +92,11 @@ class EventApi: NSObject {
     func getEventsForUserEmailWithPredicate(userEmail: String, predicate: ((Event) -> Bool)?, success: @escaping ([Event]) -> (), failure: ((APIFetchError) -> ())?) {
         print("EventApi : searching for events userId: \(userEmail) is invited to")
         
-        RsvpApi.sharedInstance.getRsvpsForUserEmail(userEmail: userEmail, success: {rsvps in
-            let revpIds = rsvps.map{    return $0.eventId   }
-            self.fireBaseEventRef.queryOrdered(byChild: "hostEmail")
-                .queryEqual(toValue: userEmail)
+//        RsvpApi.sharedInstance.getRsvpsForUserEmail(userEmail: userEmail, success: {rsvps in
+//            let revpIds = rsvps.map{    return $0.eventId   }
+            self.fireBaseEventRef.child("guestEmailList")
                 .observe(.value, with: { (snapshot) in
-                    var events = snapshot.children.map({ return Event(snapshot: $0 as! FIRDataSnapshot)}).filter{ revpIds.contains($0.id)}
+                    var events = snapshot.children.map({ return Event(snapshot: $0 as! FIRDataSnapshot)}) /* .filter{ revpIds.contains($0.id)} */
                     
                     if let predicate = predicate {
                         events = events.filter{ return predicate($0) }
@@ -111,9 +110,9 @@ class EventApi: NSObject {
                     }
                 })
             
-        }, failure: {
-            failure?(.NoItemFoundError)
-        })
+//        }, failure: {
+//            failure?(.NoItemFoundError)
+//        })
     }
     
     func getEventsForUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: ((APIFetchError) -> ())?) {
