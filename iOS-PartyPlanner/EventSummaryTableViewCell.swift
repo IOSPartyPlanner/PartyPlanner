@@ -52,6 +52,7 @@ class VideoView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+      
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -93,7 +94,7 @@ class VideoView: UIView {
 
 class EventSummaryTableViewCell: UITableViewCell {
     var videoPlayView: VideoView?
-    
+  
     var eventImageView: UIImageView?
     
     @IBOutlet weak var barcodeImageView: UIImageView!
@@ -109,12 +110,18 @@ class EventSummaryTableViewCell: UITableViewCell {
                 if event?.inviteMediaUrl != nil {
                     eventImageView = UIImageView(frame: videoView.frame)
                     eventImageView?.setImageWith(URL(string: event!.inviteMediaUrl!)!)
+//                    eventImageView?.clipsToBounds = true
+                    eventImageView?.frame.size.height = videoView.frame.height-10
+                    eventImageView?.frame.size.width = videoView.frame.width-10
                     videoView.addSubview(eventImageView!)
                 }
             } else {
                 if event?.inviteMediaUrl != nil {
                     videoPlayView = VideoView(frame: videoView.frame)
                     videoPlayView?.setVideoURL(URL(string: event!.inviteMediaUrl!)!)
+//                    videoPlayView?.clipsToBounds = true
+                    videoPlayView?.frame.size.height = videoView.frame.height-10
+                    videoPlayView?.frame.size.width = videoView.frame.width-10
                     videoView.addSubview(videoPlayView!)
                 }
             }
@@ -175,7 +182,26 @@ class EventSummaryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+      
+      //Invitation border
+        videoView.layer.cornerRadius = 10
+        videoView.layer.borderWidth = 1.0
+        videoView.layer.borderColor = UIColor.black.cgColor
+
+      videoView.layer.shadowColor = UIColor.black.cgColor
+        videoView.layer.shadowOffset  = CGSize(width: 1, height: 1)
+        videoView.layer.shadowOpacity = 0.7
+        videoView.layer.shadowRadius = 1.0
+      
+      //Content view border
+      self.contentView.layer.cornerRadius = 10
+      self.contentView.layer.borderWidth = 10.0
+      self.contentView.layer.borderColor = UIColor.white.cgColor
+      
+      self.contentView.layer.shadowColor = UIColor.black.cgColor
+      self.contentView.layer.shadowOpacity = 0.3
+      self.contentView.layer.shadowRadius = 10.0
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

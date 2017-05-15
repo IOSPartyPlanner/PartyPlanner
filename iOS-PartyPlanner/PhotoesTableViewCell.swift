@@ -32,6 +32,7 @@ class PhotoesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
         
         photoesCollectionView.delegate = self
         photoesCollectionView.dataSource = self
+        photoesCollectionView.backgroundColor = UIColor.clear
         
         //        let flowLayout = photoesCollectionView!.collectionViewLayout as! UICollectionViewFlowLayout
         //        flowLayout.estimatedItemSize = CGSize(width: 92.0, height: 92.0)
