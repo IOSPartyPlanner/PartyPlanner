@@ -308,13 +308,25 @@ extension EventCreationViewController: ImageCellDelegate, UIImagePickerControlle
       
       let mediaURL = info["UIImagePickerControllerReferenceURL"] as? URL
       let assets = PHAsset.fetchAssets(withALAssetURLs: [mediaURL!], options: nil)
-      let asset = assets.firstObject
-      asset?.requestContentEditingInput(with: nil, completionHandler: { (contentEditingInput, info) in
-        self.eventMediaUrl = contentEditingInput?.fullSizeImageURL
-        print("\n eventMediaUrl  has been set!\n")
-      })
+      let asset = assets.firstObject!
       
+      PHImageManager.default().requestImageData(for: asset, options: nil, resultHandler: { (data, _, _, _) in
+        let imageName = Utils.generateUUID() + ".jpeg"
+        let assetUrl = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(imageName)
+        do {
+          try data?.write(to: assetUrl, options: .atomic)
+          self.eventMediaUrl = assetUrl
+          print("\n eventMediaUrl  has been set!\n")
+        } catch {
+          print("\n error writing media to sandbox!\n")
+        }
+      })
     }
+//      asset?.requestContentEditingInput(with: nil, completionHandler: { (contentEditingInput, info) in
+//        self.eventMediaUrl = contentEditingInput?.fullSizeImageURL
+//        print("\n eventMediaUrl  has been set!\n")
+//      })
+      
     // video
     //    else if info["UIImagePickerControllerMediaType"] as! String == "public.movie" {
     //
@@ -460,9 +472,7 @@ extension EventCreationViewController {
     self.view.addSubview(animationView!)
     
     animationView?.play(completion: { finished in
-      MediaApi.sharedInstance.uploadMediaToFireBase(
-        mediaUrl: self.eventMediaUrl,
-        type: self.eventMediaType,
+      MediaApi.sharedInstance.uploadMediaToFireBase( mediaUrl: self.eventMediaUrl, type: self.eventMediaType,
         filepath: "event\(self.event.id)/invitation.jpg",
         success: { (returnUrl) in
           print("image uploaded successfully")
