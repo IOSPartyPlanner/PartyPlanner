@@ -93,11 +93,12 @@ class EventViewController: UIViewController {
 
 extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        if (event?.isPast())! || (event?.isUserOnwer())! {
-            return 3
-        } else {
-            return 1
-        }
+        return 3
+//        if (event?.isPast())! || (event?.isUserOnwer())! {
+//            return 3
+//        } else {
+//            return 1
+//        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -136,6 +137,9 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
                 cell?.titleLabel.text = "Guests"
                 let gesture = UITapGestureRecognizer(target: self, action: #selector(addGuests(_:)))
                 cell?.addImageView.addGestureRecognizer(gesture)
+                if !(event?.isUserOnwer())! {
+                    cell?.addImageView.isHidden = true
+                }
             }
         case 2:
             if (event?.isPast())! {
@@ -146,6 +150,9 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
                 cell?.titleLabel.text = "Tasks"
                 let gesture = UITapGestureRecognizer(target: self, action: #selector(addTask(_:)))
                 cell?.addImageView.addGestureRecognizer(gesture)
+                if !(event?.isUserOnwer())! {
+                    cell?.addImageView.isHidden = true
+                }
             }
         default:
             return nil
@@ -159,7 +166,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             return nil
         case 1:
             if (event?.isPast())! {
-                return "Photos/Videos"
+                return "Photos"
             } else {
                 return "Guests"
             }
