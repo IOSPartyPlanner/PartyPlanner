@@ -24,6 +24,8 @@ target 'iOS-PartyPlanner' do
   pod 'LTMorphingLabel'
   pod 'lottie-ios'
   pod 'SkyFloatingLabelTextField', '~> 3.0'
+  pod 'Material', '~> 2.0'
+  pod 'Graph', '~> 2.0'
 
 # Pods for iOS-PartyPlanner
 
