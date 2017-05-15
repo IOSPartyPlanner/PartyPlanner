@@ -24,8 +24,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     @IBOutlet weak var fbLoginButton: UIButton!
     @IBOutlet weak var gLoginButton: UIButton!
   
-  
-
   @IBOutlet weak var g1: UIImageView!
   @IBOutlet weak var g2: UIImageView!
   @IBOutlet weak var g3: UIImageView!
@@ -61,8 +59,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         self.gravity.addItem(image)
         self.collision.addItem(image)
       }
-    
-
     
     UIView.animate(withDuration: 10, delay: 0, options: .repeat, animations: {
       for image in gs{

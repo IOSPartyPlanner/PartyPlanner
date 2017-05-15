@@ -56,6 +56,9 @@
 		A190B1751EB66D7F006328AF /* TaskApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1711EB66D7F006328AF /* TaskApi.swift */; };
 		A190B1771EB67D2B006328AF /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1761EB67D2B006328AF /* UserApi.swift */; };
 		A190B17A1EB68B0D006328AF /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1791EB68B0D006328AF /* CommentApi.swift */; };
+		A1A59FDC1EC978D6002DDFC8 /* check_pop.json in Resources */ = {isa = PBXBuildFile; fileRef = A1A59FDA1EC978D6002DDFC8 /* check_pop.json */; };
+		A1A59FDD1EC978D6002DDFC8 /* party.json in Resources */ = {isa = PBXBuildFile; fileRef = A1A59FDB1EC978D6002DDFC8 /* party.json */; };
+		A1A59FDF1EC97911002DDFC8 /* LanuchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A59FDE1EC97911002DDFC8 /* LanuchScreenViewController.swift */; };
 		A1B731091EC2BA6A00976FB8 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B731081EC2BA6A00976FB8 /* LocationsViewController.swift */; };
 		A1B7310C1EC2BADC00976FB8 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7310B1EC2BADC00976FB8 /* LocationCell.swift */; };
 		A1C1BB151EC7D81C00D316B8 /* back_arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = A1C1BB131EC7D81C00D316B8 /* back_arrow.json */; };
@@ -138,6 +141,9 @@
 		A190B1711EB66D7F006328AF /* TaskApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskApi.swift; sourceTree = "<group>"; };
 		A190B1761EB67D2B006328AF /* UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		A190B1791EB68B0D006328AF /* CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
+		A1A59FDA1EC978D6002DDFC8 /* check_pop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = check_pop.json; sourceTree = "<group>"; };
+		A1A59FDB1EC978D6002DDFC8 /* party.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = party.json; sourceTree = "<group>"; };
+		A1A59FDE1EC97911002DDFC8 /* LanuchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanuchScreenViewController.swift; sourceTree = "<group>"; };
 		A1B731081EC2BA6A00976FB8 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		A1B7310B1EC2BADC00976FB8 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		A1C1BB131EC7D81C00D316B8 /* back_arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = back_arrow.json; sourceTree = "<group>"; };
@@ -281,6 +287,7 @@
 				A1470F421EAF20C600DE373A /* Info.plist */,
 				2044D7601EB14F26002AB803 /* GoogleService-Info.plist */,
 				82D476401EC2A1790056CFF0 /* iOS-PartyPlanner-Bridging-Header.h */,
+				A1A59FDE1EC97911002DDFC8 /* LanuchScreenViewController.swift */,
 			);
 			path = "iOS-PartyPlanner";
 			sourceTree = "<group>";
@@ -389,6 +396,8 @@
 				A1C1BB191EC7E0E800D316B8 /* simple_check.json */,
 				A1C1BB1F1EC7E4FA00D316B8 /* material_load.json */,
 				A1C1BB1A1EC7E0E800D316B8 /* spacehub.json */,
+				A1A59FDA1EC978D6002DDFC8 /* check_pop.json */,
+				A1A59FDB1EC978D6002DDFC8 /* party.json */,
 				A1C1BB131EC7D81C00D316B8 /* back_arrow.json */,
 				A1C1BB141EC7D81C00D316B8 /* splashy_loader.json */,
 			);
@@ -473,9 +482,11 @@
 				A1470F3E1EAF20C600DE373A /* Assets.xcassets in Resources */,
 				A1C1BB161EC7D81C00D316B8 /* splashy_loader.json in Resources */,
 				A18AB07A1EC1A17700E83B0C /* ImageCell.xib in Resources */,
+				A1A59FDC1EC978D6002DDFC8 /* check_pop.json in Resources */,
 				A1C1BB1E1EC7E0E800D316B8 /* spacehub.json in Resources */,
 				A1C1BB1D1EC7E0E800D316B8 /* simple_check.json in Resources */,
 				A1470F3C1EAF20C600DE373A /* Main.storyboard in Resources */,
+				A1A59FDD1EC978D6002DDFC8 /* party.json in Resources */,
 				A1C1BB1B1EC7E0E800D316B8 /* pen_tool_loop.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,6 +560,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82CCAEA61EBF9BCE00D3C71C /* PhotoBrowserViewController.swift in Sources */,
+				A1A59FDF1EC97911002DDFC8 /* LanuchScreenViewController.swift in Sources */,
 				821B65E41EB04B1C0078333B /* LoginViewController.swift in Sources */,
 				8209022C1EBAC8C2009C7C6D /* CalViewController.swift in Sources */,
 				F7B01E9C1EBEA2540023852A /* EventsMapViewController.swift in Sources */,
