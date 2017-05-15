@@ -43,6 +43,7 @@ class EventViewController: UIViewController {
         
         photoesPicker.imagePickerDelegate = self
         pickerController.peoplePickerDelegate = self
+        pickerController.predicateForEnablingPerson = NSPredicate(format: "emailAddresses.@count > 0")
         
         if !(event?.isPast())! && (event?.isUserOnwer())! {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
@@ -247,15 +248,6 @@ extension EventViewController: ELCImagePickerControllerDelegate {
                 } catch {
                 }
             })
-//            asset?.requestContentEditingInput(with: nil, completionHandler: { (contentEditingInput, info) in
-//
-//                
-//                let imageFile = contentEditingInput?.fullSizeImageURL
-//                let imageName = UUID().uuidString
-//                MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: imageFile!, type: .image, filepath: "\((self.event?.id)!)/\(imageName)", success: { (url) in
-//                    EventApi.sharedInstance.addPhotoURL(url, withEvent: self.event!)
-//                }, failure: {})
-//            })
         }
         dismiss(animated: true, completion: nil)
     }
