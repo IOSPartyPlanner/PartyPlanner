@@ -47,12 +47,9 @@
 		A1470F6D1EB17AA600DE373A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1470F6C1EB17AA600DE373A /* Comment.swift */; };
 		A14EE5F41EB51BAD006889D1 /* Uitls.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14EE5F31EB51BAD006889D1 /* Uitls.swift */; };
 		A18AB06F1EC19D3B00E83B0C /* MediaApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18AB06E1EC19D3B00E83B0C /* MediaApi.swift */; };
-		A18AB0721EC19DFF00E83B0C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18AB0711EC19DFF00E83B0C /* CustomTextField.swift */; };
 		A18AB0741EC19E7E00E83B0C /* EventCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18AB0731EC19E7E00E83B0C /* EventCreationViewController.swift */; };
 		A18AB0791EC1A17700E83B0C /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18AB0751EC1A17700E83B0C /* ImageCell.swift */; };
 		A18AB07A1EC1A17700E83B0C /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18AB0761EC1A17700E83B0C /* ImageCell.xib */; };
-		A18AB07B1EC1A17700E83B0C /* TextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18AB0771EC1A17700E83B0C /* TextInputCell.swift */; };
-		A18AB07C1EC1A17700E83B0C /* TextInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A18AB0781EC1A17700E83B0C /* TextInputCell.xib */; };
 		A190B1721EB66D7F006328AF /* EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B16E1EB66D7F006328AF /* EventApi.swift */; };
 		A190B1731EB66D7F006328AF /* ItemApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B16F1EB66D7F006328AF /* ItemApi.swift */; };
 		A190B1741EB66D7F006328AF /* RsvpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190B1701EB66D7F006328AF /* RsvpApi.swift */; };
@@ -132,12 +129,9 @@
 		A1470F6C1EB17AA600DE373A /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		A14EE5F31EB51BAD006889D1 /* Uitls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Uitls.swift; sourceTree = "<group>"; };
 		A18AB06E1EC19D3B00E83B0C /* MediaApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaApi.swift; sourceTree = "<group>"; };
-		A18AB0711EC19DFF00E83B0C /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		A18AB0731EC19E7E00E83B0C /* EventCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCreationViewController.swift; sourceTree = "<group>"; };
 		A18AB0751EC1A17700E83B0C /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		A18AB0761EC1A17700E83B0C /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
-		A18AB0771EC1A17700E83B0C /* TextInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputCell.swift; sourceTree = "<group>"; };
-		A18AB0781EC1A17700E83B0C /* TextInputCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputCell.xib; sourceTree = "<group>"; };
 		A190B16E1EB66D7F006328AF /* EventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventApi.swift; sourceTree = "<group>"; };
 		A190B16F1EB66D7F006328AF /* ItemApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemApi.swift; sourceTree = "<group>"; };
 		A190B1701EB66D7F006328AF /* RsvpApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RsvpApi.swift; sourceTree = "<group>"; };
@@ -200,8 +194,6 @@
 			children = (
 				A18AB0751EC1A17700E83B0C /* ImageCell.swift */,
 				A18AB0761EC1A17700E83B0C /* ImageCell.xib */,
-				A18AB0771EC1A17700E83B0C /* TextInputCell.swift */,
-				A18AB0781EC1A17700E83B0C /* TextInputCell.xib */,
 				821B65C41EB007230078333B /* VideoView.swift */,
 			);
 			name = UIComponents;
@@ -329,7 +321,6 @@
 				826897E21EB659DD00C3B4D6 /* CollectionViewCell */,
 				821B65C81EB00FAC0078333B /* TableViewCell */,
 				821B65C31EB006FF0078333B /* UIComponents */,
-				A18AB0701EC19DA100E83B0C /* CustomComponents */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -368,14 +359,6 @@
 				F7F330DE1EC282CB008892DC /* Processable.swift */,
 			);
 			name = Utils;
-			sourceTree = "<group>";
-		};
-		A18AB0701EC19DA100E83B0C /* CustomComponents */ = {
-			isa = PBXGroup;
-			children = (
-				A18AB0711EC19DFF00E83B0C /* CustomTextField.swift */,
-			);
-			name = CustomComponents;
 			sourceTree = "<group>";
 		};
 		A1B731071EC2BA3200976FB8 /* Event Creation */ = {
@@ -448,7 +431,7 @@
 				TargetAttributes = {
 					A1470F321EAF20C600DE373A = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 5JR4XX68PE;
+						DevelopmentTeam = 5NFEH37HHC;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -485,7 +468,6 @@
 				A1C1BB1C1EC7E0E800D316B8 /* pencil_write.json in Resources */,
 				A1470F411EAF20C600DE373A /* LaunchScreen.storyboard in Resources */,
 				A1C1BB151EC7D81C00D316B8 /* back_arrow.json in Resources */,
-				A18AB07C1EC1A17700E83B0C /* TextInputCell.xib in Resources */,
 				2044D7611EB14F26002AB803 /* GoogleService-Info.plist in Resources */,
 				A1C1BB201EC7E4FB00D316B8 /* material_load.json in Resources */,
 				A1470F3E1EAF20C600DE373A /* Assets.xcassets in Resources */,
@@ -583,7 +565,6 @@
 				A190B1721EB66D7F006328AF /* EventApi.swift in Sources */,
 				82869EA21EC2CF5D0044AFCB /* GuestCollectionViewCell.swift in Sources */,
 				F7B01E941EB7F4E30023852A /* CommentsTableViewCell.swift in Sources */,
-				A18AB0721EC19DFF00E83B0C /* CustomTextField.swift in Sources */,
 				F7B01E9E1EBFA1050023852A /* OldEventApi.swift in Sources */,
 				F7F330D71EC281B6008892DC /* ColorControl.swift in Sources */,
 				821B65D81EB0400C0078333B /* EventGuestCommentTableViewCell.swift in Sources */,
@@ -617,7 +598,6 @@
 				821B65D01EB011290078333B /* Task.swift in Sources */,
 				A190B17A1EB68B0D006328AF /* CommentApi.swift in Sources */,
 				A1470F371EAF20C600DE373A /* AppDelegate.swift in Sources */,
-				A18AB07B1EC1A17700E83B0C /* TextInputCell.swift in Sources */,
 				82D4AF0A1EB52D990087E0A6 /* PhotoesTableViewCell.swift in Sources */,
 				F7B01E961EBBB7610023852A /* HomeEventTableViewCell.swift in Sources */,
 				F7B01E901EB7EC190023852A /* EventDetailViewController.swift in Sources */,
@@ -755,11 +735,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "iOS-PartyPlanner/iOS-PartyPlanner.entitlements";
-				DEVELOPMENT_TEAM = 5JR4XX68PE;
+				DEVELOPMENT_TEAM = 5NFEH37HHC;
 				INFOPLIST_FILE = "iOS-PartyPlanner/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.haiboyan.iOS-PartyPlanner";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.partydevs.iOS-PartyPlanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iOS-PartyPlanner/iOS-PartyPlanner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -774,11 +754,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "iOS-PartyPlanner/iOS-PartyPlanner.entitlements";
-				DEVELOPMENT_TEAM = 5JR4XX68PE;
+				DEVELOPMENT_TEAM = 5NFEH37HHC;
 				INFOPLIST_FILE = "iOS-PartyPlanner/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.haiboyan.iOS-PartyPlanner";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.partydevs.iOS-PartyPlanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iOS-PartyPlanner/iOS-PartyPlanner-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

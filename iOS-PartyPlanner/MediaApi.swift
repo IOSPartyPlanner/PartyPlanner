@@ -22,13 +22,7 @@ class MediaApi: NSObject {
     let mediaRef = mediaStorageRef.child(filepath)
     
     // TODO: remove user signin before uploading!!! very important
-    FIRAuth.auth()?.signIn(withEmail: "u3@gmail.com", password: "qwerty", completion: {
-      (user: FIRUser?, error: Error?) in
-      if error != nil {
-        print("UNable to login")
-      } else {
-        print("successful login")
-        _ = mediaRef.putFile(
+    mediaRef.putFile(
           mediaUrl,
           metadata: nil,
           completion: { (metadata, error) in
@@ -41,8 +35,6 @@ class MediaApi: NSObject {
               success(mediaDownloadurl.absoluteString)
             }
         })
-      }
-    })
   }
   
   func uploadFilesToFireBase(mediaUrl: URL,  event: Event, completion: @escaping (Bool) -> ()){

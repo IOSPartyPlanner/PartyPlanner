@@ -905,6 +905,7 @@
                     <navigationItem key="navigationItem" id="tuy-n1-Yt6">
                         <barButtonItem key="leftBarButtonItem" image="logout" id="zp6-Re-AUf">
                             <inset key="imageInsets" minX="0.0" minY="5" maxX="10" maxY="5"/>
+                            <color key="tintColor" red="0.8666666666666667" green="0.33333333333333331" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="onSignout:" destination="c1S-qw-u1Y" id="J69-FE-7Ih"/>
                             </connections>
@@ -1832,35 +1833,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0SJ-lk-MOs">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="115" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0SJ-lk-MOs">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextInputCell2" rowHeight="59" id="fGX-Vo-5Ou" customClass="TextInputCell2" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="59"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextInputCell2" rowHeight="80" id="fGX-Vo-5Ou" customClass="TextInputCell2" customModule="iOS_PartyPlanner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fGX-Vo-5Ou" id="LnK-Xj-cUi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TextInputCell2" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cVU-1F-ubr" customClass="CustomTextField" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TextInputCell2" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="cVU-1F-ubr" customClass="TextField" customModule="Material">
+                                                    <rect key="frame" x="25" y="0.0" width="350" height="80"/>
+                                                    <color key="tintColor" red="0.86666666670000003" green="0.33333333329999998" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="60" id="93M-TE-YQW"/>
+                                                        <constraint firstAttribute="height" constant="80" id="7UE-NT-glH"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="dividerColor">
+                                                            <color key="value" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="dividerThickness">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="dividerNormalHeight">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="cVU-1F-ubr" firstAttribute="leading" secondItem="LnK-Xj-cUi" secondAttribute="leading" id="63J-Jf-S0L"/>
-                                                <constraint firstItem="cVU-1F-ubr" firstAttribute="top" secondItem="LnK-Xj-cUi" secondAttribute="top" id="IM1-cv-ACn"/>
-                                                <constraint firstAttribute="trailing" secondItem="cVU-1F-ubr" secondAttribute="trailing" id="agN-SI-NTF"/>
+                                                <constraint firstAttribute="trailing" secondItem="cVU-1F-ubr" secondAttribute="trailing" id="9ys-w8-Pvm"/>
+                                                <constraint firstItem="cVU-1F-ubr" firstAttribute="leading" secondItem="LnK-Xj-cUi" secondAttribute="leading" constant="25" id="R1S-HB-L36"/>
+                                                <constraint firstItem="cVU-1F-ubr" firstAttribute="top" secondItem="LnK-Xj-cUi" secondAttribute="top" id="enK-57-NqN"/>
+                                                <constraint firstAttribute="bottom" secondItem="cVU-1F-ubr" secondAttribute="bottom" id="nNe-ts-ZlR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="textInput" destination="cVU-1F-ubr" id="Rfi-UU-KSp"/>
+                                            <outlet property="textInput" destination="cVU-1F-ubr" id="ITi-Gq-QGU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1876,13 +1890,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="UKa-r2-56p">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Hnv-3G-Gde">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.86666666670000003" green="0.33333333329999998" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="onCancelButton:" destination="xQW-DA-swj" id="L8p-6k-HFn"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="lId-9e-2tl">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <barButtonItem key="rightBarButtonItem" image="send_orange" id="lId-9e-2tl">
+                            <color key="tintColor" red="0.86666666670000003" green="0.33333333329999998" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="onEventSave:" destination="xQW-DA-swj" id="eSM-i8-1SI"/>
                             </connections>
@@ -1897,7 +1911,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1wP-n7-XVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3650" y="-1066"/>
+            <point key="canvasLocation" x="3648.8000000000002" y="-1066.4167916041979"/>
         </scene>
         <!--Event Location-->
         <scene sceneID="WZh-R0-1es">
@@ -1992,7 +2006,7 @@
             <objects>
                 <navigationController storyboardIdentifier="EventViewNC" automaticallyAdjustsScrollViewInsets="NO" id="VOF-yO-m27" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5iL-Dk-x6m">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5iL-Dk-x6m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2010,7 +2024,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QfT-mN-LLz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lIx-7Y-afv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lIx-7Y-afv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2073,6 +2087,7 @@
         <image name="photo" width="408" height="612"/>
         <image name="profileImage" width="300" height="300"/>
         <image name="rsvpBackground" width="1400" height="1400"/>
+        <image name="send_orange" width="25" height="25"/>
         <image name="tagline" width="48" height="48"/>
         <image name="time" width="24" height="24"/>
     </resources>
