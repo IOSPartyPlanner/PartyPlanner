@@ -42,7 +42,7 @@ The following **optional** user stories:
 
 Here's a walkthrough of implemented user stories:<br>
 
-Login Screen <br>
+Demo
 <img src='https://github.com/IOSPartyPlanner/PartyPlanner/blob/master/demos/EventCreationDemo3.gif' title='Video Walkthrough' width='300' alt='Video Walkthrough' />
 
 RSVP Screen<br>
