@@ -209,7 +209,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let leftView = UIImageView()
       leftView.image =  #imageLiteral(resourceName: "guests2")
       cell.textInput.leftView = leftView
-      cell.textInput.leftViewOffset = 35
+//      cell.textInput.leftViewOffset = 35
       
       cell.textInput.placeholder = "Add guests for the event"
       cell.indexRow = indexPath.row
@@ -225,7 +225,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let leftView = UIImageView()
       leftView.image =  #imageLiteral(resourceName: "check_list")
       cell.textInput.leftView = leftView
-      cell.textInput.leftViewOffset = 35
+//      cell.textInput.leftViewOffset = 35
       
       cell.textInput.placeholder = "Add tasks"
       cell.indexRow = indexPath.row
