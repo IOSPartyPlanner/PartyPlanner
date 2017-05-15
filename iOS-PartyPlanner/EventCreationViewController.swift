@@ -71,7 +71,16 @@ class EventCreationViewController: UIViewController {
   }
   
   @IBAction func onCancelButton(_ sender: Any) {
-    self.dismiss(animated: true, completion: nil)
+    
+    let animationView = LOTAnimationView(name: "spacehub")
+    animationView?.frame = view.bounds
+    animationView?.contentMode = .scaleAspectFit
+    animationView?.animationSpeed = 4
+    self.view.addSubview(animationView!)
+    
+    animationView?.play(completion: { finished in
+      self.dismiss(animated: true, completion: nil)
+    })
   }
   
   
@@ -499,7 +508,6 @@ extension EventCreationViewController {
     let animationView = LOTAnimationView(name: "pen_tool_loop")
     animationView?.frame = self.view.bounds
     animationView?.contentMode = .scaleAspectFit
-    // animationView?.loopAnimation = true
     self.view.addSubview(animationView!)
     
     animationView?.play(completion: { finished in
