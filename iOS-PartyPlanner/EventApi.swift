@@ -91,28 +91,25 @@ class EventApi: NSObject {
     // return an array of events that this user is invited to
     func getEventsForUserEmailWithPredicate(userEmail: String, predicate: ((Event) -> Bool)?, success: @escaping ([Event]) -> (), failure: ((APIFetchError) -> ())?) {
         print("EventApi : searching for events userId: \(userEmail) is invited to")
-        
-//        RsvpApi.sharedInstance.getRsvpsForUserEmail(userEmail: userEmail, success: {rsvps in
-//            let revpIds = rsvps.map{    return $0.eventId   }
-            self.fireBaseEventRef.child("guestEmailList")
-                .observe(.value, with: { (snapshot) in
-                    var events = snapshot.children.map({ return Event(snapshot: $0 as! FIRDataSnapshot)}) /* .filter{ revpIds.contains($0.id)} */
-                    
-                    if let predicate = predicate {
-                        events = events.filter{ return predicate($0) }
-                    }
-                    
-                    
-                    if events.count == 0 {
-                        failure?(.NoItemFoundError)
-                    } else {
-                        success(events)
-                    }
+
+        fireBaseEventRef
+            .observe(.value, with: { (snapshot) in
+                var allEvents = snapshot.children.map({ return Event(snapshot: $0 as! FIRDataSnapshot)})
+                var events = allEvents.filter({
+                    return ($0.guestEmailList?.contains(userEmail))!
                 })
-            
-//        }, failure: {
-//            failure?(.NoItemFoundError)
-//        })
+                
+                if let predicate = predicate {
+                    events = events.filter{ return predicate($0) }
+                }
+                
+                
+                if events.count == 0 {
+                    failure?(.NoItemFoundError)
+                } else {
+                    success(events)
+                }
+            })
     }
     
     func getEventsForUserEmail(userEmail: String, success: @escaping ([Event]) -> (), failure: ((APIFetchError) -> ())?) {
