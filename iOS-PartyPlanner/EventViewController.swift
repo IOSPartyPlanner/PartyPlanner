@@ -47,6 +47,10 @@ class EventViewController: UIViewController {
         if !(event?.isPast())! && (event?.isUserOnwer())! {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
         }
+      let tableBackgroundView: UIImageView = UIImageView(image: #imageLiteral(resourceName: "eventViewB9"))
+      
+      tableBackgroundView.alpha = 1
+      eventTableView.backgroundView = tableBackgroundView
     }
     
     override func didReceiveMemoryWarning() {
@@ -107,7 +111,17 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    
+  
+
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    switch section{
+    case 0:
+      return 1.0
+    default:
+      return 50.0
+    }
+  }
+  
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = eventTableView.dequeueReusableCell(withIdentifier: "HeadAddTableViewCell") as? HeadAddTableViewCell
         cell?.viewController = self
@@ -165,16 +179,19 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             let cell0 = eventTableView.dequeueReusableCell(withIdentifier: "EventSummaryTableViewCell", for: indexPath) as? EventSummaryTableViewCell
             cell0?.event = event
             guestsCell?.viewController = self
+            cell0?.backgroundColor = UIColor(white: 1, alpha: 0.6)
             return cell0!
         case (1, false):
             guestsCell = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestsTableViewCell", for: indexPath) as? EventGuestsTableViewCell
             guestsCell?.guests = event?.guests
             guestsCell?.viewController = self
+            guestsCell?.backgroundColor = UIColor(white: 1, alpha: 0.6)
             return guestsCell!
         case (1, true):
             let cell1 = eventTableView.dequeueReusableCell(withIdentifier: "PhotoesTableViewCell", for: indexPath) as? PhotoesTableViewCell
             cell1?.photoes = event?.postEventImages
             cell1?.viewController = self
+            cell1?.backgroundColor = UIColor(white: 1, alpha: 0.6)
             return cell1!
         case (2, false):
             let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventTasksTableViewCell", for: indexPath) as? EventTasksTableViewCell
@@ -189,12 +206,14 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             }
             cell2?.taskImageView.translatesAutoresizingMaskIntoConstraints = true
             cell2?.taskDescLabel.text = task?.name
+            cell2?.backgroundColor = UIColor(white: 1, alpha: 0.6)
             return cell2!
         default:
             let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestCommentTableViewCell", for: indexPath) as? EventGuestCommentTableViewCell
             if let userComment = event?.postComments[indexPath.row] {
                 cell2?.comment = userComment
             }
+            cell2?.backgroundColor = UIColor(white: 1, alpha: 0.6)
             return cell2!
         }
         

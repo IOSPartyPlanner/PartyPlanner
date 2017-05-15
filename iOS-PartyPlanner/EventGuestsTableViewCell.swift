@@ -21,6 +21,7 @@ class EventGuestsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICol
         // Initialization code
         guestCollectionView.delegate = self
         guestCollectionView.dataSource = self
+        guestCollectionView.backgroundColor = UIColor.clear
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
