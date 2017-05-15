@@ -27,8 +27,8 @@ class EventCreationViewController: UIViewController {
   fileprivate var location: String?
   fileprivate var eventStartDateTime: Date?
   fileprivate var eventEndDateTime: Date?
-  fileprivate var eventGuestList: [String] = []
-  fileprivate var eventTaskCount: Int = 0
+  fileprivate var eventGuestList: [String]?
+  fileprivate var eventTaskCount: Int?
   fileprivate var eventMediaUrl: URL!
   fileprivate var eventMediaType: MediaType!
   //  fileprivate var eventMediaFirebaseUrl: String!
@@ -214,7 +214,9 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.textInput.placeholder = "Add guests for the event"
       cell.indexRow = indexPath.row
       cell.textInput.isUserInteractionEnabled = false
-      cell.textInput.text = "\(eventGuestList.count) guests added"
+      if eventGuestList != nil {
+        cell.textInput.text = "\(String(describing: eventGuestList?.count)) guests added"
+      }
       cell.delegate = self
       return cell
     }
@@ -227,10 +229,12 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.textInput.leftView = leftView
 //      cell.textInput.leftViewOffset = 35
       
-      cell.textInput.placeholder = "Add tasks"
+      cell.textInput.placeholder = "Add tasks for the event"
       cell.indexRow = indexPath.row
       cell.textInput.isUserInteractionEnabled = false
-      cell.textInput.text = "\(eventTaskCount) tasks added"
+      if eventTaskCount != nil {
+        cell.textInput.text = "\(String(describing: eventTaskCount)) tasks added"
+      }
       cell.delegate = self
       return cell
     }
@@ -422,7 +426,12 @@ extension EventCreationViewController: TextInputCell2Delegate {
 extension EventCreationViewController: TasksViewControllerDelegate, AddContactsViewControllerDelegate {
   
   func addContactsViewController(addContactsViewController: AddContactsViewController, contactsAdded: [String]) {
-    let newGuestList = eventGuestList + contactsAdded
+    var newGuestList: [String] = []
+    if eventGuestList == nil {
+      eventGuestList = []
+      newGuestList = eventGuestList! + contactsAdded
+    }
+    newGuestList = eventGuestList! + contactsAdded
     eventGuestList = Array(Set(newGuestList))
     let indexPath = IndexPath(item: 5, section: 0)
     tableView.reloadRows(at: [indexPath], with: .automatic)
@@ -497,7 +506,7 @@ extension EventCreationViewController {
     }
     
     // check guests
-    if eventGuestList.count <= 0 {
+    if (eventGuestList?.count)! <= 0 {
       displayDisapperaingAlert("You forgot to invite friends and family")
       return
     } else {
