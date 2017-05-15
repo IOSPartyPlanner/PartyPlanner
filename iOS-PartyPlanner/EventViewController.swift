@@ -236,13 +236,26 @@ extension EventViewController: ELCImagePickerControllerDelegate {
             let mediaURL = line["UIImagePickerControllerReferenceURL"] as? URL
             let assets = PHAsset.fetchAssets(withALAssetURLs: [mediaURL!], options: nil)
             let asset = assets.firstObject
-            asset?.requestContentEditingInput(with: nil, completionHandler: { (contentEditingInput, info) in
-                let imageFile = contentEditingInput?.fullSizeImageURL
-                let imageName = UUID().uuidString
-                MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: imageFile!, type: .image, filepath: "\((self.event?.id)!)/\(imageName)", success: { (url) in
-                    EventApi.sharedInstance.addPhotoURL(url, withEvent: self.event!)
-                }, failure: {})
+            PHImageManager.default().requestImageData(for: asset!, options: nil, resultHandler: { (data, _, _, _) in
+                let imageName = UUID().uuidString + ".jpeg"
+                let assetUrl = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(imageName)
+                do {
+                    try data?.write(to: assetUrl, options: .atomic)
+                    MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: assetUrl, type: .image, filepath: "\((self.event?.id)!)/\(imageName)", success: { (url) in
+                        EventApi.sharedInstance.addPhotoURL(url, withEvent: self.event!)
+                    }, failure: {})
+                } catch {
+                }
             })
+//            asset?.requestContentEditingInput(with: nil, completionHandler: { (contentEditingInput, info) in
+//
+//                
+//                let imageFile = contentEditingInput?.fullSizeImageURL
+//                let imageName = UUID().uuidString
+//                MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: imageFile!, type: .image, filepath: "\((self.event?.id)!)/\(imageName)", success: { (url) in
+//                    EventApi.sharedInstance.addPhotoURL(url, withEvent: self.event!)
+//                }, failure: {})
+//            })
         }
         dismiss(animated: true, completion: nil)
     }
