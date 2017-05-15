@@ -24,13 +24,13 @@
                             <constraint firstAttribute="height" constant="160" id="NaF-U8-stC"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SL-ir-PEX">
-                        <rect key="frame" x="237" y="120" width="50" height="40"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SL-ir-PEX">
+                        <rect key="frame" x="237" y="120.5" width="50" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="fqt-yj-QvH"/>
                             <constraint firstAttribute="height" constant="40" id="yj8-K1-0nI"/>
                         </constraints>
-                        <state key="normal" backgroundImage="Add Camera-96"/>
+                        <state key="normal" image="photo_camera" backgroundImage="Add Camera-96"/>
                         <connections>
                             <action selector="onCameraButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bxe-Yr-lha"/>
                         </connections>
@@ -56,5 +56,6 @@
     </objects>
     <resources>
         <image name="Add Camera-96" width="48" height="48"/>
+        <image name="photo_camera" width="64" height="64"/>
     </resources>
 </document>

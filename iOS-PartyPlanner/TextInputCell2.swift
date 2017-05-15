@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Material
 
 @objc protocol TextInputCell2Delegate {
 
@@ -29,10 +29,10 @@ import UIKit
 
 class TextInputCell2: UITableViewCell {
   
-  @IBOutlet weak var textInput: CustomTextField!
-  
   var indexRow: Int!
   weak var delegate: TextInputCell2Delegate?
+  
+  @IBOutlet weak var textInput: TextField!
   
   override func awakeFromNib() {
     super.awakeFromNib()

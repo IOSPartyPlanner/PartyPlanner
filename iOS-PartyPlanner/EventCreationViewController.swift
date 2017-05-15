@@ -8,6 +8,7 @@
 
 import UIKit
 import Lottie
+import Material
 
 class EventCreationViewController: UIViewController {
   
@@ -24,8 +25,8 @@ class EventCreationViewController: UIViewController {
   fileprivate var eventName: String?
   fileprivate var locationSelected = false
   fileprivate var location: String?
-  fileprivate var eventStartDateTime: Date!
-  fileprivate var eventEndDateTime: Date!
+  fileprivate var eventStartDateTime: Date?
+  fileprivate var eventEndDateTime: Date?
   fileprivate var eventGuestList: [String] = []
   fileprivate var eventTaskCount: Int = 0
   fileprivate var eventMediaUrl: URL!
@@ -38,8 +39,8 @@ class EventCreationViewController: UIViewController {
   // placeholders
   var eventNamePlaceHolder = "Event Name"
   var eventLocationPlaceHodler = "Location"
-  var eventStartDatePlaceHodler = "Event Start Date Time"
-  var eventEndDatePlaceHodler = "Event End Date Time"
+  var eventStartDatePlaceHolder = "Event Start Date Time"
+  var eventEndDatePlaceHolder = "Event End Date Time"
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,8 +53,8 @@ class EventCreationViewController: UIViewController {
     
     // initially set the event start time as currrent time and
     // end time an hour later
-    eventStartDateTime = Date.init().addingTimeInterval(1000.0)
-    eventEndDateTime = Date.init().addingTimeInterval(4600.0)
+//    eventStartDateTime = Date.init().addingTimeInterval(1000.0)
+//    eventEndDateTime = Date.init().addingTimeInterval(4600.0)
     
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 200
@@ -70,7 +71,16 @@ class EventCreationViewController: UIViewController {
   }
   
   @IBAction func onCancelButton(_ sender: Any) {
-    self.dismiss(animated: true, completion: nil)
+    
+    let animationView = LOTAnimationView(name: "spacehub")
+    animationView?.frame = view.bounds
+    animationView?.contentMode = .scaleAspectFit
+    animationView?.animationSpeed = 4
+    self.view.addSubview(animationView!)
+    
+    animationView?.play(completion: { finished in
+      self.dismiss(animated: true, completion: nil)
+    })
   }
   
   
@@ -115,7 +125,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       if eventImage != nil {
         cell.myImageView.image = eventImage
       } else {
-        cell.myImageView.image = #imageLiteral(resourceName: "Theme")
+        cell.myImageView.image = #imageLiteral(resourceName: "placeholder_orange")
       }
       cell.delegate = self
       return cell
@@ -124,12 +134,15 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
     else if indexPath.row == 1 {
       // Event Name label
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
-      cell.textInput.leftImage = #imageLiteral(resourceName: "Pen")
-      cell.textInput.leftPadding = 40
-      cell.textInput.placeholder = eventNamePlaceHolder
+      
+      let leftView = UIImageView()
+      leftView.image = #imageLiteral(resourceName: "pen_orange_filled-1")
+      cell.textInput.leftView = leftView
       if eventName != nil {
         cell.textInput.text = eventName
       }
+      
+      cell.textInput.placeholder = eventNamePlaceHolder
       cell.indexRow = indexPath.row
       cell.delegate = self
       return cell
@@ -138,8 +151,11 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
     else if indexPath.row == 2 {
       // Location
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
-      cell.textInput.leftImage = #imageLiteral(resourceName: "Marker")
-      cell.textInput.leftPadding = 40
+      
+      let leftView = UIImageView()
+      leftView.image = #imageLiteral(resourceName: "marker_orange")
+      cell.textInput.leftView = leftView
+      
       cell.textInput.placeholder = eventLocationPlaceHodler
       if location != nil {
         cell.textInput.text = location
@@ -152,11 +168,16 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
     else if indexPath.row == 3 {
       // Start Time
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
-      cell.textInput.leftImage = #imageLiteral(resourceName: "TimerEmpty")
-      cell.textInput.leftPadding = 40
-      cell.textInput.placeholder = eventStartDatePlaceHodler
+      
+      let leftView = UIImageView()
+      leftView.image = #imageLiteral(resourceName: "event_start_time_orange")
+      cell.textInput.leftView = leftView
+      
+      cell.textInput.placeholder = eventStartDatePlaceHolder
       cell.indexRow = indexPath.row
-      cell.textInput.text = Utils.getShortTimeStampStringFromDate(date: eventStartDateTime)
+      if eventStartDateTime != nil {
+        cell.textInput.text = Utils.getShortTimeStampStringFromDate(date: eventStartDateTime!)
+      }
       cell.textInput.inputView = datepicker
       cell.textInput.inputAccessoryView = toolbar
       cell.delegate = self
@@ -166,11 +187,16 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
     else if indexPath.row == 4 {
       // End Time
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
-      cell.textInput.leftImage = #imageLiteral(resourceName: "TimerComplete")
-      cell.textInput.leftPadding = 40
-      cell.textInput.placeholder = eventEndDatePlaceHodler
+      
+      let leftView = UIImageView()
+      leftView.image =  #imageLiteral(resourceName: "event_end_time_orange")
+      cell.textInput.leftView = leftView
+      
+      cell.textInput.placeholder = eventEndDatePlaceHolder
       cell.indexRow = indexPath.row
-      cell.textInput.text = Utils.getShortTimeStampStringFromDate(date: eventEndDateTime)
+      if eventEndDateTime != nil {
+        cell.textInput.text = Utils.getShortTimeStampStringFromDate(date: eventEndDateTime!)
+      }
       cell.textInput.inputView = datepicker
       cell.textInput.inputAccessoryView = toolbar
       cell.delegate = self
@@ -179,8 +205,12 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
     else if indexPath.row == 5 {
       // Add Guests
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
-      cell.textInput.leftImage = #imageLiteral(resourceName: "TimerComplete")
-      cell.textInput.leftPadding = 40
+      
+      let leftView = UIImageView()
+      leftView.image =  #imageLiteral(resourceName: "guests2")
+      cell.textInput.leftView = leftView
+      cell.textInput.leftViewOffset = 35
+      
       cell.textInput.placeholder = "Add guests for the event"
       cell.indexRow = indexPath.row
       cell.textInput.isUserInteractionEnabled = false
@@ -191,8 +221,12 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
     else if indexPath.row == 6 {
       // Add Tasks
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
-      cell.textInput.leftImage = #imageLiteral(resourceName: "TimerComplete")
-      cell.textInput.leftPadding = 40
+      
+      let leftView = UIImageView()
+      leftView.image =  #imageLiteral(resourceName: "check_list")
+      cell.textInput.leftView = leftView
+      cell.textInput.leftViewOffset = 35
+      
       cell.textInput.placeholder = "Add tasks"
       cell.indexRow = indexPath.row
       cell.textInput.isUserInteractionEnabled = false
@@ -226,8 +260,14 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
 // MARK: - Date and Media Selection
 extension EventCreationViewController {
   func prepareToolBars() {
+    
+    datepicker.backgroundColor = UIColor.white
+    datepicker.setValue(Utils.getProjThemeUIColor(), forKeyPath: "textColor")
+    datepicker.setValue(0.8, forKeyPath: "alpha")
+    
     toolbar.sizeToFit()
     let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(datePickerValueChanged))
+    doneButton.tintColor = UIColor.orange
     toolbar.setItems([doneButton], animated: true)
   }
   
@@ -256,7 +296,7 @@ extension EventCreationViewController {
 
 
 // MARK: - Media Selection delegates and methods
-extension EventCreationViewController: ImageCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+extension EventCreationViewController: ImageCellDelegate, UIImagePickerControllerDelegate {
   func imageCell(imageCell: ImageCell, media: String) {
     let alert = UIAlertController(title: "Choose Source", message: nil, preferredStyle: .actionSheet)
     alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
@@ -442,18 +482,18 @@ extension EventCreationViewController {
     }
     
     // check start date < check end date
-    if Utils.isDateTimePast(date: eventStartDateTime) {
+    if Utils.isDateTimePast(date: eventStartDateTime!) {
       displayDisapperaingAlert("Event start date cannot be in the past!!!")
       return
     } else {
-      event.dateTime = eventStartDateTime
+      event.dateTime = eventStartDateTime!
     }
     
-    if (eventEndDateTime < eventStartDateTime) ||  Utils.isDateTimePast(date: eventEndDateTime) {
+    if (eventEndDateTime! < eventStartDateTime!) ||  Utils.isDateTimePast(date: eventEndDateTime!) {
       displayDisapperaingAlert("Event cannot end before beginning")
       return
     } else {
-      event.peroid = eventEndDateTime.timeIntervalSince(eventEndDateTime)
+      event.peroid = eventEndDateTime?.timeIntervalSince(eventEndDateTime!)
     }
     
     // check guests
@@ -468,7 +508,6 @@ extension EventCreationViewController {
     let animationView = LOTAnimationView(name: "pen_tool_loop")
     animationView?.frame = self.view.bounds
     animationView?.contentMode = .scaleAspectFit
-    // animationView?.loopAnimation = true
     self.view.addSubview(animationView!)
     
     animationView?.play(completion: { finished in
