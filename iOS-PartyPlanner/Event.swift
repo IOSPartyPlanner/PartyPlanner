@@ -102,7 +102,7 @@ public class Event: NSObject {
     hostEmail = snapshotValue["hostEmail"] as! String
     hostProfileImageUrl = snapshotValue["hostProfileImageUrl"] as? String
     guestEmailList = snapshotValue["guestEmailList"] as? [String] ?? []
-    location = snapshotValue["location"] as! String
+    location = snapshotValue["location"] as? String
     inviteMediaUrl = snapshotValue["inviteImageUrl"] as? String
     inviteMediaType = MediaType(rawValue: snapshotValue["inviteMediaType"] as! String)!
     postEventImages = snapshotValue["postEventImages"] as? [String] ?? []
