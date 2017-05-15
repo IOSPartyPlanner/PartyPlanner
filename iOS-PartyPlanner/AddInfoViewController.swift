@@ -185,15 +185,18 @@ extension AddInfoViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = addInfoTableView.dequeueReusableCell(withIdentifier: "AddTextInputCell", for: indexPath) as? AddTextInputCell
             textView = cell?.textView
-            switch type! {
-            case "Task":
-                cell?.placeHolderText = "Please add your task here"
-            case "QCode":
-                cell?.placeHolderText = "Add your message to generate QCode"
-            case "Comment":
-                cell?.placeHolderText = "Add you comment for this event"
-            default:
-                break
+            
+            if cell?.placeHolderText == nil {
+                switch type! {
+                case "Task":
+                    cell?.placeHolderText = "Please add your task here"
+                case "QCode":
+                    cell?.placeHolderText = "Add your message to generate QCode"
+                case "Comment":
+                    cell?.placeHolderText = "Add you comment for this event"
+                default:
+                    break
+                }
             }
             return cell!
         case 1:
