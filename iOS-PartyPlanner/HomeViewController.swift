@@ -39,12 +39,6 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
   }
   
   func refreshControlAction(_ refreshControl: UIRefreshControl) {
-    //TODO:Needed to check refreshing part
-    /*pastEventList = [Event]()
-     upcomingEventList = [Event]()
-     tasksList = [[Task]]()
-     sectionTasks = [String]()
-     fetchEvents()*/
     refreshControl.endRefreshing()
   }
   
@@ -131,15 +125,10 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
   }
   
-  //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-  //        //TODO: Perform Segue ShowDetails
-  //        print("call didSelectRowAt")
-  //        if sign == 0 {
-  //            //homeTableView.deselectRow(at:indexPath, animated: true)
-  //            self.performSegue(withIdentifier: "showEvent", sender: self)
-  //
-  //        }
-  //    }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      homeTableView.deselectRow(at:indexPath, animated: true)
+  }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     print("Call perform segue \(String(describing: segue.identifier))")
