@@ -26,12 +26,14 @@ class AddTextInputCell: UITableViewCell, UITextViewDelegate {
       
       contentView.backgroundColor = UIColor.lightGray
     }
+  
+  
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
+//        if textView.textColor == UIColor.lightGray {
             textView.text = nil
             textView.textColor = UIColor.red
-        }
+//        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -191,8 +193,8 @@ extension AddInfoViewController: UITableViewDelegate, UITableViewDataSource {
             textView = cell?.textView
             
             textView?.layer.cornerRadius = 10
-            textView?.layer.borderWidth = 10.0
-            textView?.layer.borderColor = UIColor.white.cgColor
+//            textView?.layer.borderWidth = 10.0
+//            textView?.layer.borderColor = UIColor.white.cgColor
             
             textView?.layer.shadowColor = UIColor.black.cgColor
             textView?.layer.shadowOpacity = 0.3
