@@ -12,7 +12,6 @@ import UIKit
   @objc optional func tasksViewController(tasksViewController: TasksViewController, tasksAddedCount count: Int)
 }
 
-
 class TasksViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
   
   @IBOutlet var tasksTableView: UITableView!
@@ -56,53 +55,90 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
     else{
       return "Assigned Tasks"
     }
-  }
-  
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 2
-  }
-  
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
-    if section == 0 {
-      return unassignedTaskList.count
-    }
-    else {
-      return assignedTaskList.count
     }
     
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell") as! TaskTableViewCell
-    if indexPath.section == 0 {
-      cell.task = unassignedTaskList[indexPath.item]
-      //cell.taskStatusImage.image = UIImage(named: "unchecked")
-      cell.taskStatusImage.isHidden = true
-      if unassignedTaskList[indexPath.item].volunteerEmails != nil && (unassignedTaskList[indexPath.item].volunteerEmails?.values.contains((User._currentUser?.email)!))!{
-        cell.colorView.layer.backgroundColor = UIColor.green.cgColor
-      }
-      else{
-        cell.colorView.layer.backgroundColor = UIColor.yellow.cgColor
-      }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
-    else{
-      cell.taskStatusImage.isHidden = true
-      cell.task = assignedTaskList[indexPath.item]
-      //cell.taskStatusImage.image = UIImage(named: "checked")
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
+            if section == 0 {
+                return unassignedTaskList.count
+            }
+            else {
+                return assignedTaskList.count
+            }
+      
     }
-    return cell
-  }
-  
-  
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tasksTableView.deselectRow(at:indexPath, animated: true)
-  }
-  
-  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-    //TODO:Add volunteer or remove volunteer
-    //TaskApi.sharedInstance.addVolunteer(email: "tgcksr@gmal.com", task: "Help for after partyHelp for cleaning5")
-    tasksTableView.reloadData()
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell") as! TaskTableViewCell
+        if indexPath.section == 0 {
+           cell.task = unassignedTaskList[indexPath.item]
+           cell.taskStatusImage.isHidden = true
+            if unassignedTaskList[indexPath.item].volunteerEmails != nil && (unassignedTaskList[indexPath.item].volunteerEmails?.values.contains((User._currentUser?.email)!))!{
+                cell.colorView.layer.backgroundColor = UIColor.green.cgColor
+            }
+            else{
+                 cell.colorView.layer.backgroundColor = UIColor.yellow.cgColor
+            }
+        }
+        else{
+           cell.taskStatusImage.isHidden = true
+           cell.task = assignedTaskList[indexPath.item]
+           cell.colorView.layer.backgroundColor = UIColor.red.cgColor
+         
+        }
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //It returns data 2 times - Bug
+        let section = indexPath.section
+        var volunteers = [String]()
+        volunteers.append((User._currentUser?.email)!)
+    
+        if section == 0 {
+            let task = unassignedTaskList[indexPath.item]
+            if task.volunteerEmails == nil {
+                TaskApi.sharedInstance.addVolunteer(emails: volunteers, taskId: task.id)
+                tasksTableView.reloadRows(at: [indexPath], with: .bottom)
+            }
+            else if !(task.volunteerEmails?.values.contains((User._currentUser?.email)!))! {
+                TaskApi.sharedInstance.addVolunteer(emails: volunteers, taskId: task.id)
+                tasksTableView.reloadRows(at: [indexPath], with: .bottom)
+            }
+                
+            else {
+                TaskApi.sharedInstance.removeVolunteer(emails: volunteers, taskId: task.id)
+                tasksTableView.reloadRows(at: [indexPath], with: .top)
+            }
+             
+        }
+        else{
+            let task = assignedTaskList[indexPath.item]
+            
+            if task.volunteerEmails != nil && !(task.volunteerEmails?.values.contains((User._currentUser?.email)!))!
+                && (task.numberOfPeopleRequired - (task.volunteerEmails?.count)!) > 0 {
+                
+                TaskApi.sharedInstance.addVolunteer(emails: volunteers, taskId: task.id)
+                tasksTableView.reloadRows(at: [indexPath], with: .bottom)
+            }
+                
+            else if task.volunteerEmails != nil && (task.volunteerEmails?.values.contains((User._currentUser?.email)!))! {
+                TaskApi.sharedInstance.removeVolunteer(emails: volunteers, taskId: task.id)
+                tasksTableView.reloadRows(at: [indexPath], with: .top)
+            }
+            
+        }
+        
+        tasksTableView.deselectRow(at:indexPath, animated: true)
+
+    
   }
   
   override func didReceiveMemoryWarning() {
