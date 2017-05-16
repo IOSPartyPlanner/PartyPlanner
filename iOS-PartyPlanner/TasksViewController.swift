@@ -33,9 +33,8 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    if !isNewevent! {
+    //if !isNewevent! {
       fetchTasks()
-    }
     addTaskView.isHidden = true
     blurView.isHidden = true
     
