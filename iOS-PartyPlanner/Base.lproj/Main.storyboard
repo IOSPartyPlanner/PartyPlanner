@@ -374,11 +374,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-Hb-Alu">
-<<<<<<< HEAD
                                                     <rect key="frame" x="8" y="8" width="359" height="64"/>
-=======
-                                                    <rect key="frame" x="8" y="8" width="359" height="358"/>
->>>>>>> Add volunteer functionality was added
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="63.5" id="7hm-bn-ESs"/>
@@ -438,13 +434,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-<<<<<<< HEAD
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4HO-Za-ZlI">
                                                     <rect key="frame" x="8" y="8" width="359" height="100"/>
-=======
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4HO-Za-ZlI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
->>>>>>> Add volunteer functionality was added
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="92" id="9Tn-AF-M8f"/>
@@ -1210,11 +1201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Acu-9w-hyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="4606" y="-1802"/>
-=======
-            <point key="canvasLocation" x="4561" y="-1728"/>
->>>>>>> Add volunteer functionality was added
         </scene>
         <!--View Controller-->
         <scene sceneID="4F8-Mu-coF">
@@ -1797,11 +1784,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="3649" y="-272"/>
-=======
-            <point key="canvasLocation" x="2772" y="587"/>
->>>>>>> Add volunteer functionality was added
         </scene>
         <!--Select Guests-->
         <scene sceneID="gxy-Bz-jKX">
@@ -1891,11 +1874,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HN1-O2-p9x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="4605.6000000000004" y="-272.11394302848578"/>
-=======
-            <point key="canvasLocation" x="4582" y="-315"/>
->>>>>>> Add volunteer functionality was added
         </scene>
         <!--Event Creation View Controller-->
         <scene sceneID="VWG-Ap-LMQ">
@@ -1980,14 +1959,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="0SJ-lk-MOs" id="jpv-CX-tBh"/>
-<<<<<<< HEAD
                         <segue destination="1xP-P1-hlA" kind="show" identifier="EventCreationSelectLocationSegue" id="cMw-e2-QMk"/>
                         <segue destination="GBq-dB-2K0" kind="show" identifier="EventCreationAddTaskSegue" id="btp-xE-CTX"/>
                         <segue destination="fkB-Zh-RbC" kind="show" identifier="EventCreationAddContactSegue" id="TkZ-GM-Xnc"/>
-=======
-                        <segue destination="1xP-P1-hlA" kind="show" identifier="locationSelectionSegue" id="cMw-e2-QMk"/>
-                        <segue destination="fkB-Zh-RbC" kind="show" id="TkZ-GM-Xnc"/>
->>>>>>> Add volunteer functionality was added
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1wP-n7-XVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
