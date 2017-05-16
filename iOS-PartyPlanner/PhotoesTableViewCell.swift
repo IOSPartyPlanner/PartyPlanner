@@ -16,7 +16,7 @@ class PhotoesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     
     var photoes: [String]? {
         didSet {
-            //photos = photoes?.map({return URL(string: $0)}).map({ return MWPhoto.init(url: $0)})
+            photos = photoes?.map({return URL(string: $0)}).map({ return MWPhoto.init(url: $0)})
         }
     }
     
