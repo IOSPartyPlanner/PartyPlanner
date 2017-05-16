@@ -59,10 +59,43 @@ class HomeEventTableViewCell: UITableViewCell {
                 let monthOfEvent = Calendar.current.component(.month, from: time)
                 month.text = Utils.getMonth(month: monthOfEvent)
             }
+          
+            let rsvpId = (event?.id)! + ((User.currentUser?.email)?.replacingOccurrences(of: ".", with: ""))!
+          RsvpApi.sharedInstance.getRsvpById(rsvpId: rsvpId, success: { (rsvp: RSVP?) in
             
-            if let rsvpStatus = event?.response {
-                rsvpButton.setTitle(rsvpStatus, for: .normal)
+            switch (rsvp?.response)! {
+            case .yes:
+              self.rsvpButton.setTitle("Yes", for: .normal)
+              self.rsvpButton.backgroundColor = UIColor.green
+            case .no:
+              self.rsvpButton.setTitle("No", for: .normal)
+              self.rsvpButton.backgroundColor = UIColor.red
+            case .maybe:
+              self.rsvpButton.setTitle("Maybe", for: .normal)
+              self.rsvpButton.backgroundColor = UIColor.orange
+            default:
+                break
             }
+//              self.rsvpButton.setTitle(rsvp?.response?.rawValue, for: .normal)
+//            if ()
+//            switch (rsvp?.response?.rawValue)! {
+//            case "Yes" :
+//              self.rsvpButton.backgroundColor = UIColor.green
+//            case "No" :
+//              self.rsvpButton.backgroundColor = UIColor.red
+//            case "Maybe":
+//              self.rsvpButton.backgroundColor = UIColor.orange
+//            default:
+//              self.rsvpButton.backgroundColor = UIColor.gray
+//            }
+            }) {
+              self.rsvpButton.setTitle("RSVP", for: .normal)
+              self.rsvpButton.backgroundColor = UIColor.gray
+//              print("Failed to fetch rsvp for RSVPId \(rsvpId)")
+          }
+//            if let rsvpStatus = event?.response {
+//                rsvpButton.setTitle(rsvpStatus, for: .normal)
+//            }
         }
     }
     

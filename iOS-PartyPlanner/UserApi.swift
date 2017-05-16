@@ -46,14 +46,13 @@ class UserApi: NSObject {
   }
   
   func getUserByEmail(userEmail: String, success: @escaping (User?) ->(), failure: @escaping () -> ()) {
-    print("UserAPI : searching for user by Email \(userEmail)")
+//    print("UserAPI : searching for user by Email \(userEmail)")
     var user: User?
     fireBaseTaskRef.queryOrdered(byChild: "email")
       .queryEqual(toValue: userEmail)
       .observe(.value, with: { snapshot in
         for userChild in snapshot.children {
           user = User(snapshot: userChild as! FIRDataSnapshot)
-          print("Get user: \(user?.name)")
           break
         }
         
