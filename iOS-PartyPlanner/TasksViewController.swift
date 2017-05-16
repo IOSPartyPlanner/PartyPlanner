@@ -30,21 +30,23 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
   var isNewevent: Bool?
   weak var delegate: TasksViewControllerDelegate?
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if !isNewevent! {
+            fetchTasks()
+        }
+        addTaskView.isHidden = true
+        blurView.isHidden = true
+        
+    }
     
-    //if !isNewevent! {
-      fetchTasks()
-    addTaskView.isHidden = true
-    blurView.isHidden = true
+
+    override func viewWillDisappear(_ animated: Bool) {
+        let count = assignedTaskList.count + unassignedTaskList.count
+        delegate?.tasksViewController!(tasksViewController: self, tasksAddedCount: count)
+    }
     
-  }
-  
-  override func viewWillDisappear(_ animated: Bool) {
-    let count = assignedTaskList.count + unassignedTaskList.count
-    delegate?.tasksViewController!(tasksViewController: self, tasksAddedCount: count)
-  }
-  
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
@@ -61,12 +63,12 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            if section == 0 {
-                return unassignedTaskList.count
-            }
-            else {
-                return assignedTaskList.count
-            }
+        if section == 0 {
+            return unassignedTaskList.count
+        }
+        else {
+            return assignedTaskList.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -188,22 +190,22 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
         addTaskView.isHidden = true
         blurView.isHidden = true
     }
-  
-  
-  @IBAction func onClickAdd(_ sender: Any) {
-    let volunteerEmails = [String]()
-    let taskId = Utils.generateUUID()
-    print( taskNameTextField.text!)
-    print(event?.id as Any)
-    print(requiredPeopleCountTextField.text!)
     
-    let createdTask = Task(id: taskId, name: taskNameTextField.text!, eventId: (event?.id)!, taskDescription: taskDescriptionTextField.text,volunteerEmails: volunteerEmails, numberOfPeopleRequired: (Int)(requiredPeopleCountTextField.text!)!, dueDate: (event?.dateTime)!)
-    TaskApi.sharedInstance.storeTask(task: createdTask)
-    addTaskView.isHidden = true
-    blurView.isHidden = true
-    if isNewevent! {
-        fetchTasks()
+    
+    @IBAction func onClickAdd(_ sender: Any) {
+        let volunteerEmails = [String]()
+        let taskId = Utils.generateUUID()
+        print( taskNameTextField.text!)
+        print(event?.id as Any)
+        print(requiredPeopleCountTextField.text!)
+        
+        let createdTask = Task(id: taskId, name: taskNameTextField.text!, eventId: (event?.id)!, taskDescription: taskDescriptionTextField.text,volunteerEmails: volunteerEmails, numberOfPeopleRequired: (Int)(requiredPeopleCountTextField.text!)!, dueDate: (event?.dateTime)!)
+        TaskApi.sharedInstance.storeTask(task: createdTask)
+        addTaskView.isHidden = true
+        blurView.isHidden = true
+        if isNewevent! {
+            fetchTasks()
+        }
     }
-  }
-  
+    
 }

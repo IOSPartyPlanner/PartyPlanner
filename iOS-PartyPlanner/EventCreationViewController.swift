@@ -23,6 +23,7 @@ class EventCreationViewController: UIViewController {
   // current states
   fileprivate var currentIndex: Int!
   fileprivate var eventName: String?
+  fileprivate var eventDetails: String?
   fileprivate var locationSelected = false
   fileprivate var location: String?
   fileprivate var eventStartDateTime: Date?
@@ -39,8 +40,9 @@ class EventCreationViewController: UIViewController {
   // placeholders
   var eventNamePlaceHolder = "Event Name"
   var eventLocationPlaceHodler = "Location"
-  var eventStartDatePlaceHolder = "Event Start Date Time"
-  var eventEndDatePlaceHolder = "Event End Date Time"
+  var eventStartDatePlaceHolder = "Start Date Time"
+  var eventEndDatePlaceHolder = "End Date Time"
+  var eventDetailsPlaceHolder = "Details"
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -114,13 +116,22 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 7
+    return 8
   }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 200
+        }
+        
+        return 60
+    }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     // Image
     if indexPath.row == 0 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! ImageCell
+      
       if eventImage != nil {
         cell.myImageView.image = eventImage
       } else {
@@ -135,7 +146,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
       
       let leftView = UIImageView()
-      leftView.image = #imageLiteral(resourceName: "pen_orange_filled")
+      leftView.image = #imageLiteral(resourceName: "pencil")
       cell.textInput.leftView = leftView
       if eventName != nil {
         cell.textInput.text = eventName
@@ -152,7 +163,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
       
       let leftView = UIImageView()
-      leftView.image = #imageLiteral(resourceName: "marker_orange")
+      leftView.image = #imageLiteral(resourceName: "location")
       cell.textInput.leftView = leftView
       
       cell.textInput.placeholder = eventLocationPlaceHodler
@@ -169,7 +180,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
       
       let leftView = UIImageView()
-      leftView.image = #imageLiteral(resourceName: "event_start_time_orange")
+      leftView.image = #imageLiteral(resourceName: "calendar")
       cell.textInput.leftView = leftView
       
       cell.textInput.placeholder = eventStartDatePlaceHolder
@@ -188,7 +199,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
       
       let leftView = UIImageView()
-      leftView.image = #imageLiteral(resourceName: "event_end_time_orange")
+      leftView.image = #imageLiteral(resourceName: "time")
       cell.textInput.leftView = leftView
       
       cell.textInput.placeholder = eventEndDatePlaceHolder
@@ -201,16 +212,32 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.delegate = self
       return cell
     }
-    else if indexPath.row == 5 {
+    else if indexPath.row == 5{
+        // Event Name label
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
+        
+        let leftView = UIImageView()
+        leftView.image = #imageLiteral(resourceName: "pencil")
+        cell.textInput.leftView = leftView
+        if eventName != nil {
+            cell.textInput.text = eventName
+        }
+        
+        cell.textInput.placeholder = eventDetailsPlaceHolder
+        cell.indexRow = indexPath.row
+        cell.delegate = self
+        return cell
+    }
+    else if indexPath.row == 6 {
       // Add Guests
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
       
       let leftView = UIImageView()
-      leftView.image =  #imageLiteral(resourceName: "guests2")
+      leftView.image =  #imageLiteral(resourceName: "assigning")
       cell.textInput.leftView = leftView
 //      cell.textInput.leftViewOffset = 35
       
-      cell.textInput.placeholder = "Add guests for the event"
+      cell.textInput.placeholder = "Add guests"
       cell.indexRow = indexPath.row
       cell.textInput.isUserInteractionEnabled = false
       if eventGuestList != nil {
@@ -219,16 +246,16 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.delegate = self
       return cell
     }
-    else if indexPath.row == 6 {
+    else if indexPath.row == 7 {
       // Add Tasks
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
       
       let leftView = UIImageView()
-      leftView.image =  #imageLiteral(resourceName: "check_list")
+      leftView.image =  #imageLiteral(resourceName: "todo")
       cell.textInput.leftView = leftView
 //      cell.textInput.leftViewOffset = 35
       
-      cell.textInput.placeholder = "Add tasks for the event"
+      cell.textInput.placeholder = "Add tasks"
       cell.indexRow = indexPath.row
       cell.textInput.isUserInteractionEnabled = false
       if eventTaskCount != nil {
@@ -247,18 +274,21 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       print("you selected location")
     }
     
-    if indexPath.row == 5 {
+    if indexPath.row == 6 {
       print("you selected Add Guests")
       self.performSegue(withIdentifier: "EventCreationAddContactSegue", sender: self)
     }
     
-    if indexPath.row == 6 {
+    if indexPath.row == 7 {
       print("you selected Add Tasks")
       self.performSegue(withIdentifier: "EventCreationAddTaskSegue", sender: self)
     }
   }
 }
 
+func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at:indexPath, animated: true)
+}
 
 // MARK: - Date and Media Selection
 extension EventCreationViewController {
@@ -398,6 +428,16 @@ extension EventCreationViewController: TextInputCell2Delegate {
     self.eventName = eventName
     let indexPath = IndexPath(item: currentIndex!, section: 0)
     tableView.reloadRows(at: [indexPath], with: .automatic)
+  }
+  
+  //Event Details
+  func textInputCell2(textInputCell2: TextInputCell2, detailsEntered eventDetails: String) {
+        currentIndex = 1
+        locationSelected = false
+        
+        self.eventDetails = eventDetails
+        let indexPath = IndexPath(item: currentIndex!, section: 0)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
   }
   
   // Location Field

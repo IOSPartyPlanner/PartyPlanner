@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "account-logout-32 (1).png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "signout.png",
       "scale" : "2x"
     },
     {

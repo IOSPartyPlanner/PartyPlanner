@@ -12,6 +12,8 @@ class HomeTaskTableViewCell: UITableViewCell {
 
     @IBOutlet var taskNameLabel: UILabel!
     @IBOutlet var dueDateLabel: UILabel!
+    @IBOutlet var dayLabel: UILabel!
+    @IBOutlet var monthLabel: UILabel!
     
     var task : Task? {
         didSet {
@@ -25,6 +27,11 @@ class HomeTaskTableViewCell: UITableViewCell {
                 dateFormatter.dateStyle = .long
                 dateFormatter.timeStyle = .long
                 dueDateLabel.text = dateFormatter.string(from: (time))
+                
+                let dayOfEvent = Calendar.current.component(.day, from: time)
+                dayLabel.text = String(dayOfEvent)
+                let monthOfEvent = Calendar.current.component(.month, from: time)
+                monthLabel.text = Utils.getMonth(month: monthOfEvent)
             }
         }
     }
