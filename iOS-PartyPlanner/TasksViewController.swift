@@ -101,51 +101,6 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
         let section = indexPath.section
         var volunteers = [String]()
         volunteers.append((User._currentUser?.email)!)
-<<<<<<< HEAD
-=======
-    
-        if section == 0 {
-            let task = unassignedTaskList[indexPath.item]
-            if task.volunteerEmails == nil {
-                TaskApi.sharedInstance.addVolunteer(emails: volunteers, taskId: task.id)
-                tasksTableView.reloadRows(at: [indexPath], with: .bottom)
-            }
-            else if !(task.volunteerEmails?.values.contains((User._currentUser?.email)!))! {
-                TaskApi.sharedInstance.addVolunteer(emails: volunteers, taskId: task.id)
-                tasksTableView.reloadRows(at: [indexPath], with: .bottom)
-            }
-                
-            else {
-                TaskApi.sharedInstance.removeVolunteer(emails: volunteers, taskId: task.id)
-                tasksTableView.reloadRows(at: [indexPath], with: .top)
-            }
-             
-        }
-        else{
-            let task = assignedTaskList[indexPath.item]
-            
-            if task.volunteerEmails != nil && !(task.volunteerEmails?.values.contains((User._currentUser?.email)!))!
-                && (task.numberOfPeopleRequired - (task.volunteerEmails?.count)!) > 0 {
-                
-                TaskApi.sharedInstance.addVolunteer(emails: volunteers, taskId: task.id)
-                tasksTableView.reloadRows(at: [indexPath], with: .bottom)
-            }
-                
-            else if task.volunteerEmails != nil && (task.volunteerEmails?.values.contains((User._currentUser?.email)!))! {
-                TaskApi.sharedInstance.removeVolunteer(emails: volunteers, taskId: task.id)
-                tasksTableView.reloadRows(at: [indexPath], with: .top)
-            }
-            
-        }
-        
-        tasksTableView.deselectRow(at:indexPath, animated: true)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
->>>>>>> Add volunteer functionality was added
     
         if section == 0 {
             let task = unassignedTaskList[indexPath.item]
