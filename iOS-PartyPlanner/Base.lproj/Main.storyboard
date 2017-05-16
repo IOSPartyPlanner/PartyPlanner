@@ -497,10 +497,12 @@
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1g-hu-Ykj">
                                                     <rect key="frame" x="83" y="20.5" width="39.5" height="19.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Label">
                                                             <attributes>
                                                                 <font key="NSFont" size="16" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -611,62 +613,76 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddTextInputCell" rowHeight="200" id="v0L-bD-fWs" customClass="AddTextInputCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddTextInputCell" rowHeight="215" id="v0L-bD-fWs" customClass="AddTextInputCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="215"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v0L-bD-fWs" id="SGn-x2-1B3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="214.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DwK-gR-Lvm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DwK-gR-Lvm">
+                                                    <rect key="frame" x="18" y="18" width="339" height="178.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="199.5" id="6Ay-5t-Hyh"/>
+                                                        <constraint firstAttribute="height" constant="178.5" id="OD5-mQ-Dlu"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <attributedString key="attributedText"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="DwK-gR-Lvm" firstAttribute="top" secondItem="SGn-x2-1B3" secondAttribute="top" id="KYW-km-RXU"/>
-                                                <constraint firstItem="DwK-gR-Lvm" firstAttribute="leading" secondItem="SGn-x2-1B3" secondAttribute="leading" id="NYr-lL-VzT"/>
-                                                <constraint firstAttribute="trailing" secondItem="DwK-gR-Lvm" secondAttribute="trailing" id="vJ7-yp-Q0k"/>
-                                                <constraint firstAttribute="bottom" secondItem="DwK-gR-Lvm" secondAttribute="bottom" id="yMh-jG-L3W"/>
+                                                <constraint firstItem="DwK-gR-Lvm" firstAttribute="top" secondItem="SGn-x2-1B3" secondAttribute="topMargin" constant="10" id="Cwi-9W-2Gs"/>
+                                                <constraint firstItem="DwK-gR-Lvm" firstAttribute="leading" secondItem="SGn-x2-1B3" secondAttribute="leadingMargin" constant="10" id="app-pE-NB7"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="DwK-gR-Lvm" secondAttribute="trailing" constant="10" id="dwg-zW-Kzs"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="DwK-gR-Lvm" secondAttribute="bottom" constant="10" id="zyz-ha-kET"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="textView" destination="DwK-gR-Lvm" id="PNe-PF-0jI"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateSelectionCell" rowHeight="47" id="fcP-Oc-SXX" customClass="DateSelectionCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="228" width="375" height="47"/>
+                                        <rect key="frame" x="0.0" y="243" width="375" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fcP-Oc-SXX" id="bav-pA-KTS">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="46.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="th2-wG-07W">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="th2-wG-07W">
                                                     <rect key="frame" x="18" y="11.5" width="80" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="SdV-vc-hFZ"/>
                                                         <constraint firstAttribute="width" constant="80" id="mGY-st-T0C"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <nil key="textColor"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <font key="NSFont" size="16" name="Helvetica-Light"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uu-7m-4ZN">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uu-7m-4ZN">
                                                     <rect key="frame" x="157" y="11.5" width="200" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="9e4-RJ-owE"/>
                                                         <constraint firstAttribute="height" constant="24" id="n3y-dY-suZ"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <font key="NSFont" size="16" name="Helvetica-Light"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="9uu-7m-4ZN" secondAttribute="trailing" constant="10" id="0o9-iV-cpN"/>
                                                 <constraint firstItem="9uu-7m-4ZN" firstAttribute="centerY" secondItem="th2-wG-07W" secondAttribute="centerY" id="QhD-lL-bax"/>
@@ -680,7 +696,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DatePickerCell" rowHeight="180" id="9xJ-Ue-Dvs" customClass="DatePickerCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="275" width="375" height="180"/>
+                                        <rect key="frame" x="0.0" y="290" width="375" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9xJ-Ue-Dvs" id="McW-Uv-xai">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="179.5"/>
