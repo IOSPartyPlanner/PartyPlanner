@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
+<<<<<<< HEAD
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+=======
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+>>>>>>> Home Screen and Create Event screen were connected
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -171,8 +176,13 @@
                                     <tableViewCell clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeadAddTableViewCell" id="IAJ-vF-snf" customClass="HeadAddTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="375"/>
                                         <autoresizingMask key="autoresizingMask"/>
+<<<<<<< HEAD
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="center" tableViewCell="IAJ-vF-snf" id="B3d-ul-CWI">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
+=======
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FCV-9X-lXx" id="ZDH-dG-dtm">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
+>>>>>>> Home Screen and Create Event screen were connected
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbJ-jU-fgZ">
@@ -374,7 +384,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-Hb-Alu">
+<<<<<<< HEAD
                                                     <rect key="frame" x="8" y="8" width="359" height="64"/>
+=======
+                                                    <rect key="frame" x="8" y="8" width="359" height="359"/>
+>>>>>>> Home Screen and Create Event screen were connected
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="63.5" id="7hm-bn-ESs"/>
@@ -430,12 +444,21 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="PhotoesTableViewCell" rowHeight="100" id="llZ-JE-fjv" customClass="PhotoesTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="858" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
+<<<<<<< HEAD
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="llZ-JE-fjv" id="Szc-oH-BlJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4HO-Za-ZlI">
                                                     <rect key="frame" x="8" y="8" width="359" height="100"/>
+=======
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="llZ-JE-fjv" id="Szc-oH-BlJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4HO-Za-ZlI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+>>>>>>> Home Screen and Create Event screen were connected
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="92" id="9Tn-AF-M8f"/>
@@ -492,6 +515,7 @@
                                         <rect key="frame" x="0.0" y="958" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5de-fl-MYv" id="2N8-Ye-SlH">
+<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -511,11 +535,27 @@
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="assigning" translatesAutoresizingMaskIntoConstraints="NO" id="L53-Cp-esO">
                                                     <rect key="frame" x="5" y="5" width="48" height="48"/>
+=======
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L53-Cp-esO">
+                                                    <rect key="frame" x="24" y="16" width="48" height="48"/>
+>>>>>>> Home Screen and Create Event screen were connected
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="48" id="j9d-ze-m0y"/>
                                                         <constraint firstAttribute="height" constant="48" id="sI3-1M-g3g"/>
                                                     </constraints>
                                                 </imageView>
+<<<<<<< HEAD
+=======
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1g-hu-Ykj">
+                                                    <rect key="frame" x="80" y="16" width="277" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+>>>>>>> Home Screen and Create Event screen were connected
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="L53-Cp-esO" firstAttribute="centerY" secondItem="2N8-Ye-SlH" secondAttribute="centerY" id="ajN-rF-zSO"/>
@@ -533,24 +573,40 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="EventGuestCommentTableViewCell" rowHeight="70" id="neZ-4a-QOy" customClass="EventGuestCommentTableViewCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1018" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
+<<<<<<< HEAD
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="neZ-4a-QOy" id="jlD-jm-2mq">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iaP-g1-vle">
+=======
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="neZ-4a-QOy" id="jlD-jm-2mq">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iaP-g1-vle">
+>>>>>>> Home Screen and Create Event screen were connected
                                                     <rect key="frame" x="24" y="16" width="54" height="54"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="54" id="RVq-KA-7JH"/>
                                                         <constraint firstAttribute="width" constant="54" id="eQs-Hq-uRM"/>
                                                     </constraints>
                                                 </imageView>
+<<<<<<< HEAD
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9W-Y8-pdZ">
+=======
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9W-Y8-pdZ">
+>>>>>>> Home Screen and Create Event screen were connected
                                                     <rect key="frame" x="96" y="16" width="261" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+<<<<<<< HEAD
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkd-Hb-E8F">
+=======
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkd-Hb-E8F">
+>>>>>>> Home Screen and Create Event screen were connected
                                                     <rect key="frame" x="96" y="39" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -616,8 +672,13 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddTextInputCell" rowHeight="215" id="v0L-bD-fWs" customClass="AddTextInputCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="215"/>
                                         <autoresizingMask key="autoresizingMask"/>
+<<<<<<< HEAD
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v0L-bD-fWs" id="SGn-x2-1B3">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="214.5"/>
+=======
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9U1-67-dZ5" id="svQ-KP-lkz">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
+>>>>>>> Home Screen and Create Event screen were connected
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DwK-gR-Lvm">
@@ -784,7 +845,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YRq-I3-cq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="2681" y="1413"/>
+=======
+            <point key="canvasLocation" x="1534" y="-269"/>
+>>>>>>> Home Screen and Create Event screen were connected
         </scene>
         <!--Home View Controller-->
         <scene sceneID="DK1-5g-iBM">
@@ -809,7 +874,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t6a-5e-4BY" id="8sx-fN-PYQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="249.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="249"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" id="t7q-OF-IDe">
@@ -895,7 +960,7 @@
                                         <rect key="frame" x="0.0" y="278" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lZi-cL-mra" id="6hC-e6-6bq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bring Desert" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XTW-mW-ShO">
@@ -949,7 +1014,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="add"/>
                                 <connections>
+<<<<<<< HEAD
                                     <segue destination="QfT-mN-LLz" kind="show" identifier="HomeToEventCreationSegue" id="KKz-kE-qr8"/>
+=======
+                                    <action selector="onAddEvent:" destination="c1S-qw-u1Y" eventType="touchUpInside" id="RSL-Qk-lXi"/>
+                                    <segue destination="QfT-mN-LLz" kind="modal" identifier="CreateEventSegue" id="J0Z-en-Qcb"/>
+>>>>>>> Home Screen and Create Event screen were connected
                                 </connections>
                             </button>
                         </subviews>
@@ -983,13 +1053,17 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="homeSegmentedControl" destination="AWf-tH-Uti" id="k10-IF-QNs"/>
+                        <outlet property="homeSegmentedControl" destination="AWf-tH-Uti" id="bfe-PE-sbW"/>
                         <outlet property="homeTableView" destination="g2d-Gw-SSy" id="i8S-5O-RNb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwX-3E-Bd0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="1753" y="-272"/>
+=======
+            <point key="canvasLocation" x="1994" y="-1040"/>
+>>>>>>> Home Screen and Create Event screen were connected
         </scene>
         <!--Upcoming Events-->
         <scene sceneID="1V9-4Z-q72">
@@ -1017,7 +1091,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kLE-Nd-thh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="2913" y="-272"/>
+=======
+            <point key="canvasLocation" x="2255" y="-269"/>
+>>>>>>> Home Screen and Create Event screen were connected
         </scene>
         <!--Event Tasks-->
         <scene sceneID="jA9-2v-xwR">
@@ -1040,7 +1118,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3WC-Ry-SX6" id="HvG-5s-Cs6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W4j-oF-leN">
@@ -1804,7 +1882,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Onz-Eh-rMi" id="TyF-Yj-rUy">
+<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
+=======
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+>>>>>>> Home Screen and Create Event screen were connected
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h37-x3-AAD" userLabel="Name">
@@ -1874,7 +1956,7 @@
             </objects>
             <point key="canvasLocation" x="4605.6000000000004" y="-272.11394302848578"/>
         </scene>
-        <!--Event Creation View Controller-->
+        <!--New Event-->
         <scene sceneID="VWG-Ap-LMQ">
             <objects>
                 <viewController storyboardIdentifier="eventCreationAddTaskSegue" id="xQW-DA-swj" customClass="EventCreationViewController" customModule="iOS_PartyPlanner" customModuleProvider="target" sceneMemberID="viewController">
@@ -1894,7 +1976,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fGX-Vo-5Ou" id="LnK-Xj-cUi">
+<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+=======
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+>>>>>>> Home Screen and Create Event screen were connected
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TextInputCell2" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="cVU-1F-ubr" customClass="TextField" customModule="Material">
@@ -1941,6 +2027,7 @@
                             <constraint firstItem="0SJ-lk-MOs" firstAttribute="top" secondItem="WVz-1l-8aH" secondAttribute="top" id="pg6-sk-VUP"/>
                         </constraints>
                     </view>
+<<<<<<< HEAD
                     <navigationItem key="navigationItem" id="UKa-r2-56p">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Hnv-3G-Gde">
                             <color key="tintColor" red="0.86666666670000003" green="0.33333333329999998" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1954,6 +2041,15 @@
                                 <action selector="onEventSave:" destination="xQW-DA-swj" id="eSM-i8-1SI"/>
                             </connections>
                         </barButtonItem>
+=======
+                    <navigationItem key="navigationItem" title="New Event" id="UKa-r2-56p">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="TVt-pK-www">
+                            <connections>
+                                <action selector="onCancel:" destination="xQW-DA-swj" id="NpY-dp-LAJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="iAd-Ti-PBC"/>
+>>>>>>> Home Screen and Create Event screen were connected
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="0SJ-lk-MOs" id="jpv-CX-tBh"/>
@@ -1991,7 +2087,7 @@
                                         <rect key="frame" x="0.0" y="72" width="375" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fjb-Zk-m1w" id="jir-vc-hjW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dny-9W-CbK">
@@ -2070,7 +2166,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPY-Qi-Mgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="255" y="226"/>
+=======
+            <point key="canvasLocation" x="1823" y="-1742"/>
+>>>>>>> Home Screen and Create Event screen were connected
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ISP-NL-zyW">

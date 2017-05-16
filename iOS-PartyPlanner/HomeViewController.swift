@@ -229,6 +229,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }, failure: nil )
     
     
+<<<<<<< HEAD
   }
   
   
@@ -256,4 +257,9 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
   }
   
   
+=======
+    @IBAction func onAddEvent(_ sender: Any) {
+        self.performSegue(withIdentifier: "CreateEventSegue", sender:self)
+    }
+>>>>>>> Home Screen and Create Event screen were connected
 }

@@ -65,7 +65,10 @@ class EventCreationViewController: UIViewController {
     let inputCellNib = UINib(nibName: "TextInputCell", bundle: Bundle.main)
     tableView.register(inputCellNib, forCellReuseIdentifier: "TextInputCell")
   }
+    
+    
   
+<<<<<<< HEAD
   @IBAction func onEventSave(_ sender: Any) {
     validateSaveEvent()
   }
@@ -85,6 +88,14 @@ class EventCreationViewController: UIViewController {
   
   
   
+=======
+    @IBAction func onCancel(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+>>>>>>> Home Screen and Create Event screen were connected
   // MARK: - Navigation
   // In a storyboard-based application, you will often want to do a little preparation before navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
