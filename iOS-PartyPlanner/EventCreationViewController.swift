@@ -136,7 +136,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
       
       let leftView = UIImageView()
-      leftView.image = #imageLiteral(resourceName: "pen_orange_filled-1")
+      leftView.image = #imageLiteral(resourceName: "pen_orange_filled")
       cell.textInput.leftView = leftView
       if eventName != nil {
         cell.textInput.text = eventName
@@ -189,7 +189,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
       
       let leftView = UIImageView()
-      leftView.image =  #imageLiteral(resourceName: "event_end_time_orange")
+      leftView.image = #imageLiteral(resourceName: "event_end_time_orange")
       cell.textInput.leftView = leftView
       
       cell.textInput.placeholder = eventEndDatePlaceHolder
@@ -215,7 +215,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.indexRow = indexPath.row
       cell.textInput.isUserInteractionEnabled = false
       if eventGuestList != nil {
-        cell.textInput.text = "\(String(describing: eventGuestList?.count)) guests added"
+        cell.textInput.text = "\(String(describing: eventGuestList!.count)) guests added"
       }
       cell.delegate = self
       return cell
@@ -233,7 +233,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       cell.indexRow = indexPath.row
       cell.textInput.isUserInteractionEnabled = false
       if eventTaskCount != nil {
-        cell.textInput.text = "\(String(describing: eventTaskCount)) tasks added"
+        cell.textInput.text = "\(String(describing: eventTaskCount!)) tasks added"
       }
       cell.delegate = self
       return cell
@@ -514,9 +514,9 @@ extension EventCreationViewController {
     }
     
     // if checks pass, upload Image
-    let animationView = LOTAnimationView(name: "pen_tool_loop")
+    let animationView = LOTAnimationView(name: "mailsent")
     animationView?.frame = self.view.bounds
-    animationView?.contentMode = .scaleAspectFit
+    animationView?.contentMode = .scaleToFill
     self.view.addSubview(animationView!)
     
     animationView?.play(completion: { finished in
