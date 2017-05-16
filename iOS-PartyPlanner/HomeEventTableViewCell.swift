@@ -9,6 +9,10 @@
 import UIKit
 import AFNetworking
 
+protocol CellSubclassDelegate: class {
+  func buttonTapped(cell: HomeEventTableViewCell)
+}
+
 class HomeEventTableViewCell: UITableViewCell {
     
     @IBOutlet var invitationImageView: UIImageView!
@@ -19,6 +23,9 @@ class HomeEventTableViewCell: UITableViewCell {
     @IBOutlet var rsvpButton: UIButton!
     @IBOutlet var day: UILabel!
     @IBOutlet var month: UILabel!
+  
+    var delegate: CellSubclassDelegate?
+
     
     var event: Event? {
         didSet {
@@ -63,6 +70,8 @@ class HomeEventTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         rsvpButton.layer.cornerRadius = 3
+        self.delegate = nil
+
         /*rsvpButton.layer.borderWidth = 1
         rsvpButton.layer.borderColor = UIColor.purple.cgColor*/
     }
@@ -72,5 +81,8 @@ class HomeEventTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+  @IBAction func onRSVPButtonTap(_ sender: Any) {
+    self.delegate?.buttonTapped(cell: self)
+  }
 
 }

@@ -606,11 +606,11 @@
                         <viewControllerLayoutGuide type="bottom" id="1jh-KS-bza"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vMC-RW-eRD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="208" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t9h-7I-hHT">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddTextInputCell" rowHeight="215" id="v0L-bD-fWs" customClass="AddTextInputCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
@@ -749,7 +749,7 @@
                         <viewControllerLayoutGuide type="bottom" id="SYD-be-Ecf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Hmw-9P-JJc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mMs-tD-VUr">
@@ -850,7 +850,7 @@
                                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <connections>
-                                                                <segue destination="WAb-WM-hEw" kind="push" id="DPq-MD-vb6"/>
+                                                                <action selector="onRSVPButtonTap:" destination="t6a-5e-4BY" eventType="touchUpInside" id="TgI-tA-qAl"/>
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uoE-nq-0OL">
@@ -980,11 +980,12 @@
                     <connections>
                         <outlet property="homeSegmentedControl" destination="AWf-tH-Uti" id="k10-IF-QNs"/>
                         <outlet property="homeTableView" destination="g2d-Gw-SSy" id="i8S-5O-RNb"/>
+                        <segue destination="WAb-WM-hEw" kind="show" identifier="HomeToRsvpSegue" id="KVt-aV-gaF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwX-3E-Bd0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1753" y="-272"/>
+            <point key="canvasLocation" x="1029.5999999999999" y="-19.340329835082461"/>
         </scene>
         <!--Upcoming Events-->
         <scene sceneID="1V9-4Z-q72">
@@ -1290,6 +1291,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="XaJ-IK-Y85">
                                 <rect key="frame" x="147" y="563" width="82" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.28801714010000001" blue="0.1515706771" alpha="0.88743397889999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -1380,6 +1382,7 @@
                         <outlet property="guestCounter" destination="dbv-ax-aKe" id="FcH-7r-9Be"/>
                         <outlet property="maybeButton" destination="kh0-3S-3JR" id="zZG-PO-MLW"/>
                         <outlet property="noButton" destination="olE-e0-5QC" id="kOX-8Q-100"/>
+                        <outlet property="sendButton" destination="XaJ-IK-Y85" id="aOr-TD-VZd"/>
                         <outlet property="yesButton" destination="XT8-Ns-g94" id="e5b-3t-oRo"/>
                         <segue destination="VOF-yO-m27" kind="modal" identifier="RSVPToHomeSegue" id="6Kp-hc-4ib"/>
                     </connections>
@@ -2142,7 +2145,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6Kp-hc-4ib"/>
-        <segue reference="DPq-MD-vb6"/>
+        <segue reference="KVt-aV-gaF"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.82704166670000001" green="0.2466242914" blue="0.1034497729" alpha="1" colorSpace="calibratedRGB"/>
 </document>

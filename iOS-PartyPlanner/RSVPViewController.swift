@@ -16,6 +16,7 @@ class RSVPViewController: UIViewController{
   @IBOutlet weak var noButton: DLRadioButton!
   @IBOutlet weak var guestCounter: UISegmentedControl!
   @IBOutlet weak var countLabel: UILabel!
+  @IBOutlet weak var sendButton: UIButton!
   
   
   var rsvpResponse: RsvpResponse = .notResponded
@@ -24,9 +25,12 @@ class RSVPViewController: UIViewController{
   @IBAction func sendRSVP(_ sender: Any) {
     RSVP.currentInstance?.guestPlusX = guestCount
     RSVP.currentInstance?.response = rsvpResponse
-    RSVP.currentInstance?.id = (RSVP.currentInstance?.eventId)! + (RSVP.currentInstance?.guestEmail)!.replacingOccurrences(of: ".", with: "")
+    if RSVP.currentInstance?.id == nil {
+      RSVP.currentInstance?.id = (RSVP.currentInstance?.eventId)! + (RSVP.currentInstance?.guestEmail)!.replacingOccurrences(of: ".", with: "")
+    }
     RsvpApi.sharedInstance.storeRsvp(rsvp: RSVP.currentInstance!)
     performSegue(withIdentifier: "RSVPToHomeSegue", sender: self)
+    RSVP.currentInstance = nil
   }
   
   @IBAction func onGuestCounter(_ sender: UISegmentedControl) {
@@ -73,6 +77,9 @@ class RSVPViewController: UIViewController{
       }) {
         print("Failed to fetch user by email in rsvp")
       }*/
+      
+      sendButton.layer.cornerRadius = 10
+      sendButton.roundedButton()
       
     }
 
