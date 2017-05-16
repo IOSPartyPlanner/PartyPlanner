@@ -279,7 +279,6 @@
 				A1470F4C1EAF243B00DE373A /* Views */,
 				A1470F4B1EAF243200DE373A /* APIs */,
 				A1470F481EAF241B00DE373A /* Models */,
-				A1470F361EAF20C600DE373A /* AppDelegate.swift */,
 				A1470F3A1EAF20C600DE373A /* Main.storyboard */,
 				A1470F3F1EAF20C600DE373A /* LaunchScreen.storyboard */,
 				A1470F421EAF20C600DE373A /* Info.plist */,
@@ -314,6 +313,7 @@
 				A190B1791EB68B0D006328AF /* CommentApi.swift */,
 				F7B01E9D1EBFA1050023852A /* OldEventApi.swift */,
 				A18AB06E1EC19D3B00E83B0C /* MediaApi.swift */,
+				A1470F361EAF20C600DE373A /* AppDelegate.swift */,
 			);
 			name = APIs;
 			sourceTree = "<group>";
