@@ -17,6 +17,8 @@ class HomeEventTableViewCell: UITableViewCell {
     @IBOutlet var eventTimeLabel: UILabel!
     @IBOutlet var eventLocationLabel: UILabel!
     @IBOutlet var rsvpButton: UIButton!
+    @IBOutlet var day: UILabel!
+    @IBOutlet var month: UILabel!
     
     var event: Event? {
         didSet {
@@ -44,6 +46,11 @@ class HomeEventTableViewCell: UITableViewCell {
                 dateFormatter.dateStyle = .long
                 dateFormatter.timeStyle = .long
                 eventTimeLabel.text = dateFormatter.string(from: (time))
+                
+                let dayOfEvent = Calendar.current.component(.day, from: time)
+                day.text = String(dayOfEvent)
+                let monthOfEvent = Calendar.current.component(.month, from: time)
+                month.text = Utils.getMonth(month: monthOfEvent)
             }
             
             if let rsvpStatus = event?.response {

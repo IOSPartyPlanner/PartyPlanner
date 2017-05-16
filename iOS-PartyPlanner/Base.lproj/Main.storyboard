@@ -621,7 +621,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DwK-gR-Lvm">
-                                                    <rect key="frame" x="18" y="18" width="339" height="178.5"/>
+                                                    <rect key="frame" x="18" y="18" width="339" height="179"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="178.5" id="OD5-mQ-Dlu"/>
@@ -650,7 +650,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="th2-wG-07W">
-                                                    <rect key="frame" x="18" y="11.5" width="80" height="24"/>
+                                                    <rect key="frame" x="18" y="12" width="80" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="SdV-vc-hFZ"/>
                                                         <constraint firstAttribute="width" constant="80" id="mGY-st-T0C"/>
@@ -666,7 +666,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uu-7m-4ZN">
-                                                    <rect key="frame" x="157" y="11.5" width="200" height="24"/>
+                                                    <rect key="frame" x="157" y="12" width="200" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="9e4-RJ-owE"/>
                                                         <constraint firstAttribute="height" constant="24" id="n3y-dY-suZ"/>
@@ -703,7 +703,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dx1-4y-rYg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="179"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="516397109.07598901">
                                                         <!--2017-05-13 19:38:29 +0000-->
                                                     </date>
@@ -882,10 +882,12 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="day" destination="uoE-nq-0OL" id="gfe-w8-iMm"/>
                                             <outlet property="eventLocationLabel" destination="ljx-9a-fGH" id="I5A-AW-8Qu"/>
                                             <outlet property="eventNameLabel" destination="ziv-CD-Kgq" id="WAa-yj-aN3"/>
                                             <outlet property="eventTimeLabel" destination="ZS0-s1-nBR" id="YoH-3e-WxA"/>
                                             <outlet property="invitationImageView" destination="pJa-mJ-kdp" id="Bhp-ar-7Jd"/>
+                                            <outlet property="month" destination="Vbs-pf-95r" id="TQ3-QD-5UT"/>
                                             <outlet property="profileImageView" destination="9vh-AM-0XT" id="oWa-Ff-mbo"/>
                                             <outlet property="rsvpButton" destination="4Ai-M3-1TK" id="dhF-6r-Fe6"/>
                                             <segue destination="YFQ-VQ-hit" kind="push" identifier="showEvent" id="997-iv-NvV"/>
@@ -934,7 +936,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dayLabel" destination="V0h-7G-zGn" id="baf-NH-aJQ"/>
                                             <outlet property="dueDateLabel" destination="BYp-Mb-7qF" id="fxa-Yr-oGh"/>
+                                            <outlet property="monthLabel" destination="lVU-bT-tSz" id="4Cx-fV-aEW"/>
                                             <outlet property="taskNameLabel" destination="XTW-mW-ShO" id="B3x-df-zwI"/>
                                         </connections>
                                     </tableViewCell>
