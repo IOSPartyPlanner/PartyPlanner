@@ -109,6 +109,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
       case "Past":
         cell.event = pastEventList[indexPath.item]
+       // cell.rsvpButton.isHidden = true
         break;
         
       default:
@@ -218,13 +219,13 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
       }
       self.homeTableView.reloadData()
-      self.fetchTasks()
+      self.fetchAssignedTasks()
       
     }, failure: nil )
   }
   
   
-  func fetchTasks(){
+  func fetchAssignedTasks(){
     for event in upcomingEventList {
       TaskApi.sharedInstance.getTasksByEventId(eventId: event.id, success: {(tasks: [Task])
         in
