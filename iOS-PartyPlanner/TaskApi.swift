@@ -14,7 +14,7 @@ class TaskApi: NSObject {
   func storeTask(task: Task) {
     let taskRef = fireBaseTaskRef.child(task.id)
     taskRef.setValue(task.toAnyObject())
-    //delegate?.taskApi!(taskApi: self, taskUpdated: task)
+    delegate?.taskApi!(taskApi: self, taskUpdated: task)
   }
     
   func addVolunteer(emails: [String], taskId:String) {

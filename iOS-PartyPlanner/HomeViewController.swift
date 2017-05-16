@@ -39,12 +39,6 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
   }
   
   func refreshControlAction(_ refreshControl: UIRefreshControl) {
-    //TODO:Needed to check refreshing part
-    /*pastEventList = [Event]()
-     upcomingEventList = [Event]()
-     tasksList = [[Task]]()
-     sectionTasks = [String]()
-     fetchEvents()*/
     refreshControl.endRefreshing()
   }
   
@@ -93,7 +87,12 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
       }
     }
     else{
-      return tasksList[section].count
+        if tasksList.count > 0 {
+            return tasksList[section].count
+        }
+        else{
+            return 0
+        }
     }
   }
   
@@ -110,6 +109,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
       case "Past":
         cell.event = pastEventList[indexPath.item]
+       // cell.rsvpButton.isHidden = true
         break;
         
       default:
@@ -126,15 +126,10 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
   }
   
-  //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-  //        //TODO: Perform Segue ShowDetails
-  //        print("call didSelectRowAt")
-  //        if sign == 0 {
-  //            //homeTableView.deselectRow(at:indexPath, animated: true)
-  //            self.performSegue(withIdentifier: "showEvent", sender: self)
-  //
-  //        }
-  //    }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      homeTableView.deselectRow(at:indexPath, animated: true)
+  }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     print("Call perform segue \(String(describing: segue.identifier))")
@@ -190,7 +185,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
       }
     }, failure: nil )
     
-    //TODO: Need to get host profile
+  
     EventApi.sharedInstance.getPastEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
       if events.count > 0 {
         for i in 0..<events.count {
@@ -214,7 +209,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
       }
     }, failure: nil )
     
-    //TODO: Need to get host profile
+   
     EventApi.sharedInstance.getUpcomingEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
       if events.count > 0 {
         for i in 0..<events.count {
@@ -224,20 +219,18 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
       }
       self.homeTableView.reloadData()
-      self.fetchTasks()
+      self.fetchAssignedTasks()
       
     }, failure: nil )
-    
-    
   }
   
   
-  func fetchTasks(){
+  func fetchAssignedTasks(){
     for event in upcomingEventList {
       TaskApi.sharedInstance.getTasksByEventId(eventId: event.id, success: {(tasks: [Task])
         in
         for task in tasks {
-          if task.volunteerEmails != nil && (task.volunteerEmails?.values.contains((User._currentUser?.email)!))! {
+          if task.volunteerEmails != nil && (task.volunteerEmails?.values.contains((User.currentUser?.email)!))! {
             task.eventName = event.name
             self.taskList.append(task)
             print(task.name)
@@ -247,8 +240,11 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             }
           }
         }
-        self.tasksList.append(self.taskList)
-        self.taskList = [Task]()
+        if self.taskList.count > 0 {
+            self.tasksList.append(self.taskList)
+            self.homeTableView.reloadData()
+            self.taskList = [Task]()
+        }
         
       }, failure:{})
       
