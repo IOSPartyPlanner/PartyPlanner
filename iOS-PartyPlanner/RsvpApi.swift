@@ -37,7 +37,7 @@ class RsvpApi:  NSObject {
                       eventId: eventId,
                       guestEmail: guestEmail,
                       guestPlusX: 0,
-                      response: .no)
+                      response: .notResponded)
       storeRsvp(rsvp: rsvp)
     }
   }
