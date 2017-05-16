@@ -5,7 +5,7 @@ enum RsvpResponse: String {
   case yes
   case maybe
   case no
-  case notResponded
+  case notResponded 
 }
 
 import UIKit
