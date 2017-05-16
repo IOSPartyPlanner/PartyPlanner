@@ -93,7 +93,12 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
       }
     }
     else{
-      return tasksList[section].count
+        if tasksList.count > 0 {
+            return tasksList[section].count
+        }
+        else{
+            return 0
+        }
     }
   }
   
@@ -190,7 +195,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
       }
     }, failure: nil )
     
-    //TODO: Need to get host profile
+  
     EventApi.sharedInstance.getPastEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
       if events.count > 0 {
         for i in 0..<events.count {
@@ -214,7 +219,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
       }
     }, failure: nil )
     
-    //TODO: Need to get host profile
+   
     EventApi.sharedInstance.getUpcomingEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
       if events.count > 0 {
         for i in 0..<events.count {
@@ -227,8 +232,6 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
       self.fetchTasks()
       
     }, failure: nil )
-    
-    
   }
   
   
@@ -237,7 +240,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
       TaskApi.sharedInstance.getTasksByEventId(eventId: event.id, success: {(tasks: [Task])
         in
         for task in tasks {
-          if task.volunteerEmails != nil && (task.volunteerEmails?.values.contains((User._currentUser?.email)!))! {
+          if task.volunteerEmails != nil && (task.volunteerEmails?.values.contains((User.currentUser?.email)!))! {
             task.eventName = event.name
             self.taskList.append(task)
             print(task.name)
@@ -247,8 +250,11 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             }
           }
         }
-        self.tasksList.append(self.taskList)
-        self.taskList = [Task]()
+        if self.taskList.count > 0 {
+            self.tasksList.append(self.taskList)
+            self.homeTableView.reloadData()
+            self.taskList = [Task]()
+        }
         
       }, failure:{})
       
