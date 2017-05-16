@@ -11,7 +11,7 @@ import MBProgressHUD
 import Lottie
 
 
-class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
+class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,  CellSubclassDelegate{
   
   @IBAction func onSignout(_ sender: Any) {
     User.currentUser?.signout()
@@ -27,7 +27,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
   var sectionEvents = ["Upcoming", "Past"]
   var sectionTasks = [String]()
   var sign = 0 // 0.Display Events 1.Display Tasks
-  
+  var selectedEvent:Event?
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -100,6 +100,8 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     
     if sign == 0 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "HomeEventTableViewCell") as! HomeEventTableViewCell
+      cell.delegate = self
+
       let currSection = sectionEvents[indexPath.section]
       switch currSection {
         
@@ -129,7 +131,7 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       homeTableView.deselectRow(at:indexPath, animated: true)
-  }
+    }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     print("Call perform segue \(String(describing: segue.identifier))")
@@ -163,6 +165,18 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
 //      
 //      animationView?.play(completion: { finished in
 //      })
+    }
+    else if segue.identifier == "HomeToRsvpSegue" {
+      print("Going to rsvp")
+      if RSVP.currentInstance == nil {
+        RSVP.currentInstance = RSVP()
+      }
+      if selectedEvent != nil {
+        print("Event has been selected")
+        RSVP.currentInstance?.id = (selectedEvent?.id)! + (User.currentUser?.email?.replacingOccurrences(of: ".", with: ""))!
+        RSVP.currentInstance?.eventId = (selectedEvent?.id)!
+        RSVP.currentInstance?.guestEmail = (User.currentUser?.email!)!
+      }
     }
   }
   
@@ -250,4 +264,24 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
       
     }
   }
+  
+  func buttonTapped(cell: HomeEventTableViewCell) {
+    guard let indexPath = homeTableView.indexPath(for: cell) else {
+      return
+    }
+    print("Button tapped on row \(indexPath.row) section \(indexPath.section)")
+    
+    let currSection = sectionEvents[indexPath.section]
+    switch currSection {
+      
+    case "Upcoming" :
+      selectedEvent = upcomingEventList[indexPath.item]
+    case "Past":
+      selectedEvent = pastEventList[indexPath.item]
+    default: break
+    }
+
+    performSegue(withIdentifier: "HomeToRsvpSegue", sender: cell)
+  }
+  
 }
