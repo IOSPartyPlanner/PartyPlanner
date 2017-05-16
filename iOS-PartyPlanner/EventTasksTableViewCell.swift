@@ -22,6 +22,12 @@ class EventTasksTableViewCell: UITableViewCell {
         taskImageView.layer.shadowOpacity = 0.7
         taskImageView.layer.shadowRadius = 3.0
         taskImageView.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
+      
+        self.contentView.layer.borderColor = UIColor.gray.cgColor
+        self.contentView.layer.borderWidth = 0.5
+        self.contentView.layer.cornerRadius = 5.0
+      
+      
 //        taskDescLabel.textColor
         // Initialization code
     }
