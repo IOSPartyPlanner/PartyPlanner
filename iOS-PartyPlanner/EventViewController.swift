@@ -26,6 +26,8 @@ class EventViewController: UIViewController {
     
     let pickerController = ABPeoplePickerNavigationController()
     
+    var qcodeVerificationFailed: Bool?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,10 +50,10 @@ class EventViewController: UIViewController {
         if !(event?.isPast())! && (event?.isUserOnwer())! {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
         }
-      let tableBackgroundView: UIImageView = UIImageView(image: #imageLiteral(resourceName: "eventViewB9"))
-      
-      tableBackgroundView.alpha = 1
-      eventTableView.backgroundView = tableBackgroundView
+        let tableBackgroundView: UIImageView = UIImageView(image: #imageLiteral(resourceName: "eventViewB9"))
+        
+        tableBackgroundView.alpha = 1
+        eventTableView.backgroundView = tableBackgroundView
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,6 +68,18 @@ class EventViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         eventTableView.reloadData()
+        if let qcodeVerificationFailed = qcodeVerificationFailed  {
+            if qcodeVerificationFailed {
+                let alert = UIAlertController(title: "Passed", message: "You's welcomed to join event \((self.event?.name)!).", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                present(alert, animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Your qcode is not passed the verification, please try again.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                present(alert, animated: true, completion: nil)
+            }
+            self.qcodeVerificationFailed = nil
+        }
     }
     
     /*
@@ -75,16 +89,25 @@ class EventViewController: UIViewController {
      
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let target = segue.destination as? AddInfoViewController
-        target?.type = sender as! String
-        target?.event = event
-        switch (target?.type)! {
-        case "Comment":
-            break
-        case "QCode":
-            break
-        case "Task":
-            break
+        print(segue.identifier)
+        switch (segue.identifier)! {
+        case "addInfo":
+            let target = segue.destination as? AddInfoViewController
+            target?.type = sender as! String
+            target?.event = event
+            switch (target?.type)! {
+            case "Comment":
+                break
+            case "QCode":
+                break
+            case "Task":
+                break
+            default:
+                break
+            }
+        case "showQCode":
+            let target = segue.destination as? QCodeViewController
+            target?.event = event
         default:
             break
         }
@@ -94,11 +117,11 @@ class EventViewController: UIViewController {
 extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
-//        if (event?.isPast())! || (event?.isUserOnwer())! {
-//            return 3
-//        } else {
-//            return 1
-//        }
+        //        if (event?.isPast())! || (event?.isUserOnwer())! {
+        //            return 3
+        //        } else {
+        //            return 1
+        //        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,17 +136,17 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-  
-
-  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    switch section{
-    case 0:
-      return 1.0
-    default:
-      return 50.0
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section{
+        case 0:
+            return 1.0
+        default:
+            return 50.0
+        }
     }
-  }
-  
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = eventTableView.dequeueReusableCell(withIdentifier: "HeadAddTableViewCell") as? HeadAddTableViewCell
         cell?.viewController = self
@@ -186,7 +209,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
         case (0, _):
             let cell0 = eventTableView.dequeueReusableCell(withIdentifier: "EventSummaryTableViewCell", for: indexPath) as? EventSummaryTableViewCell
             cell0?.event = event
-            guestsCell?.viewController = self
+            cell0?.viewController = self
             cell0?.backgroundColor = UIColor(white: 1, alpha: 0.6)
             return cell0!
         case (1, false):

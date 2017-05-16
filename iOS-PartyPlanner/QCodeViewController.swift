@@ -9,76 +9,38 @@
 import UIKit
 import AVFoundation
 
-class QCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    var captureSession:AVCaptureSession?
+class QCodeViewController: UIViewController {
+    var event:Event?
     
-    var videoPreviewLayer:AVCaptureVideoPreviewLayer?
-    
-    var qrCodeFrameView:UIView?
-    
-    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var qcodeImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
-        let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
-        do {
-            // Get an instance of the AVCaptureDeviceInput class using the previous device object.
-            let input = try AVCaptureDeviceInput(device: captureDevice)
-            
-            // Initialize the captureSession object.
-            captureSession = AVCaptureSession()
-            
-            // Set the input device on the capture session.
-            captureSession?.addInput(input)
-
-            // Initialize QR Code Frame to highlight the QR code
-            qrCodeFrameView = UIView()
-            
-            if let qrCodeFrameView = qrCodeFrameView {
-                qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
-                qrCodeFrameView.layer.borderWidth = 2
-                view.addSubview(qrCodeFrameView)
-                view.bringSubview(toFront: qrCodeFrameView)
+        if let qcode = event?.qcode {
+            if qcode.characters.count > 0 {
+                let data = qcode.data(using: .isoLatin1, allowLossyConversion: false)
+                let filter = CIFilter(name: "CIQRCodeGenerator")
+                filter?.setValue(data, forKey: "inputMessage")
+                filter?.setValue("Q", forKey: "inputCorrectionLevel")
+                
+                qcodeImageView.image = convert((filter?.outputImage)!)
             }
-            
-        } catch {
-            // If any error occurs, simply print it out and don't continue any more.
-            print(error)
-            return
         }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+
     }
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        // Check if the metadataObjects array is not nil and it contains at least one object.
-        if metadataObjects == nil || metadataObjects.count == 0 {
-            qrCodeFrameView?.frame = CGRect.zero
-            messageLabel.text = "No QR code is detected"
-            return
-        }
-        
-        // Get the metadata object.
-        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-        
-        if metadataObj.type == AVMetadataObjectTypeQRCode {
-            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
-            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-            qrCodeFrameView?.frame = barCodeObject!.bounds
-            
-            if metadataObj.stringValue != nil {
-                messageLabel.text = metadataObj.stringValue
-            }
-        }
+    func convert(_ cmage:CIImage) -> UIImage {
+        let context:CIContext = CIContext.init(options: nil)
+        let cgImage:CGImage = context.createCGImage(cmage, from: cmage.extent)!
+        let image:UIImage = UIImage.init(cgImage: cgImage)
+        return image
     }
-    
 
     /*
     // MARK: - Navigation

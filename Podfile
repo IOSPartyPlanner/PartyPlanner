@@ -26,7 +26,7 @@ target 'iOS-PartyPlanner' do
   pod 'SkyFloatingLabelTextField', '~> 3.0'
   pod 'Material', '~> 2.0'
   pod 'Graph', '~> 2.0'
-
+  pod 'QRCodeReader.swift', '~> 7.4.1'
 # Pods for iOS-PartyPlanner
 
 end
