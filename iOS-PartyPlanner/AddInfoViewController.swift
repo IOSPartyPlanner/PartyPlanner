@@ -15,7 +15,6 @@ class AddTextInputCell: UITableViewCell, UITextViewDelegate {
     var placeHolderText: String? {
         didSet {
             textView.text = placeHolderText
-            textView.textColor = UIColor.lightGray
         }
     }
     
@@ -24,13 +23,14 @@ class AddTextInputCell: UITableViewCell, UITextViewDelegate {
         // Initialization code
         
         textView.delegate = self
-
+      
+      contentView.backgroundColor = UIColor.lightGray
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
-            textView.textColor = UIColor.black
+            textView.textColor = UIColor.red
         }
     }
     
@@ -50,6 +50,8 @@ class DateSelectionCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+      dateLabel.textColor = UIColor.red
+      dateValueLabel.textColor = UIColor.red
         // Initialization code
     }
 }
@@ -60,7 +62,9 @@ class DatePickerCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+      datePicker.setValue(UIColor.red, forKeyPath: "textColor")
+      datePicker.setValue(false, forKey: "highlightsToday")
+
     }
 }
 
@@ -186,14 +190,23 @@ extension AddInfoViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = addInfoTableView.dequeueReusableCell(withIdentifier: "AddTextInputCell", for: indexPath) as? AddTextInputCell
             textView = cell?.textView
             
+            textView?.layer.cornerRadius = 10
+            textView?.layer.borderWidth = 10.0
+            textView?.layer.borderColor = UIColor.white.cgColor
+            
+            textView?.layer.shadowColor = UIColor.black.cgColor
+            textView?.layer.shadowOpacity = 0.3
+            textView?.layer.shadowRadius = 10.0
+
+            
             if cell?.placeHolderText == nil {
                 switch type! {
                 case "Task":
-                    cell?.placeHolderText = "Please add your task here"
+                    cell?.placeHolderText = "  Please add your task here"
                 case "QCode":
-                    cell?.placeHolderText = "Add your message to generate QCode"
+                    cell?.placeHolderText = "  Add your message to generate QCode"
                 case "Comment":
-                    cell?.placeHolderText = "Add you comment for this event"
+                    cell?.placeHolderText = "  Add you comment for this event"
                 default:
                     break
                 }

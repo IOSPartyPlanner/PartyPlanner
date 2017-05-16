@@ -65,7 +65,7 @@ class EventCreationViewController: UIViewController {
     let inputCellNib = UINib(nibName: "TextInputCell", bundle: Bundle.main)
     tableView.register(inputCellNib, forCellReuseIdentifier: "TextInputCell")
   }
-  
+    
   @IBAction func onEventSave(_ sender: Any) {
     validateSaveEvent()
   }
@@ -82,7 +82,6 @@ class EventCreationViewController: UIViewController {
       self.dismiss(animated: true, completion: nil)
     })
   }
-  
   
   
   // MARK: - Navigation

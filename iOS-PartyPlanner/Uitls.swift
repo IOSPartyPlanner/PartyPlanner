@@ -54,11 +54,17 @@ class Utils: NSObject {
   }
     
   static func formatCircleImage(image: UIImageView) {
-        image.layer.borderWidth = 1
+        image.layer.borderWidth = 2.0
         image.layer.masksToBounds = false
         image.layer.borderColor = UIColor.white.cgColor
         image.layer.cornerRadius = image.frame.height/2
         image.clipsToBounds = true
+    
+        image.layer.shadowColor = UIColor.black.cgColor
+        image.layer.shadowOffset = CGSize(width: 2, height: 2)
+        image.layer.shadowOpacity = 0.7
+        image.layer.shadowRadius = 2.0
+
   }
   
   // Mark : -- Media

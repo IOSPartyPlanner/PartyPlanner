@@ -254,6 +254,4 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
       
     }
   }
-  
-  
 }
