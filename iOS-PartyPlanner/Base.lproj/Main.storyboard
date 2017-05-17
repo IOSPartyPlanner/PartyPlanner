@@ -222,14 +222,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="ZuB-22-PkL" userLabel="Location Image View">
-                                                    <rect key="frame" x="38" y="255.5" width="24" height="24"/>
+                                                    <rect key="frame" x="38" y="255" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="3ka-kh-Apf"/>
                                                         <constraint firstAttribute="width" constant="24" id="j9z-QT-xQO"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfv-CO-Wek">
-                                                    <rect key="frame" x="74" y="239" width="280" height="55"/>
+                                                    <rect key="frame" x="74" y="238.5" width="280" height="55.5"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Location">
                                                             <attributes>
@@ -1427,6 +1427,55 @@
                                 <rect key="frame" x="0.0" y="508" width="375" height="159"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" id="ygu-0U-CJb">
+                                        <rect key="frame" x="0.0" y="-5" width="375" height="168"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contrast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WBV-Tp-uRC">
+                                                <rect key="frame" x="14" y="37" width="73" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                <color key="textColor" red="0.82704166670000001" green="0.2466242914" blue="0.1034497729" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="H7b-is-UBh">
+                                                <rect key="frame" x="104" y="32" width="265" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="contrastControl:" destination="5l7-Bl-PH1" eventType="valueChanged" id="6r7-vI-qNE"/>
+                                                </connections>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T1i-7i-deG">
+                                                <rect key="frame" x="14" y="76" width="84" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                <color key="textColor" red="0.82704166670000001" green="0.2466242914" blue="0.1034497729" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="2sX-vP-dLd">
+                                                <rect key="frame" x="104" y="72" width="265" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="saturationControl:" destination="5l7-Bl-PH1" eventType="valueChanged" id="6IJ-6S-pbX"/>
+                                                </connections>
+                                            </slider>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="ptu-BF-DU0">
+                                                <rect key="frame" x="104" y="115" width="265" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="brightnessControl:" destination="5l7-Bl-PH1" eventType="valueChanged" id="QGH-X2-0oQ"/>
+                                                </connections>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brightness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UYR-yu-ie4">
+                                                <rect key="frame" x="14" y="120" width="84" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                <color key="textColor" red="0.82704166670000001" green="0.2466242914" blue="0.1034497729" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </view>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" id="i3U-Ze-Qru">
                                         <rect key="frame" x="17" y="20" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1523,7 +1572,7 @@
                                             <outletCollection property="gestureRecognizers" destination="n2Q-l2-OR1" appends="YES" id="gH6-XL-0h3"/>
                                         </connections>
                                     </imageView>
-                                    <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="15" highlightedImage="glass" id="628-US-Baf">
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="party11" highlightedImage="glass" id="628-US-Baf">
                                         <rect key="frame" x="17" y="116" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
@@ -1555,7 +1604,7 @@
                                             <outletCollection property="gestureRecognizers" destination="n2k-5e-XjN" appends="YES" id="ew4-KE-S7j"/>
                                         </connections>
                                     </imageView>
-                                    <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="14" highlightedImage="glass" id="7CU-2b-ARz">
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="party3" highlightedImage="glass" id="7CU-2b-ARz">
                                         <rect key="frame" x="212" y="116" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
@@ -1563,8 +1612,8 @@
                                             <outletCollection property="gestureRecognizers" destination="xR5-kk-bV1" appends="YES" id="cbe-kQ-DbI"/>
                                         </connections>
                                     </imageView>
-                                    <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="14" highlightedImage="glass" id="mof-x7-2bg">
-                                        <rect key="frame" x="261" y="116" width="40" height="40"/>
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="party4" highlightedImage="glass" id="mof-x7-2bg">
+                                        <rect key="frame" x="261" y="109" width="40" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -1587,7 +1636,7 @@
                                             <outletCollection property="gestureRecognizers" destination="GLg-p6-Ryo" appends="YES" id="k0S-s3-rvM"/>
                                         </connections>
                                     </imageView>
-                                    <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="14" highlightedImage="glass" id="peK-VA-TJU">
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baby" highlightedImage="glass" id="peK-VA-TJU">
                                         <rect key="frame" x="309" y="116" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
@@ -1595,55 +1644,6 @@
                                             <outletCollection property="gestureRecognizers" destination="Cy9-C8-GCR" appends="YES" id="a1C-9R-Bn9"/>
                                         </connections>
                                     </imageView>
-                                    <view contentMode="scaleToFill" id="ygu-0U-CJb">
-                                        <rect key="frame" x="0.0" y="-5" width="375" height="168"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contrast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WBV-Tp-uRC">
-                                                <rect key="frame" x="14" y="37" width="73" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                <color key="textColor" red="0.82704166670000001" green="0.2466242914" blue="0.1034497729" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="H7b-is-UBh">
-                                                <rect key="frame" x="104" y="32" width="265" height="31"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <connections>
-                                                    <action selector="contrastControl:" destination="5l7-Bl-PH1" eventType="valueChanged" id="6r7-vI-qNE"/>
-                                                </connections>
-                                            </slider>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T1i-7i-deG">
-                                                <rect key="frame" x="14" y="76" width="84" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                <color key="textColor" red="0.82704166670000001" green="0.2466242914" blue="0.1034497729" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="2sX-vP-dLd">
-                                                <rect key="frame" x="104" y="72" width="265" height="31"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <connections>
-                                                    <action selector="saturationControl:" destination="5l7-Bl-PH1" eventType="valueChanged" id="6IJ-6S-pbX"/>
-                                                </connections>
-                                            </slider>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="ptu-BF-DU0">
-                                                <rect key="frame" x="104" y="115" width="265" height="31"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <connections>
-                                                    <action selector="brightnessControl:" destination="5l7-Bl-PH1" eventType="valueChanged" id="QGH-X2-0oQ"/>
-                                                </connections>
-                                            </slider>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brightness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UYR-yu-ie4">
-                                                <rect key="frame" x="14" y="120" width="84" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                <color key="textColor" red="0.82704166670000001" green="0.2466242914" blue="0.1034497729" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <gestureRecognizers/>
@@ -1774,7 +1774,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3649" y="-272"/>
+            <point key="canvasLocation" x="3648.8000000000002" y="-272.11394302848578"/>
         </scene>
         <!--Select Guests-->
         <scene sceneID="gxy-Bz-jKX">
@@ -2091,7 +2091,6 @@
         <image name="12" width="100" height="62"/>
         <image name="13" width="100" height="100"/>
         <image name="14" width="100" height="75"/>
-        <image name="15" width="100" height="104"/>
         <image name="16" width="100" height="100"/>
         <image name="17" width="100" height="110"/>
         <image name="18" width="100" height="60"/>
@@ -2106,6 +2105,7 @@
         <image name="Theme" width="1920" height="1200"/>
         <image name="add" width="50" height="50"/>
         <image name="assigning" width="25" height="25"/>
+        <image name="baby" width="300" height="300"/>
         <image name="calendar" width="25" height="25"/>
         <image name="fbLogin" width="1176" height="220"/>
         <image name="g1" width="52" height="53"/>
@@ -2122,7 +2122,9 @@
         <image name="map" width="32" height="32"/>
         <image name="party1" width="400" height="279"/>
         <image name="party10" width="2400" height="2400"/>
+        <image name="party11" width="1284" height="1600"/>
         <image name="party2" width="600" height="569"/>
+        <image name="party3" width="528" height="784"/>
         <image name="party4" width="600" height="800"/>
         <image name="party5" width="300" height="260"/>
         <image name="party6" width="450" height="357"/>
