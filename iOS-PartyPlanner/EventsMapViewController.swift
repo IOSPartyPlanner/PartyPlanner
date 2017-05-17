@@ -17,7 +17,7 @@ class EventsMapViewController: UIViewController,CLLocationManagerDelegate, MKMap
     //TODO: Current Location is not working
     var locationManager : CLLocationManager!
     var events : [Event]?
-     var editedImage : UIImageView?
+     var editedImage : UIImageView = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +78,7 @@ class EventsMapViewController: UIViewController,CLLocationManagerDelegate, MKMap
                     let annotation = MKPointAnnotation()
                     annotation.coordinate = coordinate.coordinate
                     annotation.title = title
-                    self.editedImage?.setImageWith(imageURL)
+                    self.editedImage.setImageWith(imageURL)
                     print(imageURL)
                     self.mapView.addAnnotation(annotation)
                 }
@@ -103,7 +103,7 @@ class EventsMapViewController: UIViewController,CLLocationManagerDelegate, MKMap
         resizeRenderImageView.layer.borderColor = UIColor.white.cgColor
         resizeRenderImageView.layer.borderWidth = 3.0
         resizeRenderImageView.contentMode = .scaleAspectFit
-        resizeRenderImageView.image = editedImage?.image
+        resizeRenderImageView.image = editedImage.image
         
         
         UIGraphicsBeginImageContext(resizeRenderImageView.frame.size)

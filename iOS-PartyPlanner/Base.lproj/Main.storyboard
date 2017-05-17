@@ -222,14 +222,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="ZuB-22-PkL" userLabel="Location Image View">
-                                                    <rect key="frame" x="38" y="255" width="24" height="24"/>
+                                                    <rect key="frame" x="38" y="254.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="3ka-kh-Apf"/>
                                                         <constraint firstAttribute="width" constant="24" id="j9z-QT-xQO"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfv-CO-Wek">
-                                                    <rect key="frame" x="74" y="239" width="280" height="55"/>
+                                                    <rect key="frame" x="74" y="238.5" width="280" height="55.5"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Location">
                                                             <attributes>
@@ -360,11 +360,11 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventGuestsTableViewCell" rowHeight="80" id="FCV-9X-lXx" customClass="EventGuestsTableViewCell" customModule="iOS_PartyPlanner">
                                         <rect key="frame" x="0.0" y="457" width="372" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="FCV-9X-lXx" id="ZDH-dG-dtm">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FCV-9X-lXx" id="ZDH-dG-dtm">
                                             <rect key="frame" x="0.0" y="0.0" width="372" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-Hb-Alu">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-Hb-Alu">
                                                     <rect key="frame" x="8" y="8" width="356" height="64"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -610,11 +610,11 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddTextInputCell" rowHeight="215" id="v0L-bD-fWs" customClass="AddTextInputCell" customModule="iOS_PartyPlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="215"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="v0L-bD-fWs" id="SGn-x2-1B3">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v0L-bD-fWs" id="SGn-x2-1B3">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="214"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DwK-gR-Lvm">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DwK-gR-Lvm">
                                                     <rect key="frame" x="18" y="18" width="339" height="179"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -838,7 +838,7 @@
                                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Ai-M3-1TK">
                                                             <rect key="frame" x="286" y="8" width="57" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.29209988689999999" green="0.069608351099999993" blue="0.3209479167" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                                             <state key="normal" title="RSVP">
                                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1886,11 +1886,11 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextInputCell2" rowHeight="80" id="fGX-Vo-5Ou" customClass="TextInputCell2" customModule="iOS_PartyPlanner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="fGX-Vo-5Ou" id="LnK-Xj-cUi">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fGX-Vo-5Ou" id="LnK-Xj-cUi">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="TextInputCell2" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="cVU-1F-ubr" customClass="TextField" customModule="Material">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TextInputCell2" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="cVU-1F-ubr" customClass="TextField" customModule="Material">
                                                     <rect key="frame" x="25" y="0.0" width="333" height="80"/>
                                                     <color key="tintColor" red="0.86666666670000003" green="0.33333333329999998" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -2053,7 +2053,7 @@
             <objects>
                 <navigationController storyboardIdentifier="EventViewNC" automaticallyAdjustsScrollViewInsets="NO" id="VOF-yO-m27" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5iL-Dk-x6m">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5iL-Dk-x6m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2071,7 +2071,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QfT-mN-LLz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lIx-7Y-afv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lIx-7Y-afv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
