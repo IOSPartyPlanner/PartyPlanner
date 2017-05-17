@@ -16,10 +16,13 @@ import Lottie
 class AddContactsViewController: UIViewController {
   
   fileprivate var addedEmails: Set<String> = []
-  fileprivate let contacts = [ ["name": "Tristan",  "email": "tristan.yim@gmail.com"],
-                               ["name": "Rabia",    "email":  "tgcksr@gmail.com"],
-                               ["name": "Anusha",   "email": "una.020@gmail.com"],
-                               ["name": "Bharath",  "email":  "bharathmh@gmail.com"] ]
+  fileprivate let contacts = [ ["name": "Tristan",      "email": "tristan.yim@gmail.com"],
+                               ["name": "Rabia",        "email":  "tgcksr@gmail.com"],
+                               ["name": "Anusha",       "email": "una.020@gmail.com"],
+                               ["name": "Bharath",      "email":  "bharathmh@gmail.com"],
+                               ["name": "Tina Luo",     "email":  "dinaloue@gmail.com"],
+                               ["name": "Ruby",         "email":  "ruby.yyr.yan@gmail.com"],
+                               ["name": "Party Wizard", "email":  "mscodepath@gmail.com"]]
   
   @IBOutlet weak var tableView: UITableView!
   weak var delegate: AddContactsViewControllerDelegate?
