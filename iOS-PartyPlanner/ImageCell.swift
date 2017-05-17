@@ -18,6 +18,8 @@ class ImageCell: UITableViewCell {
   
   @IBOutlet weak var myImageView: UIImageView!
   @IBOutlet weak var mediaSelectionButton: UIButton!
+  @IBOutlet weak var videoPlayButton: UIImageView!
+  
   var mediaType = MediaType.image
   
   weak var delegate: ImageCellDelegate?
