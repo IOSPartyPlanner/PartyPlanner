@@ -22,8 +22,7 @@ class EventViewController: UIViewController {
   
   var guestsCell: EventGuestsTableViewCell?
   
-  let photosPicker = ELCImagePickerController()
-  var currentImage: UIImage?
+  let photoesPicker = ELCImagePickerController()
   
   let pickerController = ABPeoplePickerNavigationController()
   
@@ -31,6 +30,8 @@ class EventViewController: UIViewController {
   
   var guestCollectionView: UICollectionView?
   var photosCollectionView: UICollectionView?
+  
+  var currentImage: UIImage?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,13 +48,13 @@ class EventViewController: UIViewController {
     eventTableView.sectionHeaderHeight = UITableViewAutomaticDimension
     eventTableView.estimatedSectionHeaderHeight = 100
     
-    photosPicker.imagePickerDelegate = self
-    photosPicker.maximumImagesCount = 1
+    photoesPicker.imagePickerDelegate = self
+    photoesPicker.maximumImagesCount = 1
     pickerController.peoplePickerDelegate = self
     pickerController.predicateForEnablingPerson = NSPredicate(format: "emailAddresses.@count > 0")
     
     if !(event?.isPast())! && (event?.isUserOnwer())! {
-      navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QRCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
+      navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
     }
     //let tableBackgroundView: UIImageView = UIImageView(image: #imageLiteral(resourceName: "eventViewB9"))
     
@@ -75,11 +76,11 @@ class EventViewController: UIViewController {
     eventTableView.reloadData()
     if let qcodeVerificationFailed = qcodeVerificationFailed  {
       if qcodeVerificationFailed {
-        let alert = UIAlertController(title: "Passed", message: "You's welcomed to join event \((self.event?.name)!).", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Passed", message: "You are welcomed to join event \((self.event?.name)!).", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
       } else {
-        let alert = UIAlertController(title: "Error", message: "Your qcode is not passed the verification, please try again.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error", message: "Your QCode has not passed the verification, please try again.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
       }
@@ -113,12 +114,10 @@ class EventViewController: UIViewController {
     case "showQCode":
       let target = segue.destination as? QCodeViewController
       target?.event = event
-      
     case "EventDetailPhotoEditSegue":
       let target = segue.destination as! EditPhotoViewController
       target.image = currentImage
       target.delegate = self
-      
     default:
       break
     }
@@ -146,7 +145,6 @@ extension EventViewController: EditPhotoViewControllerDelegate {
     }
   }
 }
-
 
 extension EventViewController: UITableViewDelegate, UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -322,7 +320,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func addPhotoes(_ sender: UITapGestureRecognizer) {
-    navigationController?.present(photosPicker, animated: true, completion: nil)
+    navigationController?.present(photoesPicker, animated: true, completion: nil)
   }
   
   func addGuests(_ sender: UITapGestureRecognizer) {
@@ -341,31 +339,15 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension EventViewController: ELCImagePickerControllerDelegate {
   func elcImagePickerController(_ picker: ELCImagePickerController!, didFinishPickingMediaWithInfo info: [Any]!) {
-    print(info)
+    
     let images = info as? [NSDictionary]
     for line in images! {
-      //      let mediaURL = line["UIImagePickerControllerReferenceURL"] as? URL
-      
       currentImage = line[UIImagePickerControllerOriginalImage] as? UIImage
       self.performSegue(withIdentifier: "EventDetailPhotoEditSegue", sender:self)
-      //      let assets = PHAsset.fetchAssets(withALAssetURLs: [mediaURL!], options: nil)
-      //      let asset = assets.firstObject
-      //      PHImageManager.default().requestImageData(for: asset!, options: nil, resultHandler: { (data, _, _, _) in
-      //        let imageName = UUID().uuidString + ".jpeg"
-      //        let assetUrl = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(imageName)
-      //        do {
-      //          try data?.write(to: assetUrl, options: .atomic)
-      //          MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: assetUrl, type: .image, filepath: "\((self.event?.id)!)/\(imageName)", success: { (url) in
-      //            EventApi.sharedInstance.addPhotoURL(url, withEvent: self.event!)
-      //            self.event?.postEventImages?.append(url)
-      //            self.photosCollectionView?.reloadData()
-      //          }, failure: {})
-      //        } catch {
-      //        }
-      //      })
     }
     dismiss(animated: true, completion: nil)
   }
+  
   /**
    * Called when image selection was cancelled, by tapping the 'Cancel' BarButtonItem.
    */
@@ -395,4 +377,3 @@ extension EventViewController: ABPeoplePickerNavigationControllerDelegate {
     dismiss(animated: true, completion: nil)
   }
 }
-
