@@ -121,18 +121,18 @@ class EventSummaryTableViewCell: UITableViewCell {
                 if event?.inviteMediaUrl != nil {
                     eventImageView = UIImageView(frame: videoView.frame)
                     eventImageView?.setImageWith(URL(string: event!.inviteMediaUrl!)!)
-                    //                    eventImageView?.clipsToBounds = true
-                    eventImageView?.frame.size.height = videoView.frame.height-10
-                    eventImageView?.frame.size.width = videoView.frame.width-10
+                    eventImageView?.clipsToBounds = true
+//                    eventImageView?.frame.size.height = videoView.frame.height-10
+//                    eventImageView?.frame.size.width = videoView.frame.width-10
                     videoView.addSubview(eventImageView!)
                 }
             } else {
                 if event?.inviteMediaUrl != nil {
                     videoPlayView = VideoView(frame: videoView.frame)
                     videoPlayView?.setVideoURL(URL(string: event!.inviteMediaUrl!)!)
-                    //                    videoPlayView?.clipsToBounds = true
-                    videoPlayView?.frame.size.height = videoView.frame.height-10
-                    videoPlayView?.frame.size.width = videoView.frame.width-10
+                    videoPlayView?.clipsToBounds = true
+//                    videoPlayView?.frame.size.height = videoView.frame.height-10
+//                    videoPlayView?.frame.size.width = videoView.frame.width-10
                     videoView.addSubview(videoPlayView!)
                 }
             }
@@ -225,8 +225,7 @@ class EventSummaryTableViewCell: UITableViewCell {
         //self.contentView.layer.shadowColor = UIColor.black.cgColor
         //self.contentView.layer.shadowOpacity = 0.3
         //self.contentView.layer.shadowRadius = 10.0
-        
-    }
+  }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
