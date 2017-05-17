@@ -12,7 +12,7 @@ class EventGuestsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICol
 
     @IBOutlet weak var guestCollectionView: UICollectionView!
     
-    var guests: [User]?
+    var event: Event?
 
     var viewController: EventViewController?
     
@@ -31,13 +31,13 @@ class EventGuestsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return guests!.count
+        return event?.guests.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = guestCollectionView.dequeueReusableCell(withReuseIdentifier: "GuestCollectionViewCell", for: indexPath) as? GuestCollectionViewCell
 
-        if let guest = guests?[indexPath.row] {
+        if let guest = event?.guests[indexPath.row] {
             cell?.guestImageView.setImageWith(URL(string:guest.imageUrl!)! as URL)
         }
         Utils.formatCircleImage(image: cell!.guestImageView)

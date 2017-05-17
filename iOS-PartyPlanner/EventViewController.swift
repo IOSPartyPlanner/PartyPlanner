@@ -28,6 +28,8 @@ class EventViewController: UIViewController {
     
     var qcodeVerificationFailed: Bool?
     
+    var guestCollectionView: UICollectionView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -233,9 +235,10 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             return cell0!
         case (1, _):
             guestsCell = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestsTableViewCell", for: indexPath) as? EventGuestsTableViewCell
-            guestsCell?.guests = event?.guests
+            guestsCell?.event = event
             guestsCell?.viewController = self
             guestsCell?.backgroundColor = UIColor(white: 1, alpha: 0.6)
+            guestCollectionView = guestsCell?.guestCollectionView
             return guestsCell!
         case (3, _):
             let cell1 = eventTableView.dequeueReusableCell(withIdentifier: "PhotoesTableViewCell", for: indexPath) as? PhotoesTableViewCell
@@ -347,7 +350,7 @@ extension EventViewController: ABPeoplePickerNavigationControllerDelegate {
             EventApi.sharedInstance.addGuestEmail(emailIds.first!, withEvent: event!)
             UserApi.sharedInstance.getUserByEmail(userEmail: emailIds.first!, success: { (user) in
                 self.event?.guests.append(user!)
-                self.eventTableView.reloadData()
+                self.guestCollectionView?.reloadData()
             }, failure: {})
         }
         

@@ -26,13 +26,12 @@ class EventCreationViewController: UIViewController {
   fileprivate var eventDetails: String?
   fileprivate var locationSelected = false
   fileprivate var location: String?
+  fileprivate var eventTagline: String?
   fileprivate var eventStartDateTime: Date?
   fileprivate var eventEndDateTime: Date?
   fileprivate var eventGuestList: [String]?
   fileprivate var eventTaskCount: Int?
-  fileprivate var eventMediaUrl: URL!
   fileprivate var eventMediaType: MediaType!
-  //  fileprivate var eventMediaFirebaseUrl: String!
   
   // image/video
   fileprivate var eventImage: UIImage?
@@ -42,7 +41,9 @@ class EventCreationViewController: UIViewController {
   var eventLocationPlaceHodler = "Location"
   var eventStartDatePlaceHolder = "Start Date Time"
   var eventEndDatePlaceHolder = "End Date Time"
-  var eventDetailsPlaceHolder = "Details"
+  var eventAddGuestPlaceHolder = "Add guests"
+  var eventAddTasksPlaceHolder = "Add tasks"
+  var eventDetailsPlaceHolder = "Event description"
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -53,11 +54,6 @@ class EventCreationViewController: UIViewController {
     event = Event()
     prepareToolBars()
     
-    // initially set the event start time as currrent time and
-    // end time an hour later
-//    eventStartDateTime = Date.init().addingTimeInterval(1000.0)
-//    eventEndDateTime = Date.init().addingTimeInterval(4600.0)
-    
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 200
     
@@ -67,7 +63,7 @@ class EventCreationViewController: UIViewController {
     let inputCellNib = UINib(nibName: "TextInputCell", bundle: Bundle.main)
     tableView.register(inputCellNib, forCellReuseIdentifier: "TextInputCell")
   }
-    
+  
   @IBAction func onEventSave(_ sender: Any) {
     validateSaveEvent()
   }
@@ -118,14 +114,14 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 8
   }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 200
-        }
-        
-        return 60
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    if indexPath.row == 0 {
+      return 200
     }
+    
+    return 60
+  }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     // Image
@@ -213,20 +209,20 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       return cell
     }
     else if indexPath.row == 5{
-        // Event Name label
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
-        
-        let leftView = UIImageView()
-        leftView.image = #imageLiteral(resourceName: "pencil")
-        cell.textInput.leftView = leftView
-        if eventName != nil {
-            cell.textInput.text = eventName
-        }
-        
-        cell.textInput.placeholder = eventDetailsPlaceHolder
-        cell.indexRow = indexPath.row
-        cell.delegate = self
-        return cell
+      // Event Name label
+      let cell = tableView.dequeueReusableCell(withIdentifier: "TextInputCell2", for: indexPath) as! TextInputCell2
+      
+      let leftView = UIImageView()
+      leftView.image = #imageLiteral(resourceName: "pencil")
+      cell.textInput.leftView = leftView
+      if self.event.tagline != nil {
+        cell.textInput.text = self.event.tagline
+      }
+      
+      cell.textInput.placeholder = eventDetailsPlaceHolder
+      cell.indexRow = indexPath.row
+      cell.delegate = self
+      return cell
     }
     else if indexPath.row == 6 {
       // Add Guests
@@ -235,9 +231,8 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let leftView = UIImageView()
       leftView.image =  #imageLiteral(resourceName: "assigning")
       cell.textInput.leftView = leftView
-//      cell.textInput.leftViewOffset = 35
       
-      cell.textInput.placeholder = "Add guests"
+      cell.textInput.placeholder = eventAddGuestPlaceHolder
       cell.indexRow = indexPath.row
       cell.textInput.isUserInteractionEnabled = false
       if eventGuestList != nil {
@@ -253,9 +248,8 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let leftView = UIImageView()
       leftView.image =  #imageLiteral(resourceName: "todo")
       cell.textInput.leftView = leftView
-//      cell.textInput.leftViewOffset = 35
       
-      cell.textInput.placeholder = "Add tasks"
+      cell.textInput.placeholder = eventAddTasksPlaceHolder
       cell.indexRow = indexPath.row
       cell.textInput.isUserInteractionEnabled = false
       if eventTaskCount != nil {
@@ -287,7 +281,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
 }
 
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at:indexPath, animated: true)
+  tableView.deselectRow(at:indexPath, animated: true)
 }
 
 // MARK: - Date and Media Selection
@@ -373,42 +367,65 @@ extension EventCreationViewController: ImageCellDelegate, UIImagePickerControlle
     // If selected Media is Image
     if info[UIImagePickerControllerMediaType] as! String == "public.image" {
       
-      let selectImage = info[UIImagePickerControllerEditedImage] as? UIImage
+      let selectImage = info[UIImagePickerControllerOriginalImage] as? UIImage
       eventImage = selectImage
       eventMediaType = MediaType.image
       let indexpath = IndexPath(item: 0, section: 0)
       tableView.reloadRows(at: [indexpath], with: .fade)
       
-      let mediaURL = info["UIImagePickerControllerReferenceURL"] as? URL
-      let assets = PHAsset.fetchAssets(withALAssetURLs: [mediaURL!], options: nil)
-      let asset = assets.firstObject!
+      let filePath = "PartyInGoEvent\(self.event.id)/invitation.jpg"
+      self.event.inviteMediaType = .image
       
-      PHImageManager.default().requestImageData(for: asset, options: nil, resultHandler: { (data, _, _, _) in
-        let imageName = Utils.generateUUID() + ".jpeg"
-        let assetUrl = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(imageName)
-        do {
-          try data?.write(to: assetUrl, options: .atomic)
-          self.eventMediaUrl = assetUrl
-          print("\n eventMediaUrl  has been set!\n")
-        } catch {
-          print("\n error writing media to sandbox!\n")
-        }
+      // upload photos
+      // if it's a photo from the library, not an image from the camera
+      if #available(iOS 8.0, *), let referenceUrl = info[UIImagePickerControllerReferenceURL] as? URL {
+        let assets = PHAsset.fetchAssets(withALAssetURLs: [referenceUrl], options: nil)
+        let asset = assets.firstObject
+        asset?.requestContentEditingInput(with: nil, completionHandler: { (contentEditingInput, info) in
+          let imageFile = contentEditingInput?.fullSizeImageURL
+          
+          print("uploading image")
+          MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: imageFile!, type: MediaType.image, filepath: filePath, success: { (mediaUrl) in
+            self.event.inviteMediaUrl = mediaUrl
+          }, failure: {
+            print("Uploading  media failed")
+          })
+        })
+      }
+        // Image from camera
+      else {
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+        guard let imageData = UIImageJPEGRepresentation(image, 0.4) else { return }
+        
+        MediaApi.sharedInstance.uploadMediaToFireBase(media: imageData, type: MediaType.image, filepath: filePath, success: { (mediaUrl) in
+          print(mediaUrl)
+          self.event.inviteMediaUrl = mediaUrl
+        }, failure: {
+          print("Uploading  media failed")
+        })
+      }
+    }
+    // if video
+    else if info["UIImagePickerControllerMediaType"] as! String == "public.movie" {
+      let selectedVideoUrl = info[UIImagePickerControllerMediaURL] as? URL
+      print(selectedVideoUrl ?? "URL could not be fetched")
+      let video = NSData(contentsOf: selectedVideoUrl!)
+      eventImage = Utils.previewImageFromVideo(selectedVideoUrl!)!
+      
+      eventMediaType = MediaType.video
+      let indexpath = IndexPath(item: 0, section: 0)
+      tableView.reloadRows(at: [indexpath], with: .fade)
+      
+      let filePath = "PartyInGoEvent\(self.event.id)/invitation.mov"
+      self.event.inviteMediaType = .video
+      
+      MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: selectedVideoUrl!, type: MediaType.video, filepath: filePath, success: { (mediaUrl) in
+        self.event.inviteMediaUrl = mediaUrl
+      }, failure: {
+        print("Uploading  video failed")
       })
     }
-//      asset?.requestContentEditingInput(with: nil, completionHandler: { (contentEditingInput, info) in
-//        self.eventMediaUrl = contentEditingInput?.fullSizeImageURL
-//        print("\n eventMediaUrl  has been set!\n")
-//      })
-      
-    // video
-    //    else if info["UIImagePickerControllerMediaType"] as! String == "public.movie" {
-    //
-    //      selectedVideoUrl = info[UIImagePickerControllerMediaURL] as? URL
-    //      print(selectedVideoUrl ?? "URL could not be fetched")
-    //      video = NSData(contentsOf: selectedVideoUrl!)
-    //      mediaDisplayView.image = Utils.previewImageFromVideo(selectedVideoUrl!)!
-    //        }
-    //    mediaDisplayView.contentMode = .scaleAspectFit
+    
     dismiss(animated: true) {}
   }
   
@@ -430,16 +447,6 @@ extension EventCreationViewController: TextInputCell2Delegate {
     tableView.reloadRows(at: [indexPath], with: .automatic)
   }
   
-  //Event Details
-  func textInputCell2(textInputCell2: TextInputCell2, detailsEntered eventDetails: String) {
-        currentIndex = 1
-        locationSelected = false
-        
-        self.eventDetails = eventDetails
-        let indexPath = IndexPath(item: currentIndex!, section: 0)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
-  }
-  
   // Location Field
   func textInputCell2(textInputCell2: TextInputCell2, locationInputStarted location: String) {
     currentIndex = 2
@@ -459,6 +466,17 @@ extension EventCreationViewController: TextInputCell2Delegate {
     currentIndex = 4
     locationSelected = false
   }
+  
+  //Event Details
+  func textInputCell2(textInputCell2: TextInputCell2, detailsEntered eventDetails: String) {
+    currentIndex = 5
+    locationSelected = false
+    
+    self.event.tagline = eventDetails
+    let indexPath = IndexPath(item: currentIndex!, section: 0)
+    tableView.reloadRows(at: [indexPath], with: .automatic)
+  }
+  
 }
 
 // MARK: - Task creation and contact selection delegates
@@ -472,14 +490,14 @@ extension EventCreationViewController: TasksViewControllerDelegate, AddContactsV
     }
     newGuestList = eventGuestList! + contactsAdded
     eventGuestList = Array(Set(newGuestList))
-    let indexPath = IndexPath(item: 5, section: 0)
+    let indexPath = IndexPath(item: 6, section: 0)
     tableView.reloadRows(at: [indexPath], with: .automatic)
   }
   
   func tasksViewController(tasksViewController: TasksViewController,  tasksAddedCount: Int) {
     if tasksAddedCount > 0 {
       eventTaskCount = tasksAddedCount
-      let indexPath = IndexPath(item: 6, section: 0)
+      let indexPath = IndexPath(item: 7, section: 0)
       tableView.reloadRows(at: [indexPath], with: .automatic)
     }
   }
@@ -491,7 +509,7 @@ extension EventCreationViewController: LocationsViewControllerDelegate {
   
   func locationsPickedLocation(controller: LocationsViewController, location: String) {
     locationSelected = true
-    print("Addres picked was \(location)")
+    print("Address picked was \(location)")
     self.location = location
     let indexpath = IndexPath(item: currentIndex, section: 0)
     tableView.reloadRows(at: [indexpath], with: .automatic)
@@ -505,11 +523,10 @@ extension EventCreationViewController: LocationsViewControllerDelegate {
 }
 
 
-
 extension EventCreationViewController {
   func validateSaveEvent() {
     // check image
-    if eventMediaUrl == nil {
+    if self.event.inviteMediaUrl == nil {
       displayDisapperaingAlert("Add an image to your party")
       return
     }
@@ -552,38 +569,22 @@ extension EventCreationViewController {
       event.guestEmailList = eventGuestList
     }
     
-    // if checks pass, upload Image
-    let animationView = LOTAnimationView(name: "mailsent")
+    // if checks pass, store event
+    let animationView = LOTAnimationView(name: "splashy_loader")
     animationView?.frame = self.view.bounds
     animationView?.contentMode = .scaleToFill
+    animationView?.animationSpeed = 1
     self.view.addSubview(animationView!)
     
     animationView?.play(completion: { finished in
-      MediaApi.sharedInstance.uploadMediaToFireBase( mediaUrl: self.eventMediaUrl, type: self.eventMediaType,
-        filepath: "event\(self.event.id)/invitation.jpg",
-        success: { (returnUrl) in
-          print("image uploaded successfully")
-          self.event.inviteMediaUrl = returnUrl
-          self.event.inviteMediaType = self.eventMediaType
-          
-          var email = ""
-          if let currentUser = User.currentUser {
-            email = currentUser.email!
-          } else {
-            email = "u3@gmail.com"
-          }
-          
-          self.event.hostEmail = email
-          self.event.hostProfileImageUrl = User.currentUser?.imageUrl
-          self.event.postEventImages = []
-          self.event.postEventVideos = []
-          self.event.likesCount = 0
-          
-          EventApi.sharedInstance.storeEvent(event: self.event)
-          self.dismiss(animated: true, completion: nil)
-      }) {
-        print("\n\nimage upload error!!")
-      }
+      self.event.hostEmail = (User.currentUser?.email)!
+      self.event.hostProfileImageUrl = User.currentUser?.imageUrl
+      self.event.postEventImages = []
+      self.event.postEventVideos = []
+      self.event.likesCount = 0
+      
+      EventApi.sharedInstance.storeEvent(event: self.event)
+      self.dismiss(animated: true, completion: nil)
     })
   }
   

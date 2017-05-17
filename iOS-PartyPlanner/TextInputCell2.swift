@@ -10,21 +10,11 @@ import UIKit
 import Material
 
 @objc protocol TextInputCell2Delegate {
-
-  // Event Name entered
   @objc optional func textInputCell2(textInputCell2: TextInputCell2, eventNameEntered eventName: String)
-  
-  // Location
   @objc optional func textInputCell2(textInputCell2: TextInputCell2, locationInputStarted location: String)
-  @objc optional func textInputCell2(textInputCell2: TextInputCell2, locationInputSelected location: String)
-  
-  // Start Date
   @objc optional func textInputCell2(textInputCell2: TextInputCell2, startDateTimeStarted row: Int)
-  @objc optional func textInputCell2(textInputCell2: TextInputCell2, startDateTimeSelected row: Int)
-  
-  // End Date
   @objc optional func textInputCell2(textInputCell2: TextInputCell2, endDateTimeStarted row: Int)
-  @objc optional func textInputCell2(textInputCell2: TextInputCell2, endDateTimeSelected row: Int)
+  @objc optional func textInputCell2(textInputCell2: TextInputCell2, detailsEntered eventDetails: String)
 }
 
 class TextInputCell2: UITableViewCell {
@@ -36,15 +26,12 @@ class TextInputCell2: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
     textInput.delegate = self
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
-    // Configure the view for the selected state
   }
-  
 }
 
 extension TextInputCell2: UITextFieldDelegate {
@@ -54,29 +41,27 @@ extension TextInputCell2: UITextFieldDelegate {
     }
     else if indexRow == 2 {
       print("you selected 2")
-      //TODO: for location open new page
       delegate?.textInputCell2!(textInputCell2: self, locationInputStarted: "Location")
     }
     else if indexRow == 3 {
       print("you selected Start Date")
-      //      textField.resignFirstResponder()
       delegate?.textInputCell2!(textInputCell2: self, startDateTimeStarted: indexRow)
     }
     else if indexRow == 4 {
       print("you selected End Date")
-      //      textField.resignFirstResponder()
       delegate?.textInputCell2!(textInputCell2: self, endDateTimeStarted: indexRow)
     }
   }
   
   func textFieldDidEndEditing(_ textField: UITextField) {
     if indexRow == 1 {
-      print("you completed 1")
+      print("you entered event name")
       delegate?.textInputCell2!(textInputCell2: self, eventNameEntered: textInput.text!)
     }
-    else if indexRow == 2 { }
-    else if indexRow == 3 { }
-    else if indexRow == 4 { }
+    if indexRow == 5 {
+      print("you entered event details")
+      delegate?.textInputCell2!(textInputCell2: self, detailsEntered: textInput.text!)
+    }
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {

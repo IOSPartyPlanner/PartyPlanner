@@ -19,7 +19,15 @@ class MediaApi: NSObject {
   func uploadMediaToFireBase(mediaUrl: URL, type: MediaType, filepath: String,
                              success: @escaping (String) -> (), failure: @escaping () -> ())
   {
+    
     let mediaRef = mediaStorageRef.child(filepath)
+    
+    // Using Cloud Storage for Firebase requires the user be authenticated. Here we are using
+    // anonymous authentication.
+    if FIRAuth.auth()?.currentUser == nil {
+      FIRAuth.auth()?.signInAnonymously(completion: { (user: FIRUser?, error: Error?) in
+      })
+    }
     
     // TODO: remove user signin before uploading!!! very important
     mediaRef.putFile(
@@ -27,7 +35,7 @@ class MediaApi: NSObject {
           metadata: nil,
           completion: { (metadata, error) in
             if error != nil {
-              print("Error Uploading Video!:: \(error?.localizedDescription ?? "oops error")")
+              print("\nError Uploading Media!:: \(error?.localizedDescription ?? "oops error")")
               return
             } else {
               print("\nMediaApi:: Media Uploaded! successfully\n")
@@ -36,6 +44,38 @@ class MediaApi: NSObject {
             }
         })
   }
+  
+  // Used to upload images from Camera
+  // Uploads the media to, FireBase and returns the media URL
+  func uploadMediaToFireBase(media: Data, type: MediaType, filepath: String,
+                             success: @escaping (String) -> (), failure: @escaping () -> ())
+  {
+    
+    let mediaRef = mediaStorageRef.child(filepath)
+    
+    // Using Cloud Storage for Firebase requires the user be authenticated. Here we are using
+    // anonymous authentication.
+    if FIRAuth.auth()?.currentUser == nil {
+      FIRAuth.auth()?.signInAnonymously(completion: { (user: FIRUser?, error: Error?) in
+      })
+    }
+    
+    // TODO: remove user signin before uploading!!! very important
+    mediaRef.put(
+      media,
+      metadata: nil,
+      completion: { (metadata, error) in
+        if error != nil {
+          print("\nError Uploading Media!:: \(error?.localizedDescription ?? "oops error")")
+          return
+        } else {
+          print("\nMediaApi:: Media Uploaded! successfully\n")
+          let mediaDownloadurl = metadata!.downloadURL()!
+          success(mediaDownloadurl.absoluteString)
+        }
+    })
+  }
+  
   
   func uploadFilesToFireBase(mediaUrl: URL,  event: Event, completion: @escaping (Bool) -> ()){
     let filePath  = event.id + UUID().uuidString
