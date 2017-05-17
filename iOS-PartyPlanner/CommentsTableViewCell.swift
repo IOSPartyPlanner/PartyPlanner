@@ -25,7 +25,7 @@ class CommentsTableViewCell: UITableViewCell {
                 commentLabel.text = comment
             }
 
-            Utils.formatCircleImage(image: userProfileImageView)
+           Utils.formatCircleImage(image: userProfileImageView)
             
             /*if let imageUrl = comment?.imageUrl{
                 //TODO:Set image
