@@ -52,10 +52,10 @@ class EventViewController: UIViewController {
         if !(event?.isPast())! && (event?.isUserOnwer())! {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
         }
-        let tableBackgroundView: UIImageView = UIImageView(image: #imageLiteral(resourceName: "eventViewB9"))
+        //let tableBackgroundView: UIImageView = UIImageView(image: #imageLiteral(resourceName: "eventViewB9"))
         
-        tableBackgroundView.alpha = 1
-        eventTableView.backgroundView = tableBackgroundView
+        //tableBackgroundView.alpha = 1
+       // eventTableView.backgroundView = tableBackgroundView
     }
     
     override func didReceiveMemoryWarning() {
@@ -118,7 +118,7 @@ class EventViewController: UIViewController {
 
 extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 5
         //        if (event?.isPast())! || (event?.isUserOnwer())! {
         //            return 3
         //        } else {
@@ -128,14 +128,18 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0, 1:
+        case 0,1,3:
             return 1
+        case 2:
+             return event?.tasks.count ?? 0
+    
         default:
-            if (event?.isPast())! {
+            return event?.postComments.count ?? 0
+            /*if (event?.isPast())! {
                 return event?.postComments.count ?? 0
             } else {
                 return event?.tasks.count ?? 0
-            }
+            }*/
         }
     }
     
@@ -145,40 +149,52 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1.0
         default:
-            return 50.0
+            return 40.0
         }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = eventTableView.dequeueReusableCell(withIdentifier: "HeadAddTableViewCell") as? HeadAddTableViewCell
         cell?.viewController = self
+        /*cell?.layer.borderWidth = 0.5
+        cell?.layer.borderColor = UIColor.red.cgColor
+        cell?.layer.cornerRadius = 3*/
+
         switch section {
         case 1:
-            if (event?.isPast())! {
-                cell?.titleLabel.text = "Photos/Videos"
-                let gesture = UITapGestureRecognizer(target: self, action: #selector(addPhotoes(_:)))
-                cell?.addImageView.addGestureRecognizer(gesture)
-            } else {
+            //if (event?.isPast())! {
+            
+            //} else {
                 cell?.titleLabel.text = "Guests"
                 let gesture = UITapGestureRecognizer(target: self, action: #selector(addGuests(_:)))
                 cell?.addImageView.addGestureRecognizer(gesture)
                 if !(event?.isUserOnwer())! {
                     cell?.addImageView.isHidden = true
                 }
-            }
+            //}
         case 2:
-            if (event?.isPast())! {
-                cell?.titleLabel.text = "Comments"
-                let gesture = UITapGestureRecognizer(target: self, action: #selector(addComment(_:)))
-                cell?.addImageView.addGestureRecognizer(gesture)
-            } else {
+            
+           // if (event?.isPast())! {
+           // } else {
                 cell?.titleLabel.text = "Tasks"
                 let gesture = UITapGestureRecognizer(target: self, action: #selector(addTask(_:)))
                 cell?.addImageView.addGestureRecognizer(gesture)
                 if !(event?.isUserOnwer())! {
                     cell?.addImageView.isHidden = true
                 }
-            }
+           // }
+        case 3:
+            cell?.titleLabel.text = "Media"
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(addPhotoes(_:)))
+            cell?.addImageView.addGestureRecognizer(gesture)
+            /*if !(event?.isUserOnwer())! {
+                cell?.addImageView.isHidden = true
+            }*/
+        case 4:
+            cell?.titleLabel.text = "Comments"
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(addComment(_:)))
+            cell?.addImageView.addGestureRecognizer(gesture)
+            
         default:
             return nil
         }
@@ -190,17 +206,20 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return nil
         case 1:
-            if (event?.isPast())! {
-                return "Photos"
-            } else {
+           // if (event?.isPast())! {
+            
+            //} else {
                 return "Guests"
-            }
+           // }
         case 2:
-            if (event?.isPast())! {
-                return "Comments"
-            } else {
+           // if (event?.isPast())! {
+            //} else {
                 return "Tasks"
-            }
+            //}
+        case 3:
+             return "Photos"
+        case 4:
+              return "Comments"
         default:
             return nil
         }
@@ -214,20 +233,21 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
             cell0?.viewController = self
             cell0?.backgroundColor = UIColor(white: 1, alpha: 0.6)
             return cell0!
-        case (1, false):
+        case (1, _):
             guestsCell = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestsTableViewCell", for: indexPath) as? EventGuestsTableViewCell
             guestsCell?.event = event
             guestsCell?.viewController = self
             guestsCell?.backgroundColor = UIColor(white: 1, alpha: 0.6)
             guestCollectionView = guestsCell?.guestCollectionView
             return guestsCell!
-        case (1, true):
+        case (3, _):
             let cell1 = eventTableView.dequeueReusableCell(withIdentifier: "PhotoesTableViewCell", for: indexPath) as? PhotoesTableViewCell
-            cell1?.photoes = event?.postEventImages
+               cell1?.photoes = event?.postEventImages
+           
             cell1?.viewController = self
             cell1?.backgroundColor = UIColor(white: 1, alpha: 0.6)
             return cell1!
-        case (2, false):
+        case (2, _):
             let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventTasksTableViewCell", for: indexPath) as? EventTasksTableViewCell
             let task = event?.tasks[indexPath.row]
             if task?.volunteerEmails == nil || task?.volunteerEmails?.count == 0 {
@@ -239,12 +259,17 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
                 cell2?.taskImageView.image = UIImage(named: "assigned")
             }
             cell2?.taskImageView.translatesAutoresizingMaskIntoConstraints = true
-            cell2?.taskDescLabel.text = task?.name
+            
+            //TODO:Ask cell2?.taskDescLabel.text = task?.description
+            
+        
+            cell2?.taskNameLabel.text = task?.name
             cell2?.backgroundColor = UIColor(white: 1, alpha: 0.6)
             return cell2!
         default:
             let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventGuestCommentTableViewCell", for: indexPath) as? EventGuestCommentTableViewCell
             if let userComment = event?.postComments[indexPath.row] {
+                userComment.userName = User.currentUser?.name
                 cell2?.comment = userComment
             }
             cell2?.backgroundColor = UIColor(white: 1, alpha: 0.6)

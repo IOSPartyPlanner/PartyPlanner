@@ -13,6 +13,7 @@ class EventTasksTableViewCell: UITableViewCell {
     @IBOutlet weak var taskImageView: UIImageView!
     
     @IBOutlet weak var taskDescLabel: UILabel!
+    @IBOutlet var taskNameLabel: UILabel!
     
     var viewController: EventViewController?
     
@@ -23,9 +24,9 @@ class EventTasksTableViewCell: UITableViewCell {
         taskImageView.layer.shadowRadius = 3.0
         taskImageView.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
       
-        self.contentView.layer.borderColor = UIColor.gray.cgColor
+       /*elf.contentView.layer.borderColor = UIColor.gray.cgColor
         self.contentView.layer.borderWidth = 0.5
-        self.contentView.layer.cornerRadius = 5.0
+        self.contentView.layer.cornerRadius = 5.0*/
       
       
 //        taskDescLabel.textColor
