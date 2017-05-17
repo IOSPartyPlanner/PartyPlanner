@@ -36,7 +36,7 @@ class MediaApi: NSObject {
           completion: { (metadata, error) in
             if error != nil {
               print("\nError Uploading Media!:: \(error?.localizedDescription ?? "oops error")")
-              return
+              failure()
             } else {
               print("\nMediaApi:: Media Uploaded! successfully\n")
               let mediaDownloadurl = metadata!.downloadURL()!

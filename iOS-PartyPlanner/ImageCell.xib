@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="287" height="161"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="287" height="160"/>
+                <rect key="frame" x="0.0" y="0.0" width="287" height="160.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yoK-lx-Msm">
@@ -26,7 +25,10 @@
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SL-ir-PEX">
-                        <rect key="frame" x="126" y="111" width="35" height="35"/>
+                        <rect key="frame" x="223" y="125" width="64" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="9SE-Ld-Hwe"/>
+                        </constraints>
                         <state key="normal" image="photo_camera" backgroundImage="Add Camera-96"/>
                         <connections>
                             <action selector="onCameraButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bxe-Yr-lha"/>
@@ -34,22 +36,19 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="8SL-ir-PEX" secondAttribute="bottom" constant="7" id="5xo-72-4p1"/>
-                    <constraint firstItem="8SL-ir-PEX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="118" id="7HI-vA-4Y0"/>
+                    <constraint firstAttribute="trailing" secondItem="8SL-ir-PEX" secondAttribute="trailing" id="5ZV-9Y-OfS"/>
                     <constraint firstItem="yoK-lx-Msm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Dan-Ig-kbK"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="8SL-ir-PEX" secondAttribute="bottom" constant="18" id="Jc1-Bf-rze"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="8SL-ir-PEX" secondAttribute="bottom" constant="6" id="XDg-E4-Tpt"/>
-                    <constraint firstItem="8SL-ir-PEX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="103" id="YOX-uS-hKi"/>
+                    <constraint firstAttribute="bottom" secondItem="8SL-ir-PEX" secondAttribute="bottom" id="ZEh-Aa-HnL"/>
                     <constraint firstItem="yoK-lx-Msm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Zp4-xA-Fv2"/>
                     <constraint firstAttribute="bottom" secondItem="yoK-lx-Msm" secondAttribute="bottom" id="eBX-Z3-1ok"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="8SL-ir-PEX" secondAttribute="trailing" constant="118" id="p4O-al-Be0"/>
                     <constraint firstAttribute="trailing" secondItem="yoK-lx-Msm" secondAttribute="trailing" id="tM4-GD-NuH"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="mediaSelectionButton" destination="8SL-ir-PEX" id="I85-uC-Ikt"/>
                 <outlet property="myImageView" destination="yoK-lx-Msm" id="KbI-db-PSG"/>
             </connections>
-            <point key="canvasLocation" x="-149" y="31"/>
+            <point key="canvasLocation" x="-149.5" y="30.5"/>
         </tableViewCell>
     </objects>
     <resources>

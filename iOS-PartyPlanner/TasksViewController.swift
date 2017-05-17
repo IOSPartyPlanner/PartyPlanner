@@ -38,7 +38,6 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
         }
         addTaskView.isHidden = true
         blurView.isHidden = true
-        
     }
     
 

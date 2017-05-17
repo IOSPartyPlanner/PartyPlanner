@@ -130,6 +130,7 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       
       if eventImage != nil {
         cell.myImageView.image = eventImage
+        cell.mediaSelectionButton.alpha = 0.8        
       } else {
         cell.myImageView.image = #imageLiteral(resourceName: "placeholder_orange")
       }
@@ -379,17 +380,25 @@ extension EventCreationViewController: ImageCellDelegate, UIImagePickerControlle
       // upload photos
       // if it's a photo from the library, not an image from the camera
       if #available(iOS 8.0, *), let referenceUrl = info[UIImagePickerControllerReferenceURL] as? URL {
+        
         let assets = PHAsset.fetchAssets(withALAssetURLs: [referenceUrl], options: nil)
-        let asset = assets.firstObject
-        asset?.requestContentEditingInput(with: nil, completionHandler: { (contentEditingInput, info) in
-          let imageFile = contentEditingInput?.fullSizeImageURL
-          
-          print("uploading image")
-          MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: imageFile!, type: MediaType.image, filepath: filePath, success: { (mediaUrl) in
-            self.event.inviteMediaUrl = mediaUrl
-          }, failure: {
-            print("Uploading  media failed")
-          })
+        let asset = assets.firstObject!
+        
+        PHImageManager.default().requestImageData(for: asset, options: nil, resultHandler: { (data, _, _, _) in
+          let imageName = Utils.generateUUID() + ".jpeg"
+          let assetUrl = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(imageName)
+          do {
+            try data?.write(to: assetUrl, options: .atomic)
+            print("\n Image copied to sandbox successfully")
+            MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: assetUrl, type: .image, filepath: filePath, success: { (mediaUrl) in
+              print(mediaUrl)
+              self.event.inviteMediaUrl = mediaUrl
+            }, failure: {
+              print("Uploading  media failed")
+            })
+          } catch {
+            print("\n error writing media to sandbox!\n")
+          }
         })
       }
         // Image from camera
