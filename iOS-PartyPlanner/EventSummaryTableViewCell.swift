@@ -208,23 +208,23 @@ class EventSummaryTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         //Invitation border
-        videoView.layer.cornerRadius = 10
-        videoView.layer.borderWidth = 1.0
-        videoView.layer.borderColor = UIColor.black.cgColor
+        //videoView.layer.cornerRadius = 10
+        //videoView.layer.borderWidth = 1.0
+        //videoView.layer.borderColor = UIColor.black.cgColor
         
-        videoView.layer.shadowColor = UIColor.black.cgColor
-        videoView.layer.shadowOffset  = CGSize(width: 1, height: 1)
-        videoView.layer.shadowOpacity = 0.7
-        videoView.layer.shadowRadius = 1.0
+        //videoView.layer.shadowColor = UIColor.black.cgColor
+        //videoView.layer.shadowOffset  = CGSize(width: 1, height: 1)
+        //videoView.layer.shadowOpacity = 0.7
+        //videoView.layer.shadowRadius = 1.0
         
         //Content view border
-        self.contentView.layer.cornerRadius = 10
-        self.contentView.layer.borderWidth = 10.0
-        self.contentView.layer.borderColor = UIColor.white.cgColor
+        //self.contentView.layer.cornerRadius = 10
+        //self.contentView.layer.borderWidth = 10.0
+        //self.contentView.layer.borderColor = UIColor.white.cgColor
         
-        self.contentView.layer.shadowColor = UIColor.black.cgColor
-        self.contentView.layer.shadowOpacity = 0.3
-        self.contentView.layer.shadowRadius = 10.0
+        //self.contentView.layer.shadowColor = UIColor.black.cgColor
+        //self.contentView.layer.shadowOpacity = 0.3
+        //self.contentView.layer.shadowRadius = 10.0
         
     }
     

@@ -41,6 +41,7 @@ class EventGuestsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICol
             cell?.guestImageView.setImageWith(URL(string:guest.imageUrl!)! as URL)
         }
         Utils.formatCircleImage(image: cell!.guestImageView)
+        //cell!.guestImageView.layer.borderColor = UIColor.gray.cgColor
         return cell!
     }
 }
