@@ -79,6 +79,8 @@ class RSVPViewController: UIViewController{
       }*/
       
       sendButton.layer.cornerRadius = 10
+      sendButton.layer.borderWidth = 1
+      sendButton.layer.borderColor = UIColor.black.cgColor
       sendButton.roundedButton()
       
     }
