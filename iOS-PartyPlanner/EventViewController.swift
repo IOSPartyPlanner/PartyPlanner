@@ -51,7 +51,7 @@ class EventViewController: UIViewController {
         pickerController.predicateForEnablingPerson = NSPredicate(format: "emailAddresses.@count > 0")
         
         if !(event?.isPast())! && (event?.isUserOnwer())! {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QRCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
         }
         //let tableBackgroundView: UIImageView = UIImageView(image: #imageLiteral(resourceName: "eventViewB9"))
         
@@ -73,11 +73,11 @@ class EventViewController: UIViewController {
         eventTableView.reloadData()
         if let qcodeVerificationFailed = qcodeVerificationFailed  {
             if qcodeVerificationFailed {
-                let alert = UIAlertController(title: "Passed", message: "You's welcomed to join event \((self.event?.name)!).", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Passed", message: "You are welcomed to join event \((self.event?.name)!).", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                 present(alert, animated: true, completion: nil)
             } else {
-                let alert = UIAlertController(title: "Error", message: "Your qcode is not passed the verification, please try again.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Error", message: "Your QCode has not passed the verification, please try again.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                 present(alert, animated: true, completion: nil)
             }

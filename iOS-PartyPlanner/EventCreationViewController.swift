@@ -9,6 +9,8 @@
 import UIKit
 import Lottie
 import Material
+import AVFoundation
+import AVKit
 
 class EventCreationViewController: UIViewController {
   
@@ -35,6 +37,7 @@ class EventCreationViewController: UIViewController {
   
   // image/video
   fileprivate var eventImage: UIImage?
+  fileprivate var selectedVideoUrl: URL?
   
   // placeholders
   var eventNamePlaceHolder = "Event Name"
@@ -130,7 +133,17 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       
       if eventImage != nil {
         cell.myImageView.image = eventImage
-        cell.mediaSelectionButton.alpha = 0.8        
+        cell.mediaSelectionButton.alpha = 0.8
+        if event.inviteMediaType == .video {
+          cell.videoPlayButton.alpha = 1
+          cell.videoPlayButton.isUserInteractionEnabled = true
+          
+          let tap = UITapGestureRecognizer(target: self, action: #selector(playVideo))
+          cell.videoPlayButton.addGestureRecognizer(tap)
+        } else {
+          cell.videoPlayButton.alpha = 0
+          cell.videoPlayButton.isUserInteractionEnabled = false
+        }
       } else {
         cell.myImageView.image = #imageLiteral(resourceName: "placeholder_orange")
       }
@@ -375,7 +388,7 @@ extension EventCreationViewController: ImageCellDelegate, UIImagePickerControlle
       tableView.reloadRows(at: [indexpath], with: .fade)
       
       let filePath = "PartyInGoEvent\(self.event.id)/invitation.jpg"
-      self.event.inviteMediaType = .image
+      event.inviteMediaType = .image
       
       // upload photos
       // if it's a photo from the library, not an image from the camera
@@ -416,12 +429,12 @@ extension EventCreationViewController: ImageCellDelegate, UIImagePickerControlle
     }
     // if video
     else if info["UIImagePickerControllerMediaType"] as! String == "public.movie" {
-      let selectedVideoUrl = info[UIImagePickerControllerMediaURL] as? URL
+      selectedVideoUrl = info[UIImagePickerControllerMediaURL] as? URL
       print(selectedVideoUrl ?? "URL could not be fetched")
-      let video = NSData(contentsOf: selectedVideoUrl!)
+//      let video = NSData(contentsOf: selectedVideoUrl!)
       eventImage = Utils.previewImageFromVideo(selectedVideoUrl!)!
       
-      eventMediaType = MediaType.video
+      event.inviteMediaType = MediaType.video
       let indexpath = IndexPath(item: 0, section: 0)
       tableView.reloadRows(at: [indexpath], with: .fade)
       
@@ -441,6 +454,21 @@ extension EventCreationViewController: ImageCellDelegate, UIImagePickerControlle
   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
     dismiss(animated: true) {}
   }
+  
+  func playVideo() {
+    print("you tapped on play video")
+    if let videoUrl = selectedVideoUrl {
+      
+      let player = AVPlayer(url: videoUrl)
+      let playerViewController = AVPlayerViewController()
+      playerViewController.player = player
+      
+      present(playerViewController, animated: true){
+        playerViewController.player!.play()
+      }
+    }
+  }
+  
 }
 
 // MARK: - TextInputCell delegates
@@ -536,7 +564,7 @@ extension EventCreationViewController {
   func validateSaveEvent() {
     // check image
     if self.event.inviteMediaUrl == nil {
-      displayDisapperaingAlert("Add an image to your party")
+      displayDisapperaingAlert("Add image/video to your party")
       return
     }
     // check name

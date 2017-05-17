@@ -34,19 +34,29 @@
                             <action selector="onCameraButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bxe-Yr-lha"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play-1" translatesAutoresizingMaskIntoConstraints="NO" id="1Gz-Df-xK0">
+                        <rect key="frame" x="103.5" y="40.5" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="mGv-7Q-oDp"/>
+                            <constraint firstAttribute="width" constant="80" id="ylj-YZ-HgQ"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="8SL-ir-PEX" secondAttribute="trailing" id="5ZV-9Y-OfS"/>
                     <constraint firstItem="yoK-lx-Msm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Dan-Ig-kbK"/>
+                    <constraint firstItem="1Gz-Df-xK0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="N6R-Rv-ZPj"/>
                     <constraint firstAttribute="bottom" secondItem="8SL-ir-PEX" secondAttribute="bottom" id="ZEh-Aa-HnL"/>
                     <constraint firstItem="yoK-lx-Msm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Zp4-xA-Fv2"/>
                     <constraint firstAttribute="bottom" secondItem="yoK-lx-Msm" secondAttribute="bottom" id="eBX-Z3-1ok"/>
+                    <constraint firstItem="1Gz-Df-xK0" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="qe9-QL-cpj"/>
                     <constraint firstAttribute="trailing" secondItem="yoK-lx-Msm" secondAttribute="trailing" id="tM4-GD-NuH"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="mediaSelectionButton" destination="8SL-ir-PEX" id="I85-uC-Ikt"/>
                 <outlet property="myImageView" destination="yoK-lx-Msm" id="KbI-db-PSG"/>
+                <outlet property="videoPlayButton" destination="1Gz-Df-xK0" id="sLv-ul-pxE"/>
             </connections>
             <point key="canvasLocation" x="-149.5" y="30.5"/>
         </tableViewCell>
@@ -54,5 +64,6 @@
     <resources>
         <image name="Add Camera-96" width="48" height="48"/>
         <image name="photo_camera" width="64" height="64"/>
+        <image name="play-1" width="50" height="50"/>
     </resources>
 </document>
