@@ -76,16 +76,16 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
             cell.task = unassignedTaskList[indexPath.item]
             cell.taskStatusImage.isHidden = true
             if unassignedTaskList[indexPath.item].volunteerEmails != nil && (unassignedTaskList[indexPath.item].volunteerEmails?.values.contains((User._currentUser?.email)!))!{
-                cell.colorView.layer.backgroundColor = UIColor.green.cgColor
+                //cell.colorView.layer.backgroundColor = UIColor.green.cgColor
             }
             else{
-                cell.colorView.layer.backgroundColor = UIColor.yellow.cgColor
+                //cell.colorView.layer.backgroundColor = UIColor.yellow.cgColor
             }
         }
         else{
             cell.taskStatusImage.isHidden = true
             cell.task = assignedTaskList[indexPath.item]
-            cell.colorView.layer.backgroundColor = UIColor.red.cgColor
+            //cell.colorView.layer.backgroundColor = UIColor.red.cgColor
             
         }
         return cell
@@ -94,7 +94,7 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         //It returns data 2 times - Bug
-        let section = indexPath.section
+      /*  let section = indexPath.section
         var volunteers = [String]()
         volunteers.append((User._currentUser?.email)!)
         
@@ -130,7 +130,7 @@ class TasksViewController: UIViewController, UITableViewDelegate,UITableViewData
                 tasksTableView.reloadRows(at: [indexPath], with: .top)
             }
             
-        }
+        }*/
         
         tasksTableView.deselectRow(at:indexPath, animated: true)
     }
