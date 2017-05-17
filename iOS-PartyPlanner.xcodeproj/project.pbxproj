@@ -72,6 +72,7 @@
 		A1DFE1421EC6400A007AE912 /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DFE1401EC6400A007AE912 /* AddContactsViewController.swift */; };
 		A1DFE1431EC6400A007AE912 /* ContactSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DFE1411EC6400A007AE912 /* ContactSelectionCell.swift */; };
 		A1F708011EC246F0004F7328 /* TextInputCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F708001EC246F0004F7328 /* TextInputCell2.swift */; };
+		F7A80E741ECC54B200901FC9 /* PhotoAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A80E731ECC54B200901FC9 /* PhotoAnnotation.swift */; };
 		F7B01E901EB7EC190023852A /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E8F1EB7EC190023852A /* EventDetailViewController.swift */; };
 		F7B01E921EB7F4C70023852A /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E911EB7F4C70023852A /* MediaCollectionViewCell.swift */; };
 		F7B01E941EB7F4E30023852A /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01E931EB7F4E30023852A /* CommentsTableViewCell.swift */; };
@@ -159,6 +160,7 @@
 		A1DFE1411EC6400A007AE912 /* ContactSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSelectionCell.swift; sourceTree = "<group>"; };
 		A1F708001EC246F0004F7328 /* TextInputCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputCell2.swift; sourceTree = "<group>"; };
 		BA8DCCBDCBEA68C30D6893BC /* Pods_iOS_PartyPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_PartyPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7A80E731ECC54B200901FC9 /* PhotoAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAnnotation.swift; sourceTree = "<group>"; };
 		F7B01E8F1EB7EC190023852A /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		F7B01E911EB7F4C70023852A /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7B01E931EB7F4E30023852A /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				A18AB0751EC1A17700E83B0C /* ImageCell.swift */,
 				A18AB0761EC1A17700E83B0C /* ImageCell.xib */,
 				821B65C41EB007230078333B /* VideoView.swift */,
+				F7A80E731ECC54B200901FC9 /* PhotoAnnotation.swift */,
 			);
 			name = UIComponents;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				F7B01E921EB7F4C70023852A /* MediaCollectionViewCell.swift in Sources */,
 				A1470F6D1EB17AA600DE373A /* Comment.swift in Sources */,
 				821B65C01EAFF1D60078333B /* TasksViewController.swift in Sources */,
+				F7A80E741ECC54B200901FC9 /* PhotoAnnotation.swift in Sources */,
 				A190B1731EB66D7F006328AF /* ItemApi.swift in Sources */,
 				821B65D01EB011290078333B /* Task.swift in Sources */,
 				A190B17A1EB68B0D006328AF /* CommentApi.swift in Sources */,
