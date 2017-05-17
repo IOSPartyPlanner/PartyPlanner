@@ -51,7 +51,7 @@ class EventViewController: UIViewController {
         pickerController.predicateForEnablingPerson = NSPredicate(format: "emailAddresses.@count > 0")
         
         if !(event?.isPast())! && (event?.isUserOnwer())! {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QRCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
         }
         //let tableBackgroundView: UIImageView = UIImageView(image: #imageLiteral(resourceName: "eventViewB9"))
         
