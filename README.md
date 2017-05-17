@@ -8,23 +8,23 @@ PS: Name will be changed.
 
 The following **required** user stories:
 
-- [ ] Users can sign in the app with Gmail account or  Facebook account(Social Login)
-- [ ] Users can display invited parties/events or their own created parties/events.
-- [ ] Users can display past and upcoming parties/events.
-- [ ] Users can create a guest list. (option to pick the guests from contact list) 
-- [ ] Users can create a short text/image/video invitation.  
-- [ ] Users can display RSVP screen. 
+- [X] Users can sign in the app with Gmail account or  Facebook account(Social Login)
+- [X] Users can display invited parties/events or their own created parties/events.
+- [X] Users can display past and upcoming parties/events.
+- [X] Users can create a guest list. (option to pick the guests from contact list) 
+- [X] Users can create a short text/image/video invitation.  
+- [X] Users can display RSVP screen. 
 - [ ] Users can get party reminder notification.
-- [ ] Users can request help from the party participants for their party supplies or their any need. (For decoration, food etc.)
-- [ ] Users and their friends can share party/events  photos/videos under the event. Party participants can make comments about the party.
+- [X] Users can request help from the party participants for their party supplies or their any need. (For decoration, food etc.)
+- [X] Users and their friends can share party/events  photos/videos under the event. Party participants can make comments about the party.
 
 
 The following **optional** user stories:
 
 - [ ] Users can create a gift list for the party according to their needs (for Wedding, Baby Shower etc.)
-- [ ] Users can add emoticons / or stickers on photos while they are sharing the photos.
+- [X] Users can add emoticons / or stickers on photos while they are sharing the photos.
 - [ ] All guests can get notifications when photos/videos are posted under the event.
-- [ ] Guests can join the party with a unique barcode. 
+- [X] Guests can join the party with a unique barcode. 
 - [ ] User can can share a story created (created by App) containing photos/videos/comments. 
 - [ ] Users can share a document containing list of supplies/tasks from the party which can be shared.
 
