@@ -29,6 +29,7 @@ class EventViewController: UIViewController {
     var qcodeVerificationFailed: Bool?
     
     var guestCollectionView: UICollectionView?
+    var photosCollectionView: UICollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +51,7 @@ class EventViewController: UIViewController {
         pickerController.predicateForEnablingPerson = NSPredicate(format: "emailAddresses.@count > 0")
         
         if !(event?.isPast())! && (event?.isUserOnwer())! {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "QRCode", style: .plain, target: self, action: #selector(generateQCode(_:)))
         }
         //let tableBackgroundView: UIImageView = UIImageView(image: #imageLiteral(resourceName: "eventViewB9"))
         
@@ -246,6 +247,7 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
            
             cell1?.viewController = self
             cell1?.backgroundColor = UIColor(white: 1, alpha: 0.6)
+            photosCollectionView = cell1?.photoesCollectionView
             return cell1!
         case (2, _):
             let cell2 = eventTableView.dequeueReusableCell(withIdentifier: "EventTasksTableViewCell", for: indexPath) as? EventTasksTableViewCell
@@ -321,6 +323,8 @@ extension EventViewController: ELCImagePickerControllerDelegate {
                     try data?.write(to: assetUrl, options: .atomic)
                     MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: assetUrl, type: .image, filepath: "\((self.event?.id)!)/\(imageName)", success: { (url) in
                         EventApi.sharedInstance.addPhotoURL(url, withEvent: self.event!)
+                        self.event?.postEventImages?.append(url)
+                        self.photosCollectionView?.reloadData()
                     }, failure: {})
                 } catch {
                 }
