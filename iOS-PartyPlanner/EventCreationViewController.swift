@@ -410,6 +410,26 @@ extension EventCreationViewController: ImageCellDelegate, UIImagePickerControlle
         })
       }
     }
+    // if video
+    else if info["UIImagePickerControllerMediaType"] as! String == "public.movie" {
+      let selectedVideoUrl = info[UIImagePickerControllerMediaURL] as? URL
+      print(selectedVideoUrl ?? "URL could not be fetched")
+      let video = NSData(contentsOf: selectedVideoUrl!)
+      eventImage = Utils.previewImageFromVideo(selectedVideoUrl!)!
+      
+      eventMediaType = MediaType.video
+      let indexpath = IndexPath(item: 0, section: 0)
+      tableView.reloadRows(at: [indexpath], with: .fade)
+      
+      let filePath = "PartyInGoEvent\(self.event.id)/invitation.mov"
+      self.event.inviteMediaType = .video
+      
+      MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: selectedVideoUrl!, type: MediaType.video, filepath: filePath, success: { (mediaUrl) in
+        self.event.inviteMediaUrl = mediaUrl
+      }, failure: {
+        print("Uploading  video failed")
+      })
+    }
     
     dismiss(animated: true) {}
   }
@@ -505,7 +525,6 @@ extension EventCreationViewController: LocationsViewControllerDelegate {
   }
   
 }
-
 
 
 extension EventCreationViewController {
