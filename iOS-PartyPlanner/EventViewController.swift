@@ -136,8 +136,8 @@ extension EventViewController: EditPhotoViewControllerDelegate {
       // upload file to FireBase and append to event postImages
       MediaApi.sharedInstance.uploadMediaToFireBase(mediaUrl: assetUrl, type: .image, filepath: "Party\((self.event?.id)!)/\(imageName)", success: { (url) in
         EventApi.sharedInstance.addPhotoURL(url, withEvent: self.event!)
-        self.event?.postEventImages?.append(url)
-        self.photosCollectionView?.reloadData()
+        //self.event?.postEventImages?.append(url)
+//        self.photosCollectionView?.reloadData()
       }, failure: {
         print("error uploading image")
       })

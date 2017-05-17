@@ -60,6 +60,7 @@ class EditPhotoViewController: UIViewController, UIGestureRecognizerDelegate{
     adjustColorView.layer.cornerRadius = 7
     addStickerButton.layer.cornerRadius = 7
     adjustColorButton.layer.cornerRadius = 7
+    saveButton.layer.cornerRadius = 7
     
   }
   
