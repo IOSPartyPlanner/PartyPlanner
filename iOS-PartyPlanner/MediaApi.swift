@@ -45,7 +45,8 @@ class MediaApi: NSObject {
         })
   }
   
-  // Uploads the media to FireBase and returns the media URL
+  // Used to upload images from Camera
+  // Uploads the media to, FireBase and returns the media URL
   func uploadMediaToFireBase(media: Data, type: MediaType, filepath: String,
                              success: @escaping (String) -> (), failure: @escaping () -> ())
   {

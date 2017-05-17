@@ -26,12 +26,12 @@ class EventCreationViewController: UIViewController {
   fileprivate var eventDetails: String?
   fileprivate var locationSelected = false
   fileprivate var location: String?
+  fileprivate var eventTagline: String?
   fileprivate var eventStartDateTime: Date?
   fileprivate var eventEndDateTime: Date?
   fileprivate var eventGuestList: [String]?
   fileprivate var eventTaskCount: Int?
   fileprivate var eventMediaType: MediaType!
-  //  fileprivate var eventMediaFirebaseUrl: String!
   
   // image/video
   fileprivate var eventImage: UIImage?
@@ -41,7 +41,9 @@ class EventCreationViewController: UIViewController {
   var eventLocationPlaceHodler = "Location"
   var eventStartDatePlaceHolder = "Start Date Time"
   var eventEndDatePlaceHolder = "End Date Time"
-  var eventDetailsPlaceHolder = "Details"
+  var eventAddGuestPlaceHolder = "Add guests"
+  var eventAddTasksPlaceHolder = "Add tasks"
+  var eventDetailsPlaceHolder = "Event description"
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -51,11 +53,6 @@ class EventCreationViewController: UIViewController {
     
     event = Event()
     prepareToolBars()
-    
-    // initially set the event start time as currrent time and
-    // end time an hour later
-    //    eventStartDateTime = Date.init().addingTimeInterval(1000.0)
-    //    eventEndDateTime = Date.init().addingTimeInterval(4600.0)
     
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 200
@@ -218,8 +215,8 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let leftView = UIImageView()
       leftView.image = #imageLiteral(resourceName: "pencil")
       cell.textInput.leftView = leftView
-      if eventName != nil {
-        cell.textInput.text = eventName
+      if self.event.tagline != nil {
+        cell.textInput.text = self.event.tagline
       }
       
       cell.textInput.placeholder = eventDetailsPlaceHolder
@@ -234,9 +231,8 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let leftView = UIImageView()
       leftView.image =  #imageLiteral(resourceName: "assigning")
       cell.textInput.leftView = leftView
-      //      cell.textInput.leftViewOffset = 35
       
-      cell.textInput.placeholder = "Add guests"
+      cell.textInput.placeholder = eventAddGuestPlaceHolder
       cell.indexRow = indexPath.row
       cell.textInput.isUserInteractionEnabled = false
       if eventGuestList != nil {
@@ -252,9 +248,8 @@ extension EventCreationViewController: UITableViewDelegate, UITableViewDataSourc
       let leftView = UIImageView()
       leftView.image =  #imageLiteral(resourceName: "todo")
       cell.textInput.leftView = leftView
-      //      cell.textInput.leftViewOffset = 35
       
-      cell.textInput.placeholder = "Add tasks"
+      cell.textInput.placeholder = eventAddTasksPlaceHolder
       cell.indexRow = indexPath.row
       cell.textInput.isUserInteractionEnabled = false
       if eventTaskCount != nil {
@@ -452,16 +447,6 @@ extension EventCreationViewController: TextInputCell2Delegate {
     tableView.reloadRows(at: [indexPath], with: .automatic)
   }
   
-  //Event Details
-  func textInputCell2(textInputCell2: TextInputCell2, detailsEntered eventDetails: String) {
-    currentIndex = 1
-    locationSelected = false
-    
-    self.eventDetails = eventDetails
-    let indexPath = IndexPath(item: currentIndex!, section: 0)
-    tableView.reloadRows(at: [indexPath], with: .automatic)
-  }
-  
   // Location Field
   func textInputCell2(textInputCell2: TextInputCell2, locationInputStarted location: String) {
     currentIndex = 2
@@ -481,6 +466,17 @@ extension EventCreationViewController: TextInputCell2Delegate {
     currentIndex = 4
     locationSelected = false
   }
+  
+  //Event Details
+  func textInputCell2(textInputCell2: TextInputCell2, detailsEntered eventDetails: String) {
+    currentIndex = 5
+    locationSelected = false
+    
+    self.event.tagline = eventDetails
+    let indexPath = IndexPath(item: currentIndex!, section: 0)
+    tableView.reloadRows(at: [indexPath], with: .automatic)
+  }
+  
 }
 
 // MARK: - Task creation and contact selection delegates
@@ -494,14 +490,14 @@ extension EventCreationViewController: TasksViewControllerDelegate, AddContactsV
     }
     newGuestList = eventGuestList! + contactsAdded
     eventGuestList = Array(Set(newGuestList))
-    let indexPath = IndexPath(item: 5, section: 0)
+    let indexPath = IndexPath(item: 6, section: 0)
     tableView.reloadRows(at: [indexPath], with: .automatic)
   }
   
   func tasksViewController(tasksViewController: TasksViewController,  tasksAddedCount: Int) {
     if tasksAddedCount > 0 {
       eventTaskCount = tasksAddedCount
-      let indexPath = IndexPath(item: 6, section: 0)
+      let indexPath = IndexPath(item: 7, section: 0)
       tableView.reloadRows(at: [indexPath], with: .automatic)
     }
   }
@@ -513,7 +509,7 @@ extension EventCreationViewController: LocationsViewControllerDelegate {
   
   func locationsPickedLocation(controller: LocationsViewController, location: String) {
     locationSelected = true
-    print("Addres picked was \(location)")
+    print("Address picked was \(location)")
     self.location = location
     let indexpath = IndexPath(item: currentIndex, section: 0)
     tableView.reloadRows(at: [indexpath], with: .automatic)
@@ -573,22 +569,15 @@ extension EventCreationViewController {
       event.guestEmailList = eventGuestList
     }
     
-    // if checks pass, upload Image
+    // if checks pass, store event
     let animationView = LOTAnimationView(name: "splashy_loader")
     animationView?.frame = self.view.bounds
     animationView?.contentMode = .scaleToFill
-    animationView?.animationSpeed = 2
+    animationView?.animationSpeed = 1
     self.view.addSubview(animationView!)
     
     animationView?.play(completion: { finished in
-      var email = ""
-      if let currentUser = User.currentUser {
-        email = currentUser.email!
-      } else {
-        email = "u3@gmail.com"
-      }
-      
-      self.event.hostEmail = email
+      self.event.hostEmail = (User.currentUser?.email)!
       self.event.hostProfileImageUrl = User.currentUser?.imageUrl
       self.event.postEventImages = []
       self.event.postEventVideos = []
