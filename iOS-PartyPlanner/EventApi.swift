@@ -59,8 +59,6 @@ class EventApi: NSObject {
                 
                 if let predicate = predicate {
                     events = events.filter{
-                        print($0.dateTime.timeIntervalSinceNow)
-                        print(predicate($0))
                         return predicate($0)
                     }
                 }
@@ -68,6 +66,9 @@ class EventApi: NSObject {
                 if events.count == 0 {
                     failure?(.NoItemFoundError)
                 } else {
+                    events.sort(by: { (event1, event2) in
+                        return event1.dateTime < event2.dateTime
+                    })
                     success(events)
                 }
             })
@@ -107,6 +108,9 @@ class EventApi: NSObject {
                 if events.count == 0 {
                     failure?(.NoItemFoundError)
                 } else {
+                    events.sort(by: { (event1, event2) in
+                        return event1.dateTime < event2.dateTime
+                    })
                     success(events)
                 }
             })

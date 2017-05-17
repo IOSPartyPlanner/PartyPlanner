@@ -21,7 +21,9 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
   @IBOutlet var homeTableView: UITableView!
   var refreshControl:UIRefreshControl!
   var pastEventList = [Event]()
+  var pastEventIds: [String] = []
   var upcomingEventList = [Event]()
+  var upcomingEventIds: [String] = []
   var taskList = [Task]() //Task list of the user for each event
   var tasksList = [[Task]]() // Whole events tasks
   var sectionEvents = ["Upcoming", "Past"]
@@ -192,8 +194,11 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     EventApi.sharedInstance.getPastEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
       if events.count > 0 {
         for i in 0..<events.count {
+          if !self.pastEventIds.contains(events[i].id){
+            self.pastEventIds.append(events[i].id)
             self.pastEventList.append(events[i])
             events[i].fecthRelateData()
+          }
         }
         self.homeTableView.reloadData()
       }
@@ -203,8 +208,11 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     EventApi.sharedInstance.getPastEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
       if events.count > 0 {
         for i in 0..<events.count {
-          self.pastEventList.append(events[i])
-          events[i].fecthRelateData()
+          if !self.pastEventIds.contains(events[i].id){
+            self.pastEventIds.append(events[i].id)
+            self.pastEventList.append(events[i])
+            events[i].fecthRelateData()
+          }
         }
       }
       self.homeTableView.reloadData()
@@ -216,8 +224,11 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     EventApi.sharedInstance.getUpcomingEventsHostedByUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
       if events.count > 0 {
         for i in 0..<events.count {
+          if !self.upcomingEventIds.contains(events[i].id){
+            self.upcomingEventIds.append(events[i].id)
             self.upcomingEventList.append(events[i])
             events[i].fecthRelateData()
+          }
         }
         self.homeTableView.reloadData()
       }
@@ -227,8 +238,11 @@ class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     EventApi.sharedInstance.getUpcomingEventsForUserEmail(userEmail: (User._currentUser?.email)!, success: { (events: [Event]) in
       if events.count > 0 {
         for i in 0..<events.count {
-          self.upcomingEventList.append(events[i])
-          events[i].fecthRelateData()
+          if !self.upcomingEventIds.contains(events[i].id){
+            self.upcomingEventIds.append(events[i].id)
+            self.upcomingEventList.append(events[i])
+            events[i].fecthRelateData()
+          }
         }
         
       }
