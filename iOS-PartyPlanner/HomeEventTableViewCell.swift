@@ -66,13 +66,14 @@ class HomeEventTableViewCell: UITableViewCell {
             switch (rsvp?.response)! {
             case .yes:
               self.rsvpButton.setTitle("Yes", for: .normal)
-              self.rsvpButton.backgroundColor = UIColor.green
+              self.rsvpButton.backgroundColor =  UIColor.green
             case .no:
               self.rsvpButton.setTitle("No", for: .normal)
               self.rsvpButton.backgroundColor = UIColor.red
             case .maybe:
               self.rsvpButton.setTitle("Maybe", for: .normal)
               self.rsvpButton.backgroundColor = UIColor.orange
+          
             default:
                 break
             }
@@ -90,7 +91,7 @@ class HomeEventTableViewCell: UITableViewCell {
 //            }
             }) {
               self.rsvpButton.setTitle("RSVP", for: .normal)
-              self.rsvpButton.backgroundColor = UIColor.gray
+              self.rsvpButton.backgroundColor = UIColor.purple
 //              print("Failed to fetch rsvp for RSVPId \(rsvpId)")
           }
 //            if let rsvpStatus = event?.response {
